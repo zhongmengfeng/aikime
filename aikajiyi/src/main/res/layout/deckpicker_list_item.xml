@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:minHeight="40dip" >
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#ebe8e8"
+        />
+
+    <RelativeLayout
+        android:id="@+id/id_treenode_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/id_treenode_icon"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/plus" />
+
+        <TextView
+            android:id="@+id/id_treenode_label"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/id_treenode_icon"
+            android:layout_marginLeft="15dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:maxEms="10"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <ImageView
+            android:id="@+id/id_treenode_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/arrow_right_gray" />
+
+        <LinearLayout
+            android:id="@+id/id_treenode_number"
+            android:layout_width="40dp"
+            android:layout_height="46dp"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/id_treenode_arrow"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/num_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal|right"
+                android:layout_weight="1"
+                android:textColor="@color/md_green_700"
+                android:text="0"/>
+
+            <TextView
+                android:id="@+id/num_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal|right"
+                android:layout_weight="1"
+                android:textColor="@color/widget_big_font_color_blue"
+                android:text="20"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

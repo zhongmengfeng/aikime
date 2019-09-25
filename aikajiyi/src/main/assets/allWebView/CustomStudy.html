@@ -1,0 +1,517 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background-color:#444a59 !important;
+			}
+			input{
+				font-size: 15px !important;
+			}
+			.mui-numbox {
+				width: 101px !important;
+				height: 30px !important;
+				padding: 0 20px !important;
+			}
+			.mui-numbox [class*=btn-numbox] {
+				font-size: 14px !important;
+				width: 22px !important;
+			}
+			.mui-checkbox input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				
+			}
+			.checkmarkempty{
+				width: 22px;
+				height: 22px;
+				border:2px solid #444a59;
+				display: inline-block;
+				float: left;
+				border-radius: 1px;
+			}
+			.change{
+				background: #3696e9 !important;
+				border:2px solid #3696e9;
+			}
+			.change1{
+				background-color:#ec87c0 !important;
+				border:2px solid #ec87c0;
+			}
+			.select{
+				background:rgba(68,74,89,.5) !important;
+				color: #fff !important;
+			}
+			.returnBack{
+				width: 100px;
+				text-align: left !important;
+			}
+			.bigDiv{
+				background-color:#fff !important;
+				/*height: 416px;*/
+				padding: 15px !important;
+				margin:  0 15px 36px 15px !important;
+				border-radius: 7px;
+				margin-top: 59px !important;
+			}
+			.bigDiv ul{
+				margin-top: 0 !important;
+				border-radius: 7px 7px 0 0;
+				border-bottom: 1px solid #dfdfdf;
+			}
+			.bigDiv ul .changeLi{
+				color: #0c0e10;
+				line-height: 22px;
+				height: 22px;
+				margin-bottom: 15px !important;
+			}
+			.bigDiv ul .changeLi a{
+				color: #0c0e10;
+				font-size: 15px;
+				padding-left: 10px;
+			}
+			.bigDiv ul .changeLi:first-child{
+				margin-top: 5px;
+			}.bigDiv ul .changeLi:last-child{
+				margin-bottom: 20px !important;			
+			}
+			.mui-table-view:before,.mui-table-view:after{
+				height: 0 !important;
+			}
+			.bigDiv .result{
+				font-size: 15px;
+				color: #0c0e10;
+				display: inline-block;
+				height: 22px;
+				line-height: 22px;
+				margin-bottom: 7px;
+			}
+			.bigDiv .mui-control-content{
+				padding-left: 1px;
+			}
+			.bigDiv .mui-numbox{
+				float: right;
+				height: 22px !important;
+				border: 0 !important;
+			}
+			.mui-input-row .mui-numbox {
+			    width: 106px !important;
+			    height: 22px !important;
+			    padding: 0 20px !important;		    
+			}
+			.bigDiv select{
+				height: 30px;
+				border: 1px solid #444a59 !important;
+				margin-top: 0 !important;
+				padding: 2px 7px !important;
+				font-size: 15px;
+				color: #0c0e10;
+				margin-bottom: 0 !important;
+				border-radius: 7px !important;
+			}
+			.bigDiv select option{
+				font-size: 1vw;
+			}
+		</style>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+	</head>
+
+	<body>
+		<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-right"  style="margin-right: 5px;" id="collect">
+					<span>确定</span>
+				</button>
+				<h1 class="mui-center mui-title">自定义学习</h1>
+		</div>
+		<div class="mui-content bigDiv">
+				<ul class="mui-table-view mui-table-view-radio">
+					    <li class="changeLi" i="0">
+							<a class="mui-control-item" href="#label1">
+								<span class="checkmarkempty"></span>
+								<span>增加今天的新卡片上限</span>
+							</a>
+
+						</li>
+						<li class="changeLi mui-media" i="1">
+							<a class="mui-control-item" href="#label2">
+								<span class="checkmarkempty"></span>
+								<span>增加今天的复习卡片上限</span>
+							</a>
+						</li>
+					    <li class="changeLi mui-media" i="2">
+							<a class="mui-control-item" href="#label3">
+								<span class="checkmarkempty"></span>
+								<span>复习忘记的卡片</span>
+							</a>
+						</li>
+						<li class="changeLi mui-media" i="3">
+							<a class="mui-control-item" href="#label4">
+								<span class="checkmarkempty"></span>
+								<span>提前复习</span>
+							</a>
+						</li>
+						<li class="changeLi mui-media" i="4">
+							<a class="mui-control-item" href="#label5">
+								<span class="checkmarkempty"></span>
+								<span>预览新卡片</span>
+							</a>
+						</li>
+						<li class="changeLi mui-media" i="5">
+							<a class="mui-control-item" href="#label6">
+								<span class="checkmarkempty"></span>
+								<span>按照卡片状态或者标签学习</span>
+							</a>
+						</li>
+				</ul>
+			<span class="result" style="margin-top: 22px;padding-left: 1px;">选项结果</span>
+			
+			<div id="label1" class="mui-control-content mui-active">
+				<span class="result" style="margin-bottom: 11px;">记忆库中的新卡片:</span><span class="numBro newMax result" style="padding-left: 5px;">0</span><br />
+				<span class="result">增加了今天的新卡片上限</span>
+				<div class="mui-numbox" id="numbox_demo1">
+					<button class="mui-btn mui-btn-numbox-minus minus add1" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+					<input class="mui-input-numbox  transfer add1 studyNew" type="number" id="number1" />
+					<button class="mui-btn mui-btn-numbox-plus plus add1" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+				</div>
+				<!--<span class="result">卡片</span>-->
+			</div>
+			<div id="label2" class="mui-control-content">
+				<span class="result" style="margin-bottom: 11px;">记忆库中到期的复习:</span><span class="numBro revMax result" style="padding-left: 5px;">0</span><br />
+				<span class="result">增加了今天的新卡片上限</span>
+				<div class="mui-numbox" id="numbox_demo2">
+					<button class="mui-btn mui-btn-numbox-minus minus add2" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+					<input class="mui-input-numbox  transfer add2 stydyRev" type="number" id="number2"/>
+					<button class="mui-btn mui-btn-numbox-plus plus add2" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+				</div>
+				<!--<span class="result">卡片</span>-->
+			</div>
+			<div id="label3" class="mui-control-content">
+				<span class="result">复习最后忘记的卡片</span>
+				<div class="mui-numbox">
+					<button class="mui-btn mui-btn-numbox-minus add3" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+					<input class="mui-input-numbox  transfer add3 studyForget" type="number" id="number3" />
+					<button class="mui-btn mui-btn-numbox-plus add3" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+				</div>
+				<!--<span class="result">卡片</span>-->
+			</div>
+			<div id="label4" class="mui-control-content">
+				<span class="result">提前复习</span>
+				<div class="mui-numbox">
+					<button class="mui-btn mui-btn-numbox-minus add4" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+					<input class="mui-input-numbox  transfer add4 studyAhead" type="number" id="number4" />
+					<button class="mui-btn mui-btn-numbox-plus add4" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+				</div>
+				<!--<span class="result">卡片</span>-->
+			</div>
+			<div id="label5" class="mui-control-content">
+				<span class="result">预览加到最后的新卡片</span>
+				<div class="mui-numbox">
+					<button class="mui-btn mui-btn-numbox-minus add5" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+					<input class="mui-input-numbox  transfer add5 studayPreview" type="number" id="number5" />
+					<button class="mui-btn mui-btn-numbox-plus add5" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+				</div>
+				<!--<span class="result">卡片</span>-->
+			</div>
+			<div id="label6" class="mui-control-content">
+				<span class="result" style="float: left;padding-right: 2px;margin-bottom: 15px;">选择</span>
+				<div class="mui-numbox" style="float: left;">
+					<button class="mui-btn mui-btn-numbox-minus add6" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+					<input class="mui-input-numbox  transfer add6 studyRandom" type="number" id="number6" />
+					<button class="mui-btn mui-btn-numbox-plus add6" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+				</div>
+				<span class="result" style="padding-left: 4px;">记忆库中卡片</span>
+				<!--<ul class="mui-table-view" id="ListUl" style="border:1px solid #ccc;padding: 5px;height: 100px;margin-top: 5px;">
+				    <li class="select">
+						<span>仅卡片</span>
+					</li>					    
+					<li>
+						<span>仅到期卡片</span>
+					</li>
+				    <li>
+						<span>所有卡片的顺序为随机的（补习模式）</span>
+					</li>
+				</ul>-->
+				<select style="">
+					<option>仅卡片</option>
+					<option>仅到期卡片</option>
+					<option>所有卡片的顺序为随机的（补习模式）</option>
+				</select>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			//<2>页面特效JS代码---begin
+			function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+			    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+			}
+			
+			function addClass(obj, cls) {//添加类名
+			    if (!this.hasClass(obj, cls)){    
+			    	obj.className += " " + cls
+			    };
+			}
+			
+			function removeClass(obj, cls) {//移除类名
+			    if (hasClass(obj, cls)) {
+			        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+			        obj.className = obj.className.replace(reg, ' ');
+			    }
+			}
+			
+			function toggleClass(obj,cls){//开关类名
+				if(hasClass(obj,cls)){
+			    	removeClass(obj, cls);
+				}else{
+			    	addClass(obj, cls);
+				}
+			}
+			
+			var studyData={};
+			var learn={};
+			var defaultValue={
+				"studyNew":10,
+				"stydyRev":50,
+				"studyForget":1,
+				"studyAhead":1,
+				"studyRandom":100,
+				"studayPreview":1
+			}
+			var defaultMax={
+				"newMax":99,
+				"revMax":99			
+			}
+			
+			//展现所有数据
+			function showAllStudyData(defaultMax){
+				//展现“增加今天新卡片上限”数据
+				showStudyValue('studyNew',defaultValue.studyNew);
+				//展现“增加今天新卡片上限”的记忆库数据
+				showStudyDeckNum('newMax',defaultMax.newMax);
+				//展现“增加今天新卡片复习上限”数据
+				showStudyValue('stydyRev',defaultValue.stydyRev);		
+				//展现“增加今天新卡片复习上限”的记忆库数据
+				showStudyDeckNum('revMax',defaultMax.revMax);
+				//展现“复习忘记的卡片”数据
+				showStudyValue('studyForget',defaultValue.studyForget);
+				//展现“提前复习”数据
+				showStudyValue('studyAhead',defaultValue.studyAhead);
+				//展现“预览新卡片”数据
+				showStudyValue('studayPreview',defaultValue.studayPreview);
+				//展现“按照卡片状态学习”数据
+				showStudyValue('studyRandom',defaultValue.studyRandom);
+			}
+			//新卡片数据
+			function showStudyValue(key,value){
+				var studyNewCard=document.getElementsByClassName(key)[0];
+				studyNewCard.value=value;
+			}
+			//新卡片的记忆库数据
+			function showStudyDeckNum(key,value){
+				var deckNum=document.getElementsByClassName(key)[0];
+				deckNum.innerText=value;
+			}
+			var allData={};
+			var oA  = document.getElementsByTagName('a');
+			var span= document.getElementsByClassName('checkmarkempty'); 
+			var selectLi=document.getElementsByTagName('select')[0];
+//
+			var oLi=selectLi.getElementsByTagName('option');
+			
+			var collectBtn=document.getElementById('collect');
+			
+			var j=0;
+			
+			function changeType(typeName){
+				addClass(oA[0].children[0], typeName);
+				mui(".changeLi").off("tap",".mui-control-item");
+				mui(".changeLi").on("tap",".mui-control-item",function(){
+						console.log(this.getAttribute('i'));
+						for(var i=0;i<oA.length;i++){
+							removeClass(span[i], typeName);						
+						}
+	//					
+						addClass(this.children[0], typeName);
+						for (var i = 0; i < oA.length; i++) {
+						oA[i].index=i;
+						oA[i].onclick=function(bridge){
+							if(hasClass(this.children[0], typeName)){
+								//记录点击的索引值---------------------------------
+								var j=this.index;
+								addButtonsListener(bridge,j);
+							}
+						}
+					}
+	////				
+				});
+			}
+			
+			//监听返回/确定按钮的点击
+			function addButtonsListener(bridge){
+				mui('.mui-bar').off("tap","#collect");
+				mui('.mui-bar').on("tap","#collect",function(){
+					//“增加新卡片上限”的value
+					var studyNewValue=document.getElementsByClassName('studyNew')[0].value;
+						
+					//“增加复习上限”的value
+					var stydyRevValue=document.getElementsByClassName('stydyRev')[0].value;
+						
+					//“复习忘记的卡片”的value
+					var studyForgetValue=document.getElementsByClassName('studyForget')[0].value;
+						
+					//“提前复习”的value
+					var studyAheadValue=document.getElementsByClassName('studyAhead')[0].value;
+					
+					//“预览新卡片”的value
+					var studayPreviewValue=document.getElementsByClassName('studayPreview')[0].value;
+					
+					//“按照卡片状态”的value
+					var studyRandomValue=document.getElementsByClassName('studyRandom')[0].value;
+					if(j==0){
+						learn={};
+						learn.type=j;
+						learn.studyNew=studyNewValue;
+					}else if(j==1){
+						learn={};
+						learn.type=j;
+						learn.stydyRev=stydyRevValue;
+					}else if(j==2){
+						learn={};
+						learn.type=j;
+						learn.studyForget=studyForgetValue;
+					}else if(j==3){
+						learn={};
+						learn.type=j;
+						learn.studyAhead=studyAheadValue;	
+					}else if(j==4){
+						learn={};
+						learn.type=j;
+						learn.studayPreview=studayPreviewValue;	
+					}else if(j==5){
+						learn={};
+						learn.type=j;
+						learn.studyRandom=studyRandomValue;
+					}
+					console.log(JSON.stringify(learn));
+					/**<js-ios>
+						bridge.callHandler('saveSettings', learn, function(response) {
+							//log('JS got response', response)
+						});
+					</js-ios>**/
+					
+						window.xuming.comfirm(JSON.stringify(learn));
+					
+				});
+				mui('.mui-bar').off("tap",".returnBack");
+				mui('.mui-bar').on("tap",".returnBack",function(){
+					/**<js-ios>
+						bridge.callHandler('backToParent', learn, function(response) {
+							//log('JS got response', response)
+						});
+					</js-ios>**/
+					
+						window.xuming.backToParent();
+					
+				});
+			}
+			
+			function initFirWindow(bridge, serverData){
+		     	
+		     	//1.加载数据，转换数据，处理原始数据；
+		     	if(serverData == null) {
+		     		serverData = defaultMax;
+		     	}else {
+		     		serverData = JSON.parse(serverData);
+		     	}
+				//2.展现数据
+				showAllStudyData(serverData);
+				//3.监听按钮
+				addButtonsListener(bridge,null);
+			}
+//			window.onload=initFirWindow(null,null);
+			
+		//主题色换肤
+		var bodyColor=document.getElementsByTagName('body')[0];
+		var titleBar=document.getElementsByClassName('mui-bar')[0];
+		function changeAllColor(num){
+			
+			if(num==0){	
+				changeType('change');	
+				titleBar.setAttribute("style",'background-color:#444a59 !important');
+				bodyColor.setAttribute("style",'background-color:#444a59 !important');
+				
+			}else{		
+				
+				titleBar.setAttribute("style",'background-color:#3696e9 !important');
+				bodyColor.setAttribute("style",'background-color:#3696e9 !important');
+				changeType('change1');	
+			}
+			
+		}	
+//		changeAllColor(1);
+		//数字框自适应
+		var bigDiv=document.getElementsByClassName('bigDiv')[0];
+		var muiNumbox=document.getElementsByClassName('mui-numbox');
+		var  bigDivWidth= bigDiv.offsetWidth;
+		bigDivWidth=bigDivWidth*0.293;
+		for(var i=0;i<muiNumbox.length;i++){
+			muiNumbox[i].setAttribute('style','width:'+bigDivWidth+'px !important');
+		}
+			
+			
+	
+	/////////////////bridge/////////////////////
+			/**<js-ios>
+				window.onerror = function(err) {
+			        log('window.onerror: ' + err)
+				}
+	
+			    function setupWebViewJavascriptBridge(callback) {
+			        if (window.WebViewJavascriptBridge) {
+			            return callback(WebViewJavascriptBridge);
+			        }
+			        if (window.WVJBCallbacks) {
+			            return window.WVJBCallbacks.push(callback);
+			        }
+			        window.WVJBCallbacks = [callback];
+			        var WVJBIframe = document.createElement('iframe');
+			        WVJBIframe.style.display = 'none';
+			        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+			        document.documentElement.appendChild(WVJBIframe);
+			        setTimeout(function() {
+			            document.documentElement.removeChild(WVJBIframe)
+			            }, 0);
+			    }
+				
+			    setupWebViewJavascriptBridge(function(bridge, thisIndex) {
+			        //alert(111);
+			        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	
+		                initFirWindow(bridge, data);
+		               
+			        });		
+	
+			        bridge.registerHandler('changeTheme', function(data, responseCallback) {
+	                  	changeAllColor(data);
+		        		});
+			        
+			    });
+			</js-ios>**/				
+			/////////////////bridge/////////////////////
+			
+			
+	
+		</script>
+	</body>
+
+</html>

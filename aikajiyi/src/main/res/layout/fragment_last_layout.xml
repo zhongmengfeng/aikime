@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/img_login_regist_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_above="@+id/try_once"
+        android:orientation="horizontal"
+        android:layout_marginBottom="41dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <View
+            android:layout_width="37dp"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/login"
+            android:text="登 录"
+            android:textColor="@drawable/text_color_selector_login"
+            android:background="@drawable/selector_login"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <View
+            android:layout_width="37dp"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/register"
+            android:text="注 册"
+            android:textColor="@drawable/text_color_selector_login"
+            android:background="@drawable/selector_login"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <View
+            android:layout_width="37dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/try_once"
+        android:text="随便看看"
+        android:textSize="14sp"
+        android:textColor="@color/c_3696e9"
+        android:background="@color/c_00ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/body_decks.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			.title {
+				margin: 35px 15px 10px;
+			}
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			input {
+				color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: white;">test.AnkiChina.net</h1>
+		</header>
+		<div class="mui-content">
+		    <ul id="listUl" class="mui-table-view" style="margin-top: 0px;">
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			var listDataStr = '[["sijiReading_001", "http:\/\/www.ankichina.net\/RawDecks\/Decks\/2016-07-19\/sijiReading_001.txt"]]';
+			var listData = JSON.parse(listDataStr);
+			var listUl = document.getElementById('listUl');
+			
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+		
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+		        //initLayout(listData, null);
+		
+  		        bridge.registerHandler('listItemsHandler', function(data, responseCallback) {
+                    
+                                       //showlist(data);
+                                       
+                    initLayout(data, bridge);
+                    
+ 		        });
+//
+//		         
+//	            bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
+//					log('JS got response', response)
+//	            });
+		         
+		    });
+						
+			
+			
+			/////////////////bridge/////////////////////
+			
+			
+			function showlist(Data){
+				//alert(Data.length);
+				for (var i = 0; i < Data.length; i++) {
+					var item = Data[i];
+                    //alert(item);
+					var temp = ["<li class=\"mui-table-view-cell\">"+ item[0],	
+			        	"<button type=\"button\" location="+ item[1] +" class=\"mui-btn mui-badge-blue mui-btn-outlined\">下载</button>",
+					"</li>"].join("");
+					
+					listUl.innerHTML += temp;
+				}
+			}
+			
+			
+			
+			function addBtnsListener(bridge){
+				mui("li").on('tap','.mui-badge-blue',function(){					
+					did = this.getAttribute('location');
+					//alert(did);
+					bridge.callHandler('downloadSingleItem', did, function(response) {
+						//log('JS got response', response)
+		           });
+				});
+                
+                
+                mui("header").on('tap', '.mui-icon-left-nav', function(){
+                    //alert(1);
+                    bridge.callHandler('backToParent', null, function(response) {
+                        //log('JS got response', response)
+                    });
+                });
+                
+			}
+			
+			function initLayout(listData, bridge){
+				showlist(listData);
+				addBtnsListener(bridge);
+			}
+			
+			//window.onload = initLayout(listData, null);
+			
+		</script>
+	</body>
+
+</html>

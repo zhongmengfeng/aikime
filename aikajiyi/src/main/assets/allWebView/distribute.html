@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		body,h1,h2,h3,h4,h5,h6,li,ul,ol,dt,dl,dd,input,p{margin:0;padding:0;}
+		a{
+			text-decoration: none;
+		}
+		html,
+			body {
+				background-color: #efeff4;
+				overflow:hidden;
+				line-height: 0 !important;
+			}
+			ol,ul{
+				list-style: none;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #444a59;
+			}
+			.mui-pages {
+				top: 44px;
+				height: auto;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center, 
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				/*margin-top: 15px;*/
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 10px;
+				/*margin-top: 20px;*/
+			}
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: 25px;
+				font-size: 15px
+			}
+			.mui-btn {
+				font-size: 16px;
+				padding: 8px;
+				margin: 3px;
+			}
+			.mui-content-padded .mui-btn-danger{
+			    border-radius: 5px;
+			    text-align: center;
+			}
+			.mui-content-padded{
+				margin: 0 !important;
+			}
+			.head{
+				width: 100%;
+				height: 100%;
+				border-radius: 6px;
+				/*border:2px solid #ffffff;*/			
+			}
+			.head img{
+				width: 100%;
+				height: 100%;
+				/*border-radius: 6px;*/			
+			}
+			.mui-title{
+				margin-left: 0 !important;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item img {
+			    border-radius: 6px;
+			}
+			.home-box{
+			    margin:0 15px;
+			    background: #fff;
+			    border-radius: 7px;
+			    padding: 15px;
+			    top:15px;
+			}
+			.distrubuteList{
+				line-height: 23px;
+			    padding-bottom: 15px;
+			    font-size: 15px;
+			    color: #0c0e10;
+			    padding-top: 22px;
+			}
+			.distrubuteList span{
+				color: #0c0e10;
+				font-size: 15px;
+				padding-left: 15px;
+			}
+			.distrubuteList i{
+				color: #0c0e10;
+				font-size: 12px;
+			}
+			.distrubuteList a{
+				display: inline-block;
+    			width: 100%;
+			}
+			.mui-grid-view.mui-grid-9{
+				background-color: transparent !important;
+				border-top: 0px solid transparent !important;
+    			border-left: 0px solid transparent !important;
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				border-right: 0px solid transparent !important;
+    			border-bottom: 0px solid transparent !important;
+			}
+			.mui-table-view:after, .mui-table-view:before {
+				background-color: transparent !important; 
+				
+			}
+			.square{
+				width: 10px;
+				height: 10px;
+				background: #0177cb;
+				display: inline-block;
+			}
+			.mui-btn-block {
+				font-size: 15px;				
+				padding:0 !important;
+				position: absolute;
+			    bottom: 19px;
+			    left: 0;
+			    margin-left:15px;
+				line-height: 40px;
+				/*width: 96% !important;*/
+				margin-bottom: 0px !important;
+			}
+			.mui-btn-danger{
+			    color: #fff;
+			    border: 1px solid #ed5565;
+			    background-color: #ed5565;
+			}
+			.studentList{
+				padding:6px 11px 0 11px !important;
+			}
+			.studentList a{
+				padding: 0 !important;
+			}
+			.studentList .mui-media-body{
+				font-size: 13px !important;
+				height: 29px !important;
+    			line-height: 29px !important;
+    			margin-top: 6px;
+			}
+			.mui-grid-view.mui-grid-9{
+				
+				padding: 0 10px 0 13px !important;
+			}
+			.mui-slider-indicator .mui-active.mui-indicator {
+			    background: #0177cb !important;
+			}
+			.mui-slider-indicator .mui-indicator {
+			    background: #fff !important;
+			    -webkit-box-shadow: 0 0 0 0 rgba(255,255,255,1) !important; 
+			    box-shadow: 0 0 0 0 rgba(255,255,255,1) !important; 
+			    border: 1px solid #0177cb;
+			}
+			.mui-slider-indicator{
+				bottom: 18px !important;
+			}
+			.selectClass{
+				border-radius: 7px;
+			} 
+			.scrollDiv{
+				overflow-x: hidden;
+				overflow-y: scroll;
+				margin:0 15px;
+				border-radius: 7px;
+				top:15px;
+				background-color: #fff;
+			}
+			.scrollDiv li{
+				background-color: transparent !important; 
+			}
+			.classList{
+				padding:9px 0 9px 15px !important;
+				border-bottom: 1px solid #d5d5d5;
+				margin: 0 15px;
+				line-height: 43px;
+			}
+			.classList:after{
+				background-color: transparent !important;   			
+			}
+			.classList a{
+				font-size: 15px;
+				color: #0c0e10 !important;
+				padding-left: 0 !important;
+			}
+			.mui-table-view-radio .mui-table-view-cell .mui-navigate-right:after {
+			    color: #444a59 !important;
+			}
+			.classList>a:not(.mui-btn) {
+			    margin: -18px -15px !important;
+			}
+			.selectCourse{
+				border-radius: 7px;
+			}
+			
+			.courseList{
+				padding:9px 0 9px 15px !important;
+				border-bottom: 1px solid #d5d5d5;
+				margin: 0 15px;
+				line-height: 43px;
+			}
+			.courseList:last-child{
+				/*border-bottom: 0 solid transparent !important;*/
+			}
+			.courseList:after{
+				background-color: transparent !important;
+			}
+			.courseList a{
+				font-size: 15px;
+				color: #0c0e10 !important;
+				padding-left: 0 !important;
+				
+			}
+			.mui-table-view-radio .mui-table-view-cell .mui-navigate-right:after {
+			    color: #444a59 !important;
+			}
+			.courseList>a:not(.mui-btn) {
+			    margin: -18px -15px !important;
+			}
+			.home-return{
+				margin-left: -28px;
+			}
+			.returnBack{
+				width: 100px;
+				margin-left: -24px !important;
+			}
+			
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack" id="backTo">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title">分发课件</h1>
+			</div>
+			<!--页面标题栏结束-->
+	
+		<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="home-box">
+
+						    <ul class="mui-table-view public-list-txt home-list mui-slide-in distrubuteList" style="border-radius: 7px 7px 0 0;">
+					            
+					            <li>
+					                <a href="#one">
+					                	<div class="square"></div>
+					                   	<span>选择班级</span>
+					                   	<img src="images/getIntoIcon.png" class="photo" />
+					                   	<i class="mui-pull-right update mylist mylist-gender" id="blank2" name="" class_id="">
+											日语1701班
+										</i>
+									
+					                </a> 
+					            </li>					          			            
+					        </ul>
+					        <div id="Gallery" class="mui-slider" style="border-bottom: 1px solid #d5d5d5;">
+								<div class="mui-slider-group" id="studentSlider">
+								
+								</div>
+								<ol class="mui-slider-indicator" id="sliderCir">
+
+								</ol>
+							</div>
+						    <ul class="mui-table-view public-list-txt home-list mui-slide-in  distrubuteList">
+					            
+					            <li>
+					                <a href="#two">
+					                	<div class="square"></div>
+					                   	<span>课件名称：</span>
+					                   	<img src="images/getIntoIcon.png" class="photo" />
+					                   	<i class="mui-pull-right update mylist2 mylist-gender" id="blank" name=""  goods_id="">
+											日语标准第一单元
+										</i>
+					                </a>
+					            </li>					          			            
+					        </ul>
+							<div class="mui-content-padded">
+								<div id="sureDistribute" type="button" class="mui-btn-danger mui-btn-block" goods_id="" class_id="">
+									确定分发
+								</div>
+							</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--单页面结束-->
+		<div id="one" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack"  id="backG">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">选择班级</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+						<div class="scrollDiv">
+							<ul class="mui-table-view mui-table-view-radio selectClass" id="selectClass">
+								<li class="mui-table-view-cell mui-selected classList">
+									<a class="mui-navigate-right mytext">日语1701班</a>
+								</li>
+								<li class="mui-table-view-cell classList">
+									<a class="mui-navigate-right mytext">日语1702班</a>
+								</li>
+							</ul>
+						</div>
+						</div>
+				</div>
+			</div>
+		</div>	
+		<div id="two" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack" id="goBack">
+					<img src="images/returnIcon.png" class="home-return" />	
+				</button>
+				<h1 class="mui-center mui-title mui-ellipsis">课件名称</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					<div class="scrollDiv">
+						<ul class="mui-table-view mui-table-view-radio selectCourse" id="selectCourse">
+							<li class="mui-table-view-cell courseList">
+								<a class="mui-navigate-right mytext2 mui-ellipsis">日语标准第一单元</a>
+							</li>
+							
+						</ul>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<script src="js/mui.js"></script>
+		<script src="js/mui.view.js "></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+
+		<script>
+			
+		mui.init();
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+				//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+	
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+			/////////////////bridge/////////////////////
+			/**<js-ios>
+				window.onerror = function(err) {
+			        log('window.onerror: ' + err)
+				}
+	
+			    function setupWebViewJavascriptBridge(callback) {
+			        if (window.WebViewJavascriptBridge) {
+			            return callback(WebViewJavascriptBridge);
+			        }
+			        if (window.WVJBCallbacks) {
+			            return window.WVJBCallbacks.push(callback);
+			        }
+			        window.WVJBCallbacks = [callback];
+			        var WVJBIframe = document.createElement('iframe');
+			        WVJBIframe.style.display = 'none';
+			        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+			        document.documentElement.appendChild(WVJBIframe);
+			        setTimeout(function() {
+			            document.documentElement.removeChild(WVJBIframe)
+			            }, 0);
+			    }
+				
+			    setupWebViewJavascriptBridge(function(bridge) {
+			        //alert(111);
+			        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+						
+		                initFirstWindow(bridge, data);
+		               
+			        });	
+			        bridge.registerHandler('changeTheme', function(data, responseCallback) {
+	                  	changeAllColor(data);
+		        		});
+			    });
+			</js-ios>**/
+							
+			/////////////////bridge/////////////////////
+			
+		//选择班级的返回事件
+		var backG = document.getElementById("backG");
+		backG.addEventListener("tap",function () {
+			mui.back();
+		});
+		//选择课件的返回事件
+		var goBack = document.getElementById("goBack");
+		goBack.addEventListener("tap",function () {
+			mui.back();
+		});
+		
+		
+		
+		
+		
+		var studentList;
+		var studentSlider=document.getElementById('studentSlider');
+				
+		
+		var studentsData={
+		    "code": 1000,
+		    "data": {
+		        "classInfo": [
+		            {
+		                "class_id": "1",
+		                "class_name": "英语001班",
+		                "students": [
+		                    {
+		                        "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2016-12-24/anki13426063086_ankichina.net.png",
+		                        "user_name": "22222",
+		                        "stu_id": "151",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15911132045",
+		                        "stu_id": "5633",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2016-12-24/anki13426063086_ankichina.net.png",
+		                        "user_name": "22222",
+		                        "stu_id": "151",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15911132045",
+		                        "stu_id": "5633",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2016-12-24/anki13426063086_ankichina.net.png",
+		                        "user_name": "22222",
+		                        "stu_id": "151",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15911132045",
+		                        "stu_id": "5633",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15911132045",
+		                        "stu_id": "5633",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15911132045",
+		                        "stu_id": "5633",
+		                        "class_id": "1"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15911132045",
+		                        "stu_id": "5633",
+		                        "class_id": "1"
+		                    }
+		                ]
+		            },
+		            {
+		                "class_id": "3",
+		                "class_name": "英语003班",
+		                "students": [
+		                    {
+		                        "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2016-12-24/anki13426063086_ankichina.net.png",
+		                        "user_name": "22222",
+		                        "stu_id": "151",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-01-09/anki18539347736_ankichina.net.png",
+		                        "user_name": "anki18539347736",
+		                        "stu_id": "5607",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki13831227881",
+		                        "stu_id": "5611",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki13705201950",
+		                        "stu_id": "5670",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15911132045",
+		                        "stu_id": "5633",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-04/anki15010585090_ankichina.net.png",
+		                        "user_name": "小曼",
+		                        "stu_id": "5631",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki17771493360",
+		                        "stu_id": "6227",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki18135673855",
+		                        "stu_id": "6175",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki18330232248",
+		                        "stu_id": "5610",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki15711261792",
+		                        "stu_id": "5609",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki13774803406",
+		                        "stu_id": "5608",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "OKOKOKO",
+		                        "stu_id": "5601",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "Kiddo",
+		                        "stu_id": "456",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki13426063086",
+		                        "stu_id": "322",
+		                        "class_id": "3"
+		                    },
+		                    {
+		                        "face": "",
+		                        "user_name": "anki13608150891",
+		                        "stu_id": "313",
+		                        "class_id": "3"
+		                    }
+		                ]
+		            }
+		        ],
+		        "decks": [
+		            {
+		                "goods_id": "184",
+		                "goods_name": "gaozhongdangci5"
+		            },
+		            {
+		                "goods_id": "178",
+		                "goods_name": "钢琴"
+		            },
+		            {
+		                "goods_id": "1273",
+		                "goods_name": "词频分级词汇第一级"
+		            },
+		            {
+		                "goods_id": "273",
+		                "goods_name": "高中单词__Module 3"
+		            },
+		            {
+		                "goods_id": "316",
+		                "goods_name": "aaaaa"
+		            },
+		            {
+		                "goods_id": "194",
+		                "goods_name": "地理"
+		            },
+		            {
+		                "goods_id": "1244",
+		                "goods_name": "钢琴"
+		            },
+		            {
+		                "goods_id": "1250",
+		                "goods_name": "词频分级词汇第五级"
+		            },
+		            {
+		                "goods_id": "1258",
+		                "goods_name": "地理"
+		            },
+		            {
+		                "goods_id": "1259",
+		                "goods_name": "词频分级词汇第五级"
+		            },
+		            {
+		                "goods_id": "1260",
+		                "goods_name": "aaaaa"
+		            },
+		            {
+		                "goods_id": "1259",
+		                "goods_name": "词频分级词汇第五级"
+		            },
+		            {
+		                "goods_id": "1260",
+		                "goods_name": "aaaaa"
+		            },
+		            {
+		                "goods_id": "1259",
+		                "goods_name": "词频分级词汇第五级"
+		            },
+		            {
+		                "goods_id": "1260",
+		                "goods_name": "aaaaa"
+		            },
+		            {
+		                "goods_id": "1259",
+		                "goods_name": "词频分级词汇第五级"
+		            },
+		            {
+		                "goods_id": "1260",
+		                "goods_name": "aaaaa"
+		            },
+		            {
+		                "goods_id": "1259",
+		                "goods_name": "词频分级词汇第五级"
+		            },
+		            {
+		                "goods_id": "1260",
+		                "goods_name": "aaaaa"
+		            }
+		        ]
+		
+		    }
+		}
+		//确定分发按钮收集数据
+		var class_id;
+		var goods_id; 
+		var collectData={}; 
+	
+		var showClasses=document.getElementsByClassName('mylist')[0];
+		var classList=document.getElementsByClassName('classList');
+		var selectClass=document.getElementById('selectClass');
+		var showCourse=document.getElementsByClassName('mylist2')[0]; 
+		var courseList=document.getElementsByClassName('courseList');
+		var selectCourse=document.getElementById('selectCourse');
+		var sureDistribute=document.getElementById('sureDistribute');
+		var myLi;
+		var myLiSttr;
+		var slider;
+		var sliderItem;
+		var n;
+		var classLi;
+		var classInfo1;
+		var classInfo2;
+		var sliderActive;
+		//创建“班级列表”子页面-----------------------------------
+		function createClassListSubpage(classArr){			
+			for(var i = 0; i < classArr.length; i++){
+				var classN=classArr[i];
+
+				var temp='<li class="mui-table-view-cell classList" class_id="'+classN.class_id+'">'
+							+'<a class="mui-navigate-right  mytext">'
+							+ classN.class_name
+							+'</a>'
+						+'</li>';
+    
+				selectClass.innerHTML += temp;
+				myLi=document.getElementsByClassName('classList');
+				myLi[0].className='mui-table-view-cell mui-selected classList';
+				
+				//清空显示的班级名称
+				showClasses.innerText="";
+				//显示选中的班级名称
+				showClasses.innerText=myLi[0].innerText;
+				
+			}
+		}
+		
+		//展现每页学生信息--------------------------------------------
+		function showAllStudents(classArr){
+			//进入页面的默认学生数-------------------------------------------------------			
+			//轮播的页数
+			//清空轮播页
+//			emptySliderPage();
+			//
+			addChildren();
+		}
+		function addChildren(){
+			for(var i = 0; i < n; i++){
+	
+				var tempPage='<div class="mui-slider-item">'
+								+'<ul class="mui-table-view mui-grid-view mui-grid-9">'
+								+'</ul>'
+							+'</div>';
+		
+				studentSlider.innerHTML += tempPage;
+				sliderActive=document.getElementsByClassName('mui-slider-item');
+				sliderActive[0].className='mui-slider-item mui-active';
+	
+	
+				classInfo2='classInfo2'+i;
+//							console.log(j);
+	
+				classInfo2=classInfo1.slice(9*i,9*(i+1));
+//
+//							console.log(classInfo2);
+				//展现每个学生信息
+    			showEachStudent(i);
+				//当学生数量小于9时，轮播图的高度
+				studentList=window.document.getElementsByClassName('studentList')[0];
+//				boxHeight=3*(studentList.offsetHeight+2);
+//				studentSlider.style.height=(boxHeight+37)+"px";
+//				console.log(studentSlider.style.height);
+			}
+
+		}
+		var head;
+		var clientHeight=window.screen.height;
+		var allHeight=clientHeight-99;
+		//实现响应式		
+		
+		var homeBox=document.getElementsByClassName('home-box')[0];
+		homeBox.style.height=allHeight+'px';
+		
+		var sliderGroup=document.getElementById('Gallery');
+		sliderGroup.style.height=(allHeight*0.66)+'px';
+		
+		var ulHeight=document.getElementsByClassName('distrubuteList');
+		var btnH=document.getElementsByClassName('mui-btn-block')[0];
+		var homeBoxWidth=homeBox.offsetWidth;
+		
+		btnH.style.width=(homeBoxWidth*0.913)+'px';
+		console.log(homeBoxWidth);
+		console.log(btnH.style.width);
+		btnH.style.height=(allHeight*0.067)+'px';
+		btnH.style.lineHeight=(allHeight*0.067)+'px';
+		if(allHeight<500){
+			btnH.style.fontSize=17+'px';
+		}
+		for(var i=0;i<ulHeight.length;i++){
+			ulHeight[i].style.paddingTop=(allHeight*0.03)+'px';
+			ulHeight[i].style.paddingBottom=(allHeight*0.02)+'px';
+		}
+		
+		var scrollDiv=document.getElementsByClassName('scrollDiv');
+		for(var i=0;i<scrollDiv.length;i++){
+			scrollDiv[i].style.height=allHeight+'px';
+		}
+		//展现每个学生信息
+		function showEachStudent(i){
+			for (var j = 0; j < classInfo2.length; j++) {
+				var student='student'+i; 
+//								console.log(student);
+				student= classInfo2[j];
+//								console.log(student);
+				if(student.face==""){
+					student.face='images/head.png';
+				}				
+				var temp2='temp2'+i;
+				temp2='<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 studentList">'
+							  +'<a href="#">'
+								+'<div class="head">'
+									+'<img src="'+student.face+'" />'
+								+'</div>'
+								+'<div class="mui-media-body">'
+								    +student.user_name
+								+'</div>'
+							+'</a>'
+						+'</li>';
+
+				sliderItem[i].innerHTML += temp2;
+				studentList=document.getElementsByClassName('studentList');
+				head=document.getElementsByClassName('head');
+				
+			};
+			for(var i=0;i<head.length;i++){
+				head[i].style.height=head[i].offsetWidth+'px';
+			}
+			var clientWidth=window.screen.width;
+			//适配iPad横屏尺寸
+			if(clientWidth>=768){
+				for(vari=0;i<studentList.length;i++){
+					studentList[i].style.width=(allHeight*0.66*0.3*0.78)+'px';
+					studentList[i].style.height=(allHeight*0.66*0.3)+'px';
+					studentList[i].style.marginLeft=(clientWidth*0.054)+'px';
+					studentList[i].style.marginRight=(clientWidth*0.054)+'px';
+					head[i].style.height=(allHeight*0.66*0.3*0.635)+'px';
+					head[i].style.width=(allHeight*0.66*0.3*0.635)+'px';
+					btnH.style.width=(homeBoxWidth*0.96)+'px';
+				}
+			};
+			if(clientWidth>=800){
+				for(var i=0;i<studentList.length;i++){
+					studentList[i].style.marginLeft=(clientWidth*0.035)+'px';
+					studentList[i].style.marginRight=(clientWidth*0.035)+'px';
+				}
+			};
+			if(clientWidth>=1024){
+				for(var i=0;i<studentList.length;i++){
+					studentList[i].style.marginLeft=(clientWidth*0.054)+'px';
+					studentList[i].style.marginRight=(clientWidth*0.054)+'px';
+				}
+			};
+			if(clientWidth>=1280){
+				for(var i=0;i<studentList.length;i++){
+					studentList[i].style.marginLeft=(clientWidth*0.11)+'px';
+					studentList[i].style.marginRight=(clientWidth*0.11)+'px';
+				}
+			};
+		}
+		
+		//3.轮播圆圈
+		function slide(){
+			var oDiv=document.getElementById('sliderCir');		
+			for( var m=0; m<slider.length; m++ ){
+				oDiv.innerHTML+='<li class="mui-indicator"></li>';
+			};
+			var circle=document.getElementsByClassName('mui-indicator')[0];
+			circle.className='mui-indicator mui-active';
+		}
+		//4.清空轮播圆圈
+		function emptySliderCircle(){
+			var sliderCir=document.getElementById('sliderCir');
+			var Indicator=document.getElementsByClassName('mui-indicator');
+			for(var p = Indicator.length - 1; p >= 0; p--){
+				sliderCir.removeChild(Indicator[p]);
+//								console.log(Indicator[0].innerHTML)
+			}
+		}
+		//5.清空轮播页
+		function emptySliderPage(){
+			studentSlider=document.getElementById('studentSlider');
+			studentSlider.style.transform="translate3d(0px, 0px, 0px) translateZ(0px)";
+			
+			for (var p = sliderActive.length - 1; p >= 0; p--) {							
+                studentSlider.removeChild(sliderActive[p]);
+            }
+		}
+		
+		
+		
+		//班级列表子页面及展现被选中班级的所有学生信息
+		function initClass(classArr){			
+			if (classArr == null) {
+					return;
+			}		
+            for (var i = classList.length - 1; i >= 0; i--) {
+                selectClass.removeChild(classList[i]);
+            }
+			//1.创建“班级列表”子页面
+			createClassListSubpage(classArr);
+			
+//			classLi=document.getElementsByClassName('classList');
+			for(var k = 0; k < classArr.length; k++){
+				classInfo1=classArr[0].students;
+			}
+			n=Math.ceil(classInfo1.length/9);
+			
+			sliderItem=document.getElementsByClassName('mui-grid-view');
+			//2.展现选定班级的所有学生信息--------------
+			showAllStudents(classArr);
+			
+			
+			
+			//3.轮播圆圈
+			slider=document.getElementsByClassName('mui-slider-item');			
+			slide();
+
+			//切换班级来切换学生------------------------------------------------------------
+			changeEachClassStudets(classArr);
+		}
+		//切换班级来切换学生------------------------------------------------------------
+		function changeEachClassStudets(classArr){
+			for(var k = 0; k < classArr.length; k++){
+				for(var l = 0; l < myLi.length; l++){
+					myLi[l].index=l;
+					
+					myLiSttr=myLi[0].getAttribute('class_id');
+					class_id=showClasses.setAttribute('class_id',myLiSttr)
+					sureDistribute.setAttribute('class_id',myLiSttr)
+					
+					myLi[l].onclick=function(){
+						//填入的动态数据
+						classInfo1=classArr[this.index].students;
+						//根据数据的长度判断轮播的页数
+						n=Math.ceil(classInfo1.length/9);
+						//轮播的页数
+					 	sliderItem=document.getElementsByClassName('mui-grid-view');
+						
+//						//2.展现每页学生信息--------------
+						showAllStudents(classArr);
+						//3.轮播圆圈
+						slider=document.getElementsByClassName('mui-slider-item');			
+						slide();						
+						//4.清空轮播圆圈
+						emptySliderCircle();
+						//5.清空轮播页
+						emptySliderPage();
+				
+					//重建轮播---------------------------------------------------------
+						//2.展现每页学生信息--------------
+						showAllStudents(classArr);
+						//3.重建轮播圆圈
+						slide();
+						mui('.mui-slider').slider();
+						
+						//收集---------------------------------------------------------------------				
+						myLiSttr=myLi[this.index].getAttribute('class_id');
+						showClasses.setAttribute('class_id',myLiSttr);
+						sureDistribute.setAttribute('class_id',myLiSttr);						
+
+						
+						showClasses.innerHTML=this.children[0].innerHTML;
+	//					personData.gender=gender;
+						//触发返回事件
+						mui.trigger(backG,'tap');
+						
+					}
+					
+				}
+			}						
+
+		}
+		//课件结构
+		function initCourse(courseArr){
+			
+			if (courseArr == null) {
+					return;
+			}
+			
+            for (var i = courseList.length - 1; i >= 0; i--) {
+                selectCourse.removeChild(courseList[i]);
+            }
+
+            for (var i = 0; i < courseArr.length; i++) {
+				var courseName= courseArr[i];
+				
+				var temp='<li class="mui-table-view-cell courseList" goods_id="'+courseName.goods_id+'">'
+							+'<a class="mui-navigate-right  mytext2">'
+							+ courseName.goods_name
+							+'</a>'
+						+'</li>';
+    
+				selectCourse.innerHTML += temp;
+				myLi=document.getElementsByClassName('courseList');
+				myLi[0].className='mui-table-view-cell courseList  mui-selected';
+				
+				//清空显示的班级名称
+				showCourse.innerText="";
+				//显示选中的班级名称
+				showCourse.innerText=myLi[0].innerText;
+				
+			}
+
+        	//选择课件的切换
+			changeCourse();	                  			
+		}
+		
+		//选择课件的切换
+		function changeCourse(){
+//					var selectOneCourse=document.getElementsByClassName('mytext2');
+			myLi=document.getElementsByClassName('courseList');
+			showCourse=document.getElementsByClassName('mylist2')[0];
+			
+			for(var i=0;i<myLi.length;i++){
+        		myLi[i].index=i;
+        		
+        		//默认课件名称的goods_id
+    			myLiSttr=myLi[0].getAttribute('goods_id');
+				goods_id=showCourse.setAttribute('goods_id',myLiSttr)
+				sureDistribute.setAttribute('goods_id',myLiSttr)
+				
+				//点击切换goods_id
+				myLi[i].onclick=function(){
+    				myLiSttr=myLi[this.index].getAttribute('goods_id');
+					
+					showClasses.setAttribute('goods_id',myLiSttr);
+					sureDistribute.setAttribute('goods_id',myLiSttr)
+					
+					showCourse.innerHTML=this.children[0].innerHTML;
+					//触发返回事件
+					mui.trigger(goBack,'tap');
+
+				}
+				
+			}
+		}
+
+		function addButtonsListener(bridge){
+			document.getElementById("backTo").addEventListener('tap', function(){
+				/**<js-ios>
+					bridge.callHandler('backToParent', null, function(response) {
+						//log('JS got response', response)
+					});
+				</js-ios>**/
+				
+					window.xuming.backToParent();
+				
+			});
+			document.getElementById("sureDistribute").addEventListener('tap', function(){
+				class_id=sureDistribute.getAttribute('class_id');
+				goods_id=sureDistribute.getAttribute('goods_id');				
+				collectData.class_id=class_id;
+				collectData.goods_id=goods_id;
+				/**<js-ios>
+					bridge.callHandler('confirmDistribute', collectData, function(response) {
+									
+		        	});
+	        	</js-ios>**/
+	        	
+	        		window.xuming.comfirmDistribute(JSON.stringify(collectData));
+	        	
+			});
+		}
+		
+		
+		
+		//主题色换肤
+		var wrapperColor=document.getElementsByClassName('mui-scroll-wrapper');
+		var scrollColor=document.getElementsByClassName('mui-scroll');
+		var titleBar=document.getElementsByClassName('mui-bar');
+		function changeAllColor(num){
+			if(num==0){
+				for(var i=0;i<wrapperColor.length;i++){
+					titleBar[i].style.backgroundColor='#444a59';
+					wrapperColor[i].style.backgroundColor='#444a59';
+					scrollColor[i].style.backgroundColor='#444a59';
+				}			
+			}else{
+				for(var i=0;i<wrapperColor.length;i++){
+					wrapperColor[i].style.backgroundColor='#3696e9';
+					titleBar[i].style.backgroundColor='#3696e9';
+					scrollColor[i].style.backgroundColor='#3696e9';
+				}
+			}
+			
+		}
+//		changeAllColor(1);
+		
+		
+		//<4>编写入口方法---begin
+		function initFirstWindow(bridge,serverData){
+									
+			//1.加载数据，转换数据，处理原始数据；
+			if (serverData == null) {
+				serverData = studentsData;
+			}else{
+				serverData = JSON.parse(serverData);
+			}
+			addButtonsListener(bridge);
+			
+			initClass(serverData.data.classInfo);
+			initCourse(serverData.data.decks);
+			
+		}
+//		window.onload=initFirstWindow(null,null);
+
+		
+		
+		</script>
+
+	</body>
+
+</html>

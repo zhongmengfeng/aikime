@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/body_decks.css" />
+		<link rel="stylesheet" href="css/self_popup_01.css" />
+		<style>
+			.btn-detail {
+				border-radius: 15px;
+				font-weight: 600;
+				line-height: 20px;
+				margin-top: 3px;
+				font-size: 14px;
+			}
+			.btn-download {
+				height: 44px;
+				padding: 0;
+				line-height: 44px;
+				width: 95%;
+				border-radius: 10px;
+			}
+			label {
+				font-size: 15px;
+				width: 45% !important;
+			}
+			input {
+				width: 55% !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: white;">deck.AnkiChina.net</h1>
+		</header>
+		<!--阴影遮挡-->
+		<div id="shadow" class="shadowclass">
+			
+		</div>
+		
+		
+		<div id="listUl" class="mui-content">
+			<!--
+		    
+            
+		    <div class="mui-card" deckname="英语四级单词001" style="padding-bottom: 0px; margin-bottom: 2px;">
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell mui-media mui-collapse">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-left" src="images/danci1.png">
+				            <div class="mui-media-body mui-pull-left" style="width: 45%;">
+				                英语四级单词001
+				                <p class="mui-ellipsis">内含2300常用单词，包括音频动画</p>
+				            </div>
+				            <div class="mui-media-body mui-pull-right" style="width: 60px;">
+				                <button type="button" class="mui-btn mui-btn-blue mui-btn-outlined btn-detail">详情</button>
+				            </div>
+				        </a>
+				        <div class="mui-collapse-content style="padding-bottom: 0;"">
+							<div class="mui-input-group style="padding-bottom: 0;"">
+							    <div class="mui-input-row">
+							        <label>上传日前：</label>
+							        <input type="text" class="mui-input-clear" placeholder="2016-1-3" disabled="true"> 
+							    </div>
+							    <div class="mui-input-row">
+							        <label>下载次数：</label>
+							        <input type="text" class="mui-input-clear" placeholder="14" disabled="true">
+							    </div>
+							    <div class="mui-input-row">
+							        <label>牌组大小：</label>
+							        <input type="text" class="mui-input-clear" placeholder="34.5mb" disabled="true">
+							    </div>
+							    <div class="" style="text-align: center; padding-left: 5%;padding-top: 10px;">
+							        <button type="button" class="mui-btn mui-btn-blue mui-btn-block btn-download">点击下载</button>
+							    </div>
+							</div>
+						</div>
+				    </li>
+				</ul>
+			</div>
+		    <!---->
+		</div>
+		
+		<!--牌组下载或导入中-->
+		
+		<div id="progress-download-box" class="progress-download-boxclass">
+			<div class="progress-circle mui-spinner">
+				
+			</div>
+			
+			<div class="inner">
+				<div id="progress-deck-name" class="title">
+					英语单词四级
+				</div>
+				<div id="progress-text" class="text">
+					下载中...
+				</div>
+			</div>
+		</div>
+		
+		<!--牌组下载或导入成功-->
+		
+		<div id="progress-ok-box" class="progress-ok-boxclass">
+			<div class="progress-circle mui-icon mui-icon-checkmarkempty">
+				
+			</div>
+			
+			<div class="inner">
+				<div id="progress-ok-deck-name" class="title">
+					英语单词四级
+				</div>
+				<div id="progress-ok-text" class="text">
+					下载成功！
+				</div>
+			</div>
+		</div>
+		<!--牌组下载或导入出错-->
+		
+		<div id="progress-err-box" class="progress-err-boxclass">
+			<div class="progress-circle mui-icon mui-icon-closeempty">
+				
+			</div>
+			
+			<div class="inner">
+				<div id="progress-err-deck-name" class="title">
+					英语单词四级
+				</div>
+				<div id="progress-err-text" class="text">
+					下载失败！
+				</div>
+			</div>
+		</div>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			//var listDataStr = '[["sijiReading_001", "http:\/\/www.ankichina.net\/RawDecks\/Decks\/2016-07-19\/sijiReading_001.txt"]]';
+			//var listData = JSON.parse(listDataStr);
+			var listUl = document.getElementById('listUl');
+			
+			////////////////
+			var shadow;
+			var progressDownloadBox;
+			var progressOkBox;
+			var progressErrBox;
+			
+			var progressdeckname;
+			var progresstext;
+			
+			var timer = 2;
+			var curDeckname;
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+		
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+		        //initLayout(listData, null);
+		
+  		        bridge.registerHandler('listItemsHandler', function(data, responseCallback) {
+                    
+                                       //showlist(data);
+                                       
+                    initLayout(data, bridge);
+                    
+ 		        });
+ 		        
+ 		        bridge.registerHandler('disappearOKBox', function(data, responseCallback) {
+                    
+                    hideBox();
+                		disappearOKBox();
+                    
+ 		        });
+//
+//		         
+//	            bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
+//					log('JS got response', response)
+//	            });
+		         
+		    });
+						
+			
+			
+			/////////////////bridge/////////////////////
+			
+			
+			function showlist(Data){
+				//alert(Data.length);
+				for (var i = 0; i < Data.length; i++) {
+					var item = Data[i];
+                    //alert(item);
+					var temp1 = ["<li class=\"mui-table-view-cell\">"+ item[0],	
+			        	"<button type=\"button\" location="+ item[1] +" class=\"mui-btn mui-badge-blue mui-btn-outlined\">下载</button>",
+					"</li>"].join("");
+					
+					
+					var temp = '<div class="mui-card" deckname="'+item[0]+'" style="padding-bottom: 0px; margin-bottom: 2px;">'
+							+'		<ul class="mui-table-view">'
+							+'		    <li class="mui-table-view-cell mui-media mui-collapse">'
+							+'		        <a href="javascript:;">'
+							+'		            <img class="mui-media-object mui-pull-left" src="images/danci1.png">'
+							+'		            <div class="mui-media-body mui-pull-left" style="width: 45%;">'
+							+ 		                item[0]
+							+'		                <p class="mui-ellipsis">内含2300常用单词，包括音频动画</p>'
+							+'		            </div>'
+							+'		            <div class="mui-media-body mui-pull-right" style="width: 60px;">'
+							+'		                <button type="button" class="mui-btn mui-btn-blue mui-btn-outlined btn-detail">详情</button>'
+							+'		            </div>'
+							+'		        </a>'
+							+'		        <div class="mui-collapse-content style="padding-bottom: 0;"">'
+							+'					<div class="mui-input-group style="padding-bottom: 0;"">'
+							+'					    <div class="mui-input-row">'
+							+'					        <label>上传日前：</label>'
+							+'					        <input type="text" class="mui-input-clear" placeholder="2016-1-3" disabled="true">'
+							+'					    </div>'
+							+'					    <div class="mui-input-row">'
+							+'					        <label>下载次数：</label>'
+							+'					        <input type="text" class="mui-input-clear" placeholder="14" disabled="true">'
+							+'					    </div>'
+							+'					    <div class="mui-input-row">'
+							+'					        <label>牌组大小：</label>'
+							+'					        <input type="text" class="mui-input-clear" placeholder="34.5mb" disabled="true">'
+							+'					    </div>'
+							+'					    <div class="" style="text-align: center; padding-left: 5%;padding-top: 10px;">'
+							+'					        <button type="button" location="'+item[1]+'" class="mui-btn mui-btn-blue mui-btn-block btn-download">点击下载</button>'
+							+'					    </div>'
+							+'					</div>'
+							+'				</div>'
+							+'		    </li>'
+							+'		</ul>'
+							+'	</div>';
+					
+					
+					
+					
+					listUl.innerHTML += temp;
+				}
+			}
+			
+			
+			
+			function addBtnsListener(bridge){
+				mui("#listUl").on('tap','.btn-download',function(){
+					//alert(11);
+					var li = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+				    curDeckname = li.getAttribute("deckname");
+				    //alert(curDeckname);
+				    showInDownload(curDeckname, null);
+					//disappearOKBox()
+					did = this.getAttribute('location');
+					//alert(did);
+					bridge.callHandler('downloadSingleItem', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+                
+                
+                mui("header").on('tap', '.mui-icon-left-nav', function(){
+                    //alert(1);
+                    bridge.callHandler('backToParent', null, function(response) {
+                        //log('JS got response', response)
+                    });
+                });
+                
+			}
+			
+			function initLayout(listData, bridge){
+				showlist(listData);
+				uiActions();
+				addBtnsListener(bridge);
+			}
+			/////////////////////关于蒙板//////////////////////////
+			function uiActions(){
+				
+				shadow = document.getElementById("shadow");
+				progressDownloadBox = document.getElementById("progress-download-box");
+				progressOkBox = document.getElementById("progress-ok-box");
+				progressErrBox = document.getElementById("progress-err-box");
+				
+			}
+			////////////////隐藏Box////////////////////////////////
+			function hideBox(){
+				progressDownloadBox.style.display = "none";
+				progressOkBox.style.display = "none";
+				progressErrBox.style.display = "none";
+				shadow.style.display = "none";
+			}
+			
+			////////////////////显示Box////////////////////////////
+			function showInDownload(deckname, text){
+				document.getElementById("progress-deck-name").innerHTML = deckname;
+				//document.getElementById("progress-text").innerHTML = text;
+				shadow.style.display = "block";
+				progressDownloadBox.style.display = "block";
+			}
+			////////////////////显示倒计时消失的Box////////////////////////////
+			function disappearOKBox(){
+				
+				document.getElementById("progress-ok-deck-name").innerHTML = curDeckname;
+				shadow.style.display = "block";
+				progressOkBox.style.display = "block";
+				
+				setTimeout("hideBox(null, null)", 1000);
+			}
+			function disappearErrBox(){
+				
+				document.getElementById("progress-ok-deck-name").innerHTML = curDeckname;
+				shadow.style.display = "block";
+				progressOkBox.style.display = "block";
+				
+				setTimeout("hideBox(null, null)", 1000);
+			}
+			
+			//window.onload = initLayout(listData, null);
+			
+		</script>
+	</body>
+
+</html>

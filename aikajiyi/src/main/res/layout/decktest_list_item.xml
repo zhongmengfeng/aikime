@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:background="@drawable/list_item_selector_bg"
+
+    >
+
+    <!--<View-->
+        <!--android:id="@+id/divider"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="6dp"-->
+        <!--/>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/icon_image_test"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/jiakao01" />
+
+        <LinearLayout
+            android:id="@+id/deck_test_text"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_toRightOf="@id/icon_image_test"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_tiku_name"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:layout_toRightOf="@id/icon_image"
+                android:layout_marginLeft="5dp"
+                android:text="考题名称"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:textColor="#8F8F8F"
+                android:text="内含200道经典题目，是2016年新..."
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/arrow_right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/arrow_right_gray" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

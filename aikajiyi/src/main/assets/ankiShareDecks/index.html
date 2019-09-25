@@ -1,0 +1,763 @@
+
+<!DOCTYPE html> 
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="user-scalable=yes, width=500" />
+    <title>
+
+    Anki - friendly, intelligent flashcards
+
+</title>
+
+  
+    <link media="only screen and (max-device-width: 480px)" href="/static/iphone.css" type= "text/css" rel="stylesheet" />
+    <link href="/static/bootstrap-responsive.min.css" type= "text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/anki.css?2015-11-07" type="text/css" media="screen" />
+
+
+
+
+
+
+<script src="/static/js/json2.min.js" type="text/javascript">
+</script>
+<script src="/static/js/jquery-1.9.1.min.js" type="text/javascript">
+</script>
+<script src="/static/js/jquery.hotkeys.js" type="text/javascript">
+</script>
+<script>
+$(function () { window.scrollTo(0, 1) } );
+</script>
+<style type="text/css">
+	html {
+    background: #e7e7e7;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-size: 14px;
+ background:#e7e7e7;
+ width: 100%;
+ min-height: 700px;
+ margin: 0 auto 0;
+ padding: 0;
+ text-align: left;
+}
+
+img {
+max-width: 95%;
+}
+
+.invisible {
+        display: none;
+}
+
+.blank {
+        visibility: hidden;
+}
+
+#qa_box {
+    min-height: 400px;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#contentOuter {
+-moz-border-radius-bottomright: 5px;
+-moz-border-radius-bottomleft: 5px;
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+ background:#fff;
+ max-width: 936px;
+ margin: 0 auto 0;
+ padding-bottom: 1em;
+ clear:both;
+}
+
+#content {
+ margin: 0;
+ padding: 1em;
+ padding-bottom: 0em;
+}
+
+#navbar ul {
+        padding: 10px;
+        margin: 0px;
+        background: #666666;
+        text-align: center;
+        color:#fff;
+}
+
+#navbar li {
+        display: inline;
+        list-style: none;
+        padding: 10px;
+}
+
+a { text-decoration: none; color: #0584DA; }
+a:visited { color: #0584DA; }
+
+#navbar li a {
+        color: #fff;
+        /*text-decoration: none; */
+        /* font-size: 1.2em; */
+}
+
+
+#header {
+  background: url("img/grad.png") repeat-x;
+ font-size: 14px;
+    margin: 0 auto 0;
+    height:50px;
+    border: 0px;
+ max-width: 936px;
+}
+
+/* tabs */
+.mitem {
+    color: #fff;
+    background: #53ACE5;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-topleft: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+padding: 4px 10px 2px 10px;
+border-bottom: 0;
+border: 0;
+text-decoration: none;
+}
+
+a.mitem:visited {
+    color: #fff;
+}
+
+/* user settings */
+.mitem2 {
+color: #c0deed;
+}
+
+a.mitem2:visited {
+    color: #c0deed;
+}
+
+/* footer */
+.mitem4 {
+color: #00c;
+}
+
+/* buttons */
+.mitem3 {
+display:inline-block;
+color: #fff;
+background: #53ACE5;
+-moz-border-radius: 5px;
+border-radius: 5px;
+padding: 0.4em 1em 0.4em 1em;
+text-decoration: none;
+font-size: 14px;
+border:0;
+}
+
+a.mitem3:visited { color: #fff; }
+
+a.mitem3:visited { color: #fff; }
+
+
+.mitemgrey {
+background: #aaa;
+}
+
+.mitemred {
+background: #f00;
+}
+
+#headerInner {
+ margin: 0 auto 0;
+}
+
+#headerTable {
+ background: url("img/grad.png") repeat-x;
+ margin-right: 5px;
+}
+
+ img#header {
+    background: #000;
+    display: block;
+    margin-left: 0;
+    padding: 10px;
+ }
+
+ img.middle {
+    background: #000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+#bottomHelpPrompt {
+  text-align: center;
+}
+
+#lastCardText {
+ font-size: 18px;
+}
+
+.standardAnswerButton {
+ -moz-border-radius: 10px;
+ border-radius: 10px;
+ border-color: #000;
+ border-style: solid;
+ border-width: 1px;
+ color: #333333 !important;
+ display: inline-block;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 0;
+ overflow: hidden;
+ padding: 3px 3px;
+ text-decoration: none;
+ text-shadow: 0 1px #F0F0F0;
+ width:7em;
+ background:#ddd;
+}
+
+.standardAnswerButtonLong {
+ -moz-border-radius: 10px;
+ border-radius: 10px;
+ border-color: #000;
+ border-style: solid;
+ border-width: 1px;
+ color: #333333 !important;
+ display: inline-block;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 0;
+ overflow: hidden;
+ padding: 3px 3px;
+ text-decoration: none;
+ text-shadow: 0 1px #F0F0F0;
+ width:14em;
+ background:#ddd;
+}
+
+.kanjiface {
+   font-family: Kochi Mincho, MS Mincho, Arial;
+   font-size: 100px;
+}
+
+.kanaface {
+   font-family: Kochi Gothic, MS Gothic, Arial;
+   font-size: 28px;
+}
+
+.engface {
+   font-family: Arial;
+   font-size: 28px;
+}
+
+.miscface {
+   font-family: Arial;
+   font-size: 28px;
+}
+
+#jsMenuBar {
+   border-bottom: 1px solid #000;
+   margin: 0px;
+   padding: 2px;
+   vertical-align: middle;
+   width: 100%;
+}
+
+.infoMsg {
+padding: 1em;
+border: 1px solid #000;
+-moz-border-radius: 10px;
+border-radius: 5px;
+margin-top: 1px;
+background: #ff0;
+color:#000;
+float:left;
+}
+
+.bigButton {
+    padding: 1em 2em 1em 2em;
+    font-size: 18px;
+}
+
+.inactive {
+background: #ccc;
+}
+
+#jsMenuBar a {
+/*   color: #fff;*/
+}
+ 
+/* from mochikit */
+tt { color: #1C1D1F; }
+
+/* from pylons */
+.pullquote {
+    padding: 0.5em;
+    margin-top: 1em;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font: normal 150% Georgia;
+    text-align: center;
+    color: #000;
+}
+
+.biglink {
+    font-size: 28px;
+}
+
+.menu li {
+    display:inline;
+	list-style: none;
+	padding-right: 2em;
+}
+
+#menu span {
+        display: block;
+        color: #000;
+	padding: 3px;
+	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+        font-size: 12px;
+}
+
+
+#menu li {
+	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+        font-size: 12px;
+        display: block;
+	padding-bottom: 1px;
+}
+#menu a {
+    display:block;
+    margin-left: 1em;
+    color: #0645AD;
+    text-decoration: none;
+}
+
+#menu a:hover {
+	background: #555;
+}
+
+.answertd {
+padding: 0.2em;
+}
+
+/* from gmail */
+.invfr {
+border:0 none;
+height:0;
+left:0;
+position:absolute;
+top:0;
+width:0;
+z-index:-1;
+}
+
+#leftStudyMenu {
+ float: left;
+ margin-left: 1em;
+ font-size: 20px;
+}
+
+#rightStudyMenu {
+ float: right;
+ margin-right: 1em;
+ font-size: 20px;
+}
+
+#footer {
+ padding-top: 0em;
+ padding-bottom: 1em;
+ text-align: center;
+}
+
+#footerInner {
+margin-left: 1em;
+margin-right: 1em;
+}
+
+.ansbut {
+    -webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    background-color: #ddd;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    color: #000;
+    display: inline-block;
+    font-size: 80%;
+    margin: 0 5;
+    padding: 3px;
+    text-decoration: none;
+    text-align: center;
+}
+.but:focus, .but:hover { background-color: #aaa; }
+.ansbutbig {
+    bottom: 1em;
+    height: 40px;
+    left: 50%;
+    margin-left: -125px !important;
+    position: relative;
+    width: 250px;
+    font-size: 100%;
+}
+.ansbut:focus {
+font-weight: bold;
+}
+div.ansbuttxt {
+  position: relative; top: 25%;
+}
+
+#easebuts {
+  bottom: 1em;
+  height: 47px;
+  left: 50%;
+  margin-left: -200px;
+  position: relative;
+  width: 400px;
+  font-size: 100%;
+}
+
+.easebut {
+  width: 60px;
+  font-size: 100%;
+}
+
+
+.deck {
+  text-decoration: none;
+}
+
+.curdeck {
+    font-weight: bold;
+    background: #eef;
+    padding: 2px;
+ -moz-border-radius: 4px;
+ border-radius: 4px;
+}
+
+.description {
+white-space: pre-wrap;
+padding-left: 1em; color: #333; 
+}
+
+.descmid {
+width: 70%;
+margin: 0 auto 0;
+text-align: left;
+
+}
+
+.imgprev {
+max-height: 200px;
+max-width: 200px;
+}
+
+.noteprev {
+margin: 1em;
+padding: 1em;
+width: 95%;
+border-collapse: collapse;
+}
+
+.noteprev td {
+border: 1px solid #ccc;
+padding: 0.5em;
+}
+
+.noteprevmore {
+display:none;
+}
+
+div.showmore {
+text-align: right;
+}
+
+#fields {
+height: 150px;
+width: 100%;
+}
+
+#typeans {
+width:100%
+}
+
+.review {
+width: 40em; font-size: 16px;
+}
+
+#overview {
+font-size: 16px;
+}
+
+.smallLink {
+font-size: 12px;
+}
+
+.smallText {
+font-size: 12px;
+}
+
+#quiz {
+display: none;
+}
+
+#deckname {
+float: right;
+font-size: 12px;
+}
+
+#fulldesc {
+display:none;
+}
+
+.rightinp {
+text-align: right;
+}
+
+.optstable tr td {
+border-bottom: 1px solid #eee;
+padding: 0.3em;
+}
+
+hr {
+color: #eee;
+background-color: #e1e1e1;
+height: 1px;
+border: 0;
+}
+
+#qa {
+margin-top: 30px;
+}
+
+#ansarea {
+width: 20%;
+margin: 0 auto 0;
+min-height: 50px;
+}
+
+.card {
+ -moz-border-radius: 10px;
+ border-radius: 10px;
+ margin-top: 10px;
+ margin-bottom: 10px;
+}
+
+h1 { margin-top: 0.1em; }
+
+.codeBox {
+width: 8em;
+padding: 1em;
+text-align: center;
+border: 1px solid #000;
+-moz-border-radius: 10px;
+border-radius: 5px;
+margin: 1em;
+background: #ffa;
+color:#000;
+}
+
+.signuphint {
+font-size: 10px;
+color: #777;
+}
+
+.signupbox {
+width: 20em;
+text-align:left;
+}
+
+#focus {
+display:none;
+position:fixed;
+left: 0; top: 0; bottom: 0; right: 0;
+z-index: 2;
+opacity:0.7;
+background: black;
+}
+
+.warning {
+    border: 3px solid red;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    color: red;
+    width:auto;
+}
+
+.infobox {
+padding: 0.5em;
+border: 1px solid #000;
+-moz-border-radius: 10px;
+border-radius: 5px;
+background: #ffd;
+color:#000;
+}
+
+.stars {
+width: 110px;
+}
+
+.modcol {
+    width: 6em;
+}
+
+.decktitle {
+    word-break: break-all;
+}
+</style>
+  </head>
+  <body>
+
+    
+
+
+
+
+
+    <div id="header">
+        <div id="headerInner">
+            <a href="/" style="float:left;">
+                <img id=logo style="margin-left: 0.5em;border: 0px"
+                     src="/img/anki-logo.png"></a>
+            <div style="float:right;color:#fff;">
+                <table id="headerTable" style="height:50px;" cellpadding=0>
+                    <tr>
+                    <td valign=center align=right style="padding-right: 1em;">
+                                <a href="/account/login" class="mitem3">Log in</a>
+                                <a href="/account/register" class="mitem3">Sign up</a>
+                    </td>
+                    </tr>
+                </td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).bind('keyup', 'd', function(){
+            location.href="/decks/";});
+        $(document).bind('keyup', 's', function(){
+            location.href="/study/";});
+        $(document).bind('keyup', 'a', function(){
+            location.href="/edit/";});
+        $(document).bind('keyup', 'b', function(){
+            location.href="/search/";});
+    </script>
+
+<div id="contentOuter">
+    <div id="content">
+        
+
+<script src="/static/js/shared.js?1"></script>
+<script>
+shared.files = [];
+shared.decks = 1;
+</script>
+
+<div style="float:right;">
+<input id=q type="text" value="" autofocus />
+<button onclick="shared.search();return false;">Search</button>
+</div>
+    <script>
+        $("#q").keyup(function(event) {
+            if (event.keyCode==13) {
+                shared.search();
+            }
+        });
+    </script>
+
+<h1>Popular categories</h1>
+
+<h2>Languages</h2>
+
+<a href="https://ankiweb.net/shared/decks/arabic">Arabic</a>,
+<a href="https://ankiweb.net/shared/decks/chinese">Chinese</a>,
+<a href="https://ankiweb.net/shared/decks/english">English</a>,
+<a href="https://ankiweb.net/shared/decks/french">French</a>,
+<a href="https://ankiweb.net/shared/decks/german">German</a>,
+<a href="https://ankiweb.net/shared/decks/hebrew">Hebrew</a>,
+<a href="https://ankiweb.net/shared/decks/japanese">Japanese</a>,
+<a href="https://ankiweb.net/shared/decks/korean">Korean</a>,
+<a href="https://ankiweb.net/shared/decks/russian">Russian</a>,
+<a href="https://ankiweb.net/shared/decks/spanish">Spanish</a>
+
+<h2>Art, sciences and trivia</h2>
+
+<a href="https://ankiweb.net/shared/decks/anatomy">Anatomy</a>,
+<a href="https://ankiweb.net/shared/decks/biology">Biology</a>,
+<a href="https://ankiweb.net/shared/decks/chemistry">Chemistry</a>,
+<a href="https://ankiweb.net/shared/decks/geography">Geography</a>,
+<a href="https://ankiweb.net/shared/decks/law">Law</a>,
+<a href="https://ankiweb.net/shared/decks/math">Math</a>,
+<a href="https://ankiweb.net/shared/decks/music">Music</a>,
+<a href="https://ankiweb.net/shared/decks/pathology">Pathology</a>,
+<a href="https://ankiweb.net/shared/decks/physics">Physics</a>
+
+<br><br><br>
+<b>Can't find what you're looking for? Try a search!</b>
+
+<p>
+To share your own decks, please see <a href="http://ankisrs.net/docs/manual.html#sharing-decks-publicly">here</a>.
+
+<div id=list style="clear:both;"></div>
+
+
+    </div>
+</div>
+
+    <div id="footer">
+        <ul class="menu">
+            <li><a href="/about">About</a>
+            <li><a href="/account/terms">Terms of use</a>
+        </ul>
+    </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4621885-5']);
+  _gaq.push(['_setDomainName', '.ankiweb.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript">
+	var header = document.getElementById('header');
+	logo = document.getElementById('logo'),
+	table = document.getElementsByTagName('table')[0],
+    iptParent = document.getElementById('q').parentNode;
+//logo、login不显示；
+logo.style.display = 'none';
+table.style.display = 'none';
+//header高度44px;
+header.style.height = 44 + 'px';
+//input框和button按钮显示在header正中央；
+iptParent.style.position = 'absolute';
+iptParent.style.left = 50 + '%';
+iptParent.style.marginLeft = - 117 + 'px';
+iptParent.style.top = 12 + 'px';
+
+
+
+
+</script>
+  </body>
+</html>

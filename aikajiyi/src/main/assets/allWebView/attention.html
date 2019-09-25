@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/self_popup_01.css">
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<style>
+			 body{
+			 	background-color: #444A59 !important; 
+			 }
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				/*background-color: #efeff4;*/
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				/*background-color: #efeff4;*/
+			}
+			.mui-pages {
+				top: 44px;  
+				height: auto;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+		
+		
+			.mui-btn {
+				/*font-size: 16px;*/
+				/*padding: 8px;*/
+				margin: 5px;
+			}
+			.mui-content-padded{
+				margin:0 10px;	
+			}
+			h5.mui-content-padded {
+				margin-left: 3px;
+				margin-top: 20px !important;
+			}
+			h5.mui-content-padded:first-child {
+				margin-top: 12px !important;
+			}
+			.card{
+				margin-bottom: 10px;
+			}
+			.mui-content-padded input{
+				margin-top:12px ;
+			}
+			.mui-content-padded button{
+				border: 0;
+				margin: 0;
+				/*background: transparent;*/
+				padding: 0;
+			}
+			.mui-content-padded span{
+				margin-top:10px ;
+				font-size: 14px;
+				display: inline-block;
+				
+			}
+			.mui-btn-success{
+				border-radius: 5px;
+				text-align: center;
+			}
+			.mui-checkbox{
+				position: absolute;
+				top:0;
+				right:-18px;
+				
+			}
+			textarea{
+				margin-bottom: 0;
+				font-size: 14px;
+				padding: 5px 5px;
+			}
+			.active{
+				border: 2px solid #007aff !important;
+			}
+			.mui-icon-checkmarkempty{
+				background:transparent;
+				border: 1px solid #AAAAAA;
+				border-radius: 50%;
+				position: absolute;
+				top:15px;
+				right:5px;
+				color: #AAAAAA;
+			}
+			.change{
+				background: #1DACF9;
+				color: #fff;
+			}
+			.mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-table-view:last-child {
+				margin-bottom: 30px;
+				margin-top: 20px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			.mui-table-view .mui-media-object {
+			    line-height: 55px;
+			    max-width: 55px;
+			    height: 55px;
+			    border-radius: 5px;
+			}
+			.progress-boxclass {
+			    transform: translate3d(-50%, -50%, 0) scale(1);
+			    opacity: 1;
+			    position: fixed;
+			    z-index: 10000;
+			    top: 50%;
+			    left: 50%;
+			}
+			.progress-boxclass .progress-circle {
+			    width: 40px;
+			    height: 40px;
+			}
+			.teacherUl{
+				overflow-x: hidden;
+				overflow-y: scroll;
+				margin-top: 0 !important;
+				margin: 0 15px;
+				border-radius: 7px;
+				padding: 0 15px;
+				top: 15px;
+			}
+			.mui-table-view:before,.mui-table-view:after{
+				background-color:transparent !important;
+			}
+			.teacherList{
+				height: 90px;
+				line-height: 90px;
+				padding: 15px 0;
+				border-bottom: 1px solid #d5d5d5;
+			}
+			.teacherList:last-child{
+				border-bottom: 0 !important;
+			}
+			.teacherList img{
+				border-radius: 7px;
+				float: left;
+				height: 100%;
+			}
+			.teacherList .allFont{
+				float: left;
+				height: 100%;
+				padding-left: 15px;
+			}
+			.teacherList .allFont h4{
+				font-size: 15px;
+				color: #0c0e10;
+				font-family: "微软雅黑";
+				line-height: 26px;
+				margin-top: 0;
+				margin-bottom: 0;
+				padding-bottom: 2px;
+			}
+			.teacherList .allFont p{
+				font-size: 12px;
+				color: #a8a9a9;
+				font-family: "微软雅黑";
+				line-height: 16px;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			.teacherList .attentionBtn{
+				height: 21px;
+			    float: right;
+			    margin-top: 19px;
+			}
+			.returnBack{
+				width: 100px;
+				text-align: left;
+			}
+			/*.mui-action-back{
+				width: 60px;
+				text-align: left;
+			}*/
+			.changeColor{
+				height: 63px;
+				background-color: #444a59;
+				position: absolute;
+				width: 100%;
+			}
+			.mui-scroll{
+				background-color: #444a59;
+			}
+			.moreThing{
+				padding-right: 15px;
+				margin: 0 !important;
+			}
+			.inviteNum{
+				width: 80% !important;
+				text-align: center;
+				border: 1px solid #fff !important;
+    			background-color: transparent !important;
+    			color: #dbdbdb; 
+			    font-size: 15px; 
+			    margin-bottom: 0 !important; 
+			}
+			input:-moz-placeholder{   
+			    color: #dbdbdb;   
+			    font-size: 15px;
+			}   			  
+			input:-ms-input-placeholder{   
+			    color: #dbdbdb; 
+			    font-size: 15px;  
+			}   			  
+			input::-webkit-input-placeholder{   
+			    color: #dbdbdb; 
+			    font-size: 15px; 
+			}    
+			.smile{
+				position: absolute;
+			}
+			.makesure{
+				width: 80% !important;
+				margin-left: 10%;
+				margin-bottom: 0 !important;
+				background-color: #ed5565 !important;
+				border: 0 !important;
+			}
+			.invite{
+				background-color: #444a59;
+			}
+		</style>
+	</head>
+ 
+	<body  class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<div id="setting" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack" id="returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title">我的关注</h1>
+				<button type="button" class="mui-left mui-btn  mui-btn-link mui-btn-nav mui-pull-right" style="margin: 0;font-size: 30px;">
+					<span class="moreThing"><a id="more" href="#invitation">+</a></span>
+				</button>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll">
+					<div class="changeColor"></div>
+					<div class="noneHave">
+						<img src="images/noneAttention.png" width="100%" />
+					</div>
+					<ul class="mui-table-view teacherUl" id="teacherUl">
+					    <!--<li class="mui-table-view-cell mui-media teacherList" style="position: relative;">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" style="width:50px" src="images/read01.png">
+								<div class="mui-media-body mui-pull-left mui-ellipsis mui-col-xs-7">
+									英语四级
+									<p>69.7M</p>
+								</div>							
+				                <div class="mui-table-cell" style="width: 20px;height: 20px;position: absolute;top: 10px;right: 50px;">
+				                    <button class="mui-btn  mui-btn-primary mui-btn-outlined"><a href="#"><span>关注</span></a></button>
+				                </div>
+							</a>
+						</li>	    -->
+					</ul>
+			</div>
+			</div>
+		</div>
+		
+		<div id="invitation" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack" id="goBack">
+					<img src="images/returnIcon.png" class="home-return" />	
+				</button>
+				<h1 class="mui-center mui-title">我的关注</h1>
+			</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content invite" style="text-align: center;">
+			<div id="bigDiv" style="position: relative;">
+				<img src="images/smile.png"/ id="smile" class="smile">
+				<input class="inviteNum" type="text" placeholder="请输入邀请码" />	
+				<button id="collectInvite" type="button" class="mui-btn-blue mui-btn-block makesure"><span>确定</span></button>
+			</div>
+		</div>
+		</div>
+		
+		<div id="shadow" class="shadowclass">
+			
+		</div>
+		
+		<!--牌组下载或导入中-->
+		
+		<div id="progress-box" class="progress-boxclass" style="display: none;">
+			<div class="progress-circle mui-spinner">				
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.view.js "></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/xxcity.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		mui.init();
+			
+			//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+//		mui('.mui-scroll-wrapper').scroll();
+	
+		
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+		
+		var attentionData={};
+		var class_id;
+		var shadow = document.getElementById("shadow");
+		var returnBack=document.getElementById('returnBack');
+		var teacherInforData={
+		    "code": 1000,
+		    "data": [
+		        {
+		            "class_id": "1",
+		            "class_name": "英语001班",
+		            "tea_id": "92",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-05/anki18500236057@ankichina.net.png",
+		            "in_class": "0"
+		        },
+		        {
+		            "class_id": "2",
+		            "class_name": "共享单车",
+		            "tea_id": "151",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2016-12-24/anki13426063086_ankichina.net.png",
+		            "in_class": "0"
+		        },
+		        {
+		            "class_id": "3",
+		            "class_name": "英语003班",
+		            "tea_id": "92",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-05/anki18500236057@ankichina.net.png",
+		            "in_class": "0"
+		        },
+		        {
+		            "class_id": "4",
+		            "class_name": "行政管理01班",
+		            "tea_id": "5631",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-04/anki15010585090_ankichina.net.png",
+		            "in_class": "0"
+		        },
+		        {
+		            "class_id": "5",
+		            "class_name": "工商管理02班",
+		            "tea_id": "5631",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-04/anki15010585090_ankichina.net.png",
+		            "in_class": "0"
+		        },
+		        {
+		            "class_id": "6",
+		            "class_name": "音乐03班",
+		            "tea_id": "5631",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-04/anki15010585090_ankichina.net.png",
+		            "in_class": "1"
+		        },
+		        {
+		            "class_id": "7",
+		            "class_name": "美术04班",
+		            "tea_id": "5631",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-04/anki15010585090_ankichina.net.png",
+		            "in_class": "1"
+		        },
+		        {
+		            "class_id": "8",
+		            "class_name": "体育05班",
+		            "tea_id": "5631",
+		            "face": "http://anki.oss-cn-hangzhou.aliyuncs.com/Faces/2017-02-04/anki15010585090_ankichina.net.png",
+		            "in_class": "1"
+		        }
+		    ]
+		}
+		
+		var bodyH=window.screen.height;
+		var teacherUl=document.getElementById('teacherUl');
+		teacherUl.style.height=(bodyH-114)+'px';
+		alert(teacherUl.style.height);
+		var teacherList=document.getElementsByClassName('teacherList');
+		var btn;
+		var teacherInfo
+		var progressBox;
+//		var inClassSttr;
+		var isAttentedThisClass;
+		var noneHave=document.getElementsByClassName('noneHave')[0];
+		noneHave.style.display='none';
+		
+		//结构的创建
+		function initTeachers(teacherArr, bridge){
+					
+			if(teacherArr.length==''){
+				noneHave.style.display='block';
+				teacherUl.style.display='none';
+			}else{
+				noneHave.style.display='none';
+				teacherUl.style.display='block';
+			}
+			
+			if (teacherArr == null) {
+					return;
+			}
+			
+            for (var i = teacherList.length - 1; i >= 0; i--) {
+                teacherUl.removeChild(teacherList[i]);
+            }
+            
+            for (var i = 0; i < teacherArr.length; i++) {
+				teacherInfo = teacherArr[i];
+				
+				if(teacherInfo.face==null){
+					teacherInfo.face='images/read01.png';
+				}
+				var temp='<li class="teacherList" style="position: relative;" deckname="'+teacherInfo.class_name+'">'					
+							+'<img src="'+teacherInfo.face+'">'
+							+'<div class="allFont">'
+							+'<h4 id="deckname">'
+							+ teacherInfo.class_name
+							+'</h4>'
+								+'<p class="">'
+								+ teacherInfo.class_id
+								+'</p>'
+								+'<p class="">'
+								+ teacherInfo.tea_id
+								+'</p>'
+							+'</div>'							
+			                    +'<img src="images/addAttention.png" class="attentionBtn" in_class="'+teacherInfo.in_class+'" class_id="'+teacherInfo.class_id+'" />'                    
+					+'</li>';
+    			
+				teacherUl.innerHTML += temp;
+				
+				//每个关注按钮
+				btn=document.getElementsByClassName('attentionBtn');
+				
+				var thisIndex;
+				for(var j=0;j<btn.length;j++){
+					btn[j].index=j;
+					
+					//获得每个班级的in_class属性
+					isAttentedThisClass=btn[j].getAttribute('in_class');
+
+					//初始的关注状态，根据in_class属性判断是否关注并改变样式
+					if(isAttentedThisClass==1){							
+//						console.log(isAttentedThisClass);							
+						btn[j].setAttribute('src','images/alreadyAttention.png');
+//							isAttentedThisClass=0;
+					 }else if(isAttentedThisClass==0){						
+//							console.log(isAttentedThisClass);							
+						btn[j].setAttribute('src','images/addAttention.png');
+						//只显示关注过的
+						btn[j].parentNode.style.display='none';
+					}	
+//					console.log(isAttentedThisClass);
+					
+					//点击改变关注状态
+					btn[j].onclick=function(){
+
+						thisIndex=this.index;
+						showBox();
+						//调用移动端关注方法（让移动端后台请求服务器）
+						RequestService01();
+						
+						//获得每个班级的in_class属性
+						isAttentedThisClass=btn[thisIndex].getAttribute('in_class');
+//						//获得每个班级的class_id属性
+						willAttentClassId=btn[thisIndex].getAttribute('class_id');
+						
+						//调用后台的关注方法和取消关注方法
+						/**<js-ios>
+							if(isAttentedThisClass==0){		
+			                    bridge.callHandler('attentOneClass', willAttentClassId, function(response) {
+			                    	//log('JS got response', response)
+	                    		});
+							}else{
+			                    bridge.callHandler('offAttentOneClass', willAttentClassId, function(response) {
+			                    	//log('JS got response', response)
+	                    		});
+							}
+	
+	 						bridge.registerHandler('attentionOk', function(data, responseCallback) {
+				                attentionOk(data,thisIndex);    
+					        });
+					        bridge.registerHandler('offAttentionOk', function(data, responseCallback) {
+				                offAttentionOk(data,thisIndex);            
+					        });
+						</js-ios>**/
+						
+							if(isAttentedThisClass==1){							
+								window.xuming.offAttentOneClass(willAttentClassId,thisIndex);
+								btn[j].setAttribute('src','images/alreadyAttention.png');
+							 }else if(isAttentedThisClass==0){
+							 	window.xuming.attentOneClass(willAttentClassId,thisIndex);						
+								btn[j].setAttribute('src','images/addAttention.png');
+							}	
+						
+						
+						//获得最后的数据
+						attentionData.class_id=willAttentClassId;
+						attentionData.in_class=isAttentedThisClass;
+						console.log(JSON.stringify(attentionData));
+						//bridge要传进来	
+						/**<js-ios>
+							bridge.callHandler('attentionButtonClick', attentionData, function(response) {
+								
+	           				});
+           				</js-ios>**/
+					}				
+				}				
+			}            
+		}
+		function sleep(numberMillis) { 
+			var now = new Date(); 
+			var exitTime = now.getTime() + numberMillis; 
+			while (true) { 
+				now = new Date(); 
+				if (now.getTime() > exitTime){
+					return;
+				}				 
+			} 
+		}
+		
+		function RequestService01(){
+			//等待2秒
+//			sleep(1000);
+			setTimeout("hideBox()",1000);
+		}
+		
+		//关注成功
+		function attentionOk(is_success,thisIndex){			
+			if(is_success){
+				btn[thisIndex].setAttribute('src','images/alreadyAttention.png');			
+				btn[thisIndex].setAttribute('in_class',isAttentedThisClass);
+				isAttentedThisClass=btn[thisIndex].getAttribute('in_class');						
+				isAttentedThisClass=1;
+			}else{
+				btn[thisIndex].setAttribute('src','images/addAttention.png');			
+				btn[thisIndex].setAttribute('in_class',isAttentedThisClass);	
+				isAttentedThisClass=btn[thisIndex].getAttribute('in_class');						
+				isAttentedThisClass=0;
+				mui.alert('关注失败')
+			}			
+		}
+		//取消关注成功
+		function offAttentionOk(is_success,thisIndex){				
+			if(is_success){					
+				btn[thisIndex].setAttribute('src','images/addAttention.png');							
+				btn[thisIndex].setAttribute('in_class',isAttentedThisClass);
+				isAttentedThisClass=btn[thisIndex].getAttribute('in_class');						
+				isAttentedThisClass=0;	
+			}else{
+				btn[thisIndex].setAttribute('src','images/alreadyAttention.png');							
+				btn[thisIndex].setAttribute('in_class',isAttentedThisClass);
+				isAttentedThisClass=btn[thisIndex].getAttribute('in_class');						
+				isAttentedThisClass=1;
+				mui.alert('取消关注失败');
+			}				
+		}
+		//转圈
+		progressBox = document.getElementById("progress-box");
+		
+		function hideBox(){
+			progressBox.style.display = "none";
+			shadow.style.display = "none";
+		}
+		function showBox(){
+			progressBox.style.display = "block"; 
+			shadow.style.display = "block";
+		}
+		
+		//返回按钮
+		function addButtonsListener(bridge){
+			document.getElementById("returnBack").addEventListener('tap', function(){
+				/**<js-ios>
+					bridge.callHandler('backToParent', null, function(response) {
+						//log('JS got response', response)
+					});
+				</js-ios>**/
+				
+					window.xuming.backToParent();
+				
+			});
+			
+			document.getElementById("collectInvite").addEventListener('tap', function(){
+				var InviteValue=document.getElementsByClassName('inviteNum')[0].value;
+				console.log(InviteValue);
+//				isInvite(true);
+				/**<js-ios>
+					bridge.callHandler('giveYouInvite', InviteValue, function(response) {
+						
+					});
+					bridge.registerHandler('isInvite', function(data, responseCallback) {
+		                isInvite(data.result, data.message);            
+			        });
+				</js-ios>**/
+				
+					window.xuming.giveYouInvite(JSON.stringify(InviteValue));
+					window.xuming.isInvite(data);
+				
+			}); 
+		}
+		
+		//判断邀请码是否一致
+		var goBack=document.getElementById('goBack');
+		function isInvite(is_success,value){
+			if(is_success){
+				goBack.addEventListener("tap",function () {
+					mui.back();
+				});
+				//触发goBack按钮的点击事件
+				mui.trigger(goBack,'tap');
+			}else{
+				mui.alert(value);
+			}
+		}
+				
+		/////////////////bridge/////////////////////
+			/**<js-ios>
+				window.onerror = function(err) {
+			        log('window.onerror: ' + err)
+				}
+	
+			    function setupWebViewJavascriptBridge(callback) {
+			        if (window.WebViewJavascriptBridge) {
+			            return callback(WebViewJavascriptBridge);
+			        }
+			        if (window.WVJBCallbacks) {
+			            return window.WVJBCallbacks.push(callback);
+			        }
+			        window.WVJBCallbacks = [callback];
+			        var WVJBIframe = document.createElement('iframe');
+			        WVJBIframe.style.display = 'none';
+			        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+			        document.documentElement.appendChild(WVJBIframe);
+			        setTimeout(function() {
+			            document.documentElement.removeChild(WVJBIframe)
+			            }, 0);
+			    }
+				
+			    setupWebViewJavascriptBridge(function(bridge, thisIndex) {
+			        //alert(111);
+			        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	
+		                initFirstWindow(bridge, data);
+		               
+			        });		
+			        bridge.registerHandler('addButtonsListener', function(data, responseCallback) {
+	
+		                addButtonsListener(bridge);
+		               
+			        });
+					bridge.registerHandler('changeTheme', function(data, responseCallback) {
+	                  	changeAllColor(data);
+		        	});
+			        
+			        
+			    });
+			</js-ios>**/
+//	
+			/////////////////bridge/////////////////////					
+				
+		//课程邀请码页面的自适应
+		var bodyW=window.screen.width;
+		var bodyH=window.screen.height;
+		var bigDiv=document.getElementById('bigDiv');
+		var smile=document.getElementById('smile');
+		var inviteNum=document.getElementsByClassName('inviteNum')[0];
+		var makesure=document.getElementsByClassName('makesure')[0];
+		bigDiv.style.marginTop=(bodyH*0.156)+'px';
+		smile.style.width=(bodyW*0.315)+'px';
+		smile.style.marginLeft=(bodyW*0.24)+'px';
+		makesure.style.marginTop=(bodyH*0.248)+'px';
+		makesure.style.height=(bodyH*0.075)+'px';
+		inviteNum.style.marginTop=(bodyW*0.26)+'px';
+		inviteNum.style.height=(bodyH*0.172)+'px';
+		
+		var bgColor=document.getElementsByClassName('changeColor');
+		var listUl=document.getElementsByClassName('listUl');
+		for(var i=0;i<listUl.length;i++){
+			listUl[i].style.height=(bodyH-100)+'px';
+		}		
+		
+		
+		//主题色换肤
+		var bodyC=document.body;
+		var bgColor=document.getElementsByClassName('changeColor')[0];
+		var titleBar=document.getElementsByClassName('mui-bar');
+		var muiScroll=document.getElementsByClassName('mui-scroll')[0];
+		var invite=document.getElementsByClassName('invite')[0];
+		var page=document.getElementsByClassName('mui-page-content')[0];
+		function changeAllColor(num){
+			if(num==0){
+				for(var i=0;i<titleBar.length;i++){
+					titleBar[i].style.backgroundColor='#444a59';
+				}
+				
+				bodyC.style.backgroundColor='#444a59';
+				bgColor.style.backgroundColor='#444a59';
+				muiScroll.style.backgroundColor='#444a59';
+				invite.style.backgroundColor='#444a59';
+				page.style.backgroundColor='#444a59';
+				
+			}else{
+				for(var i=0;i<titleBar.length;i++){
+					titleBar[i].style.backgroundColor='#3696e9';
+				}
+				
+				bodyC.style.backgroundColor='#3696e9 !important';
+				bgColor.style.backgroundColor='#3696e9';
+				muiScroll.style.backgroundColor='#3696e9';
+				invite.style.backgroundColor='#3696e9';
+				page.style.backgroundColor='#3696e9';
+			}		
+		}
+		
+		//编写入口方法---begin
+		function initFirstWindow(bridge,classData){
+									
+			//1.加载数据，转换数据，处理原始数据；
+			if (classData == null) {
+				classData = teacherInforData;
+			}else {
+				classData = JSON.parse(classData);
+			}				
+			
+		    initTeachers(classData.data, bridge);
+//		    addButtonsListener(bridge);
+		}
+
+		
+//		window.onload=initFirstWindow(null,null);
+		
+		</script>
+	</body>
+
+</html>
+

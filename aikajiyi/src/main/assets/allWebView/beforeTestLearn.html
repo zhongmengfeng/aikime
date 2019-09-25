@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/self_popup_01.css">
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<style>
+			*{margin:0;padding:0;}
+			li{
+				list-style: none;
+			}
+			body{
+				background-color: #444a59;
+			}
+			.beforeTest{
+				background-color: #fff;
+				margin:59px 15px 15px;
+				border-radius: 7px;
+				overflow: hidden;
+			}
+			.testPic{
+				width: 100%;
+				height: 38%;
+			}
+			.choiceCourse{
+				text-align: center;
+				font-size: 15px;
+				color: #0c0e10;
+				line-height: 50px;
+			}
+			select{
+				width: auto;
+				color: #3696e9;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+			.choiceFilter{
+				font-size: 14px;
+				color: #0c0e10;
+				text-align: center;
+			}
+			.choiceFilter li{
+				border:1px solid #3696e9;
+				border-radius: 7px;
+			}
+			.active{
+				background-color:#3696e9;
+				color: #fff;
+			}
+			.returnBack {
+			    width: 100px;
+			    text-align: left !important;
+			}
+			.changeValue{
+				border-bottom: 1px solid #3696e9;
+				color: #3696E9;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mui-navbar-inner mui-bar mui-bar-nav">
+			<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack" id="returnBack">
+				<img src="images/returnIcon.png" class="home-return" />
+			</button>
+			<h1 class="mui-center mui-title">临考备战</h1>
+		</div>
+		<div class="beforeTest">
+			<div class="testPic"><img src="images/testPic.png" style="width: 100%;"/></div>
+			<div class="choiceCourse">
+				<span>选择课程:</span>
+				<span class="choiceOption"><span class="changeValue">初三英语</span><img src="images/smallSanjiao.png" style="width: 7px;margin-bottom: 2px;margin-left: 5px;"/></span>
+			</div>
+			<div style="padding-left: 15px;font-size: 12px;color: #444a59;line-height: 29px;">选择你的创建条件:</div>
+			<ul class="choiceFilter">			
+			</ul>
+		</div>
+	</body>
+</html>
+<script src="js/mui.min.js "></script>
+<script src="js/mui.view.js "></script>
+<script src="js/mui.picker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script>
+	//<2>页面特效JS代码---begin
+	function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+	    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+	}
+	
+	function addClass(obj, cls) {//添加类名
+	    if (!this.hasClass(obj, cls)){    
+	    	obj.className += " " + cls
+	    };
+	}
+	
+	function removeClass(obj, cls) {//移除类名
+	    if (hasClass(obj, cls)) {
+	        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+	        obj.className = obj.className.replace(reg, ' ');
+	    }
+	}
+	
+	function toggleClass(obj,cls){//开关类名
+		if(hasClass(obj,cls)){
+	    	removeClass(obj, cls);
+		}else{
+	    	addClass(obj, cls);
+		}
+	}
+
+	var bodyH=window.screen.height;
+	var beforeTest=document.getElementsByClassName('beforeTest')[0];
+	beforeTest.style.height=(bodyH*0.83)+'px';
+	
+	var allData={};
+	
+	var filterData={
+		"options":[
+			["is:new","筛选出新卡片"],
+			["added:1","筛选出今天添加的卡片"],
+			["rated:1","筛选出今天学习的卡片"],
+			["prop:due<=2","筛选出后天到期的卡片"]
+		],
+		"decks":["四级英语","六级英语","地质学"],
+		"currentDeckname":"六级英语"
+	}
+			
+	var beforeTest=document.getElementsByClassName('beforeTest')[0];
+	var choiceFilter=document.getElementsByClassName('choiceFilter')[0];
+	var choiceOption=document.getElementsByClassName('choiceOption')[0];
+	var beforeWidth=beforeTest.offsetWidth;
+	var beforeHeight=beforeTest.offsetHeight;
+	choiceFilter.style.width=(beforeWidth*0.678)+'px';
+	choiceFilter.style.marginLeft=(beforeWidth*0.16)+'px';
+	choiceFilter.style.marginTop=(beforeWidth*0.029)+'px';
+	var filterTiaojian;
+	
+
+	//选择课程-----------------------------------------------------------
+	var changeValue=document.getElementsByClassName('changeValue')[0];
+	function createSelect(selectData){
+		var currentDeckname=selectData.currentDeckname;
+		changeValue.innerText =currentDeckname; 
+		
+		allData.deck=selectData[i];
+		selectData=selectData.decks;
+		
+		for(var i=0;i<selectData.length;i++){
+			if(currentDeckname==selectData[i]){
+				allData.deck=selectData[i];
+			}
+			
+		}
+		
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				//普通示例
+				var userPicker = new $.PopPicker();
+				userPicker.setData(selectData);
+				choiceOption.addEventListener('tap', function(event) {
+					userPicker.show(function(items) {
+						changeValue.innerText = items[0];
+						for(var i=0;i<selectData.length;i++){
+							if(items[0]==selectData[i]){
+								allData.deck=selectData[i];
+							}				
+						}
+					});
+				}, false);
+			});
+		})(mui, document);
+	}
+	
+	
+	/////////////////bridge/////////////////////
+//			
+
+
+
+
+		/**<js-ios>
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+			
+			
+			
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		
+		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	                
+	                initFirstWindow(data,bridge);
+	               
+		        });
+		        
+		        bridge.registerHandler('changeTheme', function(data, responseCallback) {
+	                changeAllColor(data);
+	            });
+
+		        
+		    });
+		</js-ios>**/
+			
+//							
+			/////////////////bridge/////////////////////
+	
+	
+	
+	//选择创建的条件----------------------------------------
+	function createFilter(filterData, bridge){
+		for(var i=0;i<filterData.length;i++){
+			var temp='<li>'+filterData[i][1]+'</li>';
+			choiceFilter.innerHTML+=temp;
+		}
+		var choiceLi=choiceFilter.getElementsByTagName('li');
+		for(var i=0;i<choiceLi.length;i++){
+			choiceLi[i].style.marginBottom=(beforeHeight*0.045)+'px';
+			choiceLi[i].style.lineHeight=(beforeHeight*0.05)+'px';
+		}
+		//点击选择筛选条件
+		filterTiaojian=filterData[0];
+		allData.search=filterTiaojian[0];
+		mui(".choiceFilter").off("tap","li");
+		mui(".choiceFilter").on("tap","li",function(){
+			for(var i=0;i<choiceLi.length;i++){
+				choiceLi[i].index=i;
+				removeClass(choiceLi[i],'active');
+				filterTiaojian=filterData[this.index];
+
+			}	
+			addClass(this,'active');
+			allData.search=filterTiaojian[0];
+			
+			//接口---------------------------------------------------
+			console.log(allData);
+			/**<js-ios>
+				//确定筛选的监听事件
+				bridge.callHandler('confirmFiterDecks', allData, function(response) {
+	//					log('JS got response', response)
+				});
+			</js-ios>**/
+			
+				var condition = JSON.stringify(allData);
+				window.xuming.filterByCondition(condition);
+			
+		});			
+	}
+	
+	function addButtonsListener(bridge){
+		document.getElementById("returnBack").addEventListener('tap', function(){
+			/**<js-ios>
+				bridge.callHandler('backToParent', null, function(response) {
+	                  //log('JS got response', response)
+	           	});
+			</js-ios>**/
+			
+				window.xuming.back();
+			
+		});
+	}
+	
+	//切换主题色
+	var muiBar=document.getElementsByClassName('mui-bar')[0];
+	var bodyC=document.body;
+	function changeAllColor(num){
+		if(num==0){
+			muiBar.style.backgroundColor='#444a59';
+			bodyC.style.backgroundColor='#444a59';
+		}else{
+			muiBar.style.backgroundColor='#3696e9';
+			bodyC.style.backgroundColor='#3696e9';
+		}
+	}
+//	changeAllColor(1);
+	
+	function initFirstWindow(serverData,bridge){
+		if(serverData==null){
+			serverData=filterData;
+		}else{
+			serverData=JSON.parse(serverData);
+		}
+		
+		addButtonsListener(bridge);
+		createFilter(serverData.options, bridge);
+		createSelect(serverData);
+		
+	}
+	
+//	window.onload=initFirstWindow(null,null);
+	
+</script>

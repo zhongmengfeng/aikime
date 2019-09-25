@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/study_background"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/blurView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3f000000"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.ichi2yiji.anki.view.ek.SpeedRecyclerView
+        android:id="@+id/srv_ek_fragment_study_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/tv_ek_fragment_study_studyprogress"
+        android:layout_below="@+id/srv_ek_fragment_study_recyclerview"
+        android:text="2/7"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_ek_fragment_study_startstudying"
+        android:layout_below="@+id/tv_ek_fragment_study_studyprogress"
+        android:layout_width="330dp"
+        android:text="开始学习"
+        android:textSize="@dimen/textsize_23"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/ek_start_study_shape"
+        android:layout_centerHorizontal="true"
+        android:layout_height="56dp" />
+    <LinearLayout
+        android:layout_below="@+id/tv_ek_fragment_study_startstudying"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_ek_fragment_study_test"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="测试"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_17"
+            android:drawableTop="@drawable/home_text"
+            android:gravity="center"
+            android:paddingTop="23dp"
+            android:paddingBottom="22dp"/>
+        <TextView
+            android:id="@+id/tv_ek_fragment_study_read"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="阅读"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_17"
+            android:gravity="center"
+            android:paddingTop="23dp"
+            android:paddingBottom="22dp"
+            android:drawableTop="@drawable/home_read_selected" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_ek_fragment_study_filterdeck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_filter"
+        android:padding="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/iv_ek_fragment_study_changestudyplan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_plan"
+        android:layout_alignParentRight="true"
+        android:padding="15dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <TextView
+          android:gravity="center_vertical"
+          android:text="日语精品课程"
+          android:textColor="@color/colorWhite"
+          android:textSize="@dimen/textsize_12"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+      <TextView
+          android:gravity="right|center_vertical"
+          android:text="2017-07-07"
+          android:textColor="@color/colorWhite"
+          android:textSize="@dimen/textsize_12"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+      <TextView
+          android:text="收入：50"
+          android:textColor="@color/colorWhite"
+          android:textSize="@dimen/textsize_12"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+  </LinearLayout>
+    <TextView
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+</LinearLayout>

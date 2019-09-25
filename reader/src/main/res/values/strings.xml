@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">艾卡阅读</string>
+    <string name="decks">牌组</string>
+    <string name="user_center">个人中心</string>
+    <string name="card_info">卡片信息</string>
+    <string name="empty_string"></string>
+</resources>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">注册</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="mui-input-group login-form list-text">
+		        <div class="mui-input-row">
+		            <label>手机号</label>
+		            <input type="text" placeholder="请输入手机号">
+		        </div>
+		        <div class="mui-input-row">
+		            <label>验证码</label>
+		            <input type="number" placeholder="请输入验证码">
+		            <button class="btn-yzm" id="send_code">获得验证码</button>
+		        </div>
+		        <div class="mui-input-row">
+		            <label>密码</label>
+		            <input type="password" class=" mui-input-password" placeholder="请输入密码">
+		        </div>
+		    </div>
+		    <button class="btn-block" style="margin-top: 30px" id="btn">注册</button>
+		    <p class="login-bottom" style="font-size:13px;">点击注册即表明您已同意用户协议</p>
+		</div>
+		<script src="js/mui.min.js"></script>
+		
+	</body>
+	<script src="js/castapp.js"></script>
+	<script>
+		
+		ca.init();
+		
+		var send_code = ca.id('send_code');
+		var btn = ca.id('btn');
+		var input = ca.tagName('input');
+		
+		var code = '';
+		
+		//发送验证码 
+		var onoff = true;
+		send_code.addEventListener('tap',function(){
+			if(!onoff){
+				return;
+			}
+			
+			var phone = input['0'].value;
+			
+			if(phone == ''){
+				ca.prompt('手机号码不能为空');
+				return;
+			}
+			if(phone.length != 11){
+				ca.prompt('手机号码不正确');
+				return;
+			}
+			
+			//判断等等，你们自己写吧
+			
+			//有个验证码？
+			code = ca.getIdCode(4);
+			console.log(code);
+			
+			//模拟发短信 阿里大鱼
+			ca.showWaiting('发送中');
+			setTimeout(function(){
+				
+				ca.closeWaiting();
+				ca.prompt('发送成功');
+				onoff = false;
+				//倒计时
+				var number = 30;
+				var timer = setInterval(function(){
+					number--;
+					//当倒计时正在进行的时候。是不能继续发送的
+					if(number == 0){
+						send_code.innerHTML = "获得验证码";
+						clearInterval(timer);
+						onoff = true;
+					}else{
+						send_code.innerHTML = number + 'S';
+					}
+					console.log(number);
+					
+				},1000);
+				
+				
+			},3000);
+			
+			
+			
+		});
+		
+		//注册
+		btn.addEventListener('tap',function(){
+			
+			var phone = input['0'].value;
+			var input_code = input['1'].value;
+			var password = input['2'].value;
+			
+			if(phone == ''){
+				ca.prompt('手机号码不能为空');
+				return;
+			}
+			if(phone.length != 11){
+				ca.prompt('手机号码不正确');
+				return;
+			}
+			if(input_code == ''){
+				ca.prompt('验证码不能为空');
+				return;
+			}
+			if(input_code != code || code == ''){
+				ca.prompt('验证码输入不正确');
+				return;
+			}
+			if(password == ''){
+				ca.prompt('密码不能为空');
+				return;
+			}
+			
+			
+			var request_url = localStorage.getItem('request_url');
+			//请求数据库写入数据
+			ca.get({
+				url:request_url+'User/register',
+				data:{
+					phone:phone,
+					password:password
+				},
+				succFn:function(data){
+					if(data == -1){
+						ca.prompt('手机号码已经存在');
+					}else if(data > 0){
+						ca.prompt('注册成功');
+						
+						//把你的登录手机号码存入本地，作为你登录的唯一依据
+						localStorage.setItem('login_phone',phone);
+						
+						
+						
+						//注册成功了以后，我们干什么?
+						// 1,关闭当前界面
+						// 2,显示你的主界面或者是显示登录界面，让用户登录
+						// 3,通知home这个界面，把登录或者注册以后的信息更新一下
+						// 用register.html -> 告诉home.html 更新,用到了通知
+						
+						
+						// 显示一个已经打开过的界面，我要获得到他的对象,获得起始界面并且显示出来
+						ca.getStartInterface(function(obj){
+							//obj就代表起始界面
+							//显示
+							//在show 方法里可以传参数
+							//第一个显示的动画形式，左推，右退等等
+							//第二个动画时长 1000 为1秒
+							
+							var arr = ['home'];
+							ca.sendNotice(arr,'update_user_info',{});
+							
+							obj.show('pop-in',300);
+							
+							setTimeout(function(){
+								//关闭当前界面 关闭一个已经打开的界面，需要先获取到这个界面的对象
+//								ca.getCurrentInterface(function(obj){
+//									obj.close();
+//								});
+								ca.closeCurrentInterface();
+							},1000);
+							 
+							
+							
+						});
+						
+						
+						
+						
+						
+						
+					}else {
+						ca.prompt('注册失败,请重试');
+					}
+				}
+			})
+			
+			
+			
+			
+		});
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

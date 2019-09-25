@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+~ Copyright (c) 2011 Norbert Nagold <norbert.nagold@gmail.com>
+~
+~ This program is free software; you can redistribute it and/or modify it under
+~ the terms of the GNU General Public License as published by the Free Software
+~ Foundation; either version 3 of the License, or (at your option) any later
+~ version.
+~
+~ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+~ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+~ PARTICULAR PURPOSE. See the GNU General Public License for more details.
+~
+~ You should have received a copy of the GNU General Public License along with
+~ this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<resources>
+
+    <!-- Android provides a straightforward way to control action bar styles; an additional color attribute
+     specifically for action bar text color isn't necessary, but it simplifies the color setting
+     while making it accessible everywhere and eases the use of themes -->
+    <attr name="actionBarTextColor" format="color"/> <!-- For title and subtitle, and any other text that may appear in action bar-->
+    <attr name="actionBarThemeRef" format="reference"/>
+    <attr name="actionBarPopupThemeRef" format="reference"/>
+
+    <!-- Custom preferences -->
+    <attr name="min" format="integer" />
+    <attr name="max" format="integer" />
+    <attr name="allowEmpty" format="boolean" />
+
+    <declare-styleable name="SeekBarPreference">
+        <attr name="interval" format="integer" />
+    </declare-styleable>
+    <!-- Deck list colors, divider, and expander -->
+    <attr name="currentDeckBackground" format="reference"/>
+    <attr name="dynDeckColor" format="color"/>
+    <attr name="deckDivider" format="reference"/>
+    <attr name="expandRef" format="reference"/>
+    <attr name="collapseRef" format="reference"/>
+    <!-- Card count colors -->
+    <attr name="newCountColor" format="color"/>
+    <attr name="learnCountColor" format="color"/>
+    <attr name="reviewCountColor" format="color"/>
+    <attr name="zeroCountColor" format="color"/>
+    <!-- Reviewer button colors -->
+    <attr name="againButtonRef" format= "reference"/>
+    <attr name="hardButtonRef" format= "reference"/>
+    <attr name="goodButtonRef" format= "reference"/>
+    <attr name="easyButtonRef" format= "reference"/>
+    <!-- Reviewer other colors -->
+    <attr name="topBarColor" format="color"/>
+    <attr name="maxTimerColor" format="color"/>
+    <!-- Browser colors -->
+    <attr name="suspendedColor" format="color"/>
+    <attr name="markedColor" format="color"/>
+    <!-- Images -->
+    <attr name="navDrawerImage" format="integer"/>
+    <attr name="attachFileImage" format="integer"/>
+    <attr name="upDownImage" format="integer"/>
+    <attr name="dialogErrorIcon" format="integer"/>
+    <attr name="dialogSyncErrorIcon" format="integer"/>
+    <attr name="dialogSendIcon" format="integer"/>
+
+    <attr name="rightPadding" format="dimension" />
+
+    <declare-styleable name="SlidingMenu">
+        <attr name="rightPadding" />
+    </declare-styleable>
+
+    <attr name="layout_background" format="reference|color"/>
+    <attr name="main_page_title_color" format="reference|color"/>
+    <attr name="main_page_title_tab_line" format="reference|color"/>
+    <attr name="add_note_text_color" format="reference|color"/>
+
+    <!--原形進度眺-->
+    <!--
+            max                 最大进度
+            progress            初始时的进度
+            startAngle             进度从圆环的哪个角度开始走
+            centreColor         圆环内部的填充色
+            ringColor             圆环的颜色
+            ringProgressColor   圆环进度的颜色
+            ringWidth             圆环宽度
+            textColor             中心文字的颜色
+            textSize             中心文字的大小
+            textIsDisplayable     中心文字是否显示
+            style = 0/1          进度的风格，实心或者空心
+     -->
+
+    <declare-styleable name="RoundProgressBar">
+        <attr name="maxpro" format="integer"></attr>
+        <attr name="progress" format="integer"></attr>
+        <attr name="startAngle" format="integer"></attr>
+        <attr name="ringColor" format="color"/>
+        <attr name="ringProgressColor" format="color"/>
+        <attr name="ringWidth" format="dimension"></attr>
+        <attr name="centreColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <!-- RoundImageView(圆角ImageView) -->
+    <attr name="borderRadius" format="dimension" />
+    <attr name="type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" />
+        <attr name="type" />
+    </declare-styleable>
+
+</resources>

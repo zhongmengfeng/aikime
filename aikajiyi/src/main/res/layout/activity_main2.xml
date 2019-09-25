@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    tools:context="com.ichi2yiji.anki.AikaActivity">
+
+    <RelativeLayout
+        android:fitsSystemWindows="true"
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="?attr/layout_background"
+        android:gravity="center_vertical">
+
+
+        <!--<info.hoang8f.android.segmented.SegmentedGroup-->
+        <!--android:id="@+id/segmented"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="44dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:paddingTop="5dp"-->
+        <!--android:orientation="horizontal">-->
+        <!--<RadioButton-->
+        <!--android:id="@+id/deck_reader"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="阅读"-->
+        <!--style="@style/RadioButton" />-->
+        <!--<RadioButton-->
+        <!--android:id="@+id/deck_picker"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="牌组"-->
+        <!--style="@style/RadioButton" />-->
+
+        <!--<RadioButton-->
+        <!--android:id="@+id/deck_test"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="模考"-->
+        <!--style="@style/RadioButton" />-->
+
+        <!--</info.hoang8f.android.segmented.SegmentedGroup>       -->
+
+        <LinearLayout
+            android:id="@+id/title_lyt"
+            android:layout_width="180dp"
+            android:layout_height="44dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <!-- 牌组 -->
+            <RelativeLayout
+                android:id="@+id/deck_picker_lyt2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:clickable="true">
+                <TextView
+                    android:id="@+id/deck_picker2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:text="我的课程"
+                    android:textColor="@color/white"
+                    />
+                <View
+                    android:id="@+id/deck_picker_mark_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="?attr/main_page_title_tab_line"/>
+            </RelativeLayout>
+
+            <!-- 阅读 -->
+            <RelativeLayout
+                android:id="@+id/deck_reader_lyt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:clickable="true">
+                <TextView
+                    android:id="@+id/deck_reader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:text="阅读"
+                    android:textColor="?attr/main_page_title_color"
+                    />
+
+                <View
+                    android:id="@+id/deck_reader_mark_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="?attr/main_page_title_tab_line"
+                    android:visibility="invisible"/>
+            </RelativeLayout>
+
+            <!-- 牌组 -->
+            <RelativeLayout
+                android:id="@+id/deck_picker_lyt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:clickable="true">
+                <TextView
+                    android:id="@+id/deck_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:text="牌组"
+                    android:textColor="?attr/main_page_title_color"
+                    />
+                <View
+                    android:id="@+id/deck_picker_mark_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="?attr/main_page_title_tab_line"/>
+            </RelativeLayout>
+
+            <!-- 模考 -->
+            <RelativeLayout
+                android:id="@+id/deck_test_lyt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:clickable="true">
+                <TextView
+                    android:id="@+id/deck_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:text="模考"
+                    android:textColor="?attr/main_page_title_color"
+                    />
+                <View
+                    android:id="@+id/deck_test_mark_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="?attr/main_page_title_tab_line"
+                    android:visibility="invisible"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/top_right_lyt"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:clickable="true">
+            <ImageView
+                android:id="@+id/top_right"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:focusable="true"
+                android:src="@drawable/top_right_new"
+                />
+
+        </RelativeLayout>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/top_right"-->
+            <!--android:layout_width="22dp"-->
+            <!--android:layout_height="22dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="16sp"-->
+            <!--android:clickable="true"-->
+            <!--android:focusable="true"-->
+            <!--android:src="@drawable/top_right_new"-->
+            <!--/>-->
+
+        <ImageView
+            android:id="@+id/icon_main_home"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/home_img_selector"
+            android:layout_alignTop="@+id/top_right_lyt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp" />
+
+        <ImageView
+            android:id="@+id/icon_main_home2"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/home_img_selector"
+            android:layout_alignTop="@+id/top_right_lyt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp" />
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_bar">
+    </FrameLayout>
+
+
+    <!-- 帮助-->
+    <RelativeLayout
+        android:id="@+id/rl_guide"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 背景 -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:background="@drawable/img_guide_bg1"
+                android:layout_weight="7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <ImageView
+                    android:id="@+id/iv_guide_close"
+                    android:padding="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/img_guide_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- 帮助动画 -->
+        <ImageView
+            android:id="@+id/iv_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+</RelativeLayout>

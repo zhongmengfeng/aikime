@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/self_popup_01.css" />
+		<style>
+			.mui-navbar {
+			    position: fixed;
+			    right: 0;
+			    left: 0;
+			    z-index: 10;
+			    height: 44px;
+			    /*background-color: #007aff !important;*/
+			}
+			.mui-bar .mui-btn-link {
+			    font-size: 16px;
+			    line-height: 44px;
+			    top: 0;
+			    padding: 0;
+			    color: #fff;
+			    border: 0;
+			}
+			.mui-title {
+			    font-size: 17px;
+			    font-weight: 500;
+			    line-height: 44px;
+			    position: absolute;
+			    display: block;
+			    width: 100%;
+			    margin: 0 -10px;
+			    padding: 0;
+			    text-align: center;
+			    white-space: nowrap;
+			    color: #fff;
+			}
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 44px;
+				height: auto;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-navbar .mui-bar {
+				position: absolute;
+				text-align: center;
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #0c0e10;
+			}
+			.mui-table-view-divider {
+				background-color: #efeff4;
+				font-size: 14px;
+			}
+			.mui-table-view-divider:before,
+			.mui-table-view-divider:after {
+				height: 0;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+			.update {
+				font-style: normal;
+				color: #0c0e10;
+				font-size: 15px;
+				padding-right: 20px;
+			}
+			.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			/*问题反馈在setting页面单独的css*/
+			#feedback .mui-popover{
+				position: fixed;
+			}
+			#feedback .mui-table-view:last-child {
+			    margin-bottom: 0px;
+			}
+			#feedback .mui-table-view:first-child {
+			    margin-top: 0px;
+			}
+			.li-span {
+				display: inline-block;
+				width: 22px;
+				height: 22px;
+				background: green;
+				line-height: 22px;
+				font-size: 20px;
+				margin-left: 5px;
+				text-align: center;
+				border-radius: 4px;
+				color: white;
+				font-weight: 800;				
+			}
+			.parentScroll{
+				position: absolute;
+				top:15px;
+				margin-left:4%;
+			    width: 92%;
+			    background: #ffffff;
+			    border-radius: 7px;
+			    /*height: 350px;*/
+			}
+			.mui-search .mui-placeholder{
+				font-size: 13px;
+				color: #a9a9a9;
+				height: 28px !important;
+				line-height: 28px !important;
+			}
+			.mui-search .mui-placeholder .mui-icon {
+			    font-size: 22px;
+			    color: #a9a9a9;
+			    line-height: 28px;
+			}
+			.mui-search.mui-active:before {
+				font-size: 22px;
+			}
+			.mui-search:before {
+				top:43%;
+			}
+			.filterList{
+				line-height: 23px ;
+				padding-bottom: 13px;
+				font-size: 15px;
+				color: #0c0e10;
+			}
+			.filterList .mui-switch{
+				float: right;
+			}
+			.filterList a{
+				font-size: 15px;
+				color: #0c0e10;
+			}
+			.tableUl {
+			    margin-top: 0 !important;
+			    margin: 0 15px;
+			   
+			}
+			.tableUl:before {
+				background-color: #fff;
+			}
+			.tableUl:after {
+				background-color: #fff;
+			}
+			.mui-btn-block {
+				font-size: 15px;
+				width: 80%;
+				margin-left: 30px;
+				padding:0 ;
+				height: 40px;
+				margin-top: 27px;
+				margin-bottom: 31.5px;
+			}
+			.filterList a{
+				display: inline-block;
+    			width: 100%;
+			}
+			.returnBack{
+				width: 100px;
+				text-align: left;
+			}
+			.changeColor{
+				height: 63px;
+				background-color: #444a59;
+				position: absolute;
+				width: 100%;
+			}
+			.filter{
+				padding-top: 29px;
+				padding-bottom: 19px;
+			}
+			.filter a{
+				width: 55%;
+				font-size: 12px; 
+				line-height: 18px;
+				color: #3696e9;
+				padding-left: 1px;
+				display: inline-block;
+			}
+			.filter div{
+				float: right;
+				width: 94px;
+				height: 30px;
+				
+			}
+			.filter img{
+				padding-top: 3px;
+			}
+			.quickFilter{
+				position: absolute;
+			    top: 50%;
+			    left: 50%;
+			    z-index: 1000;
+			    width: 74%;
+			    height: 59%;
+			    border-radius:7px ;
+			    display: none;
+			}
+			.shadowclass{
+				background: rgba(0, 0, 0, 0.75);
+				/*display: block !important;*/
+			}
+			*{margin:0;padding:0}
+			li{
+				list-style: none;
+			}
+			.choiceFilter{
+				position: absolute;
+				top:0;
+				left:0;
+				font-size: 14px;
+				color: #0c0e10;
+				text-align: center;
+			}
+			.choiceFilter li{
+				border:1px solid #3696e9;
+				border-radius: 7px;
+			}
+			.choiceComplete{
+				background-color: #ed5565;
+				border-radius: 7px;
+			}
+			.active{
+				background-color:#3696e9;
+				color: #fff;
+			}
+			/*问题反馈在setting页面单独的css==end*/
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--首页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button id="backToParent" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" onclick="initFirWindow()" />
+				</button>
+				<h1 class="mui-center mui-title" id="deckName">筛选牌组1</h1>
+			</div>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				
+				<div class="mui-scroll-wrapper">
+					<div class="changeColor"></div>
+					<div class="mui-scroll parentScroll">												
+						<div class="mui-content-padded" style="margin: 20px 15px 0 15px;">				
+							<div class="mui-input-row mui-search">
+								<input type="search" class="mui-input-clear" placeholder="输入筛选条件" value="" id="search-ipt" style="height: 28px;margin-bottom: 22px;">
+							</div>
+						</div>
+						<ul class="mui-table-view tableUl">
+							<li class="filterList" id="promptBtn">
+								<a href="#fuxi-shezhi_12a">限制至
+									<span class="mui-pull-right" id="info1">100
+									</span>
+								</a>
+							</li>
+							<li class="filterList" style="padding-bottom: 10px;border-bottom: 1px solid #e5e5e5;">
+								<a href="#kapian-xuanze-biaozhun">
+									卡片选择标准 
+									<img src="images/getIntoIcon.png" class="photo" />
+									<i class="mui-pull-right update mylist" name="">
+										优先显示老卡片
+									</i>				
+								</a>
+							</li>
+							<li class="filterList" style="padding-top: 15px;line-height: 30px;">
+								重新安排学习进度
+								<div id="switch_changyongshezhi-tongbu-meiti" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="filterList" style="line-height: 30px;">
+								自定义步骤
+								<div id="switch_changyongshezhi-tongbu-zidong" class="mui-switch mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="" id="myapp" style="line-height: 38px;font-size: 13px;">
+								当前学习步骤
+								<div  style="float: right;">
+									<span id="myapp-span">1,10</span>
+								</div>
+							</li>
+							<li class="filter">
+								<a>筛选条件太难了，不会选？别担心，来快捷筛选吧~</a>
+								<div>
+									<img src="images/filter.png" width="100%" id="quick"/>
+								</div>
+							</li>
+						</ul>	
+						<!--<ul class="mui-table-view mui-table-view-chevron">
+							
+						</ul>
+						<ul class="mui-table-view">
+							
+						</ul>
+						<ul class="mui-table-view" style="margin-bottom: 10%;">
+							
+						</ul>-->
+						<button id="confirmFiterBtn" type="button" style="background-color: #ed5565; border: none;" class="mui-btn mui-btn-blue mui-btn-block">确定筛选</button>		
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--首页面结束-->
+		
+		<!--///////////////////////////////001//////////////-->
+		
+		
+		
+		
+	
+		
+		<div id="kapian-xuanze-biaozhun" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title">卡片选择标准</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div id="radio-changyong-shezhi_04tongzhileixing" class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected myli">
+								<a class="mui-navigate-right mytext">优先显示老卡片</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">随机</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">增加时间间隔</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">减少时间间隔</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">忘记最多</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">添加顺序</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">到期顺序</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">最晚添加优先</a>
+							</li>
+							<li class="mui-table-view-cell myli">
+								<a class="mui-navigate-right mytext">相对到期</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<!--阴影遮挡-->
+		<div id="shadow" class="shadowclass">
+			
+		</div>
+		<div class="quickFilter">
+			<img src="images/quickFilter.png" style="width: 100%;" />
+			<ul class="choiceFilter">			
+			</ul>
+			<div class="choiceFilter choiceComplete" style="color: #fff;">选择完成</div>
+		</div>
+		<!--常用设置三级单选结束-->
+		<!--“常用设置”页面结束-->
+		
+	</body>
+	<script src="js/mui.min.js "></script>
+	<script src="js/mui.view.js "></script>
+	<!--<script src='js/feedback.js'></script>-->
+	<script>
+	
+
+	
+		//<1>定义全局变量并启动框架---begin
+		var preferenceExp={
+				"search":"is:new",
+				"limit":100,
+				"order":1,
+				"delays":[1,10],
+				"resched":true,
+			};
+		var preferenceCur={};
+		var search1;
+		var limit1;
+		var order1;
+		var delays1;
+		var resched1;
+		var stepsOn1=false;
+		var steps1='1,50';
+		
+		var curPreference = {};
+	
+	
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		//<1>定义全局变量并启动框架---end
+		
+		//<2>页面特效JS代码---begin
+	
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+		
+		//console.log(window)
+		
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+		
+		
+		//绑定搜索栏监听；
+		
+		
+		//绑定”限制至“的监听；
+		
+		
+		var info1=document.getElementById('info1');
+		document.getElementById("promptBtn").addEventListener('tap', function(e) {
+			e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+			var btnArray = ['取消', '确定'];
+			mui.prompt('请输入你要限制的卡片数：', '请输入数字', '限制卡片数', btnArray, function(e) {
+				if (e.index == 1) {
+					limit1=e.value;
+					info1.innerText = limit1;
+					preferenceCur.limit = limit1;
+				}
+			})
+		}); 
+		
+		
+		//绑定“卡片选择标准”的监听；
+		function esc(){
+			var as=document.getElementsByClassName('mytext');
+			var t=document.getElementsByClassName('mylist')[0];
+			for(var i=0;i<as.length;i++){
+				as[i].index=i;
+				as[i].onclick=function(){
+					order1=this.index;
+					t.setAttribute('name',order1);
+					ee=this.innerHTML;
+					t.innerHTML=ee;
+					preferenceCur.order = order1;
+				}
+			}
+		}
+		esc();
+		//绑定“重新安排学习进度”的监听；
+		
+		var bn=document.getElementById("switch_changyongshezhi-tongbu-meiti");
+		bn.onclick=function(){
+			if(resched1){
+				resched1=false;
+				preferenceCur.resched = false;
+			}else{
+				resched1=true;
+				preferenceCur.resched = true;
+			}
+		}
+		
+		//绑定"自定义步骤"的监听；
+		var a=document.getElementById('switch_changyongshezhi-tongbu-zidong');
+		var myapp=document.getElementById('myapp');
+		var span=document.getElementById('myapp-span');
+		span.innerText =delays1;
+		a.onclick=function(){
+			if(stepsOn1){
+				myapp.style.color="#a9a9a9";
+				stepsOn1=false;
+			}else{
+				myapp.style.color="#000";
+				stepsOn1=true;
+			}
+		};
+		myapp.onclick=function(){
+			if(stepsOn1){
+				var btnArray = ['取消', '确定'];
+				mui.prompt('请输入自定义学习步骤', '1,10', '自定义学习步骤', btnArray, function(e) {
+					if (e.index == 1) {
+						var reg1=/\d{1,2},\d{1,2}/g;
+							//var reg2=/\d{1,2},\d{1,2},\d{1,2}/g;
+						if(reg1.test(e.value)){
+							delays1=e.value;
+							span.innerText = delays1;
+							preferenceCur.delays = delays1.split(",");
+							//delays1=delays1.splice()
+						}else{
+							mui.alert('您输入格式有误，数字需用逗号隔开，参照正确格式 1,10', 'Hello Anki', function() {
+							//info.innerText = '你刚关闭了警告框';
+							});	
+						}
+					}
+				})
+			}else{
+				return ;
+			}
+		}
+		
+		
+    		//<2>页面特效JS代码---end
+		
+		
+		//<3>建立数据桥---begin
+		/////////////////bridge/////////////////////
+		/**<js-ios>
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+	
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+		        initFirWindow(bridge, null);
+		
+		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	                
+	//				var treeListData_org = JSON.parse(data.treeStr);
+	                
+	                //initFirWindow(bridge, treeListData_org);
+	               
+		        });
+		        bridge.registerHandler('changeTitle', function(data, responseCallback) {
+	                
+	                changeDeck(data);
+					
+		        });
+		        bridge.registerHandler('changeTheme', function(data, responseCallback) {
+	                 changeAllColor(data);
+		        });
+		    });
+		</js-ios>**/
+						
+		/////////////////bridge/////////////////////
+		
+		//<2>页面特效JS代码---begin
+			function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+			    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+			}
+			
+			function addClass(obj, cls) {//添加类名
+			    if (!this.hasClass(obj, cls)){    
+			    	obj.className += " " + cls
+			    };
+			}
+			
+			function removeClass(obj, cls) {//移除类名
+			    if (hasClass(obj, cls)) {
+			        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+			        obj.className = obj.className.replace(reg, ' ');
+			    }
+			}
+			
+			function toggleClass(obj,cls){//开关类名
+				if(hasClass(obj,cls)){
+			    	removeClass(obj, cls);
+				}else{
+			    	addClass(obj, cls);
+				}
+			}
+		var filterData=[
+			["is:new","筛选出新卡片"],
+			["added:1","筛选出今天添加的卡片"],
+			["rated:1","筛选出今天学习的卡片"],
+			["prop:due<=2","筛选出后天到期的卡片"]
+		]
+		console.log(filterData.length);
+
+		var quick=document.getElementById('quick');		
+		var shadow=document.getElementById('shadow');		
+		var quickFilter=document.getElementsByClassName('quickFilter')[0];
+		var choiceFilter=document.getElementsByClassName('choiceFilter')[0];
+		var choiceComplete=document.getElementsByClassName('choiceComplete')[0];
+		var choiceLi=choiceFilter.getElementsByTagName('li');
+		var filterTiaojian;
+		
+		function createFilter(filterData){
+			for(var i=0;i<filterData.length;i++){
+				var temp='<li>'+filterData[i][1]+'</li>';
+				choiceFilter.innerHTML+=temp;
+			}
+			//点击选择筛选条件
+			addClass(choiceFilter.children[0],'active');
+			filterTiaojian=filterData[0];
+			mui(".choiceFilter").off("tap","li");
+			mui(".choiceFilter").on("tap","li",function(){
+				for(var i=0;i<choiceLi.length;i++){
+					choiceLi[i].index=i;
+					removeClass(choiceLi[i],'active');
+					filterTiaojian=filterData[this.index];
+				}					
+				addClass(this,'active');					
+			});
+			
+			//选择完成
+			choiceComplete.onclick=function(){
+				var valueSearch=document.getElementById('search-ipt');
+				var muiSearch=document.getElementsByClassName('mui-search')[0];
+				addClass(muiSearch,'mui-active');
+				valueSearch.value=filterTiaojian[0];
+				console.log(valueSearch);
+				quickFilter.style.display='none';
+				shadow.style.display='none';
+			}
+		}
+		createFilter(filterData);
+		
+		
+//			var quickWidth=quickFilter.offsetWidth;
+//			var quickHeight=quickFilter.offsetHeight;
+//			quickFilter.style.marginTop=-(quickHeight/2)+'px';
+//			quickFilter.style.marginLeft=-(quickWidth/2)+'px';	
+//			choiceFilter.style.top=(quickHeight*0.29)+'px';
+//			choiceFilter.style.width=(quickWidth*0.84)+'px';
+//			choiceFilter.style.left=(quickWidth*0.075)+'px';
+//
+//			choiceComplete.style.top=(quickHeight*0.855)+'px';
+//			choiceComplete.style.width=(quickWidth*0.86)+'px';
+//			choiceComplete.style.left=(quickWidth*0.07)+'px';
+//			choiceComplete.style.lineHeight=(quickHeight*0.09)+'px';
+//			for(var i=0;i<choiceLi.length;i++){
+//				choiceLi[i].style.marginBottom=(quickHeight*0.063)+'px';
+//				choiceLi[i].style.lineHeight=(quickHeight*0.07)+'px';
+//			}
+//			
+//			addClass(choiceFilter.children[0],'active');
+//			mui(".choiceFilter").off("tap","li");
+//			mui(".choiceFilter").on("tap","li",function(){
+//				for(var i=0;i<choiceLi.length;i++){
+//					removeClass(choiceLi[i],'active');
+//				}					
+//				addClass(this,'active');					
+//			});
+
+		//点击快捷筛选按钮
+		quick.onclick=function(){
+			quickFilter.style.display='block';
+			var quickWidth=quickFilter.offsetWidth;
+			var quickHeight=quickFilter.offsetHeight;
+			quickFilter.style.marginTop=-(quickHeight/2)+'px';
+			quickFilter.style.marginLeft=-(quickWidth/2)+'px';	
+			choiceFilter.style.top=(quickHeight*0.29)+'px';
+			choiceFilter.style.width=(quickWidth*0.84)+'px';
+			choiceFilter.style.left=(quickWidth*0.075)+'px';
+
+			choiceComplete.style.top=(quickHeight*0.855)+'px';
+			choiceComplete.style.width=(quickWidth*0.86)+'px';
+			choiceComplete.style.left=(quickWidth*0.07)+'px';
+			choiceComplete.style.lineHeight=(quickHeight*0.09)+'px';
+			for(var i=0;i<choiceLi.length;i++){
+				choiceLi[i].style.marginBottom=(quickHeight*0.063)+'px';
+				choiceLi[i].style.lineHeight=(quickHeight*0.07)+'px';
+			}		
+			shadow.style.display='block';			
+		}
+		
+		
+		function changeDeck(deckName){
+			//头像事件
+
+			document.getElementById('deckName').innerText=deckName;
+
+		}
+		// changeDeck('筛选牌组');
+		
+    	//<3>建立数据桥---end
+		
+		
+		//<4>编写入口方法---begin
+	    function initFirWindow(bridge, serverData){
+	        //1.加载数据，转换数据, 处理原始数据；
+			// alert(serverData == null); false
+			// alert(serverData == 'null'); true
+			if (serverData == null || serverData == 'null') {
+				preferenceData = preferenceExp;
+			}else{
+				preferenceData = JSON.parse(serverData);
+			}
+			preferenceCur = preferenceData;
+	        handleRawData(preferenceData);
+	        //2.展现数据；
+	        showAllServerData();
+	        //3.添加事件监听；
+	        addButtonsListener(bridge,preferenceData);
+	    }
+	    //<4-1>处理数据；
+	    function handleRawData(preferenceData){
+	        search1=preferenceData.search;
+		    limit1=preferenceData.limit;
+		    order1=preferenceData.order;
+		    delays1=preferenceData.delays;
+		    resched1=preferenceData.resched;
+		    stepsOn1=preferenceData.stepsOn;
+		    steps1=preferenceData.steps;
+	    }
+	    //<4-2>展现数据--begin
+	    function showAllServerData(){
+	        //搜索条件选项
+			
+			
+			//限制张数目选项
+			var info1=document.getElementById('info1');
+			info1.innerHTML=limit1;
+			
+			
+			//展示"卡片选择标准"
+			var as=document.getElementsByClassName('mytext');
+			var t=document.getElementsByClassName('mylist')[0];
+			var li=document.getElementsByClassName('myli');
+			console.log(as.length);
+			t.setAttribute('name',order1);
+			ee=as[order1].innerHTML;
+			t.innerHTML=ee;
+			for(var i=0;i<li.length;i++){
+				removeClass(li[i],'mui-selected');
+			}
+			addClass(li[order1],'mui-selected');
+			
+			//展示“重新安排学习进度”
+			var bn=document.getElementById("switch_changyongshezhi-tongbu-meiti");
+			if(resched1==false){
+				removeClass(bn,'mui-active');
+			}
+			
+			
+			
+			
+			bn.onclick=function(){
+				if(resched1){
+					resched1=false;
+				}else{
+					resched1=true;
+				}
+			}
+			
+			//自定义学习步骤：
+			var a=document.getElementById('switch_changyongshezhi-tongbu-zidong');
+			var myapp=document.getElementById('myapp');
+			var span=document.getElementById('myapp-span');
+			span.innerText =delays1;
+			if(stepsOn1){
+				myapp.style.color="#000";
+			}else{
+				myapp.style.color="#999";
+			}
+			a.onclick=function(){
+				if(stepsOn1){
+					myapp.style.color="#999999";
+					stepsOn1=false;
+				}else{
+					myapp.style.color="#000";
+					stepsOn1=true;
+				}
+			};
+	
+	    }
+	    //<4-2>展现数据--end
+	
+	    
+	    //<4-3>添加事件监听
+	    function addButtonsListener(bridge,preferenceData){
+	    		//返回按钮的监听事件；
+			document.getElementById("backToParent").addEventListener('tap', function(){
+				var valueSearch=document.getElementById('search-ipt').value;
+				if(valueSearch==""){
+					preferenceCur.search = preferenceData.search;
+				}else{
+					preferenceCur.search = valueSearch;
+				}
+				/**<js-ios>
+					bridge.callHandler('backToParent', preferenceCur, function(response) {
+	//					log('JS got response', response)
+					});
+				</js-ios>**/
+				var temp = JSON.stringify(preferenceCur);
+				window.xuming.resetPreference(temp);
+				
+			});
+			//确定筛选的监听事件
+			document.getElementById("confirmFiterBtn").addEventListener('tap', function(){
+				var valueSearch=document.getElementById('search-ipt').value;
+				if(valueSearch==""){
+					preferenceCur.search = preferenceData.search;
+				}else{
+					preferenceCur.search = valueSearch;
+				}
+				/**<js-ios>
+					bridge.callHandler('confirmFiterDecks', preferenceCur, function(response) {
+	//					log('JS got response', response)
+					});
+				</js-ios>**/
+				var temp = JSON.stringify(preferenceCur);
+				window.xuming.resetPreference(temp);
+				
+			});
+	    }
+	    
+	    
+	
+	    //<4>编写入口方法---end
+
+		
+	    //<6>其他辅助方法---begin
+	    
+		function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+		}
+		
+		function addClass(obj, cls) {//添加类名
+		    if (!this.hasClass(obj, cls)){
+		    	obj.className += " " + cls
+		    };
+		}
+		
+		function removeClass(obj, cls) {//移除类名
+		    if (hasClass(obj, cls)) {
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+		        obj.className = obj.className.replace(reg, ' ');
+		    }
+		}
+		
+		function toggleClass(obj,cls){//开关类名
+			if(hasClass(obj,cls)){
+		    	removeClass(obj, cls);
+			}else{
+		    	addClass(obj, cls);
+			}
+		}
+
+	    
+	    //主题色换肤
+		var bgColor=document.getElementsByClassName('changeColor')[0];
+		var titleBar=document.getElementsByClassName('mui-bar');
+		function changeAllColor(num){
+			if(num==0){
+				for(var i=0;i<titleBar.length;i++){
+					titleBar[i].style.backgroundColor='#444a59';
+				}			
+				bgColor.style.backgroundColor='#444a59';
+			}else{			
+				for(var i=0;i<titleBar.length;i++){
+					titleBar[i].style.backgroundColor='#3696e9';
+				}			
+				bgColor.style.backgroundColor='#3696e9';
+			}
+			
+		}
+		//changeAllColor(1);
+	    
+	    
+	    
+	    //<6>其他辅助方法---end		
+	    
+	    
+	    //<5>调用入口方法---begin
+//	    window.onload = initFirWindow(null, null);
+	    //<5>调用入口方法---end
+			
+   
+		
+	</script>
+
+</html>

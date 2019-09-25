@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/slm_lyt_head"
+        android:layout_alignStart="@id/slm_lyt_head"
+        android:layout_below="@id/slm_lyt_head"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/slide_text_shap"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/slm_iv_icon1"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon1"/>
+                <TextView
+                    android:id="@+id/slm_tv_text1"
+                    style="@style/slideTextStyle"
+                    android:text="牌组列表"
+                    android:layout_width="match_parent" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back1"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#FFBEBEBE"/>
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/slm_iv_icon2"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon1"/>
+                <TextView
+                    android:id="@+id/slm_tv_text2"
+                    style="@style/slideTextStyle"
+                    android:text="阅读制卡" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back2"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#FFBEBEBE"/>
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/slm_iv_icon3"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon3"/>
+                <TextView
+                    android:id="@+id/slm_tv_text3"
+                    style="@style/slideTextStyle"
+                    android:text="模考制卡" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back3"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#FFBEBEBE"/>
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/slm_iv_icon4"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon4"/>
+                <TextView
+                    android:id="@+id/slm_tv_text4"
+                    style="@style/slideTextStyle"
+                    android:text="卡片浏览" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back4"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#FFBEBEBE"/>
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/slm_iv_icon5"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon5"/>
+                <TextView
+                    android:id="@+id/slm_tv_text5"
+                    style="@style/slideTextStyle"
+                    android:text="学习统计" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back5"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/slide_text_shap"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/slm_iv_icon6"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon6"/>
+                <TextView
+                    android:id="@+id/slm_tv_text6"
+                    style="@style/slideTextStyle"
+                    android:text="偏好设置" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back6"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#FFBEBEBE"/>
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/slm_iv_icon7"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon7"/>
+                <TextView
+                    android:id="@+id/slm_tv_text7"
+                    style="@style/slideTextStyle"
+                    android:text="个人中心" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back7"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#FFBEBEBE"/>
+
+            <LinearLayout
+                android:id="@+id/slm_lyt_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/slidemenu_text_selector"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/slm_iv_icon8"
+                    style="@style/slideMenuLeftImgStyle"
+                    android:src="@drawable/list_icon8"/>
+                <TextView
+                    android:id="@+id/slm_tv_text8"
+                    style="@style/slideTextStyle"
+                    android:text="在线帮助" />
+
+                <ImageView
+                    android:id="@+id/slm_iv_back8"
+                    style="@style/slideImageStyle"
+                    android:src="@drawable/arrow_right_gray" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/booklist_01.css" />
+		<link rel="stylesheet" href="css/self_popup_01.css" />
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+            <!--
+             <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+            -->
+            
+<!--            
+            <a href="#lefttopPopover" class="mui-icon mui-action-menu mui-icon-home-filled mui-pull-left"></a>-->
+  
+  			<a id="homebtn" class="mui-icon mui-action-menu mui-icon-home-filled mui-pull-left"></a>
+  
+            
+			<a href="#righttopPopover" id="topright-menu" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right" style="font-weight: 900;"></a>
+			
+            
+			
+			
+			<div id="segmentedControl" class="mui-segmented-control">
+                <a id="deckreader" class="mui-control-item mui-yijiactive" href="#item1">
+                    阅读
+                </a>
+                <a id="deckpicker" class="mui-control-item" href="#item2">
+                    牌组
+                </a>
+                <a id="decktest" class="mui-control-item" href="#item3">
+                    模考
+                </a>
+			</div>
+		</header>
+		<div id="content" class="mui-content">
+			
+		
+			<ul id="bookUl" class="muibook-table-view">
+				<!--
+				 <li class="mui-table-view-cell" index="1" path="/dafa/dfafa.dfaf/df.xtx">
+					<div class="mui-slider-left mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<a class="mui-navigate-right bookli">
+							<img class="mui-media-object mui-pull-left" src="images/read01.png">
+							<div class="mui-media-body" style="color: black; width: 70%;">
+								阅读理解001
+								<p class='mui-ellipsis'>进度：34%</p>
+							</div>
+						</a>
+					</div>
+				 </li>
+				 
+                -->
+			</ul>
+			
+			<div id="bottomBar" class="bottomBar01" style="background-color:#007aff;">
+				<div class="bottomBar01_left">
+					
+                    <a id="inputdeck" class="" href="#">
+                        在线导入
+                    </a>
+                </div>
+                <div class="bottomBar01_right">
+                    <a id="sharedeck" class="" href="#">		
+                        共享文章
+                    </a>
+                    
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<!--左上角菜单-->
+		
+		<div id="lefttopPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				
+				<div class="mui-scroll">
+					
+					<ul class="mui-table-view">
+						
+						<li class="mui-table-view-cell">
+							<div id="leftpop-list" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-list icon-span"></span>
+							牌组列表</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-search" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-search icon-span"></span>
+							卡片浏览</div>
+						</li>
+						<!--<li class="mui-table-view-cell">
+							<div id="leftpop-statistics" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-refresh icon-span"></span>
+							学习统计</div>
+						</li>-->
+						<li class="mui-table-view-cell">
+							<div id="leftpop-read" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-map icon-span"></span>
+							阅读制卡</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-test" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-email icon-span"></span>
+							模考制卡</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-setting" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-gear icon-span"></span>
+							偏好设置</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-member" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-person icon-span"></span>
+							个人中心</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-help" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-help icon-span"></span>
+							在线帮助</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--右上角弹出菜单-->
+		<div id="righttopPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<div id="rightpop-filter">筛选牌组</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-datacheck">检查数据</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-mediacheck">检查媒体</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-removeempty">移除空卡</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-notemodel">笔记类型</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			var Abridge;
+			var bookUl = document.getElementById('bookUl');
+			
+			var btnArray = ['确认', '取消'];
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+			
+			
+			
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+                                         
+                //initFirWindow(bridge, null);
+                //alert(10);
+		
+  		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+                    
+                    initFirWindow(bridge, data);
+                   
+ 		        });
+
+		    });
+						
+			/**/
+			
+			/////////////////bridge/////////////////////
+			
+			function initFirWindow(bridge, treeListData_org){
+				
+				var treeListData = treeListData_org;
+				
+				treeListDataStr = '[["aaa", "aaa-AAA"], ["bbb", "bbb-BBB"]]';
+				if (treeListData_org == null) {
+					treeListData = JSON.parse(treeListDataStr);
+				}
+				
+				//alert(treeListData[0]);
+				
+				//alert(11);
+				Abridge = bridge;
+				//initDeckListFrame();
+				showFirstLevelDecks(treeListData);
+                //alert(11);
+                addButtonsListener(bridge);
+                settingPopoverMenu(bridge);
+			}
+			
+			function initDeckListFrame(){
+				// 获取窗口宽度
+				if (window.innerWidth)
+				winWidth = window.innerWidth;
+				else if ((document.body) && (document.body.clientWidth))
+				winWidth = document.body.clientWidth;
+				
+				// 获取窗口高度
+				if (window.innerHeight)
+				winHeight = window.innerHeight;
+				else if ((document.body) && (document.body.clientHeight))
+				winHeight = document.body.clientHeight;
+				// gaibian div gaodu
+				var content_A = document.getElementById("content_A");
+				var h = winHeight - 44;
+				var hei = h + "px";
+				
+				content_A.style.height = hei; 
+				//alert(hei);
+			}
+			function showFirstLevelDecks(treeListData){
+				//alert(10);
+				var content = document.getElementById("content");
+				
+				content.removeChild(bookUl);
+				
+				var newNode = document.createElement("ul");
+				  	newNode.setAttribute("id", "bookUl");
+				  	newNode.setAttribute("class", "muibook-table-view");
+				
+				var nextnode = document.getElementById("bottomBar");
+				
+				content.insertBefore(newNode,nextnode);
+				
+				bookUl = newNode;
+                
+//              var lis = document.getElementsByClassName('muibook-table-view-cell');
+//              for (var i = lis.length - 1; i >= 0; i--) {
+//                  bookUl.removeChild(lis[i]);
+//              }
+                //alert(12);
+                
+                
+				//alert(treeListData.length);
+				for (var i = 0; i < treeListData.length; i++) {
+					var book = treeListData[i];
+					name = book[0];
+					path = book[1];
+			
+					
+					var temp1 = ["<li class=\"muibook-table-view-cell\">",	
+			        			"<a index=\""+ i +"\" path=\""+ path +"\" class=\"mui-navigate-right\">",
+							name,
+							"</a>",
+						    "</li>"].join("");
+						    
+					
+					
+					var temp ='<li class="mui-table-view-cell" index="'+i+'" path="'+path+'">'
+							+'		<div class="mui-slider-left mui-disabled">'
+							+'			<a class="mui-btn mui-btn-red">删除</a>'
+							+'		</div>'
+							+'		<div class="mui-slider-handle">'
+							+'			<a class="mui-navigate-right bookli">'
+							+'				<img class="mui-media-object mui-pull-left" src="images/read01.png">'
+							+'				<div class="mui-media-body" style="color: black; width: 70%;">'
+							+                 name
+							+'					<p class="mui-ellipsis">进度：34%</p>'
+							+'				</div>'
+							+'			</a>'
+							+'		</div>'
+							+'	 </li>';
+					
+						    
+					bookUl.innerHTML += temp;
+				}
+			}
+			
+            function addButtonsListener(bridge){
+	            mui('.bottomBar01_left').on('tap','#inputdeck',function(){
+					//alert(10);
+				});
+	            mui('.bottomBar01_right').on('tap','#sharedeck',function(){
+					//alert(110);
+                    var action = 'sharebook';
+                    bridge.callHandler('sharebookjumpToOtherController', action, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+                mui('.mui-bar-nav').on('tap','#multideckopt',function(){
+                    //alert(1310);
+                });
+                
+                //////////////////segmented-control/////////////
+                                                     
+	            mui('.mui-segmented-control').on('tap','#deckreader',function(){
+                    //alert(310);
+                    var did = 10;
+                    bridge.callHandler('switch_reader', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+	            mui('.mui-segmented-control').on('tap','#deckpicker',function(){
+                    //alert(320);
+                    var did = 10;
+                    bridge.callHandler('switch_decks', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+	            mui('.mui-segmented-control').on('tap','#decktest',function(){
+					
+                    //alert(330);
+                    var did = 10;
+                    bridge.callHandler('switch_test', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+                ///////////////////Book list////////////////////////
+                mui('li').on('tap', '.bookli', function(){
+                		var linode = this.parentNode.parentNode;
+                    index = linode.getAttribute('index');
+                	path = linode.getAttribute('path');
+                	alert(1);
+                	    //alert(index + path);
+                    //bridge.callHandler('beginReadBook', path, function(response) {
+                        //log('JS got response', response)
+                    //});
+                });
+                                                     
+	             
+				///////////////////selid---li///////////////////////
+				mui('li').on('tap','#slide_1liebiao',function(){
+					alert(01);
+				}); 
+				mui('li').on('tap','#slide_2liulan',function(){
+					alert(02);
+				}); 
+				mui('li').on('tap','#slide_3denglu',function(){
+					alert(03);
+				}); 
+				mui('li').on('tap','#slide_4shezhi',function(){
+					alert(04);
+				}); 
+				mui('li').on('tap','#slide_5bangzhu',function(){
+					alert(05);
+				}); 
+				mui('li').on('tap','#slide_6fankui',function(){
+					alert(06);
+				}); 
+				///////////////////selid---delete///////////////////////
+				mui('#bookUl').on('tap', '.mui-btn', function(event) {
+					//alert(11);
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除此文章？', '亲', btnArray, function(e) {
+						if (e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+
+            }   
+            
+            
+			//////////////////////弹出菜单/////////////////////////
+			function settingPopoverMenu(bridge){
+				//alert(999);
+				///////改变弹出菜单的style///////////////////////////
+				mui('body').on('shown', '.mui-popover', function(e) {
+					//console.log('shown', e.detail.id);//detail为当前popover元素
+				});
+				mui('body').on('hidden', '.mui-popover', function(e) {
+					var ss = document.getElementsByClassName("mui-popover");
+						for (var i = 0; i < ss.length; i++) {
+							ss[i].style.height = "320px";
+							ss[i].style.width = "160px";
+						}
+					//console.log('hidden', e.detail.id);//detail为当前popover元素
+				});
+			
+				document.getElementById("topright-menu").addEventListener('tap', function(){
+					var ss = document.getElementsByClassName("mui-popover");
+					for (var i = 0; i < ss.length; i++) {
+						ss[i].style.height = "230px";
+						ss[i].style.width = "100px";
+					}
+				});
+				///////////////////弹出菜单的leftpop列表item监听//////////////
+				
+				
+				document.getElementById("homebtn").addEventListener('tap', function(){
+					alert("homebtn");
+					//hidPopoverShadow();
+					did = null;
+					bridge.callHandler('homebtn', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				
+				
+				document.getElementById("leftpop-list").addEventListener('tap', function(){
+					//alert("leftpop-list");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switch_decks', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				
+				document.getElementById("leftpop-search").addEventListener('tap', function(){
+					//alert("leftpop-search");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchBrowser', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+//				document.getElementById("leftpop-statistics").addEventListener('tap', function(){
+//					alert("leftpop-statistics");
+//					hidPopoverShadow();
+//					did = null;
+//					bridge.callHandler('switch_statistics', did, function(response) {
+//						//log('JS got response', response)
+//		            });
+//				});
+				document.getElementById("leftpop-read").addEventListener('tap', function(){
+					//alert("leftpop-read");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switch_reader', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-test").addEventListener('tap', function(){
+					//alert("leftpop-test");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switch_test', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-setting").addEventListener('tap', function(){
+					//alert("leftpop-setting");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchSetting', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-member").addEventListener('tap', function(){
+					//alert("leftpop-member");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchMyhome', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-help").addEventListener('tap', function(){
+					//alert("leftpop-help");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchHelper', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				///////////////////弹出菜单的leftpop列表item监听//////////////
+				
+				document.getElementById("rightpop-filter").addEventListener('tap', function(){
+					//alert("rightpop-filter");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-filter', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("rightpop-datacheck").addEventListener('tap', function(){
+					//alert("rightpop-datacheck");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-datacheck', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("rightpop-mediacheck").addEventListener('tap', function(){
+					//alert("rightpop-mediacheck");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-mediacheck', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("rightpop-removeempty").addEventListener('tap', function(){
+					//alert("rightpop-removeempty");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-removeempty', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				document.getElementById("rightpop-notemodel").addEventListener('tap', function(){
+					//alert("rightpop-notemodel");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-notemodel', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+			}
+			function hidPopoverShadow(){
+				//alert(444);
+				var shs = document.getElementsByClassName("mui-backdrop");
+				//alert(shs.length);
+				//var cls = shs[0].getAttribute("class");
+				//alert(cls);
+				mui.trigger(shs[0], 'tap');
+			}
+			
+            
+			window.onload = initFirWindow(null, null);
+			
+		</script>
+	</body>
+
+</html>

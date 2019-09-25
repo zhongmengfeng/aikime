@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<style>
+			body{
+				background-color: #fff;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item{
+				background-color:#fff ;
+			}
+			.chart {
+				height: 250px;
+				margin: 0px;
+				padding: 0px;
+			}
+			h1 {
+				font-size:4vw;
+				text-align: center;
+				color:#000;
+			}
+			p{
+				font-size: 3vw;
+				text-align: center;
+				color:#000;
+			}
+			.mui-table-view-cell{
+				margin-top: 50px;
+			}
+			.mui-slider-indicator{
+				position: absolute;
+				top:10px;
+				left:0;
+			}
+			.mui-table-view-cell{
+				margin-top: 20px;
+			}
+			.day{
+				position: absolute;
+			    top: 60%;
+			    left: 50%;
+			    color: #545454;			    
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="Gallery" class="mui-slider">
+				<div class="mui-slider-group">
+					<div class="mui-slider-item">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<h1>评论计数</h1>
+								<p>已经回答的问题的数量</p>
+								<div class="chart" id="main1"></div>
+								<!--<p class="day">天</p>-->
+							</li>
+						</ul>
+					</div>
+					<div class="mui-slider-item">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<h1>预测</h1>
+								<p>将来到期的复习 的数目</p>
+								<div class="chart" id="main2"></div>
+								<p class="day">天</p>   
+							</li>
+						</ul>
+					</div>
+					<div class="mui-slider-item">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<h1>复习时间</h1>
+								<p>答题用时</p>
+								<div class="chart" id="main3"></div>
+								<p class="day">天</p>
+							</li>
+
+						</ul>
+					</div>
+					<div class="mui-slider-item">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<h1>间隔</h1>
+								<p>延迟直到复习再次出现</p>
+								<div class="chart" id="main4"></div>
+								<p class="day">天</p>
+							</li>
+
+						</ul>
+					</div>
+					<div class="mui-slider-item">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<h1>每小时的分析</h1>
+								<p>当天每小时的复习成功率</p>
+								<div class="chart" id="main5"></div>
+								<p class="day">点</p>
+							</li>
+
+						</ul>
+					</div>
+					<div class="mui-slider-item">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<h1>卡片类型</h1>
+								<p>牌组中的记忆库类型</p>
+								<div class="chart" id="main6"></div>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>
+<script src="js/mui.min.js"></script>
+<script src="libs/echarts-all.js"></script>
+<script>
+
+	//第一张------------------------------------------------------
+ 	var myChart1 = echarts.init(document.getElementById('main1'));
+	var myChart2 = echarts.init(document.getElementById('main2'));
+	var myChart3 = echarts.init(document.getElementById('main3'));
+	var myChart4 = echarts.init(document.getElementById('main4'));
+	var myChart5 = echarts.init(document.getElementById('main5'));
+	var myChart6 = echarts.init(document.getElementById('main6'));
+	
+	var chart={
+		"chart1":[
+			[
+				-31,-30,-29,-28,-27,-26,-25,-24,-23,-22,-21,-20,-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,7,8,0,9,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,8,16,16,25,25,25,25,25,25,25,25,25,25,25,25
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,8,16,0,10,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,9,9,10,10,10,10,10,10,10,10,10,10,10,10
+			],
+			[
+				20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,37,28,106,0,49,0,0,6,0,1,0,0,1,0,0,0
+			],
+			[
+				20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,39,76,96,186,186,225,225,225,231,231,232,232,232,233,233,233,233
+			],
+			[
+				-31,0,4,0,137.5500030517578,27.5,0,244.64999389648438,48.900001525878906
+			]
+		],
+		"chart2":[
+			[
+				0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
+			],
+			[
+				0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,0,3,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,0,75,75,75,75,75,75,75,76,76,76,76,76,77,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78
+			],
+			[
+				0,31,4,0,4.199999809265137,0.800000011920929,0,81.9000015258789,16.399999618530273
+			]
+		],
+		"chart3":[
+			[
+				-31,-30,-29,-28,-27,-26,-25,-24,-23,-22,-21,-20,-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.05000000074505806,1.9833333492279053,0,0.699999988079071,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.05000000074505806,2.0333333015441895,2.0333333015441895,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053,2.7333333492279053
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.06666667014360428,2.25,0,0.699999988079071,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.01666666753590107,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184,0.28333333134651184
+			],
+			[
+				0.36666667461395264,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1.7333333492279053,2.5333333015441895,0.699999988079071,10.600000381469727,0,3.433333396911621,0,0,0.30000001192092896,0,0.0833333358168602,0,0,1,0,0,0
+			],
+			[
+				0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,0.36666667461395264,2.0999999046325684,4.633333206176758,5.266666889190674,13.616666793823242,13.616666793823242,16.350000381469727,16.350000381469727,16.350000381469727,16.649999618530273,16.649999618530273,16.733333587646484,16.733333587646484,16.733333587646484,17.733333587646484,17.733333587646484,17.733333587646484,17.733333587646484
+			],
+			[
+				-31,0,4,0,15.574999809265137,3.0999999046325684,0,18.6200008392334,3.700000047683716
+			]
+		],
+		"chart4":[
+			[
+				0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
+			],
+			[
+				0,19,2,17,17,13,1,4,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0
+			],
+			[
+				0,23.456790924072266,25.925926208496094,46.91358184814453,67.90123748779297,83.95061492919922,85.18518829345703,90.12345886230469,90.12345886230469,90.12345886230469,90.12345886230469,90.12345886230469,90.12345886230469,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,92.59259033203125,93.82716369628906,93.82716369628906,93.82716369628906,95.06172943115234,96.29629516601563,96.29629516601563,96.29629516601563
+			],
+			[
+				0,31,4,0,19.950000762939453,4,0,100,20
+			]
+		],
+		"chart5":[
+			[
+				0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			[
+				0,23,4,0,0,0,0,10.5,2.0999999046325684
+			]
+		],
+		"chart6":[
+			32,1,0,0
+		]
+	}
+function one(arr1){ 
+	arrChange=arr1[7];
+	var n;
+	var m;
+	var arrSmall1=Math.ceil(arrChange[5]);
+	var arrSmall2=Math.ceil(arrChange[8]);
+	var arrLarge1=Math.ceil(arrChange[4]);
+	var arrLarge2=Math.ceil(arrChange[7]);
+
+	if(arrLarge1==0 || arrSmall1==0){
+		n=0;			
+	}
+	else{
+		n=Math.ceil(arrLarge1/arrSmall1);
+		if(arrLarge1%n!=0){
+			arrLarge1=arrLarge1-arrLarge1%n+n;			
+		}
+	}
+
+	if(arrLarge2==0 || arrSmall2==0){
+		m=0;
+	}
+	else{
+		m=Math.ceil(arrLarge2/arrSmall2);
+		if(arrLarge2%m!=0){
+			arrLarge2=arrLarge2-arrLarge2%m+m;
+		}
+	}
+	
+	var option1= {
+		grid:{
+			x:30,
+   			x2:30,
+   			y:25,
+//			width:'40%',
+			height:'36%'
+		},
+    tooltip: {
+        trigger: 'axis'
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    color:['#77cc77','#cc0000','#0000ff'],
+    legend: {
+    	
+        data:['年轻','重新学习','学习']
+    },
+    xAxis: [
+        {
+        	name:'天',
+        	nameLocation:'end',
+        	nameTextStyle:{
+        		color:'#545454',       		
+        	},
+        	axisTick:{
+        		show:false
+        	},
+        	axisLabel: {
+        		interval: arrChange[2]-1,
+        		margin:7,
+                textStyle:{
+                	color:'#545454'
+                }
+    		},
+    		splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            type: 'category',
+            data:arr1[0]
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '答案',
+//          nameLocation:'end',
+            nameTextStyle:{
+            	color:'#000',
+//          	fontWeight:'bolder'
+//          	fontSize:13
+            },
+//          nameGap:60,
+//			nameRotate:180,
+            min: arrChange[3],
+            max: arrLarge1,
+//          scale:3,
+//			minInterval: 1,
+            splitNumber:n,
+            splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        },
+        {
+            type: 'value',
+            name: '累计回答',
+            nameTextStyle:{
+            	color:'#000',
+//          	fontWeight:'bolder'
+//          	fontSize:'2vw'
+            },
+            min: arrChange[6],
+            max: arrLarge2,
+            splitNumber:m,
+            splitLine:{ show:false},
+            axisTick: {
+         		show: true,
+         		lineStyle:{
+         			color:'#d3d3d3'
+         		}
+			},
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        }
+    ],
+    series: [
+        {
+            name:'年轻',
+            type:'bar',
+//          "stack": 'sum',
+            stack:'总量',
+            color: '#77cc77',
+            data:arr1[1]
+        },
+        {
+            name:'年轻',
+            type:'line',
+            color: '#77cc77',
+            yAxisIndex: 1,
+            data:arr1[2]
+        },
+        {
+            name:'重新学习',
+            type:'bar',
+            stack: '总量',
+            color: '#cc0000',
+            
+            data:arr1[3]
+        },
+        {
+            name:'重新学习',
+            type:'line',
+            color: '#cc0000',
+            yAxisIndex: 1,
+            data:arr1[4]
+        },
+        {
+            name:'学习',
+            type:'bar',
+            stack: '总量',
+//          symbol:'none',
+			color: '#0000ff',
+            data:arr1[5]
+        },
+        {
+            name:'学习',
+            type:'line',
+//          symbol:'none',
+			color: '#0000ff',
+            yAxisIndex: 1,
+            data:arr1[6]
+        }
+    ]
+};
+	myChart1.setOption(option1);
+	window.onresize = myChart1.resize;//自适应
+}
+	//myChart.setOption(option);
+
+
+function initOneChart(arr){
+	one(arr);
+}
+
+	//第二张-------------------------------------------------------
+
+	
+	
+//	arr2=chart.chart2;
+
+	function two(arr2){
+		arrChange=arr2[4];
+		
+		var n;
+		var m;
+		var arrSmall1=Math.ceil(arrChange[5]);
+		var arrSmall2=Math.ceil(arrChange[8]);
+		var arrLarge1=Math.ceil(arrChange[4]);
+		var arrLarge2=Math.ceil(arrChange[7]);
+	
+		if(arrLarge1==0 || arrSmall1==0){
+			n=0;			
+		}
+		else{
+			n=Math.ceil(arrLarge1/arrSmall1);
+			if(arrLarge1%n!=0){
+				arrLarge1=arrLarge1-arrLarge1%n+n;			
+			}
+		}
+	
+		if(arrLarge2==0 || arrSmall2==0){
+			m=0;
+		}
+		else{
+			m=Math.ceil(arrLarge2/arrSmall2);
+			if(arrLarge2%m!=0){
+				arrLarge2=arrLarge2-arrLarge2%m+m;
+			}
+		}
+		
+
+		var option2 = {
+		grid:{
+			x:30,
+   			x2:30,
+   			y:25,
+//			width:'40%',
+			height:'36%'
+		},
+    tooltip: {
+        trigger: 'axis'
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    color:['#007700','#77cc77','#181818'],
+    legend: {
+    	
+        data:['成熟','年轻','累计']
+    },
+    xAxis: [
+        {
+        	name:'天',
+        	nameLocation:'end',
+        	nameTextStyle:{
+        		color:'#545454',       		
+        	},
+        	axisTick:{
+        		show:false
+        	},
+        	axisLabel: {
+        		interval: arrChange[2]-1,
+        		margin:7,
+                textStyle:{
+                	color:'#545454'
+                }
+    		},
+    		splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            type: 'category',
+            data:arr2[0]
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '卡片',
+//          nameLocation:'end',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+//          nameGap:60,
+//			nameRotate:180,
+            min: arrChange[3],
+            max: arrLarge1,
+//          scale:3,
+//			minInterval: 1,
+            splitNumber:n,
+            splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        },
+        {
+            type: 'value',
+            name: '累计卡片',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+            min: arrChange[6],
+            max: arrLarge2,
+            splitNumber:m,
+            splitLine:{ show:false},
+            axisTick: {
+         		show: true,
+         		lineStyle:{
+         			color:'#d3d3d3'
+         		}
+			},
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        }
+    ],
+    series: [
+        {
+            name:'成熟',
+            type:'bar',
+            stack:'总量',
+            color: '#007700',
+//          barWidth:13,
+//          itemStyle: {
+//                  normal: {
+//　　　　　　　　　　　　　　
+//                      color: '#007700',
+//　　　　　　　　　　　　　　//以下为是否显示，显示位置和显示格式的设置了
+//                      label: {
+//                          formatter: '{b}\n{c}'
+//                      }
+//                  }
+//              },
+            data:arr2[1]
+        },
+        {
+            name:'年轻',
+            type:'bar',
+            stack: '总量',
+            color: '#77cc77',
+            
+            data:arr2[2]
+        },
+        {
+            name:'累计',
+            type:'line',
+//          symbol:'none',
+			color: '#181818',
+            yAxisIndex: 1,
+            data:arr2[3]
+        }
+    ]
+};
+	myChart2.setOption(option2);
+	window.onresize = myChart2.resize;//自适应
+	}
+function initTwoChart(arr){	
+	two(arr);
+}
+
+
+
+
+
+	//第三张
+	
+//	arr3=chart.chart3;
+
+	function three(arr3){
+		arrChange=arr3[7];
+		
+		var n;
+		var m;
+		var arrSmall1=Math.ceil(arrChange[5]);
+		var arrSmall2=Math.ceil(arrChange[8]);
+		var arrLarge1=Math.ceil(arrChange[4]);
+		var arrLarge2=Math.ceil(arrChange[7]);
+	
+		if(arrLarge1==0 || arrSmall1==0){
+			n=0;			
+		}
+		else{
+			n=Math.ceil(arrLarge1/arrSmall1);
+			if(arrLarge1%n!=0){
+				arrLarge1=arrLarge1-arrLarge1%n+n;			
+			}
+		}
+	
+		if(arrLarge2==0 || arrSmall2==0){
+			m=0;
+		}
+		else{
+			m=Math.ceil(arrLarge2/arrSmall2);
+			if(arrLarge2%m!=0){
+				arrLarge2=arrLarge2-arrLarge2%m+m;
+			}
+		}
+		
+		var option3 = {
+		grid:{
+			x:30,
+   			x2:30,
+   			y:25,
+//			width:'40%',
+			height:'36%'
+		},
+    tooltip: {
+        trigger: 'axis'
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    color:['#77cc77','#cc0000','#0000ff'],
+    legend: {
+    	
+        data:['年轻','重新学习','学习']
+    },
+    xAxis: [
+        {
+        	name:'天',
+        	nameLocation:'end',
+        	nameTextStyle:{
+        		color:'#545454',       		
+        	},
+        	axisTick:{
+        		show:false
+        	},
+        	axisLabel: {
+        		interval: arrChange[2]-1,
+        		margin:7,
+                textStyle:{
+                	color:'#545454'
+                }
+    		},
+    		splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            type: 'category',
+            data:arr3[0]
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '分钟',
+//          nameLocation:'end',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+//          nameGap:60,
+//			nameRotate:180,
+            min: arrChange[3],
+            max: arrLarge1,
+//          scale:3,
+//			minInterval: 1,
+            splitNumber:n,
+            splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        },
+        {
+            type: 'value',
+            name: '总和分钟',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+            min: arrChange[6],
+            max: arrLarge2,
+            splitNumber:m,
+            splitLine:{ show:false},
+            axisTick: {
+         		show: true,
+         		lineStyle:{
+         			color:'#d3d3d3'
+         		}
+			},
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        }
+    ],
+    series: [
+        {
+            name:'年轻',
+            type:'bar',
+            stack:'总量',
+            color: '#77cc77',
+            data:arr3[1]
+        },
+        {
+            name:'年轻',
+            type:'line',
+            color: '#77cc77',
+            yAxisIndex: 1,
+            data:arr3[2]
+        },
+        {
+            name:'重新学习',
+            type:'bar',
+            stack: '总量',
+            color: '#cc0000',
+            
+            data:arr3[3]
+        },
+        {
+            name:'重新学习',
+            type:'line',
+            color: '#cc0000',
+            yAxisIndex: 1,
+            data:arr3[4]
+        },
+        {
+            name:'学习',
+            type:'bar',
+            stack: '总量',
+//          symbol:'none',
+			color: '#0000ff',
+            data:arr3[5]
+        },
+        {
+            name:'学习',
+            type:'line',
+//          symbol:'none',
+			color: '#0000ff',
+            yAxisIndex: 1,
+            data:arr3[6]
+        }
+    ]
+};
+	myChart3.setOption(option3);
+	window.onresize = myChart3.resize;//自适应
+	}
+function initThreeChart(arr){
+	three(arr);
+}
+
+
+
+
+
+
+
+
+	//第四张---------------------------------------------------
+	 	
+//	arr4=chart.chart4;
+function four(arr4){
+	arrChange=arr4[3];
+	var n;
+	var m;
+	var arrSmall1=Math.ceil(arrChange[5]);
+	var arrSmall2=Math.ceil(arrChange[8]);
+	var arrLarge1=Math.ceil(arrChange[4]);
+	var arrLarge2=Math.ceil(arrChange[7]);
+
+	if(arrLarge1==0 || arrSmall1==0){
+		n=0;			
+	}
+	else{
+		n=Math.ceil(arrLarge1/arrSmall1);
+		if(arrLarge1%n!=0){
+			arrLarge1=arrLarge1-arrLarge1%n+n;			
+		}
+	}
+
+	if(arrLarge2==0 || arrSmall2==0){
+		m=0;
+	}
+	else{
+		m=Math.ceil(arrLarge2/arrSmall2);
+		if(arrLarge2%m!=0){
+			arrLarge2=arrLarge2-arrLarge2%m+m;
+		}
+	}
+	
+	var option4 = {
+		grid:{
+			x:30,
+   			x2:30,
+   			y:25,
+//			width:'40%',
+			height:'36%'
+		},
+    tooltip: {
+        trigger: 'axis'
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    color:['#489c9c','#181818'],
+//  legend: {
+//  	
+//      data:['成熟','年轻','累计']
+//  },
+    xAxis: [
+        {
+        	name:'天',
+        	nameLocation:'end',
+        	nameTextStyle:{
+        		color:'#545454',       		
+        	},
+        	axisTick:{
+        		show:false
+        	},
+        	axisLabel: {
+        		interval: arrChange[2]-1,
+        		margin:7,
+                textStyle:{
+                	color:'#545454'
+                }
+    		},
+    		splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            type: 'category',
+            data:arr4[0]
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '卡片',
+//          nameLocation:'end',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+//          nameGap:60,
+//			nameRotate:180,
+            min: arrChange[3],
+            max: arrLarge1,
+//          scale:3,
+//			minInterval: 1,
+            splitNumber:n,
+            splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        },
+        {
+            type: 'value',
+            name: '百分比',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+            min: arrChange[6],
+            max: arrLarge2,
+            splitNumber:m,
+            splitLine:{ show:false},
+            axisTick: {
+         		show: true,
+         		lineStyle:{
+         			color:'#d3d3d3'
+         		}
+			},
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        }
+    ],
+    series: [
+        {
+            type:'bar',
+            color: '#489c9c',
+//          barWidth:13,
+//          itemStyle: {
+//                  normal: {
+//　　　　　　　　　　　　　　
+//                      color: '#007700',
+//　　　　　　　　　　　　　　//以下为是否显示，显示位置和显示格式的设置了
+//                      label: {
+//                          formatter: '{b}\n{c}'
+//                      }
+//                  }
+//              },
+            data:arr4[1]
+       },
+        {
+            type:'line',
+//          symbol:'none',
+			color: '#181818',
+            yAxisIndex: 1,
+            data:arr4[2]
+        }
+    ],
+    visualMap:[
+    	{
+    		calculable:false
+    	}
+    ]
+};
+	myChart4.setOption(option4);
+	window.onresize = myChart4.resize;//自适应
+}
+	//myChart4.setOption(option4);
+
+
+function initFourChart(arr){
+	four(arr);
+}
+
+
+
+
+
+
+	//第五张------------------------------------------------
+	
+
+//	arr5=chart.chart5;
+function five(arr5){
+	arrChange=arr5[3];
+	
+	var n;
+	var m;
+	var arrSmall1=Math.ceil(arrChange[5]);
+	var arrSmall2=Math.ceil(arrChange[8]);
+	var arrLarge1=Math.ceil(arrChange[4]);
+	var arrLarge2=Math.ceil(arrChange[7]);
+
+	if(arrLarge1==0 || arrSmall1==0){
+		n=0;			
+	}
+	else{
+		n=Math.ceil(arrLarge1/arrSmall1);
+		if(arrLarge1%n!=0){
+			arrLarge1=arrLarge1-arrLarge1%n+n;			
+		}
+	}
+
+	if(arrLarge2==0 || arrSmall2==0){
+		m=0;
+	}
+	else{
+		m=Math.ceil(arrLarge2/arrSmall2);
+		if(arrLarge2%m!=0){
+			arrLarge2=arrLarge2-arrLarge2%m+m;
+		}
+	}
+
+	var option5 = {
+		grid:{
+			x:30,
+   			x2:30,
+   			y:25,
+//			width:'40%',
+			height:'36%'
+		},
+    tooltip: {
+        trigger: 'axis'
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    color:['rgba(0,0,0, .8)','rgba(0,0,0, .4)'],
+    legend: {
+    	
+        data:['%正确','答案']
+    },
+    xAxis: [
+        {
+        	name:'天',
+        	nameLocation:'end',
+        	nameTextStyle:{
+        		color:'#545454',       		
+        	},
+        	axisTick:{
+        		show:false
+        	},
+        	axisLabel: {
+        		interval: arrChange[2]-1,
+        		margin:7,
+                textStyle:{
+                	color:'#545454'
+                }
+    		},
+    		splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            type: 'category',
+            data:arr5[0]
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '%正确',
+//          nameLocation:'end',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+//          nameGap:60,
+//			nameRotate:180,
+            min: arrChange[3],
+            max: arrLarge1,
+//          scale:3,
+//			minInterval: 1,
+            splitNumber:n,
+            splitLine:{ 
+            	lineStyle:{
+            		color:'#d2d2d2'
+            	}
+            },
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        },
+        {
+            type: 'value',
+            name: '答案',
+            nameTextStyle:{
+            	color:'#000',
+            	fontWeight:'bolder',
+            	fontSize:'2vw'
+            },
+            min: arrChange[6],
+            max: arrLarge2,
+            splitNumber:m,
+            splitLine:{ show:false},
+            axisTick: {
+         		show: true,
+         		lineStyle:{
+         			color:'#d3d3d3'
+         		}
+			},
+            axisLabel: {
+                formatter: '{value}',
+                margin:6,
+                textStyle:{
+                	color:'#545454'
+                }
+            }
+        }
+    ],
+    series: [
+        {
+            name:'%正确',
+            type:'bar',
+            stack: '总量',
+            color:'rgba(0,0,0, .8)',
+            markArea: {
+                data: [ [{
+                    name: '早高峰',
+                    xAxis: '10天'
+                }, {
+                    xAxis: '15天'
+                }], [{
+                    name: '晚高峰',
+                    xAxis: '20天'
+                }, {
+                    xAxis: '25天'
+                }]               
+                ]
+            },
+//          barCategoryGap:'0%',
+            barWidth:30,
+//          itemStyle: {
+//                  normal: {
+//　　　　　　　　　　　　　　
+//                      color: '#007700',
+//　　　　　　　　　　　　　　//以下为是否显示，显示位置和显示格式的设置了
+//                      label: {
+//                          formatter: '{b}\n{c}'
+//                      }
+//                  }
+//              },
+            data:arr5[1]
+        },
+        {
+            name:'答案',
+            type:'bar',
+            stack: 'fen量',
+            yAxisIndex: 1,
+//          barCategoryGap:'0%',
+            barWidth:10,
+            color: 'rgba(0,0,0, .4)',
+            
+            data:arr5[2]
+        }
+    ]
+};
+	myChart5.setOption(option5);
+	window.onresize = myChart5.resize;//自适应
+}
+	//myChart5.setOption(option5);
+
+
+function initFiveChart(arr){
+	five(arr);
+}
+
+
+
+
+
+
+
+	//第六张------------------------------------------------------
+function six(arr6){
+	var option6 = {
+
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+
+    visualMap: {
+        show: false,
+        min: 80,
+        max: 600,
+        inRange: {
+            colorLightness: [0, 1]
+        }
+    },
+   	legend: {
+    	
+        data:['未看','学习','熟练','暂停']
+    },
+    color:['#000', '#77cc77','#007700','#ffff00'],
+    series : [
+        {
+            name: '卡片类型',
+            type: 'pie',
+            hoverAnimation:true,
+            label:{
+            	normal:{
+            		show:false,
+            		length:0
+            	}
+            },
+            radius : '55%',
+            center: ['50%', '60%'],
+            data: [{
+				value: arr6[0],
+				name: '未看',
+				selected:true
+			}, {
+				value: arr6[1],
+				name: '学习',
+				selected:true
+			}, {
+				value: arr6[2],
+				name: '熟练',
+				selected:true
+			}, {
+				value: arr6[3],
+				name: '暂停',
+//				selected:true
+			}],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+
+}
+	myChart6.setOption(option6);
+	window.onresize = myChart6.resize;//自适应
+}
+////	arr6=chart.chart6;
+//
+	//var option6 = {
+//  title : {
+//      text: '南丁格尔玫瑰图',
+//      subtext: '纯属虚构',
+//      x:'center'
+//  },
+//  tooltip : {
+//      trigger: 'item',
+//      formatter: "{a} <br/>{b} : {c} ({d}%)"
+//  },
+//  legend: {
+//      x : 'center',
+//      y : 'bottom',
+//      data:['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8']
+//  },
+//  toolbox: {
+//      show : true,
+//      feature : {
+//          mark : {show: true},
+//          dataView : {show: true, readOnly: false},
+//          magicType : {
+//              show: true,
+//              type: ['pie', 'funnel']
+//          },
+//          restore : {show: true},
+//          saveAsImage : {show: true}
+//      }
+//  },
+//  calculable : true,
+//  series : [
+//      {
+//          name:'半径模式',
+//          type:'pie',
+//          radius : [20, 110],
+//          center : ['25%', '50%'],
+//          roseType : 'radius',
+//          label: {
+//              normal: {
+//                  show: false
+//              },
+//              emphasis: {
+//                  show: true
+//              }
+//          },
+//          lableLine: {
+//              normal: {
+//                  show: false
+//              },
+//              emphasis: {
+//                  show: true
+//              }
+//          },
+//          data:[
+//              {value:10, name:'rose1'},
+//              {value:5, name:'rose2'},
+//              {value:15, name:'rose3'},
+//              {value:25, name:'rose4'},
+//              {value:20, name:'rose5'},
+//              {value:35, name:'rose6'},
+//              {value:30, name:'rose7'},
+//              {value:40, name:'rose8'}
+//          ]
+//      },
+//      {
+//          name:'面积模式',
+//          type:'pie',
+//          radius : [30, 110],
+//          center : ['75%', '50%'],
+//          roseType : 'area',
+//          data:[
+//              {value:10, name:'rose1'},
+//              {value:5, name:'rose2'},
+//              {value:15, name:'rose3'},
+//              {value:25, name:'rose4'},
+//              {value:20, name:'rose5'},
+//              {value:35, name:'rose6'},
+//              {value:30, name:'rose7'},
+//              {value:40, name:'rose8'}
+//          ]
+//      }
+//  ]
+//};
+
+//myChart6.setOption(option6);
+
+
+function initSixChart(arr){
+	six(arr);
+}
+
+
+function initAllChart(chartData){
+
+	chartData = JSON.parse(chartData);
+	if (chartData == null) {
+		chartData = chart;
+	}
+	initOneChart(chartData.chart1);
+	initTwoChart(chartData.chart2);
+	initThreeChart(chartData.chart3);
+	initFourChart(chartData.chart4);
+	initFiveChart(chartData.chart5);
+	initSixChart(chartData.chart6);
+}
+
+//window.onload=initAllChart(null);
+
+</script>

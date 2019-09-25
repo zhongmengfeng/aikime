@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/myown_center_01.css">
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/booklist_01.css" />
+		<link rel="stylesheet" href="css/test_real.css" />
+		
+		<style>
+		body{
+			background-color: #444a59;
+		}
+			.return{
+				width: 100px;
+				height: 44px;
+				display:inline-block;
+			}
+			.outDiv{
+				
+			    /*height: 572px;*/
+			}
+			.answerList a{
+				line-height: 20px;
+				height: 20px;
+			}
+			.leftIcon{
+				width: 34%;
+				display: inline-block;
+			}
+			.leftIcon img{
+				width: 100%;
+				margin-bottom: 4px;
+			}
+			.adjust button{
+				display:block ;
+				font-size: 13px;
+				border: 0;
+				padding: 0;
+				line-height: 28px;
+				border-radius: 0;
+			}
+			.adjust button a{
+				border-bottom: 1px solid #3696e9;
+				color: #3696e9;
+			}
+			/*.jindutiao{
+				width: 61%;
+				height: 5px;
+				background-color: #fff;
+				display: inline-block;
+				position: absolute;
+			    top: 19px;
+			    left: 60px;
+			    border-radius: 2px;
+			}
+			.jin{
+				width: 5px;
+				height: 8px;
+				background-color: #f48fb1;
+				display: inline-block;
+				position: absolute;
+			    top: 17px;
+			    left: 110px;
+			    border-radius: 2px;
+			}*/
+			.test{  
+			   width: 61%; 
+			   background-color: #fff;  
+			   height:5px;  
+			   position: absolute;
+			   top: 19px;
+			   left: 60px;
+			   border-radius: 2px;
+			   display: inline-block;
+			} 
+			#progress{  
+			   background:#3696e9;  
+			   float:left;
+			   height:5px;  
+			   line-height:25px; 
+			   text-align:center; 
+			   /*border-radius: 2px;*/ 		   
+			}  
+			.box{
+				overflow-x: hidden;
+				overflow-y: scroll;
+				position: relative;
+				padding: 15px;
+			    margin: 0 15px;
+			    background-color: #fff;
+			    border-radius: 7px;
+			    margin-top: 49px;
+			}
+			.shadowclass{
+				position: fixed;
+				bottom:0;
+				left: 0;
+				background-color: rgba(0, 0, 0,0.5);
+			}
+			.count{
+				position: absolute;
+				top:6px;
+				right: 15px;
+			}
+			#priv{
+				height: 40px;
+			    width: 100%;
+			    font-size: 15px;
+			    border: 0px solid #f48fb1 !important;
+			    background-color: #f48fb1 !important;
+			}
+			#next{
+				height: 40px;
+				width: 100%;
+				font-size: 15px;
+				border: 0px solid #3696e9 !important;
+				background-color: #3696e9 !important;
+			}
+			.littleDiv{
+				width: 5px;
+				height: 8px;
+				display: inline-block;
+				background-color: #f48fb1;
+				border-radius: 2px;
+				position: absolute;
+				top: -1px;
+			} 
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav headerbar">
+		    <a id="backToParent" class="return"><img src="images/returnIcon.png" class="home-return" /></a>
+		    <span class="testname"></span>
+		    <div class ="test">  
+			    <div id="progress" style="width:0%" style="position: relative;"></div>
+			    <!--<span class="littleDiv"></span>-->
+			</div> 
+		    <span class="count">
+				<img src="images/colloct1.png" style="width: 22px;">
+			</span>
+		</header>
+		<div class="box" style="">
+			<div class="outDiv headerbar">
+			<div id="content" class="mui-content">
+				<div class="" style="background: white;">
+					<div class="question" id="question">
+						<!--186.机动车在道路上发生故障难以移动以后要将车后50米设置警告标志是（ ）。-->
+					</div>
+					<div id="img" class="bakimg"width="100%">
+						<!--<img src="images/cbd.jpg" width="100%"/>-->
+					</div>
+				</div>
+				<!--
+				<h5 class="mui-content-padded">请选择答案：</h5>
+	            -->
+				
+				<div id="answer" class="answer">
+					<!--
+					<div class="">
+						<a href="#">
+							<p>
+								<span class="first mui-icon mui-icon-close-filled"></span>
+								<span>A:&nbsp;图标图标标图左;</span>
+							</p>
+						</a>
+					</div>
+					<div class="">
+						<a href="#">
+							<p>
+								<span class="first mui-icon mui-icon-close-filled"></span>
+								<span>B:&nbsp;图标图左图标图左;</span>
+							</p>
+						</a>
+					</div>
+					<div class="">
+						<a href="#">
+							<p>
+								<span class="first mui-icon mui-icon-close-filled"></span>
+								<span>C:&nbsp;图标图标图左;</span>
+							</p>
+						</a>
+					</div>
+					<div class="">
+						<a href="#">
+							<p>
+								<span class="first mui-icon mui-icon-close-filled"></span>
+								<span>D:&nbsp;图标图标图标图左;</span>
+							</p>
+						</a>
+					</div>
+					<div class="">
+						<a href="#">
+							<p>
+								<span class="select mui-icon mui-icon-close-filled"></span>
+								<span>E:&nbsp;图标图标图标图左;</span>
+							</p>
+						</a>
+					</div>
+					-->
+				</div>
+			
+               
+			
+			
+			
+				
+			
+			
+				
+			</div>
+			
+			<div id="adjust">
+				
+				<div id="adjust_err">
+					<div style="height: 24px;line-height: 24px;">
+						<span class="leftIcon"><img src="images/left.png" /></span>
+						<span>答案解析</span>
+						<span class="leftIcon"><img src="images/right.png" /></span>
+					</div>
+					
+					<span class="adjust adjust-err">
+			        		<span class="tishi">正确答案</span>
+			        		<span id="right-answer" style="color: #3696e9;font-size: 15px;">C</span>
+			        		<span class="tishi" style="padding-left: 26px;">你的答案</span>
+			        		<span id="right-answer" style="color: #ed5565;font-size: 15px;" class="errChoose">D</span>
+			        		<button id="show-explain1" type="button" class="mui-btn mui-btn-blue mui-btn-outlined"><a>试题解释</a></button>
+			        </span>
+				</div>
+				
+				<div id="adjust_suc">
+					<div style="height: 24px;line-height: 24px;">
+						<span class="leftIcon"><img src="images/left.png" /></span>
+						<span>答案解析</span>
+						<span class="leftIcon"><img src="images/right.png" /></span>
+					</div>
+					<span class="adjust adjust-suc">
+			        		<span class="tishi">恭喜你，答对了！</span>
+			        		<button id="show-explain2" type="button" class="mui-btn mui-btn-blue mui-btn-outlined"><a>试题解释</a></button>
+			        </span>
+				</div>
+			</div>
+		
+			<div id="explain">
+		        <div class="mui-collapse-content" style="padding-bottom: 0; color: black;">
+					<div class="">
+						<div class="" style="color: black;">
+							<p style="color: #0c0e10;font-size: 13px;line-height: 17px;margin-bottom: 47px;">
+								<!--<span class="label" style="color: green;">解析:</span>-->
+								<span id="exp" style="line-height: 17px;">
+								机动车在道路上发生故障难以移动以后要将车后50米设置警告标志。正确，机动车在道路上发生故障难以移动以后要将车后50米设置警告标志。
+								</span>
+							</p>
+						</div>
+					</div>	
+				</div>
+			</div>
+
+		</div>				
+		<div id="shadow" class="shadowclass">
+			
+		</div>
+		</div>
+		<div id="bottomBar" class="bottomBar01" style="line-height: 40px;">
+			<div class="mui-pull-left" style="float: left;width: 43%;margin-right: 6%;">
+				<button id="priv" type="button" class="mui-btn mui-btn-danger">上一题<tton>
+			</div>
+				
+			<div class="mui-pull-right" style="float: left;width: 43%;">
+				<button id="next" type="button" class="mui-btn mui-btn-blue">下一题<tton>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			var Abridge;
+			var shitiData;
+			var shitiDataStr;
+			var shitiDataStr1 = '[{"answer":"C","img":"http://ww1.sinaimg.cn/mw240/00696Fn5jw1eu60av7h33j30g3082gml.jpg","second":"10年内","id":"10","fourth":"20年内","third":"终生","question":"3/1310  机动车驾驶人造成事故后逃逸构成犯罪的，吊销驾驶证且多长时间不得重新取得驾驶证？","explain":"《道路交通安全法》第一百零一条：造成交通事故后逃逸的，由公安机关交通管理部门吊销机动车驾驶证，且终生不得重新取得机动车驾驶证。","type":"1","first":"5年内"},{"answer":"B","img":"","second":"错误","id":"11","fourth":null,"third":"","question":"4/1310  驾驶机动车违反道路交通安全法律法规发生交通事故属于交通违章行为。","explain":"“违反道路交通安全法”，违反法律法规即为违法行为。官方已无违章/违规的说法。","type":"0","first":"正确"},{"answer":"A","img":"","second":"错误","id":"12","fourth":null,"third":"","question":"5/1310  驾驶机动车在道路上违反道路通行规定应当接受相应的处罚。","explain":"常识题，犯错就得接受相应的处罚。","type":"0","first":"正确"},{"answer":"A","img":"","second":"使用所学车型的教练车单独驾驶学习","id":"13","fourth":"使用所学车型的教练车由非教练员的驾驶人随车指导","third":"使用私家车由教练员随车指导","question":"11/1310  未取得驾驶证的学员在道路上学习驾驶技能，下列哪种做法是正确的？","explain":"《公安部令第123号》规定：未取得驾驶证的学员在道路上学习驾驶技能，使用所学车型的教练车由教练员随车指导。","type":"1","first":"使用所学车型的教练车由教练员随车指导"},{"answer":"C","img":"http://ww1.sinaimg.cn/mw600/5eb4d75agw1e28yntci5ej.jpg","second":"违章行为","id":"14","fourth":"犯罪行为","third":"违法行为","question":"29/1310  驾驶这种机动车上路行驶属于什么行为？","explain":"《道路交通安全法》第十一条：机动车号牌应当按照规定悬挂并保持清晰、完整，不得故意遮挡、污损。违反《道路交通安全法》即为违法。","type":"1","first":"违规行为"}]';
+			
+			var answer;
+			var good_answer;
+			var btnArray = ['确认', '取消'];
+			var adjust_err;
+			var adjust_suc;
+			var explain;
+			var num;
+			var shadow = document.getElementById("shadow");
+       		var clientHeight=window.screen.height;
+       		var clientWidth=window.screen.width;
+			var n=0;
+			var m=0;
+			var timer;
+			var sel;
+			/////////////////bridge/////////////////////
+			
+			/**<js-ios>
+				window.onerror = function(err) {
+			        log('window.onerror: ' + err)
+				}
+			    function setupWebViewJavascriptBridge(callback) {
+			        if (window.WebViewJavascriptBridge) {
+			            return callback(WebViewJavascriptBridge);
+			        }
+			        if (window.WVJBCallbacks) {
+			            return window.WVJBCallbacks.push(callback);
+			        }
+			        window.WVJBCallbacks = [callback];
+			        var WVJBIframe = document.createElement('iframe');
+			        WVJBIframe.style.display = 'none';
+			        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+			        document.documentElement.appendChild(WVJBIframe);
+			        setTimeout(function() {
+			            document.documentElement.removeChild(WVJBIframe)
+			            }, 0);
+			    }
+			
+			    setupWebViewJavascriptBridge(function(bridge) {
+	                //alert(10);
+	  		        bridge.registerHandler('initFirWindow', function(data, responseCallback) {
+	                    
+	                    initFirWindow(bridge, data);
+	 		        });
+	 		        bridge.registerHandler('changeTheme', function(data, responseCallback) {
+	                  	changeAllColor(data);
+		        	});
+			    });
+			</js-ios>**/
+			
+		    
+			/////////////////bridge/////////////////////
+			
+			function initFirWindow(bridge, data){
+				//alert(JSON.stringify(data));
+				if (data == null) {
+					shitiData = JSON.parse(shitiDataStr1);
+				} else {
+					shitiData1 = data;
+					shitiData = JSON.parse(shitiData1);
+				}
+				
+				//Abridge = bridge;
+				
+//				alert(shitiData);
+                num = 0;
+                showQuestionAndAnswer(bridge,num);
+                addButtonsListener(bridge);
+			}
+			
+			function showQuestionAndAnswer(bridge,num){
+				/////////////////////clear select////////////////////////
+				
+				var content = document.getElementById("content");
+				answer = document.getElementById("answer");
+				content.removeChild(answer);
+				
+				var newNode = document.createElement("div");
+			  	newNode.setAttribute("id", "answer");
+			  	newNode.setAttribute("class", "answer");
+			  	newNode.setAttribute("state", "1");
+				content.appendChild(newNode);
+			  	var bottomBar = document.getElementById("bottomBar");
+//			  	content.insertBefore(newNode, bottomBar);
+				/////////////////////clear select////////////////////////
+				
+				
+				
+				
+				adjust_err = document.getElementById("adjust_err");
+			 	adjust_suc = document.getElementById("adjust_suc");
+			 	explain = document.getElementById("explain");
+				
+				adjust_err.style.display = "none";
+				adjust_suc.style.display = "none";
+				explain.style.display = "none";
+				
+				var timu = shitiData[num];
+				var answerCount = 4;
+				if (timu.type == 0) {
+					answerCount = 2;
+				}else if(timu.type == 2){
+					answerCount = 5;
+				}
+				good_answer = timu.answer;
+				var question = document.getElementById("question");
+				answer = document.getElementById("answer");
+				
+				
+				var answerArray = [timu.first, timu.second, timu.third, timu.fourth,timu.fifth];
+				
+				var indexArray = ['&nbsp;A:&nbsp;', '&nbsp;B:&nbsp;', '&nbsp;C:&nbsp;', '&nbsp;D:&nbsp;','&nbsp;E:&nbsp;'];
+				
+				question.innerHTML = timu.question;
+				
+				var img_temp = '';
+				if (timu.img != '') {
+					img_temp = '<img src="'+timu.img+'" width="100%"/>';
+					document.getElementsByClassName('bakimg')[0].style.padding='0 12px 30px 12px';
+				}else{
+					document.getElementsByClassName('bakimg')[0].style.padding=0;
+				}
+				document.getElementById("img").innerHTML = img_temp;
+				
+				
+				/////////////fen_zi / fen_mu/////////////////////////////
+//				document.getElementById("fen_mu").innerHTML = shitiData.length;
+//				document.getElementById("fen_zi").innerHTML = num + 1;
+				
+														
+				for (var i = 0; i < answerCount; i++) {
+					var temp = '<div class="answerList">'
+							+'		<a href="#" class="select_a">'
+							+'			<p>'
+							+'				<span class="first Icon"><img src="images/noSelect.png" /></span>'
+							+'		<span class="fontPadding">'+indexArray[i] + answerArray[i];+'</span>'
+							+'			</p>'
+							+'		</a>'
+							+'	</div>';
+					answer.innerHTML += temp;
+				}
+				
+				var clientHeight=window.screen.height; 
+				var box=document.getElementsByClassName('box')[0];
+				box.style.height=(clientHeight-140)+'px';
+				
+				document.getElementById("exp").innerHTML = timu.explain;
+
+				////////////////addlistener//////////
+				mui("#answer").on('tap', 'a', function(){
+					
+					var state = answer.getAttribute("state");
+//					alert("state="+state);
+					if (state == 0) {
+						return;
+					}
+					
+					//alert(22);
+					var nodes = this.childNodes;
+					var nodeP = nodes[1];
+					var nodeSpan = nodeP.lastChild;
+					sel = nodeSpan.innerHTML.substring(6,7);
+					//alert(22);
+					handleAfterSel(bridge,sel);
+				});
+			
+			}
+			
+			var test;
+			var jindu;
+			function haha(jindu){  
+			  	var jindutiao = document.getElementById("progress");  
+			  	jindutiao.style.width = jindu + "%";
+//			  	console.log(jindutiao.style.width); 
+			} 
+//			function abc(){
+				
+//				}else{
+//					return false;
+//				}
+//				console.log(outDiv.offsetHeight);
+//			}
+            function addButtonsListener(bridge){
+	            	jindu=((1/shitiData.length) * 100);
+	            	haha(jindu);
+	            document.getElementById("priv").addEventListener('tap', function(){
+	            		var state = answer.getAttribute("state");
+					//alert("state="+state);
+					if (state == 1) {
+						mui.toast('请选择答案！');
+						return;
+					}
+	            		num--;
+	            		if (num < 0) {
+	            			return;
+	            		}
+	            		showQuestionAndAnswer(bridge,num);
+	            		test=num+1;
+	            		jindu=((test/shitiData.length) * 100);
+//	            		console.log(num);
+//	            		console.log(jindu);
+	            		haha(jindu);
+	            		clearInterval(timer);	            		
+	            		shadow.style.left=0;
+						shadow.style.bottom=0;
+						shadow.style.display='none';
+						var count=document.getElementsByClassName('count')[0];
+						count.getElementsByTagName('img')[0].setAttribute('src','images/colloct1.png');
+	            });
+	            document.getElementById("next").addEventListener('tap', function(){
+	            		var state = answer.getAttribute("state");
+					//alert("state="+state);
+					if (state == 1) {
+						mui.toast('请选择答案！');
+						return;
+					}
+	            		num++;
+	            		if (num > shitiData.length - 1) {
+	            			return;
+	            		}
+	            		showQuestionAndAnswer(bridge,num);	
+	            		test=num+1;
+	            		jindu=((test/shitiData.length) * 100);
+	            		haha(jindu);
+	            		clearInterval(timer);	            		
+	            		shadow.style.left=0;
+						shadow.style.bottom=0;
+						shadow.style.display='none';
+						var count=document.getElementsByClassName('count')[0];
+						count.getElementsByTagName('img')[0].setAttribute('src','images/colloct1.png');
+	            });
+//	            haha(jindu);
+
+	            
+	            
+	            document.getElementById("show-explain1").addEventListener('tap', function(){
+	            	clearInterval(timer);
+           			explain.style.display = "block";
+	            });
+	            document.getElementById("show-explain2").addEventListener('tap', function(){
+           			clearInterval(timer);
+           			explain.style.display = "block";
+	            });
+                
+                
+                ///////////////////backToParent////////////////////////
+				
+				document.getElementById("backToParent").addEventListener('tap', function(){
+           			path = '';
+           			/**<js-ios>
+           				bridge.callHandler('backToParent', path, function(response) {
+	                        //log('JS got response', response)
+	                    });
+           			</js-ios>**/
+           			
+           				window.xuming.backToParent();
+           			
+	            });
+           }                                  
+           
+			
+           
+				
+				
+				
+           
+           
+            function handleAfterSel(bridge,sel){
+           		var index;
+           		if (sel == 'A') {
+           			index = 0;
+           		} else if (sel == 'B') {
+           			index = 1;
+           		} else if (sel == 'C') {
+           			index = 2;
+           		} else if (sel == 'D') {
+           			index = 3;
+           		} else if (sel == 'E') {
+           			index = 4;
+           		} else {
+           		}
+           		
+           		
+           		document.getElementsByClassName("errChoose")[0].innerHTML = sel;
+//         		document.getElementById("show-explain2").innerHTML = str;
+//         		
+           		var nodes = document.getElementsByClassName(" Icon");
+           		
+           		//var nodesA = document.getElementsByClassName("select_a");
+           		
+           		
+				//if (FLASH播放完)show_con();
+           		
+           		
+           		
+				
+				//点击按钮，开始动画
+				function move(){
+					n=0;
+					m=0;
+					timer=setInterval(function(){
+						n+=39.2;
+						m+=70;
+						shadow.style.left=n+'px';
+						shadow.style.bottom=m+'px';
+						var abc=shadow.style.left;
+						var ccc=clientWidth+'px';
+						if(abc>ccc){
+							var count=document.getElementsByClassName('count')[0];
+							count.getElementsByTagName('img')[0].setAttribute('src','images/colloct2.png');
+						}
+					},30);
+					
+				};
+			
+
+           		if (sel != good_answer) {
+           			
+           			shadow.style.width=clientWidth+'px';
+           			shadow.style.height=clientHeight+'px';
+           			shadow.style.display='block';
+           			
+           			//错题动画
+					move();
+
+           			for (var i = 0; i < nodes.length; i++) {
+	           			//alert(22);
+	           			if (i == index) {
+	           				nodes[i].setAttribute("class", "select  Icon");
+	           				nodes[i].children[0].setAttribute("src", "images/false.png");
+	           				answer.setAttribute("state", "0");
+	           			}
+           			}
+           			adjust_err.style.display = "block";
+           			document.getElementById("right-answer").innerHTML = good_answer;
+           			
+           			/**<js-ios>
+	           			bridge.callHandler('autoMakeCard', num, function(response) {
+	                        //log('JS got response', response)
+	                    });
+                    </js-ios>**/
+                    
+                    	window.xuming.autoMakeCard(num);
+                    
+           		} else {
+           			for (var i = 0; i < nodes.length; i++) {
+	           			//alert(22);
+	           			if (i == index) {
+	           				nodes[i].setAttribute("class", "select  Icon");
+	           				nodes[i].children[0].setAttribute("src", "images/true.png");
+	           				answer.setAttribute("state", "0");
+	           			}
+	           		}
+           			adjust_suc.style.display = "block";
+           		}
+           		
+           		//alert(22);
+           		
+			}
+			//主题色换肤 
+            var bodyColor=document.getElementsByTagName('body')[0];
+            var progress=document.getElementById('progress');
+            var next=document.getElementById('next');
+			var bottomBar01=document.getElementsByClassName('bottomBar01')[0];
+			var titleBar=document.getElementsByClassName('mui-bar')[0];
+			function changeAllColor(num){
+				if(num==0){
+					titleBar.style.backgroundColor='#444a59';
+					bodyColor.style.backgroundColor='#444a59';			
+					bottomBar01.style.backgroundColor='#444a59';									
+					progress.style.background='#3696e9';			
+				}else{
+					titleBar.style.backgroundColor='#3696e9';
+					bodyColor.style.backgroundColor='#3696e9';
+					bottomBar01.style.backgroundColor='#3696e9';
+					next.setAttribute("style",'background-color:#ffd772 !important');
+					progress.style.background='#ec87c0';
+				}
+				
+			}
+//			changeAllColor(1);	
+//			window.onload = initFirWindow(null, null);
+		</script>
+	</body>
+<!--{{FrontSide}}-->
+</html>

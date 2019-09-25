@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@color/gray"
+    android:orientation="horizontal"
+    tools:showIn="@layout/ek_activity_main2">
+
+    <TextView
+        android:id="@+id/tv_home"
+        style="@style/viewpager_navigation_bar_tab_style"
+        android:drawableTop="@drawable/home_filter"
+        android:text="home"/>
+
+    <TextView
+        android:id="@+id/tv_location"
+        style="@style/viewpager_navigation_bar_tab_style"
+        android:drawableTop="@drawable/home_filter"
+        android:text="location"/>
+
+    <TextView
+        android:id="@+id/tv_like"
+        style="@style/viewpager_navigation_bar_tab_style"
+        android:drawableTop="@drawable/home_filter"
+        android:text="like"/>
+
+    <TextView
+        android:id="@+id/tv_person"
+        style="@style/viewpager_navigation_bar_tab_style"
+        android:drawableTop="@drawable/home_filter"
+        android:text="me"/>
+</LinearLayout>

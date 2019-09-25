@@ -1,0 +1,208 @@
+*version
+3
+data-file-overflow=false
+clock=dual
+elapsed-time-usec=3473926
+num-method-calls=897
+clock-call-overhead-nsec=4544
+vm=art
+pid=30148
+*threads
+30148	main
+30154	Signal Catcher
+30155	JDWP
+30157	FinalizerDaemon
+30156	ReferenceQueueDaemon
+30158	FinalizerWatchdogDaemon
+30159	HeapTaskDaemon
+30160	Binder_1
+30161	Binder_2
+30294	Binder_3
+30407	Thread-4577
+30430	TcmReceiver
+30439	AsyncTask #1
+30446	Okio Watchdog
+30474	umengsocial
+30478	RenderThread
+30507	xTID#1
+30557	xTID#2
+30560	xTID#3
+30604	pool-4-thread-1
+30605	pool-6-thread-1
+30608	AsyncTask #2
+30609	xTID#4
+30611	xTID#5
+30613	xTID#7
+30612	xTID#6
+30629	xTID#8
+30637	xTID#9
+30640	hwuiTask1
+30646	xTID#10
+30648	xTID#11
+30664	xTID#12
+30667	xTID#13
+30668	xTID#14
+31337	hwuiTask2
+31338	AsyncTask #3
+31788	AsyncTask #4
+31789	AsyncTask #5
+8486	xTID#15
+8487	xTID#16
+8488	xTID#17
+8490	xTID#19
+8489	xTID#18
+8491	xTID#20
+8492	xTID#21
+8493	xTID#22
+8494	xTID#23
+18967	Chrome_DBThread
+18969	Chrome_FileUserBlockingThread
+18970	Chrome_ProcessLauncherThread
+18971	Chrome_CacheThread
+18968	Chrome_FileThread
+18972	Chrome_IOThread
+18974	Thread-4634
+18978	Thread-4636
+18979	cr.CleanupReference
+18982	ModernAsyncTask #1
+18977	Thread-4640
+18983	pool-7-thread-1
+18984	WifiManager
+18985	ConnectivityManager
+18995	Chrome_InProcRendererThread
+19006	Thread-4645
+19007	Thread-4646
+19014	Chrome_InProcGpuThread
+18999	Thread-4648
+19255	ModernAsyncTask #2
+19269	Binder_4
+20906	ModernAsyncTask #3
+*methods
+0x154	java.lang.ref.Reference	get	()Ljava/lang/Object;	Reference.java
+0xc8	java.lang.ThreadLocal	access$200	(Ljava/lang/ThreadLocal;)I	ThreadLocal.java
+0xcc	java.lang.ThreadLocal	access$300	(Ljava/lang/ThreadLocal;)Ljava/lang/ref/Reference;	ThreadLocal.java
+0xac	java.lang.ThreadLocal	set	(Ljava/lang/Object;)V	ThreadLocal.java
+0xb4	java.lang.ThreadLocal	values	(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$Values;	ThreadLocal.java
+0xd4	java.lang.Number	<init>	()V	Number.java
+0x70	java.lang.Integer	<init>	(I)V	Integer.java
+0x6c	java.lang.Integer	valueOf	(I)Ljava/lang/Integer;	Integer.java
+0x100	java.lang.Integer	equals	(Ljava/lang/Object;)Z	Integer.java
+0xf0	java.lang.Integer	hashCode	()I	Integer.java
+0xbc	java.lang.ThreadLocal$Values	cleanUp	()V	ThreadLocal.java
+0xc4	java.lang.ThreadLocal$Values	next	(I)I	ThreadLocal.java
+0xc0	java.lang.ThreadLocal$Values	rehash	()Z	ThreadLocal.java
+0xb8	java.lang.ThreadLocal$Values	put	(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V	ThreadLocal.java
+0x144	java.nio.Buffer	<init>	(IIJ)V	Buffer.java
+0x140	java.nio.ByteBuffer	<init>	(IJ)V	ByteBuffer.java
+0x130	java.nio.ByteBuffer	wrap	([BII)Ljava/nio/ByteBuffer;	ByteBuffer.java
+0x148	java.nio.ByteBuffer	order	(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;	ByteBuffer.java
+0x13c	java.nio.ByteArrayBuffer	<init>	(I[BIZ)V	ByteArrayBuffer.java
+0x138	java.nio.ByteArrayBuffer	<init>	([B)V	ByteArrayBuffer.java
+0x14c	java.nio.ByteArrayBuffer	get	()B	ByteArrayBuffer.java
+0x11c	java.util.ArrayList	size	()I	ArrayList.java
+0x134	java.util.Arrays	checkOffsetAndCount	(III)V	Arrays.java
+0xf8	java.util.Collections	secondaryHash	(I)I	Collections.java
+0xe8	java.util.Collections	secondaryHash	(Ljava/lang/Object;)I	Collections.java
+0xe4	java.util.HashMap	get	(Ljava/lang/Object;)Ljava/lang/Object;	HashMap.java
+0x10c	org.apache.harmony.dalvik.ddmc.Chunk	<init>	(I[BII)V	Chunk.java
+0x12c	org.apache.harmony.dalvik.ddmc.ChunkHandler	wrapChunk	(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Ljava/nio/ByteBuffer;	ChunkHandler.java
+0xf4	android.net.wifi.WifiManager	access$000	(I)Ljava/lang/Object;	WifiManager.java
+0xfc	android.net.wifi.WifiManager	removeListener	(I)Ljava/lang/Object;	WifiManager.java
+0x88	android.os.Handler	enqueueMessage	(Landroid/os/MessageQueue;Landroid/os/Message;J)Z	Handler.java
+0xe0	android.os.Handler	dispatchMessage	(Landroid/os/Message;)V	Handler.java
+0x78	android.os.Handler	sendMessage	(Landroid/os/Message;)Z	Handler.java
+0x84	android.os.Handler	sendMessageAtTime	(Landroid/os/Message;J)Z	Handler.java
+0x7c	android.os.Handler	sendMessageDelayed	(Landroid/os/Message;J)Z	Handler.java
+0x3c	android.os.Message	access$000	(Landroid/os/Message;Landroid/os/Parcel;)V	Message.java
+0x38	android.os.Message	obtain	()Landroid/os/Message;	Message.java
+0x40	android.os.Message	readFromParcel	(Landroid/os/Parcel;)V	Message.java
+0x90	android.os.Message	isInUse	()Z	Message.java
+0x94	android.os.Message	markInUse	()V	Message.java
+0x108	android.os.Message	recycleUnchecked	()V	Message.java
+0x8c	android.os.MessageQueue	enqueueMessage	(Landroid/os/Message;J)Z	MessageQueue.java
+0xdc	android.os.MessageQueue	next	()Landroid/os/Message;	MessageQueue.java
+0x54	android.os.Messenger	readMessengerOrNullFromParcel	(Landroid/os/Parcel;)Landroid/os/Messenger;	Messenger.java
+0x20	android.os.Parcel	enforceInterface	(Ljava/lang/String;)V	Parcel.java
+0x4c	android.os.Parcel	readBundle	()Landroid/os/Bundle;	Parcel.java
+0x50	android.os.Parcel	readBundle	(Ljava/lang/ClassLoader;)Landroid/os/Bundle;	Parcel.java
+0x28	android.os.Parcel	readInt	()I	Parcel.java
+0x44	android.os.Parcel	readLong	()J	Parcel.java
+0x58	android.os.Parcel	readStrongBinder	()Landroid/os/IBinder;	Parcel.java
+0xa0	android.os.Parcel	recycle	()V	Parcel.java
+0x128	android.ddm.DdmHandleHeap	handleHPIF	(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;	DdmHandleHeap.java
+0x124	android.ddm.DdmHandleHeap	handleChunk	(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;	DdmHandleHeap.java
+0x110	android.ddm.DdmHandleProfiling	handleMPRQ	(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;	DdmHandleProfiling.java
+0x15c	android.ddm.DdmHandleProfiling	handleMPSEOrSPSE	(Lorg/apache/harmony/dalvik/ddmc/Chunk;Ljava/lang/String;)Lorg/apache/harmony/dalvik/ddmc/Chunk;	DdmHandleProfiling.java
+0x10	android.ddm.DdmHandleProfiling	handleMPSS	(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;	DdmHandleProfiling.java
+0x64	android.ddm.DdmHandleProfiling	handleChunk	(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;	DdmHandleProfiling.java
+0xec	android.net.wifi.WifiManager$ServiceHandler	handleMessage	(Landroid/os/Message;)V	WifiManager.java
+0x1c	android.os.IMessenger$Stub	onTransact	(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z	IMessenger.java
+0x60	android.os.Handler$MessengerImpl	send	(Landroid/os/Message;)V	Handler.java
+0x34	android.os.Message$1	createFromParcel	(Landroid/os/Parcel;)Landroid/os/Message;	Message.java
+0x30	android.os.Message$1	createFromParcel	(Landroid/os/Parcel;)Ljava/lang/Object;	Message.java
+0xd8	java.lang.Object	<init>	()V	Object.java
+0x158	java.lang.ref.Reference	getReferent	()Ljava/lang/Object;	Reference.java
+0x118	dalvik.system.VMDebug	getMethodTracingMode	()I	VMDebug.java
+0x8	dalvik.system.VMDebug	startMethodTracingDdms	(IIZI)V	VMDebug.java
+0x0	dalvik.system.VMDebug	startMethodTracingDdmsImpl	(IIZI)V	VMDebug.java
+0x164	dalvik.system.VMDebug	stopMethodTracing	()V	VMDebug.java
+0xb0	java.lang.Thread	currentThread	()Ljava/lang/Thread;	Thread.java
+0x68	org.apache.harmony.dalvik.ddmc.DdmServer	dispatch	(I[BII)Lorg/apache/harmony/dalvik/ddmc/Chunk;	DdmServer.java
+0x150	org.apache.harmony.dalvik.ddmc.DdmVmInternal	heapInfoNotify	(I)Z	DdmVmInternal.java
+0x9c	android.os.Binder	checkParcel	(Landroid/os/IBinder;ILandroid/os/Parcel;Ljava/lang/String;)V	Binder.java
+0x104	android.os.Binder	clearCallingIdentity	()J	Binder.java
+0x4	android.os.Binder	execTransact	(IJJI)Z	Binder.java
+0x120	android.os.Binder	flushPendingCommands	()V	Binder.java
+0x74	android.os.Binder	getCallingUid	()I	Binder.java
+0x114	android.os.Debug	getMethodTracingMode	()I	Debug.java
+0xc	android.os.Debug	startMethodTracingDdms	(IIZI)V	Debug.java
+0x160	android.os.Debug	stopMethodTracing	()V	Debug.java
+0xd0	android.os.MessageQueue	nativePollOnce	(JI)V	MessageQueue.java
+0x98	android.os.MessageQueue	nativeWake	(J)V	MessageQueue.java
+0xa4	android.os.Parcel	freeBuffer	()V	Parcel.java
+0x18	android.os.Parcel	init	(J)V	Parcel.java
+0x24	android.os.Parcel	nativeEnforceInterface	(JLjava/lang/String;)V	Parcel.java
+0x2c	android.os.Parcel	nativeReadInt	(J)I	Parcel.java
+0x48	android.os.Parcel	nativeReadLong	(J)J	Parcel.java
+0x5c	android.os.Parcel	nativeReadStrongBinder	(J)Landroid/os/IBinder;	Parcel.java
+0x14	android.os.Parcel	obtain	(J)Landroid/os/Parcel;	Parcel.java
+0xa8	android.os.StrictMode	clearGatheredViolations	()V	StrictMode.java
+0x80	android.os.SystemClock	uptimeMillis	()J	SystemClock.java
+*end
+SLOW   ]‘                  Ëu       1í Vv       ¾î Ëu	   ‰  M Ëu   ¥  e Ëu   ²  r Vv   [  ¹ Vv   ‚  İ Vv     ë Vv   ˜  ó Vv      û Vv   «   Vv   ²   Vv   ½   Vv   Ò  - Vv    ß  9 Vv$     [ Vv%   (  ƒ Vv!   1  Œ Vv(   :  • Vv,   H  £ Vv-   X  ² Vv)   `  º Vv0   k  Å Vv4   s  Í Vv8   Š  å Vv9   œ  ÷ Vv<   ¤  ÿ Vv@   ¬   Vv(   ·   Vv,   Ä   Vv-   Î  ) Vv)   Ö  0 Vv(   Ş  8 Vv,   ç  B Vv-   ğ  J Vv)   ö  P Vv(   ı  X Vv,     a Vv-     h Vv)     o Vv(     u Vv,   #  ~ Vv-   +  … Vv)   1  ‹ VvD   9  “ VvH   D  Ÿ VvI   N  © VvE   U  ¯ VvL   ]  · VvP   d  ¿ Vv(   w  Ò Vv,   ƒ  Ş Vv-   ‹  æ Vv)   “  í VvQ   ™  ó VvM     ù VvT   ¦    VvX   ®  	 Vv\   »   Vv]   Ï  * VvY   ×  2 VvU   Ş  8 Vv(   ä  ? Vv,   î  I Vv-   ö  P Vv)   ü  W VvA     ] Vv=     c Vv5     h Vv1     m Vv`   &   Ëue     / Ëui   v  ’ Ëuh   ^	  { Ëul   s	   Ëup   „	  Ÿ Vvt   Ã  J! Vvu   â  e! Vvx   ú  }! Vv|     ˆ! Vv€     Ÿ! Vv   2  µ! Vv„   A  Ä! Vvˆ   K  Î! VvŒ   X  Û! Vv   b  æ! Vv‘   o  ò! Vv”   z  ı! Vv•   ‚  " Vv˜   ’  " Vv™   Ä  H" Vv   Ñ  U" Vv‰   Ø  [" Vv…   Ş  b" Vv}   ä  g" Vvy   ê  m" Vva   ğ  s" Vv   ÷  z" Vvœ     …" Vv   
+  " Vv      ”" Vv¤     " Vv¥   !  ¤" Vv¡   /  ²" Vv    6  ¹" Vv¤   <  ¿" Vv¥   A  Ä" Vv¡   J  Í" Vv¨   ^  â" Vv¬   l  ğ" Vv°   |   # Vv±   Œ  # Vv´   •  # Vvµ      # Vv¸   ª  .# Vv¼   ³  6# VvÀ   Ç  J# VvÁ   Ñ  T# VvÄ   Ü  `# VvÅ   å  h# VvÄ   í  p# VvÅ   ó  v# VvÄ   ú  }# VvÅ   ÿ  ‚# VvÄ     ‰# VvÅ     # VvÄ     –# VvÅ     œ# VvÄ     £# VvÅ   %  ¨# Vv½   +  ¯# VvÈ   3  ¶# VvÉ   9  ¼# VvÌ   A  Å# VvÍ   H  Ë# Vv¹   O  Ò# Vv­   U  Ø# Vv©   Z  İ# Vv   `  ã# (JÑ       ˜% (J€   Z
+  ô/ (J   o
+  0 ËuÔ   k
+  µ0 ËuØ   “
+  Ü0 ËuÙ   
+  æ0 (J”   …
+  è0 ËuÕ   ¥
+  í0 (J•   ›
+  õ0 Ëuq   ³
+  û0 (Jİ   ¤
+  ş0 Ëum   º
+  1 (Jà   ³
+  1 Ëuä   Æ
+  1 Ëuè   Ğ
+  1 (Jì   Ã
+  1 Ëuğ   Ø
+  !1 (Jô   Ë
+  $1 Ëuñ   ß
+  (1 Ëuø   æ
+  /1 (Jü   İ
+  61 Ëuù   ñ
+  :1 (Jı   ã
+  <1 Ëué   ø
+  @1 (Jõ   ç
+  A1 (Jí   í
+  F1 (Já   ñ
+  K1 Ëu     P1 (J     Z1 Ëu    `1 Ëuå   !  i1 (J    l1 (J    s1 Ëu  3  {1 ËuØ   :  ƒ1 (J	  ,  †1 ËuÙ   A  ‰1 (JÜ   2  ‹1 Ëu  I  ‘1 (JĞ   =  –1 Ëud   P  ™1 Ëu  [  £1 Ëu  k  ³1 Ëu  |  Å1 (JÑ   u  Î1 Ëu  ˆ  Ñ1 Ëu    Ø1 (J€     Ù1 (J   ‰  â1 Ëu  Ÿ  è1 ËuØ   ©  ñ1 (J  š  ô1 ËuÙ   ¯  ÷1 (J  ¢  û1 Ëu  ·  ÿ1 Ëu  ½  2 (J   ®  2 Ëue   Ä  2 (J!  ·  2 Ëui   Ì  2 (JĞ   À  2 Ëuh     ó« Ëul   $  ¬ Ëup   5  ¬ ËuÔ   ?  (¬ ËuØ   H  1¬ ËuÙ   P  9¬ ËuÕ   W  @¬ Ëuq   _  H¬ Ëum   e  N¬ Ëuä   o  Y¬ Ëuè   x  a¬ Ëuğ   €  j¬ Ëuñ   ‰  r¬ Ëuø   ‘  z¬ Ëuù   œ  †¬ Ëué   £  Œ¬ Ëu   ³  œ¬ Ëu  ¼  ¥¬ Ëuå   Ä  ®¬ Ëu  Ò  ¼¬ ËuØ   Û  Ä¬ ËuÙ   á  Ê¬ Ëu  ë  Ô¬ Ëu$  ô  İ¬ Ëu(    ì¬ Ëu,    õ¬ Ëu0  '  ­ Ëu4  3  ­ Ëu5  >  '­ Ëu8  H  2­ Ëu<  R  ;­ Ëu@  ]  F­ ËuD  {  d­ ËuØ   „  n­ ËuÙ   Œ  u­ ËuE  –  ­ ËuA    ˆ­ Ëu=  §  ‘­ Ëu9  ®  —­ Ëu1  µ  ­ ËuH  ¾  §­ ËuI  Æ  ¯­ Ëu-  Ì  µ­ ËuL  Ô  ½­ ËuM  à  É­ ËuP  ø  â­ ËuQ  }  ì¼ Ëu)  “  ÿ¼ Ëu%  œ  	½ Ëui   ¦  ½ Ëuh   ø  R Ëul     :R Ëup   1  NR ËuÔ   ;  XR ËuØ   G  eR ËuÙ   R  oR ËuÕ   Y  vR Ëuq   b  ~R Ëum   h  …R Ëuä   s  R Ëuè   ~  œR Ëuğ   ‰  ¦R Ëuñ   ‘  ®R Ëuø   š  ¶R Ëuù   ¦  ÃR Ëué   ­  ÉR Ëu   ¼  ÙR Ëu  Ç  ãR Ëuå   Ï  ìR Ëu  ß  üR ËuØ   ç  S ËuÙ   î  S Ëu  ø  S Ëu$    S Ëu(    *S Ëu,    3S Ëu0    <S Ëu4  (  ES Ëu5  2  OS Ëu8  <  YS Ëu<  E  bS Ëu@  M  jS ËuD  V  sS ËuØ   ]  zS ËuÙ   c  €S ËuE  l  ‰S ËuA  t  ‘S Ëu=  }  šS Ëu9  ƒ   S Ëu1  Š  §S ËuH  “  °S ËuI  š  ·S Ëu-     ½S ËuL  ¨  ÄS ËuM  ²  ÎS ËuP  È  æS ËuQ  Ğ,  ñ` Ëu)  ç,  a Ëu%  ğ,  a Ëui   ù,  a EK       öø EK      ù EK   ,   ù EK   8   *ù EK   >   0ù EK   D   6ù EK   M   ?ù EK   S   Eù EK   X   Iù EK   _   Qù EK    j   \ù EK$   ’   …ù EK%   ±   £ù EK!   ¸   ªù EK(   À   ²ù EK,   Ì   ¿ù EK-   Õ   Çù EK)   Û   Íù EK0   æ   Øù EK4   í   Şù EK8   @  3ú EK9   R  Dú EK<   X  Jú EK@   _  Qú EK(   e  Wú EK,   p  cú EK-   x  jú EK)   ~  pú EK(   …  wú EK,   ›  ú EK-   ¢  ”ú EK)   ¨  ™ú EK(   ®   ú EK,   ¶  ¨ú EK-   ¼  ®ú EK)   Á  ³ú EK(   Ç  ¹ú EK,   Ï  Áú EK-   Õ  Çú EK)   Ú  Ìú EKD   ï  áú EKH   ü  ğú EKI     ùú EKE      û EKL     û EKP     û EK(   0  "û EK,   9  +û EK-   @  2û EK)   E  7û EKQ   K  =û EKM   O  Aû EKT   V  Hû EKX   \  Nû EK\   e  Wû EK]   q  cû EKY   v  hû EKU   |  nû EK(   ‚  tû EK,   Š  |û EK-     ‚û EK)   –  ˆû EKA   ›  û EK=      ’û EK5   ¥  —û EK1   ª  œû EK`   ²  ¤û EKt   ¼  ®û EKu   Â  µû EKx   Ì  ¾û EK|   Ò  Äû EK€   İ  Ïû EK   æ  Øû EK„   í  ßû EKˆ   ô  æû EKŒ   ı  ïû EK     õû EK‘     ıû EK”     ü EK•     ü EK˜   '  ü EK™   P  Cü EK   Z  Lü EK‰   `  Rü EK…   d  Vü EK}   j  [ü EKy   n  `ü EKa   r  dü EK   w  iü EKœ     qü EK   ƒ  uü EK    ‰  {ü EK¤     ü EK¥   •  †ü EK¡   Ÿ  ‘ü EK    ¤  –ü EK¤   ¨  šü EK¥   ­  ü EK¡   µ  §ü EK¨   »  ­ü EK¬   Ã  µü EK°   Î  Àü EK±   Ú  Ìü EK´   á  Óü EKµ   ç  Ùü EK¸   î  àü EK¼   ô  æü EKÀ   ú  ìü EKÁ     óü EKT    ÿü EKX  (  ı EKY  6  (ı EKU  ;  -ı EKÄ   B  4ı EKÅ   H  :ı EKÄ   O  Aı EKÅ   T  Fı EKÄ   Z  Lı EKÅ   ^  Pı EKÄ   e  Vı EKÅ   i  [ı EKÄ   o  `ı EKÅ   s  eı EKÄ   y  kı EKÅ   }  oı EK½   ƒ  uı EKÈ   ‰  {ı EKÉ     ı EKÌ   •  ‡ı EKÍ   š  Œı EK¹      ‘ı EK­   ¤  –ı EK©   ¨  šı EK   ­  Ÿı (JÑ   õ  ş (J€      ş (J     )ş (J”     6ş (J•   #  =ş (Jİ   )  Cş (Jà   2  Lş (Jì   9  Sş (Jô   @  Zş (Jü   G  aş (Jı   K  fş (Jõ   P  jş (Jí   V  pş (Já   [  uş (J  d  ş (J  l  †ş (J  t  ş (J	  ‚  œş (JÜ   ˆ  ¢ş (JĞ   ’  ­ş (JÑ     ¹ş (J€   §  Âş (J   ¯  Éş (J  º  Ôş (J  À  Úş (J   Ê  äş (J!  Ñ  ìş (JĞ   Ú  ôş Ëuh   N.  `ø Ëul   ş.  ‘û Ëup   //  ½û ËuÔ   B/  Òû ËuØ   P/  Şû ËuÙ   Y/  çû ËuÕ   a/  ïû Ëuq   k/  ùû Ëum   r/   ü Ëuä   ~/  ü Ëuè   /  ü Ëuğ   ˜/  'ü Ëuñ   ¡/  /ü Ëuø   ©/  7ü Ëuù   ´/  Bü Ëué   º/  Iü Ëu   Ê/  Yü Ëu  Õ/  cü Ëuå   İ/  lü Ëu  ú/  ‰ü ËuØ   0  ‘ü ËuÙ   
+0  ˜ü Ëu  0  ¢ü Ëu$  0  «ü Ëu(  (0  ¶ü Ëu,  00  ¿ü Ëu0  :0  Éü Ëu4  N0  Üü Ëu5  X0  æü Ëu8  ~0  ı Ëu<  0  ı Ëu@  ›0  *ı ËuD  ¨0  8ı ËuØ   ²0  @ı ËuÙ   ¸0  Gı ËuE  Â0  Qı ËuA  Ë0  Yı Ëu=  Ô0  bı Ëu9  Ú0  hı Ëu1  á0  oı ËuH  ë0  yı ËuI  ò0  €ı Ëu-  ù0  ‡ı ËuL   1  ı ËuM  1  šı ËuP  )1  ¸ı ËuQ  j?  { Ëu)  †?  ” Ëu%  ‘?  Ÿ Ëui   ›?  ¨ Ëuh   A  [  Ëul   7A  u  Ëup   IA  ‡  ËuÔ   SA    ËuØ   \A  ™  ËuÙ   cA  ¡  ËuÕ   jA  §  Ëuq   rA  ¯  Ëum   xA  ¶  Ëuä   ƒA  À  Ëuè   ‹A  É  Ëuğ   ”A  Ò  Ëuñ   œA  Ú  Ëuø   ¥A  â  Ëuù   °A  í  Ëué   ¶A  ó  Ëu   ÅA  ¡ Ëu  ÎA  ¡ Ëuå   ÖA  ¡ Ëu  äA  !¡ ËuØ   ëA  (¡ ËuÙ   ñA  /¡ Ëu  ûA  8¡ Ëu$  B  A¡ Ëu(  B  L¡ Ëu,  B  T¡ Ëu0   B  ^¡ Ëu4  )B  g¡ Ëu5  3B  p¡ Ëu8  =B  z¡ Ëu<  EB  ƒ¡ Ëu@  NB  Œ¡ ËuD  WB  •¡ ËuØ   _B  œ¡ ËuÙ   eB  ¢¡ ËuE  oB  ¬¡ ËuA  wB  µ¡ Ëu=  €B  ¾¡ Ëu9  ‡B  Ä¡ Ëu1  B  Ì¡ ËuH  —B  Õ¡ ËuI  ŸB  İ¡ Ëu-  ¥B  ã¡ ËuL  ­B  ë¡ ËuM  ·B  ô¡ ËuP  ÎB  ¢ ËuQ  «P  Ú° Ëu)  ÂP  î° Ëu%  ÌP  ø° Ëui   ÕP  ± Ñu       MP Ñu   $   mP Ñu   <   „P Ñu   W   ŸP Ñu   a   ©P Ñu   k   ³P Ñu   x   ÁP Ñu   ™   âP Ñu   ¤   îP Ñu   ´   üP Ñu    Ã   Q Ñu$   î   7Q Ñu%     ZQ Ñu!     fQ Ñu(   )  qQ Ñu,   8  Q Ñu-   D  ŒQ Ñu)   N  –Q Ñu0   b  «Q Ñu4   l  ´Q Ñu8      èQ Ñu9   ´  üQ Ñu<   È  R Ñu@   Ó  R Ñu(   Ü  $R Ñu,   ê  2R Ñu-   õ  >R Ñu)   ÿ  GR Ñu(   	  QR Ñu,     fR Ñu-   +  uR Ñu)   7  R Ñu(   B  ŠR Ñu,   Q  ™R Ñu-   [  ¤R Ñu)   e  ­R Ñu(   ñ  ;S Ñu,     QS Ñu-     ]S Ñu)     hS ÑuD   *  sS ÑuH   9  S ÑuI   D  S ÑuE   N  –S ÑuL   Y  ¡S ÑuP   c  «S Ñu(     ×S Ñu,     æS Ñu-   ¨  ñS Ñu)   ±  úS ÑuQ   »  T ÑuM   Â  
+T ÑuT   Í  T ÑuX   Ö  T Ñu\   ã  ,T Ñu]   õ  =T ÑuY   ş  GT ÑuU     OT Ñu(     XT Ñu,     eT Ñu-   '  pT Ñu)   0  yT ÑuA   :  ‚T Ñu=   B  ŠT Ñu5   J  ’T Ñu1   R  šT Ñu`   ]  ¦T Ñut   m  µT Ñuu   y  ÁT Ñux   …  ÎT Ñu|     ×T Ñu€     åT Ñu   ¬  ôT Ñu„   ·   U Ñuˆ   Â  
+U ÑuŒ   Ï  U Ñu   Ù  !U Ñu‘   å  -U Ñu”   ñ  9U Ñu•   ú  CU Ñu˜     UU Ñu™   B  ‹U Ñu   P  ˜U Ñu‰   Y  ¡U Ñu…   a  ©U Ñu}   i  ±U Ñuy   q  ¹U Ñua   y  ÂU Ñu   ‚  ÊU Ñuœ     ÖU Ñu   •  İU Ñu      æU Ñu¤   §  ïU Ñu¥   °  øU Ñu¡   ½  V Ñu    Æ  V Ñu¤   Î  V Ñu¥   Ö  V Ñu¡   â  *V Ñu¨   ë  3V Ñu¬   ÷  ?V Ñu°     OV Ñu±     aV Ñu´   $  lV Ñuµ   -  uV Ñu¸   7  V Ñu¼   @  ˆV ÑuÀ   J  ’V ÑuÁ   T  V ÑuÄ   b  ªV ÑuÅ   k  ´V ÑuÄ   v  ¾V ÑuÅ   ~  ÆV ÑuÄ   ˆ  ĞV ÑuÅ     ØV ÑuÄ   š  âV ÑuÅ   ¡  éV ÑuÄ   ª  òV ÑuÅ   ±  úV ÑuÄ   º  W ÑuÅ   Â  
+W Ñu½   Ê  W ÑuÈ   Ó  W ÑuÉ   Û  #W ÑuÌ   å  -W ÑuÍ   î  6W Ñu¹   ö  >W Ñu­   ı  EW Ñu©     LW Ñu     SW (JÑ     ÛW (J€   #  îW (J   /  ùW (J”   ?  	X (J•   G  X (Jİ   O  X (Jà   Y  #X (Jì   c  ,X (Jô   k  4X (Jü   r  <X (Jı   x  BX (Jõ   ~  GX (Jí   †  OX (Já   ‹  UX (J  –  `X (J     jX (J  ©  sX (J	  »  „X (JÜ   Â  ŒX (JĞ   Ï  ™X (JÑ   ß  ªX (J€   ë  µX (J   ö  ÀX (J    ÍX (J  
+  ÔX (J     áX (J!  "  ìX (JĞ   -  ÷X Ëuh   3R  3G$ Ëul   SR  OG$ Ëup   fR  bG$ ËuÔ   sR  nG$ ËuØ   }R  yG$ ËuÙ   ‡R  ƒG$ ËuÕ   R  ‹G$ Ëuq   ¿R  ¼G$ Ëum   ÊR  ÅG$ Ëuä   ÖR  ÒG$ Ëuè   àR  ÜG$ Ëuğ   ëR  çG$ Ëuñ   õR  ñG$ Ëuø   ÿR  ûG$ Ëuù   S  H$ Ëué   S  H$ Ëu   %S  !H$ Ëu  0S  ,H$ Ëuå   :S  5H$ Ëu  JS  EH$ ËuØ   SS  NH$ ËuÙ   [S  VH$ Ëu  gS  cH$ Ëu$  qS  mH$ Ëu(  S  zH$ Ëu,  ‰S  „H$ Ëu0  ”S  H$ Ëu4  ŸS  ›H$ Ëu5  «S  ¦H$ Ëu8  ·S  ²H$ Ëu<  ÁS  ¼H$ Ëu@  ËS  ÇH$ ËuD  ÖS  ÒH$ ËuØ   ßS  ÛH$ ËuÙ   çS  âH$ ËuE  òS  íH$ ËuA  üS  ÷H$ Ëu=  T  I$ Ëu9  T  
+I$ Ëu1  T  I$ ËuH  "T  I$ ËuI  +T  'I$ Ëu-  3T  .I$ ËuL  =T  8I$ ËuM  IT  DI$ ËuP  bT  ^I$ ËuQ  òd  ÿ]$ Ëu)  e  ^$ Ëu%   e  )^$ Ëui   +e  4^$ Ëuh   Of  “ì+ Ëul   }f  ºì+ Ëup   ›f  Øì+ ËuÔ   §f  äì+ ËuØ   ²f  ïì+ ËuÙ   ¾f  üì+ ËuÕ   Êf  í+ Ëuq   Ôf  í+ Ëum   Üf  í+ Ëuä   êf  'í+ Ëuè   ÷f  4í+ Ëuğ   g  >í+ Ëuñ   g  Gí+ Ëuø   g  Qí+ Ëuù   "g  ^í+ Ëué   *g  fí+ Ëu   ;g  xí+ Ëu  Hg  …í+ Ëuå   Vg  ’í+ Ëu  gg  ¤í+ ËuØ   rg  ®í+ ËuÙ   zg  ¶í+ Ëu  †g  Âí+ Ëu$  g  Íí+ Ëu(  g  Úí+ Ëu,  ¨g  åí+ Ëu0  ´g  ğí+ Ëu4  ¿g  üí+ Ëu5  Ëg  
+î+ Ëu8  àg  î+ Ëu<  ğg  .î+ Ëu@  ÿg  >î+ ËuD  h  Nî+ ËuØ   h  [î+ ËuÙ   'h  dî+ ËuE  4h  pî+ ËuA  >h  {î+ Ëu=  Ih  †î+ Ëu9  Qh  î+ Ëu1  Zh  šî+ ËuH  kh  ¨î+ ËuI  vh  ²î+ Ëu-  €h  ¾î+ ËuL  h  Îî+ ËuM   h  İî+ ËuP  Áh  ÿî+ ËuQ  ‚y  =	, Ëu)  Íy  ½	, Ëu%  İy  Ì	, Ëui   éy  ×	, Ëuh   {  “3 Ëul   +{  %“3 Ëup   >{  8“3 ËuÔ   J{  D“3 ËuØ   U{  O“3 ËuÙ   _{  Y“3 ËuÕ   h{  a“3 Ëuq   r{  k“3 Ëum   {{  t“3 Ëuä   †{  €“3 Ëuè   ‘{  Š“3 Ëuğ   ›{  ”“3 Ëuñ   §{   “3 Ëuø   ±{  ª“3 Ëuù   ¾{  ·“3 Ëué   Æ{  ¿“3 Ëu   Ø{  Ò“3 Ëu  æ{  ß“3 Ëuå   ğ{  é“3 Ëu   |  ù“3 ËuØ   	|  ”3 ËuÙ   |  
+”3 Ëu  |  ”3 Ëu$  &|   ”3 Ëu(  3|  -”3 Ëu,  =|  6”3 Ëu0  H|  B”3 Ëu4  T|  M”3 Ëu5  `|  Z”3 Ëu8  l|  f”3 Ëu<  w|  p”3 Ëu@  |  z”3 ËuD  ‹|  „”3 ËuØ   ”|  ”3 ËuÙ   œ|  •”3 ËuE  §|  ¡”3 ËuA  ²|  «”3 Ëu=  ¼|  µ”3 Ëu9  Ä|  ¾”3 Ëu1  Í|  Æ”3 ËuH  ×|  Ğ”3 ËuI  à|  Ù”3 Ëu-  ç|  á”3 ËuL  ñ|  ê”3 ËuM  ı|  ö”3 ËuP  }  •3 ËuQ  Œ  ‘¥3 Ëu)  ´Œ  ¤¥3 Ëu%  ¿Œ  ¯¥3 Ëui   ÉŒ  º¥3 Ëuh   Ó  Eş4 Ëul   î  ^ş4 Ëup      pş4 ËuÔ     zş4 ËuØ     …ş4 ËuÙ     ş4 ËuÕ   &  •ş4 Ëuq   0  Ÿş4 Ëum   8  §ş4 Ëuä   C  ²ş4 Ëuè   M  ¼ş4 Ëuğ   W  Çş4 Ëuñ   a  Ğş4 Ëuø   k  Úş4 Ëuù   v  æş4 Ëué   ~  íş4 Ëu     ÿş4 Ëu  š  
+ÿ4 Ëuå   ¤  ÿ4 Ëu  ³  #ÿ4 ËuØ   ¼  +ÿ4 ËuÙ   Ã  3ÿ4 Ëu  Ï  >ÿ4 Ëud   Ø  Hÿ4 Ëu\  è  Wÿ4 Ëu`  õ  dÿ4 Ëud    }ÿ4 

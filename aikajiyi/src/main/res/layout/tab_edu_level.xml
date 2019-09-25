@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/dark_gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_level1"
+        android:text="小学"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_login"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:layout_width="95dp"
+        android:layout_height="90dp" />
+
+    <TextView
+        android:id="@+id/tv_level2"
+        android:text="初中"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_login"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:layout_width="95dp"
+        android:layout_height="90dp" />
+
+    <TextView
+        android:id="@+id/tv_level3"
+        android:layout_below="@id/tv_level1"
+        android:text="高中"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_login"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:layout_width="95dp"
+        android:layout_height="90dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_level4"
+        android:layout_below="@id/tv_level2"
+        android:text="大学"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_login"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:layout_width="95dp"
+        android:layout_height="90dp" />
+
+    <TextView
+        android:id="@+id/tv_level5"
+        android:layout_below="@id/tv_level3"
+        android:text="研究生"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_login"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:layout_width="95dp"
+        android:layout_height="90dp" />
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorbackground"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/item_shaketext"
+        android:background="@drawable/shakegrid"
+        android:text="英语"
+        android:textColor="@color/corlorWhite"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="14sp"
+        android:layout_width="50dp"
+        android:layout_height="25dp" />
+
+</LinearLayout>

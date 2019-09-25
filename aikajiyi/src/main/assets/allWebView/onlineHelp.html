@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		body,h1,h2,h3,h4,h5,h6,li,ul,ol,dt,dl,dd,input,p{margin:0;padding:0;}
+		html,
+			body {
+				background-color: #efeff4;
+			}
+			ol,ul{
+				list-style: none;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 44px;
+				height: auto;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center, 
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+				margin-top: 20px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			.mui-btn {
+				font-size: 16px;
+				padding: 8px;
+				margin: 3px;
+			}
+			.mui-title{
+				margin-left: 0 !important;
+			}
+			.help{
+				font-size: 19px;
+				font-family: "微软雅黑";
+				font-weight:bolder ;
+				color: #000;
+				line-height: 52px;
+				margin-bottom: 0;
+				border-bottom: 1px solid #e1e1df;
+			}
+			.explain{
+				padding-top: 10px;
+			}
+			.explain li{
+				font-size: 17px;
+				font-family: "微软雅黑";
+				line-height: 28px;
+				color: #424242;
+			}
+			.public{
+				background-color: #fff;
+				padding: 0 20px;
+			}
+			.returnBack{
+				width: 100px;
+				text-align: left !important;
+			}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack" id="backTo">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title">在线帮助</h1>
+			</div>
+			<!--页面标题栏结束-->
+	
+		<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="home-box">
+
+							
+						    <!--<ul class="mui-table-view">
+						        <li class="mui-table-view-cell mui-media">
+						            <a href="javascript:;" class="mui-navigate-right">
+						                <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						                <div class="mui-media-body">
+						                    <span>天蓝</span>
+						                    <p class="mui-ellipsis">口号：抓紧时间拿驾照</p>
+						                </div>
+						            </a>
+						        </li>
+						    </ul>-->
+						    <ul class="mui-table-view public-list-txt home-list mui-slide-in" style="margin-top:20px;">
+					            <li class="mui-table-view-cell" id="personInfor">
+					                <a class="mui-navigate-right " href="#login">
+					                    <span>如何进行登录注册</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell" id="personInfor">
+					                <a class="mui-navigate-right " href="#one">
+					                    <span>如何在线导入牌组</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell" id="personInfor">
+					                <a class="mui-navigate-right " href="#addBiji">
+					                    <span>如何新建牌组并添加笔记</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#two">
+					                   <span>如何分享自己创建的牌组</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#three">
+					                   <span>如何导入自己的阅读材料</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#four">
+					                   <span>如何获得他人分享的牌组</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#five">
+					                   <span>如何获得并导入Anki的共享牌组</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#six">
+					                   <span>如何分享自己的阅读材料</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#read">
+					                   <span>如何使用阅读自动制卡功能</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#seven">
+					                   <span>如何制作模考题库</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#eight">
+					                   <span>如何在线导入模考题库</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#nine">
+					                   <span>如何分享模考题库</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#ten">
+					                   <span>如何选择卡片测评按钮</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#eleven">
+					                   <span>如何增加当天学习新卡片的数量</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#twelve">
+					                   <span>学习卡片时左上角的三个数字代表什么</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#thirteen">
+					                   <span>如何向你的粉丝推送卡片</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#fourteen">
+					                   <span>如何关注制作卡片的大神</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#fifteen">
+					                   <span>统计图中的预测图怎么理解？</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#sixteen">
+					                   <span>统计图中的复习计数怎么理解？</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#seventeen">
+					                   <span>统计图中的卡片按钮怎么理解？</span>
+					                </a>
+					            </li>					            
+					        </ul>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--单页面结束-->
+		<div id="one" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title mui-ellipsis">如何在线导入牌组</h1>
+			</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content"> 
+			<div class="public">
+				<p class="help">在线导入牌组</p> 
+				<ul class="explain">
+					<li>
+							1、浏览器打开网址链接：<a>http://ankichina.net/</a>；
+					</li>
+					<li>
+							2、登录您的账户，进入【个人中心】；
+					</li>
+					<li>
+							3、选择左侧【上传数据】选项，选择您要上传的文件，目前仅支持txt和epub格式的文件；
+					</li>
+					<li>
+							4、数据上传文件标签，点击保存按钮即可；
+					</li>
+					<li>
+							5、上传完成后，打开您的手机App，进入【主界面】->【阅读选项】，点击左下角的【在线导入】按钮，即可完成导入阅读材料功能；
+					</li>
+					<li>
+							操作方法：
+					</li>
+				</ul>			
+				<img src="images/onlineDeck.gif" width="100%">
+			</div>
+		</div>
+		</div>
+		<div id="login" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title mui-ellipsis">如何进行登录注册？</h1>
+			</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content"> 
+			<div class="public">
+				<p class="help">登录注册功能</p> 
+				<ul class="explain">
+					<li>
+							如何进入登录注册界面
+					</li>
+					<li style="padding-top: 10px;">
+							方式一：
+					</li>
+					<li>
+							首次安装艾卡记忆App，在欢迎界面可以点击登录／注册按钮进入登录／注册界面
+					</li>
+					<li style="padding-top: 10px;">
+							方式二：
+					</li>
+					<li>
+							1、打开艾卡记忆App
+					</li>
+					<li>
+							2、进入【主界面】，打开【侧边栏菜单】
+					</li>
+					<li>
+							3、点击【立即登录】按钮即可进入登录界面
+					</li>
+					<li style="padding-top: 10px;">
+							如何退出登录
+					</li>
+					<li>
+							1、打开艾卡记忆App
+					</li>
+					<li>
+							2、进入【主界面】，打开【侧边栏菜单】
+					</li>
+					<li>
+							3、点击【偏好设置】->【退出登录】
+					</li>
+					<li>
+							操作方法：
+					</li>
+				</ul>			
+				<img src="images/signOut.gif" width="100%">
+			</div>
+		</div>
+		</div>
+
+		<div id="two" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何分享自己创建的牌组</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="public">
+				<p class="help">分享牌组</p> 
+				<ul class="explain">
+					<li>
+							分享牌组功能是将您手机App中的牌组信息，分享到电脑端中。
+					</li>
+					<li>
+							1、打开艾卡记忆App，展开侧边栏；
+					</li>
+					<li>
+							2、登录状态下进入【个人中心】，点击【我的牌组】，即可看到您的所有牌组信息；
+					</li>
+					<li>
+							3、选择您要分享的牌组，点击【分享】按钮；
+					</li>
+					<li>
+							4、完善相关牌组信息：【基本分类】->【具体分类】->【牌组描述】->【展示图片】；
+					</li>
+					<li>
+							5、选择6张您想要展示的牌组图片，点击【确定分享】按钮即可完成分享功能；
+					</li>
+					<li>
+							分享完成后可以在电脑端进入【个人中心】，选择左侧【我的牌组】，点击”分享按钮”即可查看到刚刚App中分享的图片文件。
+					</li>
+					<li style="padding-top: 10px;color: #000;font-weight: bolder;">
+							如何准备【展示图片】
+					</li>
+					<li>
+							1、进入【主界面】->【牌组选项】
+					</li>
+					<li>
+							2、点击您要分享的牌组，进入牌组学习
+					</li>
+					<li>
+							3、遇到您要作为展示图片的卡片时，点击屏幕上方的【相机】按钮即可完成截屏功能，当前图片会在【分享界面】的【展示图片】列表中显示出来
+					</li>
+					<li>
+							操作方法：
+					</li>
+				</ul>			
+				<img src="images/shareDeck.gif" width="100%">
+			</div>
+		</div>
+	</div>
+		<div id="addBiji" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何新建牌组并添加笔记</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="public">
+				<p class="help">新建牌组并添加</p> 
+				<ul class="explain">
+					<li>
+							如何新建牌组？
+					</li>
+					<li>
+							1、打开艾卡记忆App
+					</li>
+					<li>
+							2、进入【主界面】—>【牌组选项】
+					</li>
+					<li>
+							3、点击右上角“菜单按钮”
+					</li>
+					<li>
+							4、选择【新建牌组】—>【输入牌组名称】
+					</li>
+					<li>
+							5、点击确定即可完成新建牌组
+					</li>
+					<li style="padding-top: 10px;">
+							如何向牌组中添加笔记？
+					</li>
+					<li>
+							1、如何向牌组中添加笔记？
+					</li>
+					<li>
+							2、进入【主界面】—>【牌组选项】
+					</li>
+					<li>
+							3、点击右上角“菜单按钮”
+					</li>
+					<li>
+							4、选择【添加笔记】跳转到添加笔记界面
+					</li>
+					<li>
+							5、选择【笔记类型】和【牌组名称】
+					</li>
+					<li>
+							6、在Front中输入卡片正面问题，在Back中输入卡片反面答案
+					</li>
+					<li>
+							7、点击右上角【保存】按钮即可完成添加卡片功能
+					</li>
+					<li>
+							操作方法：
+					</li>
+				</ul>			
+				<img src="images/createDeck.gif" width="100%">
+			</div>
+		</div>
+	</div>
+
+		<div id="three" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何导入自己的阅读材料</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="public">
+				<p class="help">在线导入阅读材料</p> 
+				<ul class="explain">
+					<li>
+							在线导入阅读材料功能是将您本地的【txt】和【epub】格式文件通过电脑端的【个人中心】的【上传数据】功能导入到您的手机App中；
+					</li>
+					<li>
+							1、浏览器打开网址链接：<a>http://ankichina.net/</a>；
+					</li>
+					<li>
+							2、登录您的账户，进入【个人中心】；
+					</li>
+					<li>
+							3、选择左侧【上传数据】选项，选择您要上传的文件，目前仅支持txt和epub格式的文件；
+					</li>
+					<li>
+							4、数据上传文件标签，点击保存按钮即可；
+					</li>
+					<li>
+							5、上传完成后，打开您的手机App，进入【主界面】->【阅读选项】，点击左下角的【在线导入】按钮，即可完成导入阅读材料功能；
+					</li>
+					<li>
+							温馨提示：收到导入文件后，“在线导入”按钮右上角会显示小红点。
+					</li>
+					<li>
+							操作方法：
+					</li>
+				</ul>			
+				<img src="images/onlineArticle.gif" width="100%">
+			</div>
+		</div>
+	</div>
+		<div id="four" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何获得他人分享的牌组</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="read" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack"">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title mui-ellipsis">如何使用阅读自动制卡功能</h1>
+			</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content"> 
+			<div class="public">
+				<p class="help">阅读自动制卡功能</p> 
+				<ul class="explain">
+					<li>
+							1、打开艾卡记忆App
+					</li>
+					<li>
+							2、进入【主界面】->【阅读选项】
+					</li>
+					<li>
+							3、点击一篇文章即可进入阅读模式
+					</li>
+					<li>
+							4、阅读中，【长按】您不认识的单词，点击【制卡】即可查询当前单词释义
+					</li>
+					<li>
+							5、在单词查询界面，点击右上角【自动制卡】，即可将当前单词和内容制作成卡片，系统会根据当前阅读文档名称保存为对应牌组；
+					</li>
+					<li>
+							操作方法：
+					</li>
+				</ul>			
+				<img src="images/read.gif" width="100%">
+			</div>
+		</div>
+		</div>
+
+		<div id="five" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何获得并导入Anki的共享牌组</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="public">
+				<p class="help">获得并导入Anki的共享牌组</p> 
+				<ul class="explain">
+					<li>
+							Anki牌组是国外Anki公司提供的牌组文件，可以下载并导入到您的手机App中。
+					</li>
+					<li>
+							1、打开艾卡记忆App
+					</li>
+					<li>
+							2、进入【主界面】->【牌组选项】
+					</li>
+					<li>
+							3、点击右下角【共享牌组】—>【Anki共享】
+					</li>
+					<li>
+							4、选择您要下载的牌组，点击【Download】按钮即可完成下载，下载完成后会自动导入到您的牌组中；
+					</li>
+					<li>
+							5、上传完成后，打开您的手机App，进入【主界面】->【阅读选项】，点击左下角的【在线导入】按钮，即可完成导入阅读材料功能；
+					</li>
+					<li>
+							温馨提示：部分牌组文件较大，建议您在Wi-Fi环境下使用此功能；
+					</li>
+					<li>
+							操作方法：
+					</li>
+				</ul>			
+				<img src="images/ankiShareDeck.gif" width="100%">
+			</div>
+			</div>
+		</div>
+		<div id="six" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何分享自己的阅读材料</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="seven" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何制作模考题库</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="eight" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何在线导入模考题库</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="nine" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav"> 
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何分享模考题库</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="ten" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何选择卡片测评按钮</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="eleven" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何增加当天学习新卡片的数量</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="twelve" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">学习卡片时左上角的三个数字代表什么</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="thirteen" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何向你的粉丝推送卡片</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="fourteen" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">如何关注制作卡片的大神</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="fifteen" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">统计图中的预测图怎么理解？</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="sixteen" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">统计图中的复习计数怎么理解？</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="seventeen" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+			<h1 class="mui-center mui-title mui-ellipsis">统计图中的卡片按钮怎么理解？</h1>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.view.js "></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/xxcity.data-3.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+			
+		mui.init();
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+				//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+	
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+			/////////////////bridge/////////////////////
+			/**<js-ios>
+				window.onerror = function(err) {
+			        log('window.onerror: ' + err)
+				}
+				
+			    function setupWebViewJavascriptBridge(callback) {
+			        if (window.WebViewJavascriptBridge) {
+			            return callback(WebViewJavascriptBridge);
+			        }
+			        if (window.WVJBCallbacks) {
+			            return window.WVJBCallbacks.push(callback);
+			        }
+			        window.WVJBCallbacks = [callback];
+			        var WVJBIframe = document.createElement('iframe');
+			        WVJBIframe.style.display = 'none';
+			        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+			        document.documentElement.appendChild(WVJBIframe);
+			        setTimeout(function() {
+			            document.documentElement.removeChild(WVJBIframe)
+			            }, 0);
+			    }
+			
+			    setupWebViewJavascriptBridge(function(bridge) {
+			        
+			        initThisWindow(bridge);
+			
+			        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+		                
+	//					var treeListData_org = JSON.parse(data.treeStr);
+		                
+		                //initFirWindow(bridge, treeListData_org);
+		               
+			        });
+			        bridge.registerHandler('changeTheme', function(data, responseCallback) {
+	                  	changeAllColor(data);
+		        	});
+			        
+			    });
+		    </js-ios>**/
+//							
+			/////////////////bridge/////////////////////	
+			
+			function addButtonsListener(bridge){
+				document.getElementById("backTo").addEventListener('tap', function(){
+					//alert(123);
+					action = null;
+					/**<js-ios>
+						bridge.callHandler('backToParent', action, function(response) {
+							//log('JS got response', response)
+						});
+					</js-ios>**/
+					
+						window.xuming.backToPresent();
+					
+				});
+			}
+			
+			
+			//主题色换肤
+			var titleBar=document.getElementsByClassName('mui-bar');
+			function changeAllColor(num){
+				if(num==0){					
+					for(var i=0;i<titleBar.length;i++){
+						titleBar[i].style.backgroundColor='#444a59';
+					}
+				}else{
+					for(var i=0;i<titleBar.length;i++){
+						titleBar[i].style.backgroundColor='#3696e9';
+					}	
+				}
+				
+			}
+//			changeAllColor(1);
+			
+			function initThisWindow(bridge){
+				//alert(123);
+				addButtonsListener(bridge);
+			}
+			
+
+		</script>
+
+	</body>
+
+</html>

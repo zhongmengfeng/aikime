@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/study_background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="20dp"
+            android:text="注册"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_38" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginBottom="20dp"
+            android:background="@null"
+            android:hint="输入您的手机号"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorRegist"
+            android:textSize="@dimen/textsize_15" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginBottom="20dp"
+            android:background="@null"
+            android:hint="请输入密码"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorRegist"
+            android:textSize="@dimen/textsize_15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入验证码"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorRegist"
+                android:textSize="@dimen/textsize_15" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:background="@drawable/ek_start_study_shape"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="发送验证码"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_15" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="280dp"
+                android:layout_height="48dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ek_start_study_shape"
+                android:gravity="center"
+                android:text="注册"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_18" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="已阅读并同意艾卡记忆用户注册协议"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/textsize_12" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

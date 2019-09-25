@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/deckreader_listview_bg_shape">
+
+        <RelativeLayout
+            android:id="@+id/course_name_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/test_course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="驾照考试"
+                android:textSize="17sp"
+                android:textColor="#0c0e10"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="7.5dp"
+                android:layout_height="14dp"
+                android:src="@drawable/arrow_right_new"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/arrow"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:text="更多"
+                android:textSize="13sp"
+                android:textColor="@drawable/text_color_selector_more" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/detail_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/course_name_lyt"
+            android:text="内含200道经典题目，是2016年新版题库"
+            android:textSize="12sp"
+            android:textColor="#a8a9a9"/>
+
+        <!--<GridView
+            android:id="@+id/grid_view_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_lyt"
+            android:layout_margin="10dp"
+            android:numColumns="3"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp">
+        </GridView>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_tests"
+            android:layout_below="@id/detail_lyt"
+            android:layout_margin="10dp"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Hello MUI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="stylesheet" href="css/mui.min.css">
+	<link rel="stylesheet" href="css/myown_center_01.css" />
+	<link rel="stylesheet" href="css/yiji02.css">
+	<style>
+			.mui-navbar {
+			    position: fixed;
+			    right: 0;
+			    left: 0;
+			    z-index: 10;
+			    height: 44px;
+			    background-color: #007aff !important;
+			}
+			.mui-bar .mui-btn-link {
+			    font-size: 16px;
+			    line-height: 44px;
+			    top: 0;
+			    padding: 0;
+			    color: #fff;
+			    border: 0;
+			    width: 100px;
+    			text-align: left;
+
+			}
+			.mui-title {
+			    font-size: 17px;
+			    font-weight: 500;
+			    line-height: 44px;
+			    position: absolute;
+			    display: block;
+			    width: 100%;
+			    margin: 0 -10px;
+			    padding: 0;
+			    text-align: center;
+			    white-space: nowrap;
+			    color: #fff;
+			}
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 44px;
+				height: auto;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #ededed;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-navbar {
+				position: fixed;
+				right: 0;
+				left: 0;
+				z-index: 10;
+				height: 44px;
+				background-color: #444a59 !important;
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+				margin-top: 20px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			.mui-pull-right a{
+				color: #999;
+			}
+			.mui-table-view-divider {
+				background-color: #efeff4;
+				font-size: 14px;
+			}
+			.mui-table-view-divider:before,
+			.mui-table-view-divider:after {
+				height: 0;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: -25px;
+				font-size: 15px
+			}
+			.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-ios .mui-navbar .mui-bar .mui-title {
+				/*position: static;*/
+			}
+			/*问题反馈在setting页面单独的css*/
+			#feedback .mui-popover{
+				position: fixed;
+			}
+			#feedback .mui-table-view:last-child {
+			    margin-bottom: 0px;
+			}
+			#feedback .mui-table-view:first-child {
+			    margin-top: 0px;
+			}
+			.li-span {
+				display: inline-block;
+				width: 22px;
+				height: 22px;
+				background: green;
+				line-height: 22px;
+				font-size: 20px;
+				margin-left: 5px;
+				text-align: center;
+				border-radius: 4px;
+				color: white;
+				font-weight: 800;
+			}
+			.public-list-txt{
+				margin:0 15px;
+				border-radius: 5px;
+				margin-top: 15px !important;
+				/*height: 302px;*/
+			}
+			.public-list-txt li .fontColor{
+			    font-size: 18px;
+			    color: #0c0e10;
+			    /*font-weight: bolder;*/
+			    font-family: "微软雅黑";
+			    padding-left: 15px;
+			}
+			.mui-table-view:before,.mui-table-view:after{
+				background-color:transparent !important;
+			}
+			.settingList{
+				margin:0 15px;
+				padding: 15px 0;
+				line-height: 22px ;
+				border-bottom:1px solid #c3c3c3;
+			}
+			.li-span {
+				margin-left: 0 !important;
+			}
+			.mui-btn-blue{
+				border: 1px solid #3696e9;
+    			background-color: #3696e9;
+    			margin: 0 15px;
+    			position: absolute;
+    			bottom:36px;
+			}
+			.photo{
+				height: 20px;
+				float: right;
+				margin-top: 2px;
+			}
+			.settingIcon{
+				width: 22px;
+				float: left;
+			}
+			.returnKey{
+				font-size: 17px;
+				position: absolute;
+				top: 0px;
+				margin-left: 10px;
+			}
+			.settingList a{
+				display: inline-block;
+    			width: 100%;
+			}
+			.changeColor{
+				height: 53px;
+			    background-color: #444a59;
+			    position: absolute;
+			    width: 100%;
+			}
+			/*问题反馈在setting页面单独的css==end*/
+
+		</style>
+	<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+</head>
+<body class="mui-fullscreen">
+<!--页面主结构开始-->
+<div id="app" class="mui-views">
+	<div class="mui-view">
+		<div class="mui-navbar">
+		</div>
+
+		<div class="mui-pages">
+		</div>
+	</div>
+</div>
+<!--页面主结构结束-->
+<!--首页面开始-->
+<div id="setting" class="mui-page">
+	<!--页面标题栏开始-->
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button id="backToParent" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<!--<span id="overjson">--><img src="images/returnIcon.png" class="home-return" /><span class="returnKey">返回</span><!--</span>-->
+		</button>
+		<button id="backToSave" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-right" style="text-align: right;margin-right: 5px;">
+			<span style="font-size: 17px;">保存</span>
+		</button>
+		<h1 class="mui-center mui-title">偏好设置</h1>
+	</div>
+	<!--页面标题栏结束-->
+
+
+	<!--页面主内容区开始-->
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="changeColor"></div>
+				<ul class="mui-table-view  public-list-txt mui-table-view-chevron">
+					<li class="settingList">
+						<a href="#changyong-shezhi">
+							<img src="images/always.png" class="settingIcon" />
+							<span class="fontColor">常用设置</span>
+							<img src="images/getIntoIcon.png" class="photo" />
+						</a>
+					</li>
+					<li class="settingList">
+						<a href="#fuxi-shezhi">
+							<img src="images/review.png" class="settingIcon" />
+							<span class="fontColor">复习设置</span>
+							<img src="images/getIntoIcon.png" class="photo" />
+						</a>
+					</li>
+					<li class="settingList">
+						<a href="#ziti-fengge">
+							<img src="images/font.png" class="settingIcon" />
+							<span class="fontColor">字体风格</span>
+							<img src="images/getIntoIcon.png" class="photo" />
+						</a>
+					</li>
+					<li class="settingList">
+						<a href="#gaoji-shezhi">
+							<img src="images/highSetting.png" class="settingIcon" />
+							<span class="fontColor">高级设置</span>
+							<img src="images/getIntoIcon.png" class="photo" />
+						</a>
+					</li>
+					<li class="settingList" style="border-bottom: 0;padding-bottom: 30px;">
+						<a href="#about">
+							<img src="images/changeColor.png" class="settingIcon" />
+							<span class="fontColor">切换主题色</span>
+							<img src="images/getIntoIcon.png" class="photo" />
+							<i class="mui-pull-right update mylist-themeIndex" index="" style="margin-right: 15px;">
+
+							</i>
+						</a>
+					</li>
+					<li class="settingList" style="border-bottom: 0;">
+						<span class="fontColor" style="padding-left: 0;color: #999999;">当前版本</span>
+						<i class="mui-pull-right update" id="version" style="margin-right: 0;">
+
+						</i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--页面主内容区结束-->
+</div>
+<!--首页面结束-->
+
+<!--///////////////////////////////001//////////////-->
+<!--“常用设置”页面开始-->
+<div id="changyong-shezhi" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">偏好设置</span>
+		</button>
+		<h1 class="mui-center mui-title">常用设置</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						同步时获取媒体文件
+						<div id="switch_changyongshezhi-tongbu-meiti" class="syncFetchesMedia mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+							<span class="span"></span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						自动同步
+						<div id="switch_changyongshezhi-tongbu-zidong" class="automaticSyncMode mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						<a href="#changyong-shezhi_01xinpaizu" class="mui-navigate-right">
+							新牌组
+							<i class="mui-pull-right update mylist-useCurrent" index="">
+								当前牌组
+							</i>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#changyong-shezhi_02yuyan" class="mui-navigate-right">
+							语言
+							<i class="mui-pull-right update mylist-language" index="">
+								系统语言
+							</i>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#changyong-shezhi_03baogaomoshi" class="mui-navigate-right">
+							错误报告模式
+							<i class="mui-pull-right update mylist-reportErrorMode" index="">
+								询问我
+							</i>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#changyong-shezhi_04tongzhileixing" class="mui-navigate-right">
+							通知类型
+							<i class="mui-pull-right update mylist-minimumCardsDueForNotification" index="">
+								有新消息
+							</i>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#changyong-shezhi_05homepage" class="mui-navigate-right">
+							主界面功能
+							<i class="mui-pull-right update mylist-homePageStyle" index="">
+								有新消息
+							</i>
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						声音
+						<div id="switch_changyongshezhi-shengyin" class="SystemVoice mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						震动
+						<div id="switch_changyongshezhi-zhendong" class="widgetVibrate mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						呼吸灯
+						<div id="switch_changyongshezhi-huxideng" class="widgetBlink mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+				<div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--<span class="returnKey">常用设置</span>三级单选开始-->
+<div id="changyong-shezhi_01xinpaizu" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left"  id="backUse">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">常用设置</span>
+		</button>
+		<h1 class="mui-center mui-title">新牌组</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-useCurrent" title="当前牌组">
+						<a class="mui-navigate-right">使用当前牌组</a>
+					</li>
+					<li class="mui-table-view-cell mytext-useCurrent" title="笔记类型">
+						<a class="mui-navigate-right">由笔记类型决定</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+<div id="changyong-shezhi_02yuyan" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">常用设置</span>
+		</button>
+		<h1 class="mui-center mui-title">新牌组</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_02yuyan" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-language" title="系统语言">
+						<a class="mui-navigate-right">系统语言</a>
+					</li>
+					<li class="mui-table-view-cell mytext-language" title="中文(中国)">
+						<a class="mui-navigate-right">中文（中国）</a>
+					</li>
+					<li class="mui-table-view-cell mytext-language" title="中文(台湾)">
+						<a class="mui-navigate-right">中文(台湾)</a>
+					</li>
+					<li class="mui-table-view-cell mytext-language" title="英文">
+						<a class="mui-navigate-right">英文</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+
+<div id="changyong-shezhi_03baogaomoshi" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">常用设置</span>
+		</button>
+		<h1 class="mui-center mui-title">错误报告模式</h1>
+
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_03baogaomoshi" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mytext-reportErrorMode" title="总是">
+						<a class="mui-navigate-right">总是发送报告</a>
+					</li>
+					<li class="mui-table-view-cell mytext-reportErrorMode" title="从不">
+						<a class="mui-navigate-right">从不发送报告</a>
+					</li>
+					<li class="mui-table-view-cell mui-selected mytext-reportErrorMode" title="询问我">
+						<a class="mui-navigate-right">询问我</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+
+<div id="changyong-shezhi_04tongzhileixing" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">常用设置</span>
+		</button>
+		<h1 class="mui-center mui-title">通知类型</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div id="radio-changyong-shezhi_04tongzhileixing" class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-minimumCardsDueForNotification" title="有新消息">
+						<a class="mui-navigate-right">有新消息</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">10的时候">
+						<a class="mui-navigate-right">有超过10张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">20的时候">
+						<a class="mui-navigate-right">有超过20张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">50的时候">
+						<a class="mui-navigate-right">有超过50张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">75的时候">
+						<a class="mui-navigate-right">有超过75张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">100的时候">
+						<a class="mui-navigate-right">有超过100张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">150的时候">
+						<a class="mui-navigate-right">有超过150张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">200的时候">
+						<a class="mui-navigate-right">有超过200张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">250的时候">
+						<a class="mui-navigate-right">有超过250张需要查看</a>
+					</li>
+					<li class="mui-table-view-cell mytext-minimumCardsDueForNotification" title=">500的时候">
+						<a class="mui-navigate-right">有超过500张需要查看</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+
+<div id="changyong-shezhi_05homepage" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">常用设置</span>
+		</button>
+		<h1 class="mui-center mui-title">主功能界面</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div id="radio-changyong-shezhi_05homepage" class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-homePageStyle" title="全部">
+						<a class="mui-navigate-right">全部</a>
+					</li>
+					<li class="mui-table-view-cell mytext-homePageStyle" title="牌组+阅读">
+						<a class="mui-navigate-right">牌组+阅读</a>
+					</li>
+					<li class="mui-table-view-cell mytext-homePageStyle" title="牌组+模考">
+						<a class="mui-navigate-right">牌组+模考</a>
+					</li>
+					<li class="mui-table-view-cell mytext-homePageStyle" title="牌组">
+						<a class="mui-navigate-right">牌组</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+
+<!--常用设置三级单选结束-->
+<!--“常用设置”页面结束-->
+
+
+
+<!--///////////////////////////////002//////////////-->
+<!--“复习设置”页面开始-->
+<div id="fuxi-shezhi" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">偏好设置</span>
+		</button>
+		<h1 class="mui-center mui-title">复习设置</h1>
+	</div>
+
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						<a href="#fuxi-shezhi_11xinkapian-weizhi" class="mui-navigate-right">新卡片位置
+							<i class="mui-pull-right update mylist-newSpread" index="">
+								混合
+							</i>
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell" id="dayOffset">
+								<span href="#fuxi-shezhi_12a" class="mui-navigate">下一天开始时间
+									<span class="mui-pull-right">04
+									</span>
+								</span>
+					</li>
+					<li class="mui-table-view-cell" id="learnCutoff">
+						<a href="#fuxi-shezhi_13b" class="mui-navigate">提前学习的限制
+							<span class="mui-pull-right">20分钟
+									</span>
+						</a>
+					</li>
+					<li class="mui-table-view-cell" id="timeLimit">
+						<a href="#fuxi-shezhi_14b" class="mui-navigate">时间盒时间限制
+							<span class="mui-pull-right">0分钟
+									</span>
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						保持屏幕常亮
+						<div id="switch_fuxishezhi-pingmu-changliang" class="keepScreenOn mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#fuxi-shezhi_12quanping-xianshi" class="mui-navigate-right">全屏显示
+							<i class="mui-pull-right update mylist-fullscreenMode" index="" style="margin-right: 20px;">
+								隐藏状态栏
+							</i>
+						</a>
+
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#fuxi-shezhi_answerButtonType" class="mui-navigate-right">按钮样式
+							<i class="mui-pull-right update mylist-answerButtonType" index="" style="margin-right: 20px;">
+								常规
+							</i>
+						</a>
+
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						居中对其
+						<div id="switch_fuxishezhi-juzhon-gduiqi" class="centerVertically mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						显示按钮时间
+						<div id="switch_fuxishezhi-xianshi-anniushijian" class="showEstimates mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="">卡片缩放：<span class="mui-pull-right "id="cardZoom-span"></span>
+							<div class="mui-input-row mui-input-range" style="width: 60%; float: right;">
+								<input type="range" id="cardZoom" value="100" min="0" max="100" data-input-slider="4">
+							</div>
+						</a>
+
+					</li>
+
+					<li class="mui-table-view-cell">
+						<a class="">图片缩放：<span class="mui-pull-right field-range"id="imageZoom-span"></span>
+							<div class="mui-input-row mui-input-range" style="width: 60%; float: right;">
+								<input type="range" id="imageZoom" value="100" min="0" max="100" data-input-slider="4">
+							</div>
+						</a>
+					</li>
+
+					<li class="mui-table-view-cell">
+						<a class="">按钮大小：<span class="mui-pull-right field-range"id="answerButtonSize-span"></span>
+							<div class="mui-input-row mui-input-range" style="width: 60%; float: right;">
+								<input type="range" id="answerButtonSize" value="100" min="0" max="100" data-input-slider="4">
+							</div>
+						</a>
+					</li>
+
+				</ul>
+				<div></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!--复习设置三级单选开始-->
+<div id="fuxi-shezhi_11xinkapian-weizhi" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">复习设置</span>
+		</button>
+		<h1 class="mui-center mui-title">新卡片位置</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-newSpread" title="混合">
+						<a class="mui-navigate-right">混合新卡片和复习</a>
+					</li>
+					<li class="mui-table-view-cell mytext-newSpread" title="复习后再学习">
+						<a class="mui-navigate-right">复习后再学习新卡片</a>
+					</li>
+					<li class="mui-table-view-cell mytext-newSpread" title="学完再复习">
+						<a class="mui-navigate-right">学习新卡片后再复习</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+<div id="fuxi-shezhi_12quanping-xianshi" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">复习设置</span>
+		</button>
+		<h1 class="mui-center mui-title">全屏显示</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mytext-fullscreenMode" title="关闭">
+						<a class="mui-navigate-right">关闭</a>
+					</li>
+					<li class="mui-table-view-cell mui-selected mytext-fullscreenMode" title="隐藏状态栏">
+						<a class="mui-navigate-right">隐藏系统状态栏</a>
+					</li>
+					<li class="mui-table-view-cell mytext-fullscreenMode" title="隐藏状态栏及按钮">
+						<a class="mui-navigate-right">隐藏系统状态栏及回答按钮</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+<div id="fuxi-shezhi_answerButtonType" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">复习设置</span>
+		</button>
+		<h1 class="mui-center mui-title">按钮样式</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-answerButtonType" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mytext-answerButtonType" title="常规">
+						<a class="mui-navigate-right">常规</a>
+					</li>
+					<li class="mui-table-view-cell mui-selected mytext-answerButtonType" title="文字和时间">
+						<a class="mui-navigate-right">文字和时间</a>
+					</li>
+					<li class="mui-table-view-cell mytext-answerButtonType" title="时间">
+						<a class="mui-navigate-right">时间</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+<!--复习设置三级单选结束-->
+<!--“复习设置”页面结束-->
+
+
+
+
+<!--///////////////////////////////003//////////////-->
+<!--“字体风格”页面开始-->
+<div id="ziti-fengge" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">偏好设置</span>
+		</button>
+		<h1 class="mui-center mui-title">字体风格</h1>
+	</div>
+
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						<a href="#ziti-fengge_31moren-ziti" class="mui-navigate-right">默认字体
+							<i class="mui-pull-right update mylist-defaultFont" index="0">
+								System
+							</i>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#ziti-fengge_32ziti-shiyongfanwei" class="mui-navigate-right">默认字体使用范围
+							<i class="mui-pull-right update mylist-overrideFontBehavior" index="0">
+								没有字体时
+							</i>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#ziti-fengge_33lilanqi-ziti" class="mui-navigate-right">浏览器和编辑器字体
+							<i class="mui-pull-right update mylist-browserEditorFont" index="0">
+								System
+							</i>
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="">字体缩放：<span class="mui-pull-right" id="relativeCardBrowserFontSize-span"></span>
+							<div class="mui-input-row mui-input-range" style="width: 60%; float: right;">
+								<input type="range" id="relativeCardBrowserFontSize" value="100" min="0" max="100" data-input-slider="4">
+							</div>
+						</a>
+
+					</li>
+				</ul>
+				<div></div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!--<span class="returnKey">字体风格</span>三级单选开始-->
+<div id="ziti-fengge_31moren-ziti" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">字体风格</span>
+		</button>
+		<h1 class="mui-center mui-title">默认字体</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-defaultFont" title="System">
+						<a class="mui-navigate-right">System default</a>
+					</li>
+					<li class="mui-table-view-cell mytext-defaultFont" title="Bold">
+						<a class="mui-navigate-right">OpenSans-Bold</a>
+					</li>
+					<li class="mui-table-view-cell mytext-defaultFont" title="Boldltalic">
+						<a class="mui-navigate-right">OpenSans-Boldltalic</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+<div id="ziti-fengge_32ziti-shiyongfanwei" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">字体风格</span>
+		</button>
+		<h1 class="mui-center mui-title">字体适用范围</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-overrideFontBehavior" title="没有字体时">
+						<a class="mui-navigate-right">当卡片中没有指定字体时</a>
+					</li>
+					<li class="mui-table-view-cell mytext-overrideFontBehavior" title="总是">
+						<a class="mui-navigate-right">总是</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+<div id="ziti-fengge_33lilanqi-ziti" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">字体风格</span>
+		</button>
+		<h1 class="mui-center mui-title">浏览器字体</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper" data-scroll="4">
+			<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mui-selected mytext-browserEditorFont" title="System">
+						<a class="mui-navigate-right">System default</a>
+					</li>
+					<li class="mui-table-view-cell mytext-browserEditorFont" title="Bold">
+						<a class="mui-navigate-right">OpenSans-Bold</a>
+					</li>
+					<li class="mui-table-view-cell mytext-browserEditorFont" title="BoldItalic">
+						<a class="mui-navigate-right">OpenSans-BoldItalic</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+	</div>
+</div>
+<!--字体风格三级单选结束-->
+<!--“字体风格”页面结束-->
+
+
+
+
+<!--///////////////////////////////004//////////////-->
+<!--“高级设置”页面开始-->
+<div id="gaoji-shezhi" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">偏好设置</span>
+		</button>
+		<h1 class="mui-center mui-title">高级设置</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell" id="backupMax">
+						<a class="">最大备份数量<span class="mui-pull-right">8</span></a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						文本转语音
+						<div class="tts mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						启用国际象棋插件
+						<div class="convertFenText mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						启用阅读制卡插件
+						<div class="deckreader mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						启用模拟考试制卡插件
+						<div class="decktests mui-switch mui-active mui-switch-mini istrue-div">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+
+				<div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--高级设置三级单选开始-->
+
+<!--高级设置三级单选结束-->
+<!--“高级设置”页面结束-->
+
+
+
+<!--///////////////////////////////005//////////////-->
+<!--“高级设置”页面开始-->
+<div id="about" class="mui-page">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<img src="images/returnIcon.png" class="home-return" /><span class="returnKey">偏好设置</span>
+		</button>
+		<h1 class="mui-center mui-title">切换主题色</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul id="" class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell mytext-themeIndex" title="灰色">
+						<a class="mui-navigate-right">灰色</a>
+					</li>
+					<li class="mui-table-view-cell  mytext-themeIndex mui-selected" title="蓝色">
+						<a class="mui-navigate-right">蓝色</a>
+					</li>
+				</ul>
+				<div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--高级设置三级单选开始-->
+
+<!--高级设置三级单选结束-->
+<!--“高级设置”页面结束-->
+
+
+<!--“关于艾卡”页面开始-->
+<!--<div id="about" class="mui-page">
+    <div class="mui-navbar-inner mui-bar mui-bar-nav">
+        <button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="images/returnIcon.png" class="home-return" /><span class="returnKey">偏好设置</span>
+        </button>
+        <h1 class="mui-center mui-title">关于艾卡</h1>
+    </div>
+    <div class="mui-page-content">
+
+    </div>
+</div>-->
+<!--“关于艾卡”页面结束-->
+
+
+
+</body>
+<script src="js/mui.min.js "></script>
+<script src="js/mui.view.js "></script>
+<!--<script src='js/feedback.js'></script>-->
+<script>
+	//<1>定义全局变量并启动框架---begin
+		var expData={
+			//常用设置
+				//获取媒体文件
+				"syncFetchesMedia":true,
+				//自动同步
+				"automaticSyncMode":true,
+				//新牌组
+				"useCurrent":1,
+				//语言
+				"language":1,
+				//错误报告模式
+				"reportErrorMode":1,
+				//通知类型
+				"minimumCardsDueForNotification":1,
+				//主界面功能
+				"homePageStyle":0,
+				//声音
+				"SystemVoice":false,
+				//震动
+				"widgetVibrate":false,
+				//呼吸灯
+				"widgetBlink":false,
+			//复习设置
+				//新卡片位置
+				"newSpread":1,
+				//下一天开始时间
+				"dayOffset":0,
+				//提前学习的限制
+				"learnCutoff":00,//20分钟，单位
+				//时间盒时间限制
+				"timeLimit":0,
+
+				//保持屏幕常亮
+				"keepScreenOn":true,
+				//全屏显示
+				"fullscreenMode":1,
+				//按钮样式
+				"answerButtonType":1,
+				//居中对齐
+				"centerVertically":true,
+				//显示按扭时间
+				"showEstimates":true,
+
+				//卡片缩放
+				"cardZoom":00,
+				//图片缩放
+				"imageZoom":00,
+				//显示答案按钮大小
+				"answerButtonSize":00,
+			//字体风格
+				//默认字体
+				"defaultFont":0,
+				//默认字体适用范围
+				"overrideFontBehavior":0,
+				//浏览器和编辑器字体
+				"browserEditorFont":0,
+				//卡片浏览器字体缩放
+				"relativeCardBrowserFontSize":00,
+			//高级设置
+
+			   //最大备份数量
+				"backupMax":0,
+				//文本转语音
+				"tts":true,
+				//启用象棋国际插件
+				"convertFenText":true,
+				//启用阅读制卡插件
+				"deckreader":true,
+				//启用模拟考试制卡插件
+				"decktests":true,
+				//主题色换肤
+				"themeIndex":0,
+				//版本号
+				"version": "1.12"
+		};
+
+		var commitData={};
+		var List_alias_themeIndex=[
+	        "灰色",
+	        "蓝色"
+        ];
+		var List_alias_useCurrent=[
+	        "当前牌组",
+	        "取决笔记类型"
+        ];
+        var List_alias_language=[
+	        "系统语言",
+	        "中文（中国）",
+	        "中文（台湾）",
+	        "英文"
+        ];
+        var List_alias_reportErrorMode=[
+	        "总是报告",
+	        "从不报告",
+	        "询问我"
+        ];
+        var List_alias_minimumCardsDueForNotification=[
+	        "有新消息",
+	        ">10张",
+	        ">20张",
+	        ">50张",
+	        ">75张",
+	        ">100张",
+	        ">150张",
+	        ">200张",
+	        ">250张",
+	        ">500张"
+        ];
+        var List_alias_homePageStyle=[
+	        "全部",
+	        "牌组+阅读",
+	        "牌组+模考",
+	        "牌组"
+        ];
+        var List_alias_newSpread=[
+        	"混合","复习后再学习","学完再复习"
+        ];
+	    var List_alias_fullscreenMode=[
+	    	"关闭","隐藏状态栏","隐藏状态栏及按钮"
+	    ];
+	    var List_alias_answerButtonType=[
+	    	"常规","文字和时间","时间"
+	    ];
+	    var List_alias_defaultFont=[
+	    	"System","Bold","Boldltalic"
+	    ];
+	    var List_alias_overrideFontBehavior=[
+	    	"没有字体时","总是"
+	    ];
+	    var List_alias_browserEditorFont=[
+	    	"System","Bold","Boldltalic"
+	    ];
+
+
+
+
+	//常用设置
+	    //获取媒体文件
+	    var syncFetchesMedia;
+	    //自动同步
+	    var automaticSyncMode;
+	    //新牌组
+	    var useCurrent;
+	    //语言
+	    var language;
+	    //错误报告模式
+	    var reportErrorMode;
+	    //通知类型
+	    var minimumCardsDueForNotification;
+	    //主界面功能
+	    var homePageStyle;
+	    //声音
+	    var SystemVoice;
+	    //震动
+	    var widgetVibrate;
+	    //呼吸灯
+	    var widgetBlink;
+	//复习设置
+	    //新卡片位置
+	    var newSpread;
+	    //下一天开始时间
+	    var dayOffset;
+	    //提前学习的限制
+	    var learnCutoff;
+	    //时间盒时间限制
+	    var timeLimit;
+
+	    //保持屏幕常亮
+	    var keepScreenOn;
+	    //全屏显示
+	    var fullscreenMode;
+	     //按钮样式
+	    var answerButtonType;
+	    //居中对齐
+	    var centerVertically;
+	    //显示按扭时间
+	    var showEstimates;
+
+	    //卡片缩放
+	    var cardZoom;
+	    //图片缩放
+	    var imageZoom;
+	    //显示答案按钮大小
+	    var answerButtonSize;
+	//字体风格
+	    //默认字体
+	    var defaultFont;
+	    //默认字体适用范围
+	    var overrideFontBehavior;
+	    //浏览器和编辑器字体
+	    var browserEditorFont;
+	    //卡片浏览器字体缩放
+	    var relativeCardBrowserFontSize;
+	//高级设置
+
+	   //最大备份数量
+	    var backupMax;
+	    //文本转语音
+	    var tts;
+	    //启用象棋国际插件
+	    var convertFenText;
+	    //启用阅读制卡插件
+	    var deckreader;
+	    //启用模拟考试制卡插件
+	    var decktests;
+		//版本号
+		var version;
+		//主题色换肤
+		var themeIndex;
+
+
+	//<1>定义全局变量并启动框架---end
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+
+		//<2>页面特效JS代码---begin
+		function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+		}
+
+		function addClass(obj, cls) {//添加类名
+		    if (!this.hasClass(obj, cls)){
+		    	obj.className += " " + cls
+		    };
+		}
+
+		function removeClass(obj, cls) {//移除类名
+		    if (hasClass(obj, cls)) {
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+		        obj.className = obj.className.replace(reg, ' ');
+		    }
+		}
+
+		function toggleClass(obj,cls){//开关类名
+			if(hasClass(obj,cls)){
+		    	removeClass(obj, cls);
+			}else{
+		    	addClass(obj, cls);
+			}
+		}
+	//<2>页面特效JS代码---end
+
+	//<3>建立数据桥---begin
+ 		/////////////////bridge/////////////////////
+		/**<js-ios>
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+
+
+
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+
+		    setupWebViewJavascriptBridge(function(bridge) {
+
+	//	        initThisWindow(bridge);
+
+		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+
+	                  initFirWindow(bridge, data);
+		        });
+
+		    });
+		</js-ios>**/
+
+		/////////////////bridge/////////////////////
+
+
+		//触发的返回按钮事件
+		var backUse = document.getElementById("backUse");
+		backUse.addEventListener("tap",function () {
+			mui.back();
+		});
+
+	    //<3>建立数据桥---end
+
+	    //<4>编写入口方法---begin
+	     function initFirWindow(bridge, serverData){
+	     	//1.加载数据，转换数据，处理原始数据；
+
+			if (serverData == null) {
+				commitData = expData;
+			}else{
+				commitData = JSON.parse(serverData);
+			}
+			//3.添加事件监听；
+	     	addButtonsListener(bridge);
+			//debugger;
+	        handleRawData(commitData);
+	        showColorListValue(bridge);
+	        changeAllColor(commitData.themeIndex);
+	     	//2.展现数据；
+	     	showAllServerData(commitData);
+	     	//3.添加事件监听；
+	     	addButtonsListener(bridge);
+	     }
+
+	    //<4-1>处理数据
+	    function handleRawData(preferenceData) {
+	    	syncFetchesMedia = preferenceData.syncFetchesMedia;
+	    	automaticSyncMode = preferenceData.automaticSyncMode;
+	    	useCurrent = preferenceData.useCurrent;
+	    	language = preferenceData.language;
+	    	reportErrorMode = preferenceData.reportErrorMode;
+	    	minimumCardsDueForNotification = preferenceData.minimumCardsDueForNotification;
+	    	homePageStyle = preferenceData.homePageStyle;
+	    	SystemVoice = preferenceData.SystemVoice;
+	   		widgetVibrate = preferenceData.widgetVibrate;
+	    	widgetBlink = preferenceData.widgetBlink;
+	    	newSpread = preferenceData.newSpread;
+	    	dayOffset = preferenceData.dayOffset;
+	    	learnCutoff = preferenceData.learnCutoff;
+	    	timeLimit = preferenceData.timeLimit;
+	    	keepScreenOn = preferenceData.keepScreenOn;
+	    	fullscreenMode = preferenceData.fullscreenMode;
+	    	answerButtonType = preferenceData.answerButtonType;
+	    	centerVertically = preferenceData.centerVertically;
+	    	showEstimates = preferenceData.showEstimates;
+	    	cardZoom = preferenceData.cardZoom;
+	    	imageZoom = preferenceData.imageZoom;
+	    	answerButtonSize = preferenceData.answerButtonSize;
+	    	defaultFont = preferenceData.defaultFont;
+	    	overrideFontBehavior = preferenceData.overrideFontBehavior;
+	    	browserEditorFont = preferenceData.browserEditorFont;
+	    	relativeCardBrowserFontSize = preferenceData.relativeCardBrowserFontSize;
+	    	backupMax = preferenceData.backupMax;
+	    	tts = preferenceData.tts;
+	    	convertFenText = preferenceData.convertFenText;
+	    	deckreader = preferenceData.deckreader;
+	    	decktests = preferenceData.decktests;
+	    	themeIndex = preferenceData.themeIndex;
+	    	version = preferenceData.version;
+	    }
+	    //<4-2>展现数据
+	    function showAllServerData() {
+
+		//常用设置
+		    //获取媒体文件
+		    showLiSwitchValue("syncFetchesMedia", syncFetchesMedia);
+		    //自动同步
+		    showLiSwitchValue("automaticSyncMode", automaticSyncMode);
+		    //新牌组
+		    showLiListValue("useCurrent", useCurrent);
+		    //语言
+		    showLiListValue("language", language);
+		    //错误报告模式
+		    showLiListValue("reportErrorMode", reportErrorMode);
+		    //通知类型
+		    showLiListValue("minimumCardsDueForNotification", minimumCardsDueForNotification);
+		    //主界面功能
+		    showLiListValue("homePageStyle", homePageStyle);
+		    //声音
+		    showLiSwitchValue("SystemVoice", SystemVoice);
+		    //震动
+		    showLiSwitchValue("widgetVibrate", widgetVibrate);
+		    //呼吸灯
+		    showLiSwitchValue("widgetBlink", widgetBlink);
+		//复习设置
+		    //新卡片位置
+		    showLiListValue("newSpread", newSpread);
+		    //主题色切换
+//		    showLiListValue("themeIndex", themeIndex);
+		    //下一天开始时间
+		    showLiInputValue("dayOffset", dayOffset);
+		    //提前学习的限制
+		    showLiInputValue("learnCutoff", learnCutoff);
+		    //时间盒时间限制
+		    showLiInputValue("timeLimit", timeLimit);
+
+		    //保持屏幕常亮
+		    showLiSwitchValue("keepScreenOn", keepScreenOn);
+		    //全屏显示
+		    showLiListValue("fullscreenMode", fullscreenMode);
+		    //按钮样式
+		    showLiListValue("answerButtonType", answerButtonType);
+		    //居中对齐
+		    showLiSwitchValue("centerVertically", centerVertically);
+		    //显示按扭时间
+		    showLiSwitchValue("showEstimates", showEstimates);
+
+		    //卡片缩放
+		    showLiSliderValue("cardZoom", cardZoom);
+		    //图片缩放
+		    showLiSliderValue("imageZoom", imageZoom);
+		    //显示答案按钮大小
+		    showLiSliderValue("answerButtonSize", answerButtonSize);
+		//字体风格
+		    //默认字体
+		    showLiListValue("defaultFont", defaultFont);
+		    //默认字体适用范围
+		    showLiListValue("overrideFontBehavior", overrideFontBehavior);
+		    //浏览器和编辑器字体
+		    showLiListValue("browserEditorFont", browserEditorFont);
+		    //卡片浏览器字体缩放
+		    showLiSliderValue("relativeCardBrowserFontSize", relativeCardBrowserFontSize);
+		//高级设置
+
+		   //最大备份数量
+		    showLiInputValue("backupMax", backupMax);
+		    //文本转语音
+		    showLiSwitchValue("tts", tts);
+		    //启用象棋国际插件
+		    showLiSwitchValue("convertFenText", convertFenText);
+		    //启用阅读制卡插件
+		    showLiSwitchValue("deckreader", deckreader);
+		    //启用模拟考试制卡插件
+		    showLiSwitchValue("decktests", decktests);
+		    //版本号
+		    showVersion();
+
+	    }
+
+	    //展现版本号
+	    function showVersion(){
+	    	var versionValue=document.getElementById('version');
+	    	versionValue.innerHTML=version;
+	    }
+
+		//<4-2-1>展现"switch开关"类型数据
+		function showLiSwitchValue(key, value){
+			var div=document.getElementsByClassName(key)[0];
+			if(value==true){
+				addClass(div,'mui-active');
+			}else{
+				removeClass(div,'mui-active');
+			};
+			var tempSwitchValue;
+			//var tempSwitchValue = key;
+			code = "tempSwitchValue = " + key;
+			eval(code);
+
+			div.onclick=function(){
+				if(tempSwitchValue){
+					commitData[key]=false;
+				}else{
+					commitData[key]=true;
+				}
+			}
+		}
+
+		//<4-2-2>展现"List列表"类型数据
+		function showLiListValue(key,value){
+			//list列表中的每一个包含一个与这个key对应的class;
+			mytext = 'mytext-' + key;
+			mylist = 'mylist-' + key;
+
+			var content;
+
+			//这个key对应的值value，在这里是个整数，而，我们要填写在mulist节点下
+			//的内容是一个字符串，我们需要通过这个value得到要填写进去的内容；
+
+			//首先获得到数组：List_alias_key, 再从中获得到第value个元素的值，即可
+			//简单地写就是 content = List_alias_key[value];
+
+			code = "content = List_alias_"+key+"["+value+"]";
+
+			//code = "content = " + str;
+
+			//debugger;
+
+			eval(code);
+
+			//alert(content);
+
+			var allLiItems=document.getElementsByClassName(mytext);
+			var targetItem=document.getElementsByClassName(mylist)[0];
+			targetItem.innerHTML=content;
+			for(var i=0;i<allLiItems.length;i++){
+				//展现数据；
+				allLiItems[i].index=i;
+				removeClass(allLiItems[i],'mui-selected');
+				addClass(allLiItems[value],'mui-selected');
+
+				//设置监听，搜集数据
+				allLiItems[i].onclick=function(){
+//					alert(this.index);
+					targetItem.setAttribute('index',this.index);
+					//console.log(targetItem.getAttribute('index'));
+					targetItem.innerHTML=allLiItems[this.index].getAttribute('title');
+					mui.trigger(backUse,'tap');
+					//[key]=this.index;
+					commitData[key]=this.index;
+				}
+			}
+		}
+
+		function showColorListValue(bridge){
+
+			var content;
+
+			code = "content = List_alias_"+'themeIndex'+"["+themeIndex+"]";
+			eval(code);
+
+			var allLiItems=document.getElementsByClassName('mytext-themeIndex');
+			var targetItem=document.getElementsByClassName('mylist-themeIndex')[0];
+			targetItem.innerHTML=content;
+			for(var i=0;i<allLiItems.length;i++){
+				//展现数据；
+				allLiItems[i].index=i;
+				removeClass(allLiItems[i],'mui-selected');
+				addClass(allLiItems[themeIndex],'mui-selected');
+
+				//设置监听，搜集数据
+				allLiItems[i].onclick=function(){
+//					alert(this.index);
+					targetItem.setAttribute('index',this.index);
+					//console.log(targetItem.getAttribute('index'));
+					targetItem.innerHTML=allLiItems[this.index].getAttribute('title');
+					mui.trigger(backUse,'tap');
+					//[key]=this.index;
+					commitData.themeIndex=this.index;
+
+					themeIndex=document.getElementsByClassName('mylist-themeIndex')[0];
+					colorIndex=themeIndex.getAttribute('index');
+					console.log(colorIndex);
+					//切换主题色
+	     			changeAllColor(colorIndex);
+	     			/**<js-ios>
+		     			bridge.callHandler('changeTheme', colorIndex, function(response) {
+
+						});
+	     			</js-ios>**/
+
+	     				window.xuming.changTheme(colorIndex);
+
+				}
+			}
+		}
+//		//<4-2-3>展现"输入框"   类型数据
+		function showLiInputValue(key, value){
+			var unit;  //单位；
+			var hint;   //提示输入的内容：“请输入***”
+
+			if (key == "dayOffset") {
+				unit = "";
+				hint = "下一天开始时间";
+			} else if (key == "learnCutoff"){
+				unit = "分钟";
+				hint = "提前学习限制";
+			} else if (key == "timeLimit"){
+				unit = "秒";
+				hint = "时间盒时间限制";
+			} else if (key == "backupMax"){
+				unit = "";
+				hint = "最大备份数";
+			}
+			//debugger;
+			var btn1=document.getElementById(key);
+			var span=btn1.getElementsByClassName('mui-pull-right')[0];
+			var placeholder=value;
+			span.innerText=value + unit;
+			btn1.addEventListener('tap', function(e) {
+				e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+				var btnArray = ['取消', '确定'];
+				mui.prompt(hint,placeholder, '请输入', btnArray, function(e) {
+					if (e.index == 1) {
+						span.innerText = e.value+unit;
+						//key = e.value;
+						commitData[key]=e.value;
+					}
+				})
+			});
+		}
+
+
+		//<4-2-4>展现"滑块选择"类型数据
+		function showLiSliderValue(key, value){
+			var ipt=document.getElementById(key);
+			span = key + "-span";
+			var span=document.getElementById(span);
+			ipt.value=value;
+			span.innerHTML=value+"%";
+			ipt.addEventListener('input',function(){
+				span.innerHTML=this.value+"%";
+				commitData[key]=this.value;
+			});
+		};
+
+//		var anki=document.getElementsByClassName('AboutAika')[0];
+//		anki.innerText=AboutAika;
+
+		//<4-3>监听返回按钮的点击
+		function addButtonsListener(bridge){
+			mui('.mui-bar').off("tap","#backToParent");
+			mui('.mui-bar').on("tap","#backToParent",function(){
+				goBack(bridge);
+			});
+
+			mui('.mui-bar').off("tap","#backToSave");
+			mui('.mui-bar').on("tap","#backToSave",function(){
+				console.log(JSON.stringify(commitData));
+				action = null;
+				/**<js-ios>
+					bridge.callHandler('backToParent', JSON.stringify(commitData), function(response) {
+					//log('JS got response', response)
+					});
+				</js-ios>**/
+
+					window.xuming.backToParent(JSON.stringify(commitData));
+
+			});
+
+		}
+		function goBack(bridge){
+				console.log(JSON.stringify(commitData));
+				action = null;
+				/**<js-ios>
+					bridge.callHandler('backToParent', JSON.stringify(commitData), function(response) {
+					//log('JS got response', response)
+					});
+				</js-ios>**/
+
+					window.xuming.backToParent(JSON.stringify(commitData));
+
+			}
+
+		addButtonsListener();
+		//主题色换肤
+		var bgColor=document.getElementsByClassName('changeColor')[0];
+		var titleBar=document.getElementsByClassName('mui-bar');
+		function changeAllColor(num){
+			if(num==0){
+				for(var i=0;i<titleBar.length;i++){
+					titleBar[i].style.backgroundColor='#444a59';
+				}
+				bgColor.style.backgroundColor='#444a59';
+			}else{
+
+				for(var i=0;i<titleBar.length;i++){
+					titleBar[i].style.backgroundColor='#3696e9';
+				}
+				bgColor.style.backgroundColor='#3696e9';
+			}
+
+		}
+		//<5>调用入口方法---begin
+//		window.onload = initFirWindow(null, null);
+		//<5>调用入口方法---end
+	</script>
+
+</html>

@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/deckitem_01.css" />
+		<link rel="stylesheet" href="css/slideList_01.css" />
+		<link rel="stylesheet" href="css/self_popup_01.css" />
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <!--
+            <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+            -->
+<!--            
+            <a href="#lefttopPopover" class="mui-icon mui-action-menu mui-icon-home-filled mui-pull-left"></a>-->
+  
+  			<a id="homebtn" class="mui-icon mui-action-menu mui-icon-home-filled mui-pull-left"></a>
+  
+            
+			<a href="#righttopPopover" id="topright-menu" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right" style="font-weight: 900;"></a>
+<!--			
+			<a id="temp" class="mui-icon mui-icon-chat mui-pull-right" style="font-weight: 900;"></a>
+			-->
+			<div id="segmentedControl" class="mui-segmented-control">
+	              
+                <a id="deckreader" class="mui-control-item" href="#item1">
+                    阅读
+                </a>
+                <a id="deckpicker" class="mui-control-item mui-yijiactive" href="#item2">
+                    牌组
+                </a>
+                <a id="decktest" class="mui-control-item" href="#item3">
+                    模考
+                </a>
+                
+			</div>
+		</header>
+		<button style="position: fixed;top: 60%;left: 40%;" onclick="showmark()">显示</button>
+		<button style="position: fixed;top: 60%;left: 60%;" onclick='hidemark()'>隐藏</button>
+		
+		<div class="mui-content">
+		    <ul id="deckListUl" class="mui-table-view" style="margin-top: 15px;">
+				
+				<!--<li class="mui-table-view-cell mui-collapse">
+					<div class="mui-slider-left mui-disabled">
+						<a class="mui-btn mui-btn-red asidedelete" style="padding: 0; margin: 0; display: block; background: #efeff4;width:91px;">
+							<div>
+								<div style="background: #efeff4; height: 5px; width:91px;">
+								</div>
+								<div style="background: #dd524d; line-height: 46px; width:91px; font-weight: 500;">
+									删除
+								</div>
+							</div>
+						</a>
+					</div>
+		        		<div class="deckItemBase mui-slider-handle">
+						<div class="gap"></div>
+					    <div class="deckItem">
+					    		<div class="go mui-icon mui-icon-forward">
+					    		</div>
+					    		<div class="dcounts">
+					    			<div class="rev">
+					    				123
+					    			</div>
+					    			<div class="new">
+					    				5
+					    			</div>
+					    		</div>
+					    		<div class="deck_title">
+					    			<div class="title_plus">
+					    				<a class="" href="#">+</a>
+					    			</div>
+					    			<div class="title_name">
+					    				fagfasdfadsg
+					    			</div>
+					    		</div>
+					    </div>									
+					</div>
+		       </li>-->
+               
+		        
+		        
+		        
+		        
+			</ul>
+			
+			<div class="bottomBar01" style="background-color:#007aff;">
+				<div class="bottomBar01_left" id="istrueo">
+					<div class="bottomBar01_left-radius">
+						
+					</div>
+                    <a id="inputdeck" class="" href="#">
+                        在线导入
+                    </a>
+                </div>
+                <div class="bottomBar01_right">
+                    <a id="sharedeck" class="" href="#rightbottomPopover">		
+                        共享牌组
+                    </a>
+                    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div id="shadow" class="shadowclass">
+			
+		</div>
+		<div id="box" class="boxclass">
+			<div class="inner">
+				<div id="box_title" class="title">
+					英语单词四级
+				</div>
+				
+			</div>
+			
+			<div id="btn_rename" class="buttons">
+				<span class="button bold">
+					重命名
+				</span>
+			</div>
+			<div id="btn_option" class="buttons">
+				<span class="button bold">
+					牌组选项
+				</span>
+			</div>
+			<div id="btn_define" class="buttons">
+				<span class="button bold">
+					自定义学习
+				</span>
+			</div>
+			<div id="btn_delete" class="buttons">
+				<span class="button bold">
+					删除牌组
+				</span>
+			</div>
+			<div id="btn_cancle" class="buttons">
+				<span class="button bold" style="color: red;">
+					取消
+				</span>
+			</div>
+		</div>
+		
+		
+		<!--牌组下载或导入中-->
+		
+		<div id="progress-download-box" class="progress-download-boxclass">
+			<div class="progress-circle mui-spinner">
+				
+			</div>
+			
+			<div class="inner">
+				<div id="progress-deck-name" class="title">
+					英语单词四级
+				</div>
+				<div id="progress-text" class="text">
+					导入中...
+				</div>
+			</div>
+		</div>
+		
+		<!--牌组下载或导入成功-->
+		
+		<div id="progress-ok-box" class="progress-ok-boxclass">
+			<div class="progress-circle mui-icon mui-icon-checkmarkempty">
+				
+			</div>
+			
+			<div class="inner">
+				<div id="progress-ok-deck-name" class="title">
+					英语单词四级
+				</div>
+				<div id="progress-ok-text" class="text">
+					导入成功！
+				</div>
+			</div>
+		</div>
+		<!--牌组下载或导入出错-->
+		
+		<div id="progress-err-box" class="progress-err-boxclass">
+			<div class="progress-circle mui-icon mui-icon-closeempty">
+				
+			</div>
+			
+			<div class="inner">
+				<div id="progress-err-deck-name" class="title">
+					英语单词四级
+				</div>
+				<div id="progress-err-text" class="text">
+					导入失败！
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--左上角菜单-->
+		
+		<div id="lefttopPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				
+				<div class="mui-scroll">
+					
+					<ul class="mui-table-view">
+						
+						<li class="mui-table-view-cell">
+							<div id="leftpop-list" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-list icon-span"></span>
+							牌组列表</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-search" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-search icon-span"></span>
+							卡片浏览</div>
+						</li>
+						<!--<li class="mui-table-view-cell">
+							<div id="leftpop-statistics" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-refresh icon-span"></span>
+							学习统计</div>
+						</li>-->
+						<li class="mui-table-view-cell">
+							<div id="leftpop-read" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-map icon-span"></span>
+							阅读制卡</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-test" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-email icon-span"></span>
+							模考制卡</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-setting" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-gear icon-span"></span>
+							偏好设置</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-member" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-person icon-span"></span>
+							个人中心</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="leftpop-help" class="mui-navigate-right">
+							<span class="mui-icon mui-icon-help icon-span"></span>
+							在线帮助</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--右上角弹出菜单-->
+		<div id="righttopPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<div id="rightpop-filter">筛选牌组</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-datacheck">检查数据</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-mediacheck">检查媒体</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-createdeck">新建牌组</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-addnote">添加笔记</div>
+						</li>
+						<!--<li class="mui-table-view-cell">
+							<div id="rightpop-removeempty">移除空卡</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-notemodel">笔记类型</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="rightbottomPopover" class="mui-popover" style="width: 100px;height: 100px;">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<div id="rightpop-filter">国际牌组</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-datacheck">hello牌组</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.js"></script>
+		<script>
+			mui.init();
+			var Abridge;
+			
+			var curdid;
+			var curnode;
+			
+			//var box = document.getElementById("box");
+			//var shadow = document.getElementById("shadow");
+			
+			////////////////
+			var shadow;
+			var box;
+			var progressDownloadBox;
+			var progressOkBox;
+			var progressErrBox;
+			
+			var progressdeckname;
+			var progresstext;
+			
+			var timer = 2;
+			var curDeckname;
+			
+			
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+		
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+				//initDeckListFrame();
+		        
+		
+  		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+                    //alert(data.treeStr);
+                    
+					var treeListData_org = JSON.parse(data.treeStr);
+                     
+                    initFirWindow(bridge, treeListData_org);
+                    
+ 		        });   
+ 		        bridge.registerHandler('showInDownload', function(data, responseCallback) {
+                    
+                    //curDeckname = JSON.parse(data.treeStr);
+                    curDeckname = data.deckName;
+                    showInDownload(curDeckname, null)
+ 		        }); 
+ 		        bridge.registerHandler('disappearOKBox', function(data, responseCallback) {
+                    hideBox();
+                    disappearOKBox();
+ 		        });  
+ 		        
+ 		        
+ 		        
+//	            bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
+//					log('JS got response', response)
+//	            });
+		         
+		    });
+						
+			////////////////////////在线导入红点的显示隐藏
+			var istrue=true;
+			var radius=document.getElementsByClassName('bottomBar01_left-radius')[0];
+			function hidemark(){
+				radius.style.display="none";
+				istrue=false;
+			}
+			function showmark(){
+				radius.style.display="block";
+				istrue=true;
+			}
+			var markDiv=document.getElementById('istrueo');
+			var downloadBookname="四级英语";
+			markDiv.onclick=function(){
+				if(istrue){
+					var btnArray = ['否', '是'];
+					mui.confirm(downloadBookname, '确认在线导入', btnArray, function(e) {
+						if (e.index == 1) {
+							confirmInputBook();
+//							alert('导入成功');				
+						} else {
+							return ;
+						}
+					})
+				}
+			}
+			function confirmInputBook(){
+				alert(111);
+			}
+			//////////////////////////////////////
+			
+			/////////////////bridge/////////////////////
+			
+			var deckListUl = document.getElementById("deckListUl");
+			
+			function initFirWindow(bridge, treeListData_org){
+				//alert("a");
+				//alert(10);
+				var treeListData = treeListData_org;
+				
+
+				if (treeListData == null) {
+					treeListData = [{
+						"isdyn": 0,
+						"depth": 0,
+						"lrnCount": 0,
+						"did": 1462181654981,
+						"children": [{
+							"isdyn": 0,
+							"depth": 0,
+							"lrnCount": 0,
+							"did": 1465715612117,
+							"children": [],
+							"revCount": 5,
+							"newCount": 0,
+							"names": ["物理"]
+						}],
+						"revCount": 10,
+						"newCount": 0,
+						"names": ["AAA"]
+					}, {
+						"isdyn": 1,
+						"depth": 0,
+						"lrnCount": 3,
+						"did": 1465715477275,
+						"children": [],
+						"revCount": 2,
+						"newCount": 0,
+						"names": ["过滤牌组01"]
+					},{
+						"isdyn": 1,
+						"depth": 0,
+						"lrnCount": 3,
+						"did": 1465715477275,
+						"children": [],
+						"revCount": 2,
+						"newCount": 0,
+						"names": ["BBB"]
+					}, {
+						"isdyn": 0,
+						"depth": 0,
+						"lrnCount": 0,
+						"did": 1465716008467,
+						"children": [],
+						"revCount": 0,
+						"newCount": 4,
+						"names": ["CCC"]
+					}, {
+						"isdyn": 0,
+						"depth": 0,
+						"lrnCount": 0,
+						"did": 1,
+						"children": [],
+						"revCount": 0,
+						"newCount": 0,
+						"names": ["默认"]
+					}];
+				
+				}//alert("a");
+				Abridge = bridge;
+				//initDeckListFrame()
+				
+				showFirstLevelDecks(treeListData);
+				
+				uiActions();
+				
+                addPlusListener(bridge);
+                
+                addLongtapListener(bridge);
+                
+                addButtonsListener(bridge);
+                
+                settingPopoverMenu(bridge);
+			}
+			
+			function initDeckListFrame(){
+				// 获取窗口宽度
+				if (window.innerWidth)
+				winWidth = window.innerWidth;
+				else if ((document.body) && (document.body.clientWidth))
+				winWidth = document.body.clientWidth;
+				
+				// 获取窗口高度
+				if (window.innerHeight)
+				winHeight = window.innerHeight;
+				else if ((document.body) && (document.body.clientHeight))
+				winHeight = document.body.clientHeight;
+				// gaibian div gaodu
+				var content_A = document.getElementById("content_A");
+				var h = winHeight - 44;
+				var hei = h + "px";
+				
+				content_A.style.height = hei; 
+				//alert(hei);
+			}
+			function showFirstLevelDecks(treeListData){
+				if (treeListData == null) {
+					return;
+				}
+				//alert(10);
+                
+                var lis = document.getElementsByClassName('deckli');
+                for (var i = lis.length - 1; i >= 0; i--) {
+                    deckListUl.removeChild(lis[i]);
+                }
+                //alert(10);
+				//alert(treeListData.length);
+				for (var i = 0; i < treeListData.length; i++) {
+					var deck = treeListData[i];
+					var allCounts = deck.lrnCount + deck.revCount + deck.newCount;
+					if (treeListData.length > 1 && deck.did == 1 && allCounts == 0) {
+						continue;
+					}
+					var plus = "+";
+					if (deck.children == null || deck.children.length == 0) {
+						plus = "&nbsp";
+					} 
+					var revaddlrncount = deck.revCount + deck.lrnCount; 
+					var children0 = JSON.stringify(deck.children);
+					
+					var children = children0.replace(/"/g, "CCNNYY");
+					
+					//alert(10);
+					
+					var temp1 = ["<li class=\"mui-table-view-cell mui-collapse deckli\" did=\""+deck.did+"\" depth=\""+deck.depth+"\" children=\""+children+"\">",	
+			        	"<div class=\"deckItemBase\">",
+							"<div class=\"gap\">",
+							"</div>",
+						    "<div class=\"deckItem\">",
+					    		"<div class=\"go mui-icon mui-icon-forward\">",
+					    		"</div>",
+					    		"<div class=\"dcounts\">",
+					    			"<div class=\"rev\">",
+					    				deck.revCount + deck.lrnCount,
+					    			"</div>",
+					    			"<div class=\"new\">",
+					    				deck.newCount,
+					    			"</div>",
+					    		"</div>",
+					    		"<div class=\"deck_title\">",
+					    			"<div class=\"title_plus\">",
+					    				plus,
+					    			"</div>",
+					    			"<div class=\"title_name\">",
+					    				deck.names[0],
+					    			"</div>",
+					    		"</div>",
+						    "</div>",									
+						"</div>",
+			        "</li>"].join("");
+			        //alert(10);
+			        var temp = '<li class="mui-table-view-cell mui-collapse deckli" did ="'+deck.did+'" depth="'+deck.depth+'" children="'+children+'">'
+							+'	<div class="mui-slider-left mui-disabled">'
+							+'		<a class="mui-btn mui-btn-red asidedelete" style="padding: 0; margin: 0; display: block; background: #efeff4;width:91px;">'
+							+'			<div>'
+							+'				<div style="background: #efeff4; height: 5px; width:91px;">'
+							+'				</div>'
+							+'				<div style="background: #dd524d; line-height: 46px; width:91px; font-weight: 500;">'
+							+'					删除'
+							+'				</div>'
+							+'			</div>'
+							+'		</a>'
+							+'	</div>'
+							+'	<div class="deckItemBase mui-slider-handle">'
+							+'		<div class="gap"></div>'
+							+'	    <div class="deckItem">'
+							+'	    		<div class="go mui-icon mui-icon-forward">'
+							+'	    		</div>'
+							+'	    		<div class="dcounts">'
+							+'	    			<div class="rev">'
+							+               revaddlrncount
+							+'	    			</div>'
+							+'	    			<div class="new">'
+							+               deck.newCount
+							+'	    			</div>'
+							+'	    		</div>'
+							+'	    		<div class="deck_title">'
+							+'	    			<div class="title_plus">'
+							+	    				plus
+							+'	    			</div>'
+							+'	    			<div class="title_name">'
+							+	    				deck.names[0]
+							+'	    			</div>'
+							+'	    		</div>'
+							+'	    </div>'							
+							+'	</div>'
+					        +'</li>';
+			        
+			        
+					deckListUl.innerHTML += temp;
+				}
+			}
+			function addPlusListener(bridge){
+				if (bridge == null) {
+					bridge = Abridge;
+				}
+				//alert("ok");
+				//obj1是mui对象
+				mui("li").off('tap', '.title_plus');
+				mui("li").on('tap','.title_plus',function(){
+					//var id = this.getAttribute("class");
+					
+					var liDecknode = this.parentNode.parentNode.parentNode.parentNode;
+					//alert(liDecknode);
+					var depth = liDecknode.getAttribute("depth");
+					
+					var nextLi = liDecknode.nextSibling;
+				  
+				    var txss = this.innerText.trim();
+				    if (txss == "") {
+				    	return;
+				    } else if (txss == "+") {
+				    	//alert("+");
+				    	showChildren(liDecknode, depth, this, nextLi);
+				    } else {
+				    	//alert("-");
+				    	hideChildren(liDecknode, depth, this, nextLi);
+				    }
+				    
+				});
+				//obj1是mui对象
+				
+				mui("li").off('tap', '.title_name');
+				mui("li").on('tap','.title_name',function(){
+					//var id = this.getAttribute("class");
+					
+					var liDecknode = this.parentNode.parentNode.parentNode.parentNode;
+					//alert(liDecknode);
+					var did = liDecknode.getAttribute("did");
+					var txt = liDecknode.getAttribute("class");
+					
+					//alert(did);
+					bridge.callHandler('testObjcCallback', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				//////////////////aside-delete//////////////////
+				mui("li").off('tap', '.asidedelete');
+				mui('li').on('tap', '.asidedelete', function(){
+					
+					var liDecknode1 = this.parentNode.parentNode;
+					//alert(liDecknode1);
+					var did1 = liDecknode1.getAttribute("did");
+					var txt1 = liDecknode1.getAttribute("class");
+					
+					
+					deleteOneDeck(did1, null, null);
+					//alert(did1);
+					//bridge.callHandler('testObjcCallback', did, function(response) {
+						//log('JS got response', response)
+		            //});
+					
+					
+				});
+				
+			}
+            
+            function addLongtapListener(bridge){
+            		if (bridge == null) {
+					bridge = Abridge;
+				}
+            		mui("li").off('longtap', '.title_name');
+				mui("li").on('longtap','.title_name',function(){
+					//var id = this.getAttribute("class");
+					
+					var liDecknode = this.parentNode.parentNode.parentNode.parentNode;
+					//alert(liDecknode);
+					var did = liDecknode.getAttribute("did");
+					var txt = liDecknode.getAttribute("class");
+					curdid = did;
+					
+					//alert(did);
+					box.style.display="block";
+					shadow.style.display="block";
+					
+					//bridge.callHandler('testObjcCallback', did, function(response) {
+						//log('JS got response', response)
+		            //});
+				});
+				shadow.addEventListener('tap', function(){
+					shadow.style.display="none";
+					box.style.display="none";
+				})
+				
+				var btn_rename=document.getElementById("btn_rename");
+				var btn_option=document.getElementById("btn_option");
+				var btn_define=document.getElementById("btn_define");
+				var btn_delete=document.getElementById("btn_delete");
+				var btn_cancle=document.getElementById("btn_cancle");
+				
+				
+				btn_rename.addEventListener('tap', function(e) {
+					//e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+					var btnArray = ['取消', '确定'];
+					var oldname = '四级单词';
+					box.style.display="none";
+					shadow.style.display="none";
+					
+					mui.prompt('请输入此牌组的新名称：', '新名称', oldname, btnArray, function(e) {
+						if (e.index == 1) {
+							//info.innerText = '谢谢你的评语：' + e.value;
+						} else {
+							//info.innerText = '你点了取消按钮';
+						}
+					})
+				});
+				btn_option.addEventListener('tap', function(e){
+					//bridge.callHandler('testObjcCallback', did, function(response) {
+						//log('JS got response', response)
+		            //});
+		            
+					box.style.display="none";
+					shadow.style.display="none";
+				});
+				btn_define.addEventListener('tap', function(e){
+					//bridge.callHandler('testObjcCallback', did, function(response) {
+						//log('JS got response', response)
+		            //});
+		            
+					box.style.display="none";
+					shadow.style.display="none";
+				});
+				btn_delete.addEventListener('tap', function(e){
+					deleteOneDeck(curdid, null, null);
+					//bridge.callHandler('testObjcCallback', did, function(response) {
+						//log('JS got response', response)
+		            //});
+		            
+					box.style.display="none";
+					shadow.style.display="none";
+				});
+				btn_cancle.addEventListener('tap', function(e){
+					
+					box.style.display="none";
+					shadow.style.display="none";
+				});
+            }
+                                                     
+            function addButtonsListener(bridge){
+            		
+            	
+	            mui('.bottomBar01_left').on('tap','#inputdeck',function(){
+					//alert(10);
+					
+					//curDeckname = "dfsfsaaasfa";
+				    //showInDownload(curDeckname, null);
+				    //disappearOKBox();
+					
+					
+                    bridge.callHandler('justTestSomefounction', null, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+                                                     
+                                                     
+	            mui('.bottomBar01_right').on('tap','#sharedeck',function(){
+					//alert(110);
+                    var action = 'sharedeck';
+//                  bridge.callHandler('jumpToOtherController', action, function(response) {
+//                      //log('JS got response', response)
+//                  });
+				});
+                mui('.mui-bar-nav').on('tap','#multideckopt',function(){
+                                       
+                    //alert(1310);
+                });
+                
+                //////////////////segmented-control/////////////
+                                                     
+	            mui('.mui-segmented-control').on('tap','#deckreader',function(){
+                    //alert(310);
+                    var did = 10;
+                    bridge.callHandler('switch_reader', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+	            mui('.mui-segmented-control').on('tap','#deckpicker',function(){
+                    //alert(320);
+                    var did = 10;
+                    bridge.callHandler('switch_decks', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+	            mui('.mui-segmented-control').on('tap','#decktest',function(){
+					
+                    //alert(330);
+                    var did = 10;
+                    bridge.callHandler('switch_test', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+                                                     
+                                                     
+	             
+				///////////////////selid---li///////////////////////
+				mui('li').on('tap','#slide_1liebiao',function(){
+					alert(01);
+				}); 
+				mui('li').on('tap','#slide_2liulan',function(){
+					alert(02);
+				}); 
+				mui('li').on('tap','#slide_3denglu',function(){
+					alert(03);
+				}); 
+				mui('li').on('tap','#slide_4shezhi',function(){
+					alert(04);
+				}); 
+				mui('li').on('tap','#slide_5bangzhu',function(){
+					alert(05);
+				}); 
+				mui('li').on('tap','#slide_6fankui',function(){
+					alert(06);
+				}); 
+
+				
+
+            }
+            
+            function deleteOneDeck(did, name, bridge){
+            		var btnArray = ['否', '是'];
+            		var msg = '你确定要删除deck吗？';
+            		
+				mui.confirm(msg, did, btnArray, function(e) {
+					if (e.index == 1) {
+						//alert(1);
+					} else {
+						//alert(0);
+					}
+				})
+            }
+                                                     
+                                                     
+                                                     
+			function showChildren(liDecknode, depth, othis, nextLi){
+				//alert(liDecknode);
+			  	var lichildren = liDecknode.getAttribute("children");
+			  	var childrenStr = lichildren.replace(/CCNNYY/g, "\"");
+			  	children_decks = JSON.parse(childrenStr);
+			  	
+			  	for (var i = 0; i < children_decks.length; i++) {
+			  		deck = children_decks[i];
+			  		
+					var children0 = JSON.stringify(deck.children);
+					
+					var children = children0.replace(/"/g, "CCNNYY");
+					
+					var plus = "+";
+					if (deck.children == null || deck.children.length == 0) {
+						plus = "&nbsp";
+						children = "[]";
+					} 
+			  		//alert(plus);
+			  		//alert(children);
+					
+					var newNode = document.createElement("li");
+				  	newNode.setAttribute("class", "mui-table-view-cell mui-collapse deckli");
+				  	newNode.setAttribute("did", deck.did);
+				  	newNode.setAttribute("depth", Number(depth) + 1);
+				  	newNode.setAttribute("children", children);
+				  	
+//				  	<div class="deck_title" style="padding-left: 10px;">
+					var offsetTitle = (depth + 1) * 10 + "px";
+					var revaddlrncount = deck.revCount + deck.lrnCount; 
+					
+					var temp1 = ["<div class=\"deckItemBase\">",
+						    "<div class=\"deckItem\">",
+					    		"<div class=\"go mui-icon mui-icon-forward\">",
+					    		"</div>",
+					    		"<div class=\"dcounts\">",
+					    			"<div class=\"rev\">",
+					    				deck.revCount + deck.lrnCount,
+					    			"</div>",
+					    			"<div class=\"new\">",
+					    				deck.newCount,
+					    			"</div>",
+					    		"</div>",
+					    		"<div class=\"deck_title\" style=\"padding-left: "+ offsetTitle +";\">",
+					    			"<div class=\"title_plus\">",
+					    				plus,
+					    			"</div>",
+					    			"<div class=\"title_name\">",
+					    				deck.names[0],
+					    			"</div>",
+					    		"</div>",
+						    "</div>",
+						"</div>",									
+					"</div>"].join("");
+						
+					var temp = '<div class="mui-slider-left mui-disabled">'
+							+'		<a class="mui-btn mui-btn-red asidedelete" style="padding: 0; margin: 0; display: block; background: #efeff4;width:91px;">'
+							+'			<div>'
+							+'				<div style="background: #dd524d; line-height: 46px; width:91px;">'
+							+'					删除'
+							+'				</div>'
+							+'			</div>'
+							+'		</a>'
+							+'	</div>'
+					        	+'	<div class="deckItemBase mui-slider-handle">'
+							+'	    <div class="deckItem">'
+							+'	    		<div class="go mui-icon mui-icon-forward">'
+							+'	    		</div>'
+							+'	    		<div class="dcounts">'
+							+'	    			<div class="rev">'
+							+	    				revaddlrncount
+							+'	    			</div>'
+							+'	    			<div class="new">'
+							+	    				deck.newCount
+							+'	    			</div>'
+							+'	    		</div>'
+							+'	    		<div class="deck_title">'
+							+'	    			<div class="title_plus">'
+							+	    				plus
+							+'	    			</div>'
+							+'	    			<div class="title_name">'
+							+	    				deck.names[0]
+							+'	    			</div>'
+							+'	    		</div>'
+							+'	    </div>'									
+							+'	</div>';
+					
+				  	newNode.innerHTML = temp; 
+//			  		
+			  		if(deckListUl.lastChild == liDecknode){
+						deckListUl.appendChild(newNode);
+					} else {
+						deckListUl.insertBefore(newNode,nextLi);
+					} 
+			  	}
+			  	othis.innerText = "-";
+			  	
+			  	addPlusListener(null);
+			  	
+                addLongtapListener(null);
+			}
+			function hideChildren(liDecknode, depth, othis, nextLi){
+				//alert("hide");
+				var allChilddecks_dids = [];
+				var lichildren = liDecknode.getAttribute("children");
+			  	var childrenStr = lichildren.replace(/CCNNYY/g, "\"");
+			  	children_decks = JSON.parse(childrenStr);
+			    
+			    var lis = document.getElementsByClassName("deckli"); 
+			    //alert("lis---"+lis.length);
+			    var allShowDeckdids = [];
+			    var allShowDeckLis = [];
+			    var willRevLi = [];
+			    
+			    for (var i = 0; i < lis.length; i++) {
+			    	//alert("forrooro");
+			     	var lideck = lis[i];
+			     	var did = lideck.getAttribute("did");
+			     	allShowDeckdids.push(Number(did));
+			     	allShowDeckLis.push(lideck);
+			    }
+			    //alert("allshow----"+allShowDeckdids);
+			    
+			    
+			    for (var i = 0; i < children_decks.length; i++) {
+			    	//alert("come to choose chiler");
+			    	var deck = children_decks[i];
+			    	
+			    	var vdid = deck.did;
+			    	//alert("vdid---"+vdid);
+			    	//alert("allshowdidis---" + allShowDeckdids);
+			    	
+			    	
+			  		var idx = allShowDeckdids.indexOf(vdid);
+			  		
+			  		//alert("idx--->" + idx);
+			  		
+			  		if (idx<0) {
+			  			//alert("continue");
+			  		}
+		  			//alert("choose--did--"+deck.did);
+		  			var deckLi = allShowDeckLis[idx];
+		  			willRevLi.push(deckLi);
+			  		
+			    }
+			    //alert("will---"+willRevLi);
+			    for (var i = 0; i < willRevLi.length; i++) {
+			    	//alert("begin rem");
+			    	var deckli = willRevLi[i];
+			    	deckListUl.removeChild(deckli);
+			    }
+			    
+			    othis.innerText = "+";
+			}
+			
+			/////////////////////关于蒙板//////////////////////////
+			function uiActions(){
+				
+				shadow = document.getElementById("shadow");
+				box = document.getElementById("box");
+				progressDownloadBox = document.getElementById("progress-download-box");
+				progressOkBox = document.getElementById("progress-ok-box");
+				progressErrBox = document.getElementById("progress-err-box");
+				
+			}
+			////////////////隐藏Box////////////////////////////////
+			function hideBox(){
+				progressDownloadBox.style.display = "none";
+				progressOkBox.style.display = "none";
+				progressErrBox.style.display = "none";
+				shadow.style.display = "none";
+			}
+			
+			////////////////////显示Box////////////////////////////
+			function showInDownload(deckname, text){
+				document.getElementById("progress-deck-name").innerHTML = deckname;
+				//document.getElementById("progress-text").innerHTML = text;
+				shadow.style.display = "block";
+				progressDownloadBox.style.display = "block";
+			}
+			////////////////////显示倒计时消失的Box////////////////////////////
+			function disappearOKBox(){
+				
+				document.getElementById("progress-ok-deck-name").innerHTML = curDeckname;
+				shadow.style.display = "block";
+				progressOkBox.style.display = "block";
+				
+				setTimeout("hideBox(null, null)", 1000);
+			}
+			function disappearErrBox(){
+				
+				document.getElementById("progress-ok-deck-name").innerHTML = curDeckname;
+				shadow.style.display = "block";
+				progressOkBox.style.display = "block";
+				
+				setTimeout("hideBox(null, null)", 1000);
+			}
+			
+			//////////////////////弹出菜单/////////////////////////
+			function settingPopoverMenu(bridge){
+				//alert(999);
+				///////改变弹出菜单的style///////////////////////////
+				mui('body').on('shown', '.mui-popover', function(e) {
+					//console.log('shown', e.detail.id);//detail为当前popover元素
+				});
+				mui('body').on('hidden', '.mui-popover', function(e) {
+					var ss = document.getElementsByClassName("mui-popover");
+						for (var i = 0; i < ss.length; i++) {
+							ss[i].style.height = "320px";
+							ss[i].style.width = "100px";
+						}
+						ss[i-1].style.height = "100px";
+					//console.log('hidden', e.detail.id);//detail为当前popover元素
+				});
+			
+				document.getElementById("topright-menu").addEventListener('tap', function(){
+					var ss = document.getElementsByClassName("mui-popover");
+					for (var i = 0; i < ss.length; i++) {
+						ss[i].style.height = "230px";
+						ss[i].style.width = "100px";
+					}
+				});
+				///////////////////弹出菜单的leftpop列表item监听//////////////
+				
+				
+				
+				
+				document.getElementById("homebtn").addEventListener('tap', function(){
+					alert("homebtn");
+					//hidPopoverShadow();
+					did = null;
+					bridge.callHandler('homebtn', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				
+				
+				document.getElementById("leftpop-list").addEventListener('tap', function(){
+					//alert("leftpop-list");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switch_decks', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				
+				document.getElementById("leftpop-search").addEventListener('tap', function(){
+					//alert("leftpop-search");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchBrowser', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+//				document.getElementById("leftpop-statistics").addEventListener('tap', function(){
+//					alert("leftpop-statistics");
+//					hidPopoverShadow();
+//					did = null;
+//					bridge.callHandler('switch_statistics', did, function(response) {
+//						//log('JS got response', response)
+//		            });
+//				});
+				document.getElementById("leftpop-read").addEventListener('tap', function(){
+					//alert("leftpop-read");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switch_reader', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-test").addEventListener('tap', function(){
+					//alert("leftpop-test");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switch_test', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-setting").addEventListener('tap', function(){
+					//alert("leftpop-setting");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchSetting', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-member").addEventListener('tap', function(){
+					//alert("leftpop-member");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchMyhome', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("leftpop-help").addEventListener('tap', function(){
+					//alert("leftpop-help");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('switchHelper', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				///////////////////弹出菜单的leftpop列表item监听//////////////
+				
+				document.getElementById("rightpop-filter").addEventListener('tap', function(){
+					//alert("rightpop-filter");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-filter', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("rightpop-datacheck").addEventListener('tap', function(){
+					//alert("rightpop-datacheck");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-datacheck', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				document.getElementById("rightpop-mediacheck").addEventListener('tap', function(){
+					//alert("rightpop-mediacheck");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-mediacheck', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				
+				document.getElementById("rightpop-createdeck").addEventListener('tap', function(){
+					//alert("rightpop-removeempty");
+					hidPopoverShadow();
+					
+					var btnArray = ['取消', '确定'];
+					var oldname = '创建新牌组';
+					box.style.display="none";
+					shadow.style.display="none";
+					mui.prompt('请输入新牌组的名称：', '新牌组名称', oldname, btnArray, function(e) {
+						if(e.index == 1&&e.value==""){
+							e.value=oldname;
+							alert(e.value);
+							//window.xuming.aa();
+							return ;
+							//info.innerText = '你点了取消按钮';
+						} else if (e.index == 1) {
+							//info.innerText = '谢谢你的评语：' + e.value;
+							alert(e.value);
+							//alert(did);
+//							bridge.callHandler('rightpop-createdeck', did, function(response) {
+//								//log('JS got response', response)
+//				            });
+						}
+					});
+				});
+				
+				document.getElementById("rightpop-addnote").addEventListener('tap', function(){
+					//alert("rightpop-notemodel");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-addnote', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				
+				document.getElementById("temp").addEventListener('tap', function(){
+            			alert(999);
+                    bridge.callHandler('jumpToNoteEdit', null, function(response) {
+                        //log('JS got response', response)
+                    });
+            		});
+            
+				
+				
+				
+				
+				document.getElementById("rightpop-removeempty").addEventListener('tap', function(){
+					//alert("rightpop-removeempty");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-removeempty', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+				
+				document.getElementById("rightpop-notemodel").addEventListener('tap', function(){
+					//alert("rightpop-notemodel");
+					hidPopoverShadow();
+					did = null;
+					bridge.callHandler('rightpop-notemodel', did, function(response) {
+						//log('JS got response', response)
+		            });
+				});
+			}
+			function hidPopoverShadow(){
+				//alert(444);
+				var shs = document.getElementsByClassName("mui-backdrop");
+				//alert(shs.length);
+				//var cls = shs[0].getAttribute("class");
+				//alert(cls);
+				mui.trigger(shs[0], 'tap');
+			}
+			
+			window.onload = initFirWindow(null, null);
+			
+		</script>
+	</body>
+
+</html>

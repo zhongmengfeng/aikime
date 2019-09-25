@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <!--<color name="colorPrimaryDark">#2f66fe</color>-->
+    <color name="colorPrimaryDark">#007aff</color>
+    <color name="colorAnki">#007aff</color>
+    <color name="colorAccent">#FF4081</color>
+    <item name="primary" type="color">#444444</item>
+    <item name="primary_dark" type="color">#222222</item>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="aika_theme">#444a58</color>
+</resources>

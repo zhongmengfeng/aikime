@@ -1,0 +1,1552 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>	
+			body{
+				background-color:#444a59 !important;
+			}	
+			.mui-title select{
+				background-color: #444a59 !important;
+				width: auto !important;
+				padding: 5px !important; 
+				position: relative;
+			}	
+			/*.mui-title select{
+				background-color: #444a59 !important;
+				width: auto !important;
+				padding: 5px !important; 
+				position: relative;
+			}*/
+			/*.mui-title select option{
+				font-size: 1vw;
+			}*/
+			.mui-control-content {
+				background-color: white ;
+				min-height: 300px;
+			}
+			.mui-segmented-control{
+				border: 0 !important;
+			}
+			.mui-segmented-control .mui-control-item{
+				background-color:transparent !important;
+				color: #fff !important;
+				border: 0 !important;
+				border-radius:7px 7px 0 0 ; 
+
+			}
+			.mui-segmented-control{
+				width: 100% !important;
+			}
+			.mui-segmented-control .mui-active{
+				color:#3696e9 !important;
+				background-color: #fff !important;
+				border-radius:7px 7px 0 0 ; 
+			}
+			.mui-input-row .yi{
+				/*margin-top: 4px !important;*/
+			}
+			/*.mui-input-row label{
+				font-size: 14px !important;
+				
+			}*/
+			/*.mui-input-row select option{
+				font-size: 1vw;
+			}*/
+			.mui-input-row .mui-numbox{
+				 
+			}
+			.mui-input-row .mui-numbox {
+				width: 106px !important;
+				height: 22px !important;
+				padding: 0 20px !important;
+			}
+			
+			.mui-input-row span{
+				font-size: 14px !important;				
+			}
+			.mui-input-row .changeOrderValue{
+				display: inline-block;
+				line-height: 28px;
+				border-right: 1px solid #444a59;
+				padding-right: 7px;
+			}
+			.mui-input-row .changeLeechValue{
+				display: inline-block;
+				line-height: 28px;
+				border-right: 1px solid #444a59;
+				padding-right: 7px;
+			}
+			.check{
+				height: 20px !important;
+				line-height: 20px !important;
+			}
+			.check span{
+				font-size: 14px;
+				padding-left: 10px;
+			}
+			.mui-input-row textarea{
+				margin-top: 14px;
+				padding: 10px 10px;
+				border: 2px solid #444a59;
+				height: 160px;
+				border-radius: 7px;
+			}
+			.extend{
+				display: none;
+			}
+			/*.delta{
+				width: 0; 
+			    height: 0; 
+			    border-left: 5px solid transparent; 
+			    border-right: 5px solid transparent; 
+			    border-top: 8px solid #fff; 
+			    position: absolute;
+			    top:18px;
+			    right:21%;
+			}*/
+			/*.order{
+				width: 0; 
+			    height: 0; 
+			    border-left: 5px solid transparent; 
+			    border-right: 5px solid transparent; 
+			    border-top: 8px solid #000; 
+			    position: absolute;
+			    top:15px;
+			    right:10px;
+			}*/
+			#righttopPopover{
+				width: 138px;
+				height: 165px;
+				position: absolute;
+				top:57px !important;
+				/*left:200px !important;*/
+				right: 20px;
+			}
+			.mui-table-view-cell {
+			    padding: 6px 15px !important;
+			}
+			.day{
+				position: absolute;
+			}
+			.mui-table-view-cell:after {
+				height: 0 !important;
+			}
+			.mui-table-view-cell div{
+				text-align: center;
+			}
+			.mui-popup-backdrop{top:44px !important;}
+			.mui-backdrop{top:44px !important;}
+			.mui-scroll{
+				padding: 10px;	
+			}
+			.righpop{
+				font-size: 5vw;
+				text-align: left;
+			}
+			.mui-table-view-cell div {
+			    text-align: left;
+			}
+			.backToParent{
+				width: 100px;
+				text-align: left !important;
+			}
+			.bg{
+				background-color:#444a59 !important;
+			}
+			.changeBigDeck{	
+				background-color: #fff;	
+				margin: 0 15px;
+				border-radius: 7px;
+				height: 456px;
+			}
+			.changeBigDeck a{
+				font-size: 15px;
+				line-height: 21px !important;
+				color:#fff !important;	
+				padding: 8px 12px 5px 12px;
+			}
+			.segmentedControl{
+				background-color: #444a59 !important;
+				border-radius: 0 !important;	
+						
+			}
+			.outDiv{
+				padding: 19px 15px 0 15px;
+			}
+			.outDiv label{
+				padding: 3px 0 !important;
+				font-size: 15px;
+				width:auto !important;
+			}
+			.outDiv div{
+				line-height: 22px;
+				height: 22px;
+				margin-bottom: 15px;
+			}
+			.mui-control-content {
+				min-height: 343px;
+			}
+			/*.mui-input-row select {
+			    height: 30px !important;
+			    margin-top: 0 !important;
+			    border-radius: 7px !important;
+			    border:1px solid #0c0e10 !important;
+			    font-size: 15px !important;
+    			padding-left: 10px !important;
+    			width: auto !important;
+			    
+			}*/
+			.mui-input-row .selectInput{
+			    height: 30px !important;
+			    margin-top: 0 !important;
+			    border-radius: 7px !important;
+			    border:1px solid #0c0e10 !important;
+			    font-size: 15px !important;
+    			padding-left: 10px !important;
+    			width: auto !important;
+    			float: right;
+    			padding-right: 7px;
+			    
+			}
+			.mui-input-row input {
+			    border-radius: 7px !important;
+			    border:1px solid #0c0e10 !important;
+			    padding: 8px 22px !important;
+			    height: 30px !important;
+				width:30% !important;
+			}
+			.mui-input-row .mui-numbox [class*=btn-numbox] {
+				width: 22px !important;
+			}
+			.mui-numbox {
+				border: 0 !important;
+				margin:0 !important;
+				background-color: #fff !important;
+			}
+			.mui-numbox .mui-input-numbox{
+				height: 22px !important;			
+			}
+			input[type=checkbox] {
+				width: 20px;
+				height: 20px;
+				padding: 0 5px 0 0;
+				float: left;
+			}
+			.bottomBtn{
+				height: 45px;
+    			width: 120px;
+			}
+			.mui-btn-danger{
+				border:1px solid #ed5565 !important;
+				background-color:#ed5565 !important;
+			}
+			.mui-btn-blue{
+				border:1px solid #3696e9 !important;
+				background-color:#3696E9 !important;
+			}
+			.textDiv{
+				height: auto !important;
+			}
+			.textDiv span{
+				height: 23px !important;
+				line-height: 23px !important;
+				font-size: 15px !important;
+				color:#0c0e10;
+				
+			}
+			.mui-bar .mui-btn-nav.mui-pull-right {
+    			margin-right: 0  !important; 
+			}
+			.mui-popover .mui-popover-arrow {
+				left: 80% !important;
+			}
+			/*.order{
+				background-color:#1e4a7e;
+				font-size:14px;
+				color:#FFFFFF;
+				font-weight:bold;
+				border:0;
+				border:none;
+				appearance:none;
+				-moz-appearance:none;
+				-webkit-appearance:none;
+			}
+			.order option{
+				font-size:14px;
+				color:#FFFFFF;
+				font-weight:bold;
+			}*/
+		</style>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/self_popup_01.css">
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-navbar-inner mui-bar mui-bar-nav">
+			<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left backToParent" id="backToParent">
+				<img src="images/returnIcon.png" class="home-return" />
+			</button>
+			<h1 class="mui-center mui-title">选项组：
+				<span id='changeDeck'><span class="changeValue">初三英语</span><img src="images/whiteSanJiao.png" style="width: 7px;margin-bottom: 2px;margin-left: 7px;"/>
+					<!--<option class="xuanze">Default</option>
+					<option class="xuanze">四级英语</option>-->
+				</span>
+				<!--<span class="delta"></span>-->
+			</h1>
+			<button type="button" class="mui-left mui-btn  mui-btn-link mui-btn-nav mui-pull-right" id="threePoint">
+				<a href="#righttopPopover" id="topright-menu" class="iconfont icon-zifuwuicon-" style="width: 100px;display: inline-block;text-align: right;"></a>
+			</button>
+			
+		</div>
+		<div class="mui-content bg" id="changeAllDeck">
+			<div class="changeBigDeck">			
+				<div id="segmentedControl" class="mui-segmented-control segmentedControl">
+					<a class="mui-control-item mui-active" href="#item1" style="padding: 8px 6px 5px 6px;">
+						新卡片
+					</a>
+					<a class="mui-control-item" href="#item2">
+						复习
+					</a>
+					<a class="mui-control-item" href="#item3" style="padding: 8px 0 5px 0;">
+						失误次数
+					</a>
+					<a class="mui-control-item" href="#item4">
+						总体
+					</a>
+					<a class="mui-control-item" href="#item5">
+						描述
+					</a>
+				</div>
+						
+				<div id="item1" class="mui-control-content mui-active">
+					<div id="scroll1" class="mui-scroll-wrapper">
+						<div class="mui-scroll outDiv">
+							<div class="mui-input-row new_delays" style="height: 30px;line-height: 30px;">
+								<label class="mui-ellipsis">新步伐（以分钟计）</label>
+								<input type="text" class="yi">
+							</div>
+							<div class="mui-input-row" style="height: 30px;line-height: 30px;">
+								<label>顺序</label>
+								<span class="order selectInput">
+									<span class="changeOrderValue">初三英语</span><img src="images/smallSanjiao.png" style="width: 7px;margin-bottom: 2px;margin-left: 7px;"/>
+								</span>
+								<!--<span class="order"></span>-->
+							</div>
+							
+							<div class="mui-input-row">
+								<label>新卡片/天</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add1" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox new_perDay add1 addValue1" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add1" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="mui-input-row">
+								<label>毕业间隔/天</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add2" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox ints add2 addValue2" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add2" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="mui-input-row">
+								<label>简单间隔/天</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add3" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox ints add3 addValue3" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add3" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="mui-input-row" style="margin-bottom: 26px;">
+								<label>开始简化/%</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add4" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox initialFactor add4 addValue4" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add4" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="check">
+								<input type="checkbox" class="new_bury"><!-- onchange="showNewCheckboxValue('bury1',bury1)"-->
+								<span>搁置相关新卡片到隔日</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<div id="scroll2" class="mui-scroll-wrapper">
+						<div class="mui-scroll outDiv">
+							<div class="mui-input-row">
+								<label>最大复习数/天</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add5" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox rev_perDay add5 addValue5" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add5" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="mui-input-row">
+								<label>简单奖励/%</label>
+								<div class="mui-numbox" data-numbox-step='5'>
+									<button class="mui-btn mui-btn-numbox-minus add6" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox ease4 add6 addValue6" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add6" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="mui-input-row">
+								<label>间隔修饰符/%</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add7" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox fuzz add7 addValue7" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add7" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="mui-input-row">
+								<label>最大间隔/天</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add8" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox maxIvl add8 addValue8" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add8" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+						
+							<div class="check">
+								<input type="checkbox" class="rev_bury">
+								<span>搁置相关复习到隔日</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="item3" class="mui-control-content">
+					<div id="scroll3" class="mui-scroll-wrapper">
+						<div class="mui-scroll outDiv">
+							<div class="mui-input-row lapse_delays" style="height: 30px;line-height: 30px;">
+								<label class="mui-ellipsis">步伐（以分钟计）</label>
+								<input type="text" class="yi" value="10">
+							</div>
+							<div class="mui-input-row">
+								<label>新间隔/%</label>
+								<div class="mui-numbox" data-numbox-step='5'>
+									<button class="mui-btn mui-btn-numbox-minus add9" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox mult add9 addValue9" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add9" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>							
+							<div class="mui-input-row">
+								<label>最小间隔/天</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add10" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox minInt add10 addValue10" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add10" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>
+							<div class="mui-input-row">
+								<label>难点阈值</label>
+								<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus add11" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox leechFails add11 addValue11" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add11" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+								<span class="day">失误次数</span>
+							</div>
+							<div class="mui-input-row" style="height: 30px;line-height: 30px;">
+								<label>记忆难点动作</label>
+								<span class="leechAction selectInput"><!-- onchange="showLapseSelectValue('leechAction',leechAction);"-->
+									<span class="changeLeechValue">初三英语</span><img src="images/smallSanjiao.png" style="width: 7px;margin-bottom: 2px;margin-left: 7px;"/>
+								</span>
+								<!--<span class="order"></span>-->
+							</div>							
+						</div>
+					</div>
+	
+				</div>
+				<div id="item4" class="mui-control-content">
+					<div id="scroll4" class="mui-scroll-wrapper">
+						<div class="mui-scroll outDiv">
+							<div class="mui-input-row">
+								<label>忽略回答时间长于/秒</label>
+								<div class="mui-numbox" data-numbox-step='10'>
+									<button class="mui-btn mui-btn-numbox-minus add12" type="button"><img src="images/minus.png" style="width: 100%;"/></button>
+									<input class="mui-input-numbox maxTaken add12 addValue12" type="number" />
+									<button class="mui-btn mui-btn-numbox-plus add12" type="button"><img src="images/clickBeforeAdd.png" style="width: 100%;"/></button>
+								</div>
+							</div>							
+							<div class="check">
+								<input type="checkbox" class="timer">
+								<span>显示回答计时器</span>
+							</div>
+							<div class="check">
+								<input type="checkbox" class="autoplay">
+								<span>自动播放音频</span>
+							</div>
+							<div class="check">
+								<input type="checkbox" class="replayq">
+								<span>当答案显示后，重新播放问题和答案的音频</span>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div id="item5" class="mui-control-content">
+					<div id="scroll5" class="mui-scroll-wrapper">
+						<div class="mui-scroll outDiv">
+							<div class="mui-input-row textDiv">
+								<span>用以显示在学习屏幕上的描述<span style="font-size: 13px !important;">（仅限当前记忆库）</span></span>
+								<textarea rows="8" placeholder="在此处输入内容"></textarea>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			
+				<button id="defaultDeck" type="button" class="mui-btn mui-btn-danger bottomBtn" style="float: left;margin-left: 25px;">恢复默认</button>
+				<button id="makesure" type="button" class="mui-btn mui-btn-blue bottomBtn" style="float: right;margin-right: 25px;">确定</button>
+
+			</div>
+
+		</div>
+		<div id="righttopPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll" style="padding: 6px;">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell" id="rightpop-createdeck">
+							<div class="righpop">添加</div>
+						</li>
+						<li class="mui-table-view-cell" id="rightpop-removedeck">
+							<div class="righpop">删除</div>
+						</li>
+						<li class="mui-table-view-cell" id="rightpop-againdeck">
+							<div class="righpop">重命名</div>
+						</li>
+						<li class="mui-table-view-cell" id="rightpop-childDeck">
+							<div class="righpop">应用于子牌组</div>
+						</li>
+						<!--<li class="mui-table-view-cell">
+							<div id="rightpop-removeempty">移除空卡</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div id="rightpop-notemodel">笔记类型</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script>
+			mui.init();
+						//<2>页面特效JS代码---begin
+			function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+			    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+			}
+			
+			function addClass(obj, cls) {//添加类名
+			    if (!this.hasClass(obj, cls)){    
+			    	obj.className += " " + cls
+			    };
+			}
+			
+			function removeClass(obj, cls) {//移除类名
+			    if (hasClass(obj, cls)) {
+			        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+			        obj.className = obj.className.replace(reg, ' ');
+			    }
+			}
+			
+			function toggleClass(obj,cls){//开关类名
+				if(hasClass(obj,cls)){
+			    	removeClass(obj, cls);
+				}else{
+			    	addClass(obj, cls);
+				}
+			}
+			
+			var currentKey="1";
+//			var defaultOption={
+//			        "name": "Default",
+//			        "new": {
+//			            "delays": [
+//			                1,
+//			                10
+//			            ],
+//			            "ints": [
+//			                1,
+//			                4,
+//			                7
+//			            ],
+//			            "initialFactor": 2500,
+//			            "separate": true,
+//			            "order": 1,
+//			            "perDay": 20,
+//			            "bury": true
+//			        },
+//			        "lapse": {
+//			            "delays": [
+//			               10
+//			            ],
+//			            "mult": 0,
+//			            "minInt": 1,
+//			            "leechFails": 8,
+//			            "leechAction": 0
+//			        },
+//			        "rev": {
+//			            "perDay": 100,
+//			            "ease4": 1.3,
+//			            "fuzz": 0.05,
+//			            "minSpace": 1,
+//			            "ivlFct": 1,
+//			            "maxIvl": 36500,
+//			            "bury": true
+//			        },
+//			        "maxTaken": 60,
+//			        "timer": 0,
+//			        "autoplay": true,
+//			        "replayq": true,
+//			        "mod": 0,
+//			        "usn": 0,
+//			        "id": 1,
+//			        "dyn": 0
+//			   };
+//			
+			var optionsData={
+				"allOption":{
+					"1": {
+				        "name": "Default",
+				        "new": {
+				            "delays": [
+				                1,
+				                10
+				            ],
+				            "ints": [
+				                1,
+				                4,
+				                7
+				            ],
+				            "initialFactor": 2500,
+				            "separate": true,
+				            "order": 1,
+				            "perDay": 20,
+				            "bury": true
+				        },
+				        "lapse": {
+				            "delays": [
+				                10
+				            ],
+				            "mult": 0,
+				            "minInt": 1,
+				            "leechFails": 8,
+				            "leechAction": 0
+				        },
+				        "rev": {
+				            "perDay": 100,
+				            "ease4": 1.3,
+				            "fuzz": 0.05,
+				            "minSpace": 1,
+				            "ivlFct": 1,
+				            "maxIvl": 36500,
+				            "bury": true
+				        },
+				        "maxTaken": 60,
+				        "timer": 0,
+				        "autoplay": true,
+				        "replayq": true,
+				        "mod": 0,
+				        "usn": 0,
+				        "id": 1,
+				        "dyn": 0
+				    },
+					"2": {
+				        "name": "英语四级",
+				        "new": {
+				            "delays": [
+				                1,
+				                50
+				            ],
+				            "ints": [
+				                20,
+				                100,
+				                70
+				            ],
+				            "initialFactor": 5000,
+				            "separate": true,
+				            "order": 1,
+				            "perDay": 20,
+				            "bury": true
+				        },
+				        "lapse": {
+				            "delays": [
+				                20
+				            ],
+				            "mult": 0,
+				            "minInt": 1,
+				            "leechFails": 10,
+				            "leechAction": 1
+				        },
+				        "rev": {
+				            "perDay": 1000,
+				            "ease4": 1.3,
+				            "fuzz": 0.05,
+				            "minSpace": 1,
+				            "ivlFct": 1,
+				            "maxIvl": 36500,
+				            "bury": true
+				        },
+				        "maxTaken": 60,
+				        "timer": 0,
+				        "autoplay": true,
+				        "replayq": true,
+				        "mod": 0,
+				        "usn": 0,
+				        "id": 2,
+				        "dyn": 0
+				   },
+				   "13516546": {
+				        "name": "abc",
+				        "new": {
+				            "delays": [
+				                1,
+				                50
+				            ],
+				            "ints": [
+				                20,
+				                100,
+				                70
+				            ],
+				            "initialFactor": 5000,
+				            "separate": true,
+				            "order": 1,
+				            "perDay": 20,
+				            "bury": true
+				        },
+				        "lapse": {
+				            "delays": [
+				                20
+				            ],
+				            "mult": 0,
+				            "minInt": 1,
+				            "leechFails": 10,
+				            "leechAction": 1
+				        },
+				        "rev": {
+				            "perDay": 1000,
+				            "ease4": 1.3,
+				            "fuzz": 0.05,
+				            "minSpace": 1,
+				            "ivlFct": 1,
+				            "maxIvl": 36500,
+				            "bury": true
+				        },
+				        "maxTaken": 60,
+				        "timer": 0,
+				        "autoplay": true,
+				        "replayq": true,
+				        "mod": 0,
+				        "usn": 0,
+				        "id": 13516546,
+				        "dyn": 0
+				    }
+				},
+				"selectedId":2
+			}
+			
+			
+			//按钮自适应
+			var bodyW=window.screen.width;
+			var defaultDeck=document.getElementById('defaultDeck');
+			var makesure=document.getElementById('makesure');
+			defaultDeck.style.width=(bodyW*0.32)+'px';
+			makesure.style.width=(bodyW*0.32)+'px';
+			
+			
+			
+			
+			var optionIndex;
+			var collectData=[];
+			//当前name
+			var currentOptionName='';
+			var changeDeck=document.getElementById('changeDeck');
+			var changeValue=document.getElementsByClassName('changeValue')[0];
+			var selectorData=[]; 
+			var selectDeckData=[];
+			//产生selector组件需要的数据
+			function generateSelectorDataMethod(collectData){
+				selectorData=[];
+				for (var key in collectData) {
+					var tapArray=[];
+				    tapArray.push(key);
+				    tapArray.push(collectData[key].name);
+				    selectorData.push(tapArray);				    
+				}		
+			}
+			
+			
+			function initOptionNamesSelector(bridge,data,selectedId){						     					
+				//创建数据中的id数组和name数组
+				var selectIdData=[];
+				selectDeckData=[];
+	            for (var j = 0; j < selectorData.length; j++) {
+					var optionId= selectorData[j][0];
+					selectIdData.push(optionId);
+					
+					var optionName= selectorData[j][1];
+					selectDeckData.push(optionName);	
+//					changeValue.setAttribute('id',''+selectIdData[j]+'');					
+//					var idValue=changeValue.getAttribute('id');
+					//显示默认牌组数据
+			        if(selectedId==selectIdData[j]){
+			        	
+			        	optionIndex=j;
+						doOnSelectOneOption(optionIndex);
+			        	
+			        	//牌组name数据
+			            var currentDeck=selectDeckData[j];
+						changeValue.innerText =currentDeck; 
+					}
+					
+				}
+					
+		            (function($, doc) {
+					$.init();
+					$.ready(function() {
+						//普通示例
+						var userPicker = new $.PopPicker();
+						userPicker.setData(selectDeckData);
+						changeDeck.addEventListener('tap', function(event) {
+							
+						var popPicker=document.getElementsByClassName('mui-poppicker');
+						var muiBackdrop=document.getElementsByClassName('mui-backdrop');
+			
+						for(var i=0;i<popPicker.length;i++){			
+							removeClass(popPicker[i], 'mui-active');
+						};
+						
+						if(muiBackdrop.length>0){
+							for(var i=0;i<muiBackdrop.length;i++){	
+								muiBackdrop[i].style.opacity=0;
+							}					
+						};
+							
+							userPicker.show(function(items) {
+								changeValue.innerText = items[0];
+								//切换显示数据
+								for(var i=0;i<selectDeckData.length;i++){
+									if(items[0]==selectDeckData[i]){
+										optionIndex=i;				
+//										changeValue.setAttribute('id',''+selectIdData[i]+'');
+				     					doOnSelectOneOption(optionIndex);
+									}				
+								}
+							});
+						}, false);
+					});
+				})(mui, document);
+//			}
+		}
+			
+			
+			var currentOptionId="1";
+			//进入页面的第一次的选项组
+			function doOnSelectOneOption(index){
+				currentOptionId=selectorData[index][0];			
+				currentOptionName=selectorData[index][1];
+		     	//2.展现数据； 
+		     	showAllOptionData(currentOptionId);
+			}
+			
+			//恢复默认监听
+			function defaultOptionListener(bridge){
+				//点击恢复默认
+//		     	mui('.changeBigDeck').off('#defaultDeck');
+//		     	mui('.changeBigDeck').on('#defaultDeck',function(){
+//		     	});
+		     	document.getElementById('defaultDeck').addEventListener('tap', function(){
+					collectData[currentOptionId]={
+			        "name": "Default",
+			        "new": {
+			            "delays": [
+			                1,
+			                10
+			            ],
+			            "ints": [
+			                1,
+			                4,
+			                7
+			            ],
+			            "initialFactor": 2500,
+			            "separate": true,
+			            "order": 1,
+			            "perDay": 20,
+			            "bury": true
+			        },
+			        "lapse": {
+			            "delays": [
+			               10
+			            ],
+			            "mult": 0,
+			            "minInt": 1,
+			            "leechFails": 8,
+			            "leechAction": 0
+			        },
+			        "rev": {
+			            "perDay": 100,
+			            "ease4": 1.3,
+			            "fuzz": 0.05,
+			            "minSpace": 1,
+			            "ivlFct": 1,
+			            "maxIvl": 36500,
+			            "bury": true
+			        },
+			        "maxTaken": 60,
+			        "timer": 0,
+			        "autoplay": true,
+			        "replayq": true,
+			        "mod": 0,
+			        "usn": 0,
+			        "id": 1,
+			        "dyn": 0
+			   };
+					collectData[currentOptionId].name=currentOptionName;
+					generateSelectorDataMethod(collectData);
+					initOptionNamesSelector(bridge,null);	
+					//牌组name数据
+					var currentDeck=selectDeckData[optionIndex];
+					changeValue.innerText =currentDeck; 					
+					doOnSelectOneOption(optionIndex);		
+				}); 				
+			}
+			
+			//添加按钮的option
+			function addNewOption(bridge,newName){
+				var newTime = new Date().getTime();
+				collectData[newTime]={
+			        "name": "Default",
+			        "new": {
+			            "delays": [
+			                1,
+			                10
+			            ],
+			            "ints": [
+			                1,
+			                4,
+			                7
+			            ],
+			            "initialFactor": 2500,
+			            "separate": true,
+			            "order": 1,
+			            "perDay": 20,
+			            "bury": true
+			        },
+			        "lapse": {
+			            "delays": [
+			               10
+			            ],
+			            "mult": 0,
+			            "minInt": 1,
+			            "leechFails": 8,
+			            "leechAction": 0
+			        },
+			        "rev": {
+			            "perDay": 100,
+			            "ease4": 1.3,
+			            "fuzz": 0.05,
+			            "minSpace": 1,
+			            "ivlFct": 1,
+			            "maxIvl": 36500,
+			            "bury": true
+			        },
+			        "maxTaken": 60,
+			        "timer": 0,
+			        "autoplay": true,
+			        "replayq": true,
+			        "mod": 0,
+			        "usn": 0,
+			        "id": 1,
+			        "dyn": 0
+			   };
+				collectData[newTime].name=newName;
+				generateSelectorDataMethod(collectData);
+				initOptionNamesSelector(bridge,null);
+				//牌组name数据
+				var currentDeck=selectDeckData[selectorData.length-1];
+				changeValue.innerText =currentDeck; 			
+				doOnSelectOneOption(selectorData.length-1);
+			}
+			function hideAlertBox(){
+				var abc=document.getElementsByClassName('mui-popup-in')[0];
+				abc.style.display='none';
+			}
+			//右上弹出菜单监听事件
+			function rightpopMenuListener(bridge){
+				//添加按钮
+				document.getElementById('rightpop-createdeck').addEventListener('tap',function(){
+					hidPopoverShadow();
+		
+					var btnArray = ['取消', '确定'];
+					oldname = '创建新牌组';
+					newDeckTitle = '请输入新牌组名称';
+					
+					mui.prompt('请输入新牌组的名称：', newDeckTitle, oldname, btnArray, function(e) {
+						if(e.index == 1&&e.value==""){
+	
+						} else if (e.index == 1) {
+							deckname = e.value;
+							addNewOption(bridge,deckname);
+							hideAlertBox();
+							//调用后台接口，添加一个新的牌组选项
+							
+						} 
+					});			
+					
+				});
+				//删除按钮
+				document.getElementById('rightpop-removedeck').addEventListener('tap',function(){
+					hidPopoverShadow();
+					if(currentOptionId==1){
+						mui.alert('默认的牌组选项不可以被删除');
+						return;
+					}
+					delete collectData[currentOptionId];
+					generateSelectorDataMethod(collectData);
+					initOptionNamesSelector(bridge,null);
+					//牌组name数据
+//					createDeck();
+					var currentDeck=selectDeckData[0];
+					changeValue.innerText =currentDeck; 
+					optionIndex=0;
+					doOnSelectOneOption(optionIndex);
+					//调用后台接口，删除一个牌组选项
+					/**<js-ios>
+						bridge.callHandler('remove', currentOptionId, function(response) {
+							//log('JS got response', response)
+						});
+					</js-ios>**/
+					
+						window.xuming.remove(currentOptionId);
+					
+					
+				});
+				//重命名按钮
+				document.getElementById('rightpop-againdeck').addEventListener('tap',function(){
+					hidPopoverShadow();
+					var btnArray = ['取消', '确定'];
+					oldname = '重命名牌组';
+					newDeckTitle = '请重新命名牌组名称';
+					
+					mui.prompt('请重新命名牌组名称：', newDeckTitle, oldname, btnArray, function(e) {
+						if(e.index == 1&&e.value==""){
+	
+						} else if (e.index == 1) {
+							deckname = e.value;
+							collectData[currentOptionId].name=deckname;
+							generateSelectorDataMethod(collectData);
+							initOptionNamesSelector(bridge,null);	
+							
+							//牌组name数据
+							var currentDeck=selectDeckData[optionIndex];
+							changeValue.innerText =currentDeck; 				
+							doOnSelectOneOption(optionIndex);
+							hideAlertBox();
+							//调用后台接口，重命名牌组选项
+						} 
+					});
+				});	
+				document.getElementById('rightpop-childDeck').addEventListener('tap',function(){
+//					alert(1);
+					//调用后台接口
+					/**<js-ios>
+						bridge.callHandler('applyToChild', null, function(response) {
+							//log('JS got response', response)
+						});
+					</js-ios>**/
+					
+						window.xuming.applyToChild();
+					
+				});
+			}
+			//展现数据
+			function showAllOptionData(key){
+				//展现新卡片的数据
+				showNewDelays('new_delays', collectData[key].new.delays);
+				
+				showNewThreeNumberValue('ints',collectData[key].new.ints);
+				//展现“开始简化”数据
+				showNewInitialFactorValue('initialFactor',collectData[key].new.initialFactor);
+				//展现“新卡片/天”数据
+				showNewPerDayValue('new_perDay',collectData[key].new.perDay);
+				//展现“顺序”下拉选项的数据
+//				showNewOrderSelectValue('order',collectData[key].new.order);
+				//展现新卡片的“搁置”单选框数据
+				showNewBuryCheckboxValue('new_bury',collectData[key].new.bury);
+				//展现“最大复习数”/“简单奖励”/“间隔修饰符”/“最大间隔”数据
+				showRevNumberboxValue('rev_perDay',collectData[key].rev.perDay);
+				showRevNumberboxValue('ease4',collectData[key].rev.ease4);
+				showRevNumberboxValue('fuzz',collectData[key].rev.fuzz);
+				showRevNumberboxValue('maxIvl',collectData[key].rev.maxIvl);
+				//复习的“搁置”数据			
+				showRevBuryCheckboxValue('rev_bury',collectData[key].rev.bury);
+				//失误次数的“步伐”数据
+				showLapseDelaysInputValue('lapse_delays',collectData[key].lapse.delays);
+				//失误次数的“新间隔”“最小间隔”“难点阈值”的数据
+				showLapseNumberboxValue('mult',collectData[key].lapse.mult);
+				showLapseNumberboxValue('minInt',collectData[key].lapse.minInt);
+				showLapseNumberboxValue('leechFails',collectData[key].lapse.leechFails);
+				//失误次数的“记忆难点动作”下拉选项的数据
+//				showLapseSelectValue('leechAction',collectData[key].lapse.leechAction);
+				//总体的“忽略时间”数据
+				showWholeMaxTakenNumberboxValue('maxTaken',collectData[key].maxTaken);
+				//总体的“显示回答计时器”“自动播放音频”“答案显示后，重新播放”的数据
+				showWholeCheckboxValue('timer',collectData[key].timer);
+				showWholeCheckboxValue('autoplay',collectData[key].autoplay);
+				showWholeCheckboxValue('replayq',collectData[key].replayq);
+			}
+			var allOption={};
+		//新卡片的数据-------------------------------------------------------------	
+			//展现"输入框"类型数据
+			function showNewDelays(key,value){			
+				var hint;   //提示输入的内容：“请输入***”
+				
+				if (key == "new_delays") { 
+					hint = "新步伐";
+				}	
+				//debugger;
+				var btn1=document.getElementsByClassName(key)[0];
+				var inputText=btn1.getElementsByTagName('input')[0];
+				var placeholder=value;
+				inputText.value=value;
+				btn1.addEventListener('tap', function(e) {
+					e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+					var btnArray = ['取消', '确定'];
+					mui.prompt(hint,placeholder, '请输入', btnArray, function(e) {
+						if (e.index == 1) {
+							inputText.value = e.value;
+//							var muiPopupIn=document.getElementsByClassName('mui-popup-in')[0];
+							var aa= e.value;
+							var bb=aa.split(",");
+							collectData[currentOptionId].new.delays=bb;	
+						} 						
+					})					
+				});					
+			}
+			
+			function showNewPerDayValue(key,value,num){
+				var btn1=document.getElementsByClassName(key)[0];
+				btn1.value=value;				
+			}
+			
+			//展现新卡片的3个"数字框"类型数据
+			function showNewThreeNumberValue(key,value,num){
+				var btn1=document.getElementsByClassName(key);
+				for(var i=0;i<btn1.length;i++){
+					btn1[i].index=i;
+					btn1[i].value=value[i];
+
+				}
+			}
+
+			//其余“数字框”类型数据
+			function showNewInitialFactorValue(key,value,num){
+				value=value/10;
+				var btn1=document.getElementsByClassName(key)[0];
+				btn1.value=value;				
+			}
+			
+			//新卡片的下拉选项
+//			function showNewOrderSelectValue(key,value,num){
+//				var selectOrder=document.getElementsByClassName(key)[0];
+//				selectOrder.children[value].selected=true;										
+//			}
+			
+			//新卡片的单选框
+			function showNewBuryCheckboxValue(key,value,num){
+				var checkBox=document.getElementsByClassName(key)[0];
+				checkBox.checked=value;			
+			}
+		//复习的数据---------------------------------------------------------------------------------------
+			//复习的“数字框”类型的数据
+			function showRevNumberboxValue(key,value,num){
+				var btn1=document.getElementsByClassName(key)[0];
+				if(key=='ease4'){
+					btn1.value=value*100;
+				}else if(key=='fuzz'){
+					btn1.value=value*1000;
+				}else{
+					btn1.value=value;
+				}			
+			}
+			
+			//复习的单选框
+			function showRevBuryCheckboxValue(key,value,num){
+				var checkBox=document.getElementsByClassName(key)[0];
+				checkBox.checked=value;			
+			}
+		//失误次数的数据-----------------------------------------------------------------------------------------
+			//展现"输入框"类型数据
+			function showLapseDelaysInputValue(key, value,num){
+				var hint;   //提示输入的内容：“请输入***”
+				
+				if (key == "lapse_delays") { 
+					hint = "步伐";
+				}				
+				//debugger;
+				var btn1=document.getElementsByClassName(key)[0];
+				var inputText=btn1.getElementsByTagName('input')[0];
+				var placeholder=value;
+				inputText.value=value;
+				btn1.addEventListener('tap', function(e) {
+					e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+					var btnArray = ['取消', '确定'];
+					mui.prompt(hint,placeholder, '请输入', btnArray, function(e) {
+						if (e.index == 1) {
+							inputText.value = e.value;
+							collectData[currentOptionId].lapse.delays=e.value;							
+						} 
+					})
+				});	
+			}
+			
+			//失误的“数字框”类型的数据
+			function showLapseNumberboxValue(key,value,num){
+				var btn1=document.getElementsByClassName(key)[0];
+				btn1.value=value;				
+			}
+			
+			//失误的下拉选项
+//			function showLapseSelectValue(key,value,num){								
+//				var selectOrder=document.getElementsByClassName(key)[0];
+//				selectOrder.children[value].selected=true;
+//				var index;					
+//			}
+		//总体的数据
+			//总体的“数字框”类型的数据
+			function showWholeMaxTakenNumberboxValue(key,value,num){
+				var btn1=document.getElementsByClassName(key)[0];
+				btn1.value=value;				
+			}
+			
+			//总体的单选框
+			function showWholeCheckboxValue(key,value,num){
+				var checkBox=document.getElementsByClassName(key)[0];
+				checkBox.checked=value;				
+			}
+			
+			
+			//创建顺序的选项框
+			var selectOrder=document.getElementsByClassName('order')[0];
+			var changeOrderValue=document.getElementsByClassName('changeOrderValue')[0];
+			var selectedOrder;
+			function selectOrderData(selectData){	
+				selectedOrder=selectData[currentOptionId].new.order;
+				var orderData=["按创建顺序学习新卡片","按随机顺序学习新卡片"];
+				var currentOrder=orderData[selectedOrder];
+				changeOrderValue.innerText =currentOrder; 			
+				selectData[currentOptionId].new.order=selectedOrder;
+				
+				(function($, doc) {
+					$.init();
+					$.ready(function() {
+						//普通示例
+						var userPicker = new $.PopPicker();
+						userPicker.setData(orderData);
+						selectOrder.addEventListener('tap', function(event) {
+							userPicker.show(function(items) {
+								changeOrderValue.innerText = items[0];
+								for(var i=0;i<orderData.length;i++){
+									if(items[0]==orderData[i]){
+										selectedOrder=i;
+										collectData[currentOptionId].new.order=selectedOrder;
+									}				
+								}
+							});
+						}, false);
+					});
+				})(mui, document);
+			}
+			
+			//创建记忆难点动作的选项框
+			var leechAction=document.getElementsByClassName('leechAction')[0];
+			var changeLeechValue=document.getElementsByClassName('changeLeechValue')[0];
+			var selectedLeech;
+			function selectLeechData(selectData){	
+				selectedLeech=selectData[currentOptionId].lapse.leechAction;
+				var leechData=["暂停卡片","仅标记"];
+				var currentLeech=leechData[selectedLeech];
+				changeLeechValue.innerText =currentLeech; 			
+				selectData[currentOptionId].lapse.leechAction=selectedLeech;
+				
+				(function($, doc) {
+					$.init();
+					$.ready(function() {
+						//普通示例
+						var userPicker = new $.PopPicker();
+						userPicker.setData(leechData);
+						leechAction.addEventListener('tap', function(event) {
+							userPicker.show(function(items) {
+								changeLeechValue.innerText = items[0];
+								for(var i=0;i<leechData.length;i++){
+									if(items[0]==leechData[i]){
+										selectedLeech=i;
+										collectData[currentOptionId].lapse.leechAction=selectedLeech;
+									}				
+								}
+							});
+						}, false);
+					});
+				})(mui, document);
+			}
+			
+			
+//			selectOrderData(1);
+			//监听返回按钮的点击
+			function addButtonsListener(bridge){
+				mui('.mui-bar').off("tap","#backToParent");
+				mui('.mui-bar').on("tap","#backToParent",function(){
+					console.log(JSON.stringify(collectData));	
+					
+					/**<js-ios>
+						bridge.callHandler('backToParent', null, function(response) {
+							//log('JS got response', response)
+						});
+					</js-ios>**/
+					
+						window.xuming.backToParent();
+					
+					
+	//				action = null;
+	//				window.xuming.backToParent(JSON.stringify(collectData));
+				});
+				mui('.changeBigDeck').off("tap","#makesure");
+				mui('.changeBigDeck').on("tap","#makesure",function(){
+					//新卡片“顺序”
+					collectData[currentOptionId].new.order=selectedOrder;
+					//“新卡片/天”的value
+					var newPerDayValue=document.getElementsByClassName('new_perDay')[0].value;
+					collectData[currentOptionId].new.perDay=newPerDayValue;
+					//新卡片“毕业间隔”的value
+					var intsOneValue=document.getElementsByClassName('ints')[0].value;
+					collectData[currentOptionId].new.ints[0]=intsOneValue;
+					//新卡片“简单间隔”的value
+					var intsTwoValue=document.getElementsByClassName('ints')[1].value;
+					collectData[currentOptionId].new.ints[1]=intsTwoValue;
+					//新卡片“开始简化”的value
+					var initialFactorValue=document.getElementsByClassName('initialFactor')[0].value;
+					collectData[currentOptionId].new.initialFactor=initialFactorValue*10;
+					//新卡片的“搁置”的value
+					var newBburyCheckBox=document.getElementsByClassName('new_bury')[0];
+					newBburyCheckBox.checked? collectData[currentOptionId].new.bury=true:collectData[currentOptionId].new.bury=false;
+					
+					
+					//复习的“最大复习数”的value
+					var revPerDayValue=document.getElementsByClassName('rev_perDay')[0].value;
+					collectData[currentOptionId].rev.perDay=revPerDayValue;
+					//复习的“简单奖励”的value 
+					var revEase4Value=document.getElementsByClassName('ease4')[0].value;
+					collectData[currentOptionId].rev.ease4=revEase4Value/100;
+					//复习的“间隔修饰符”的value
+					var revFuzzValue=document.getElementsByClassName('fuzz')[0].value;
+					collectData[currentOptionId].rev.fuzz=revFuzzValue/1000;
+					//复习的“最大间隔”的value
+					var revMaxIvlValue=document.getElementsByClassName('maxIvl')[0].value;
+					collectData[currentOptionId].rev.maxIvl=revMaxIvlValue;
+					//复习的“搁置”的value
+					var revBuryCheckBox=document.getElementsByClassName('rev_bury')[0];
+					revBuryCheckBox.checked? collectData[currentOptionId].rev.bury=true : collectData[currentOptionId].rev.bury=false;
+					
+					
+					//失误次数的“新间隔”的value
+					var lapseMultValue=document.getElementsByClassName('mult')[0].value;
+					collectData[currentOptionId].lapse.mult=lapseMultValue;
+					//失误次数的“最小间隔”的value
+					var lapseMinIntValue=document.getElementsByClassName('minInt')[0].value;
+					collectData[currentOptionId].lapse.minInt=lapseMinIntValue;	
+					//失误次数的“难点阈值”的value 
+					var lapseLeechFailsValue=document.getElementsByClassName('leechFails')[0].value;
+					collectData[currentOptionId].lapse.leechFails=lapseLeechFailsValue;	
+					//失误次数的“记忆难点动作”的value
+					collectData[currentOptionId].lapse.leechAction=selectedLeech;
+					
+					
+					//总体的“忽略回答时间”的value
+					var maxTakenValue=document.getElementsByClassName('maxTaken')[0].value;
+					collectData[currentOptionId].maxTaken=maxTakenValue;					
+					//总体的“显示回答计时器”的value
+					var timerCheckBox=document.getElementsByClassName('timer')[0];
+					timerCheckBox.checked? collectData[currentOptionId].timer=1 :collectData[currentOptionId].timer=0;
+					//总体的“自动播放”value
+					var autoplayCheckBox=document.getElementsByClassName('autoplay')[0];
+					autoplayCheckBox.checked ? collectData[currentOptionId].autoplay=true :collectData[currentOptionId].autoplay=false;
+					//总体的“当答案显示后，重新播放”value
+					var replayqCheckBox=document.getElementsByClassName('replayq')[0];
+					replayqCheckBox.checked ? collectData[currentOptionId].replayq=true : collectData[currentOptionId].replayq=false;
+					allOption=collectData;
+					collectData={};
+					collectData.allOption=allOption;
+					collectData.selectedId=currentOptionId;
+					console.log(JSON.stringify(collectData));
+					
+					
+						window.xuming.comfirm(JSON.stringify(collectData));
+					
+//		
+//		
+					/**<js-ios>
+						bridge.callHandler('comfirm', JSON.stringify(collectData), function(response) {
+							//log('JS got response', response)
+						});
+					</js-ios>**/
+				});
+	
+			}
+			
+			function hidPopoverShadow(){
+//				//alert(444);
+				var shs = document.getElementsByClassName("mui-backdrop");
+				var righttopPopover = document.getElementById("righttopPopover");
+////				
+				shs[0].style.display = "none";
+				righttopPopover.style.display = "none";
+				
+//				
+//				//alert(shs.length);
+//				//var cls = shs[0].getAttribute("class");
+//				//alert(cls);
+//				mui.trigger(shs[0], 'tap');
+			}
+			
+			var topright_menu_listener =function(){
+				var clientWidth= document.body.clientWidth;
+				var divWidth=clientWidth*44/100;
+				var ss = document.getElementsByClassName("mui-popover")[0];
+					ss.style.display = "block";					
+					ss.style.width =divWidth+'px';
+				
+			}
+			
+			
+			
+			//主题色换肤
+			var bodyColor=document.getElementsByTagName('body')[0];
+			var titleBar=document.getElementsByClassName('mui-bar')[0];
+			var bg=document.getElementsByClassName('bg')[0];
+			var segmented=document.getElementsByClassName('segmentedControl')[0];
+			function changeAllColor(num){
+				if(num==0){	
+					titleBar.setAttribute("style",'background-color:#444a59 !important');
+					bodyColor.setAttribute("style",'background-color:#444a59 !important');
+					bg.setAttribute("style",'background-color:#444a59 !important');
+					segmented.setAttribute("style",'background-color:#444a59 !important');
+					
+				}else{				
+					titleBar.setAttribute("style",'background-color:#3696e9 !important');
+					bodyColor.setAttribute("style",'background-color:#3696e9 !important');
+					bg.setAttribute("style",'background-color:#3696e9 !important');
+					segmented.setAttribute("style",'background-color:#3696e9 !important');
+					
+				}
+				
+			}
+	
+		/**<js-ios>
+		/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+			
+		    setupWebViewJavascriptBridge(function(bridge, thisIndex) {
+		        //alert(111);
+		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+
+	                initFirWindow(bridge, data);
+	               
+		        });		
+				bridge.registerHandler('changeTheme', function(data, responseCallback) {
+                  	changeAllColor(data);
+	        	});
+		        
+		        
+		    });
+							
+			/////////////////bridge/////////////////////
+		</js-ios>**/
+		
+		
+			
+			
+			
+			
+			
+			
+			document.getElementById("topright-menu").removeEventListener('tap', topright_menu_listener,false);
+			document.getElementById("topright-menu").addEventListener('tap', topright_menu_listener,false);
+			//<4>编写入口方法---begin
+		     function initFirWindow(bridge, serverData){
+		     	
+		     	//1.加载数据，转换数据，处理原始数据；
+				if (serverData == null) {
+					collectData = optionsData.allOption;
+					collectDataId=optionsData.selectedId;
+				}else{
+					serverData = JSON.parse(serverData);
+					collectData = serverData.allOption;
+					collectDataId=serverData.selectedId;
+				}
+				
+				//创建顺序的下拉选项框
+				selectOrderData(collectData);
+				//创建记忆难点动作的选项框
+				selectLeechData(collectData);
+				//2.准备selector数据
+				generateSelectorDataMethod(collectData);
+				//3.初始化selector数据并添加监听
+				initOptionNamesSelector(bridge,selectorData,collectDataId);
+				
+				//4.选中初始选项选项
+//				selectDeck.children[optionIndex].selected=true;
+				
+				doOnSelectOneOption(optionIndex);
+				
+				//5.恢复默认添加监听
+				defaultOptionListener(bridge);
+				
+				//
+				rightpopMenuListener(bridge);				
+		     	 
+		     	//3.添加事件监听；
+		     	addButtonsListener(bridge);
+		     }
+//		     window.onload=initFirWindow(null,null);
+//		}
+			
+		</script>
+
+	</body>
+
+</html>

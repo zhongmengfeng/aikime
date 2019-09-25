@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			.mui-navbar {
+			    position: fixed;
+			    right: 0;
+			    left: 0;
+			    z-index: 10;
+			    height: 44px;
+			    background-color: #007aff !important;
+			}
+			.mui-bar .mui-btn-link {
+			    font-size: 16px;
+			    line-height: 44px;
+			    top: 0;
+			    padding: 0;
+			    color: #fff;
+			    border: 0;
+			}
+			.mui-title {
+			    font-size: 17px;
+			    font-weight: 500;
+			    line-height: 44px;
+			    position: absolute;
+			    display: block;
+			    width: 100%;
+			    margin: 0 -10px;
+			    padding: 0;
+			    text-align: center;
+			    white-space: nowrap;
+			    color: #fff;
+			}
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 46px;
+				height: auto;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-navbar {
+				position: fixed;
+				right: 0;
+				left: 0;
+				z-index: 10;
+				height: 44px;
+				background-color: #f7f7f8;
+			}
+			.mui-navbar .mui-bar {
+				position: absolute;
+				background: transparent;
+				text-align: center;
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			.mui-table-view-divider {
+				background-color: #efeff4;
+				font-size: 14px;
+			}
+			.mui-table-view-divider:before,
+			.mui-table-view-divider:after {
+				height: 0;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: -25px;
+				font-size: 15px
+			}
+			.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-ios .mui-navbar .mui-bar .mui-title {
+				position: static;
+			}
+			/*问题反馈在setting页面单独的css*/
+			#feedback .mui-popover{
+				position: fixed;
+			}
+			#feedback .mui-table-view:last-child {
+			    margin-bottom: 0px;
+			}
+			#feedback .mui-table-view:first-child {
+			    margin-top: 0px;
+			}
+			.li-span {
+				display: inline-block;
+				width: 22px;
+				height: 22px;
+				background: green;
+				line-height: 22px;
+				font-size: 20px;
+				margin-left: 5px;
+				text-align: center;
+				border-radius: 4px;
+				color: white;
+				font-weight: 800;				
+			}
+			/*问题反馈在setting页面单独的css==end*/
+			
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--首页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button id="backToParent" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">筛选牌组1</h1>
+			</div>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				
+				
+				
+				
+				
+				<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							
+							
+							<div class="mui-content-padded" style="margin: 5px;">
+					
+					<div class="mui-input-row mui-search">
+						<input type="search" class="mui-input-clear" placeholder="输入筛选条件">
+					</div>
+					
+				</div>
+						
+						
+						
+						<ul class="mui-table-view mui-table-view-chevron">
+							
+						</ul>
+						
+						
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="#fuxi-shezhi_12a" class="mui-navigate-right">限制至
+									<span class="mui-pull-right">100
+									</span>
+								</a>
+							</li>
+						</ul>
+						
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#kapian-xuanze-biaozhun" class="mui-navigate-right">
+									卡片选择标准 
+									<i class="mui-pull-right update">
+										优先显示老卡片
+									</i>
+								</a>
+							</li>
+						</ul>
+						
+						
+						
+						
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								重新安排学习进度
+								<div id="switch_changyongshezhi-tongbu-meiti" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								自定义步骤
+								<div id="switch_changyongshezhi-tongbu-zidong" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						
+						
+						<ul class="mui-table-view">
+							
+						</ul>
+						
+						
+						
+						
+				<input style="width:100%; background: red; border: 1px solid red;" type="submit" value="确定筛选" />
+						
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--首页面结束-->
+		
+		<!--///////////////////////////////001//////////////-->
+		
+	
+		
+		<div id="kapian-xuanze-biaozhun" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">卡片选择标准</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div id="radio-changyong-shezhi_04tongzhileixing" class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">优先显示老卡片</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">随机</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">增加时间间隔</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">减少时间间隔</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">忘记最多</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">添加顺序</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">到期顺序</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">最晚添加优先</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">相对到期</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<!--常用设置三级单选结束-->
+		<!--“常用设置”页面结束-->
+		
+		
+
+	</body>
+	<script src="js/mui.min.js "></script>
+	<script src="js/mui.view.js "></script>
+	<script src='js/feedback.js'></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	
+//		mui.init();
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+		
+		
+		
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+		
+		
+		
+		/////////////////bridge/////////////////////
+		
+		window.onerror = function(err) {
+	        log('window.onerror: ' + err)
+		}
+		
+		
+		
+	    function setupWebViewJavascriptBridge(callback) {
+	        if (window.WebViewJavascriptBridge) {
+	            return callback(WebViewJavascriptBridge);
+	        }
+	        if (window.WVJBCallbacks) {
+	            return window.WVJBCallbacks.push(callback);
+	        }
+	        window.WVJBCallbacks = [callback];
+	        var WVJBIframe = document.createElement('iframe');
+	        WVJBIframe.style.display = 'none';
+	        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+	        document.documentElement.appendChild(WVJBIframe);
+	        setTimeout(function() {
+	            document.documentElement.removeChild(WVJBIframe)
+	            }, 0);
+	    }
+	
+	    setupWebViewJavascriptBridge(function(bridge) {
+	        
+	        initThisWindow(bridge);
+	
+	        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+                
+				var treeListData_org = JSON.parse(data.treeStr);
+                
+                //initFirWindow(bridge, treeListData_org);
+               
+	        });
+	        
+	        
+	    });
+						
+		/////////////////bridge/////////////////////
+		
+		
+		function addButtonsListener(bridge){
+			document.getElementById("backToParent").addEventListener('tap', function(){
+				//alert(123);
+				action = null;
+				bridge.callHandler('backToParent', action, function(response) {
+				//log('JS got response', response)
+				});
+			});
+		}
+		
+		function initThisWindow(bridge){
+			addButtonsListener(bridge);
+		}
+		
+		//开关事件如何处理
+		
+//		mui('.mui-content .mui-switch').each(function() { //循环所有toggle
+//			//toggle.classList.contains('mui-active') 可识别该toggle的开关状态
+//			this.parentNode.querySelector('span').innerText = '状态：' + (this.classList.contains('mui-active') ? 'true' : 'false');
+//			/**
+//			 * toggle 事件监听
+//			 */
+//			this.addEventListener('toggle', function(event) {
+//				//event.detail.isActive 可直接获取当前状态
+//				this.parentNode.querySelector('span').innerText = '状态：' + (event.detail.isActive ? 'true' : 'false');
+//			});
+//		});
+		//单选列表如何处理
+//		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+//			info.innerHTML = "当前选中的为："+e.detail.el.innerText;
+//		});
+		window.onload = initThisWindow(null);
+	</script>
+
+</html>

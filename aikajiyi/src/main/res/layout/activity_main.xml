@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ichi2yiji.anki.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#007aff"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/icon_main_home"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/home"
+            />
+
+
+        <info.hoang8f.android.segmented.SegmentedGroup
+            android:id="@+id/segmented"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:paddingTop="5dp"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/deck_reader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="阅读"
+                style="@style/RadioButton" />
+            <RadioButton
+                android:id="@+id/deck_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="牌组"
+                style="@style/RadioButton" />
+
+            <RadioButton
+                android:id="@+id/deck_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="模考"
+                style="@style/RadioButton" />
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+        <!--<TextView-->
+            <!--android:id="@+id/word"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="18sp"-->
+            <!--android:clickable="true"-->
+            <!--android:text="牌组"-->
+            <!--/>-->
+
+        <ImageView
+            android:id="@+id/top_right"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:src="@drawable/top_right" />
+
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.ichi2yiji.anki.fragment.DeckPickerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar"/>
+
+</RelativeLayout>

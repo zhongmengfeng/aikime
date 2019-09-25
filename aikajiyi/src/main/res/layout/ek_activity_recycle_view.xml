@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/study_background"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/blurView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3f000000"
+        android:scaleType="centerCrop"/>
+
+    <cxzs.cncare.net.testdemo2.recycle.library.SpeedRecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:layout_below="@+id/recyclerView"
+        android:text="2/7"
+        android:id="@+id/card_number"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="17dp"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/study_text"
+        android:layout_below="@+id/card_number"
+        android:layout_width="330dp"
+        android:text="开始学习"
+        android:textSize="@dimen/textsize_23"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/ek_start_study_shape"
+        android:layout_centerHorizontal="true"
+        android:layout_height="56dp" />
+    <LinearLayout
+        android:layout_below="@+id/study_text"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="测试"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_17"
+            android:gravity="center"
+           android:paddingTop="23dp"
+            android:paddingBottom="22dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="阅读"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_17"
+            android:gravity="center"
+           android:paddingTop="23dp"
+            android:paddingBottom="22dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_launcher"
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

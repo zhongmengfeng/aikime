@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<style>
+			body{
+				background-color: #fff;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item{
+				background-color:#fff ;
+			}
+			.chart {
+				height: 250px;
+				margin: 0px;
+				padding: 0px;
+			}
+			h1 {
+				font-size:4vw;
+				text-align: center;
+				color:#000;
+			}
+			p{
+				font-size: 3vw;
+				text-align: center;
+				color:#000;
+			}
+			.mui-table-view-cell{
+				margin-top: 50px;
+			}
+			.mui-slider-indicator{
+				position: absolute;
+				top:10px;
+				left:0;
+			}
+			.mui-table-view-cell{
+				margin-top: 0;
+				height: 200px;
+			}
+			/*.day{
+				position: absolute;
+			    top: 60%;
+			    left: 50%;
+			    color: #545454;			    
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="Gallery" class="mui-slider">
+				<div class="mui-slider-group">
+					<div class="mui-slider-item">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<h1>评论计数</h1>
+								<p>已经回答的问题的数量</p>
+								<div class="chart" id="main1"></div>
+								<!--<p class="day">天</p>-->
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--<div style="width: 50px;height: 50px;border: 1px solid #000;" onclick="onloadPage();">点击</div>-->
+	</body>
+</html>
+<script src="js/mui.min.js"></script>
+<script src="libs/echarts-all.js"></script>
+<script>
+
+	//第一张------------------------------------------------------
+ 	var myChart1 = echarts.init(document.getElementById('main1'));
+	
+	var chart={
+		"chart1":[
+			[
+				-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,1,15
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,1,16
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,1,24
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,0,9
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,45,67
+			],
+			[
+				0,0,0,0,0,0,0,0,0,0,0,44,87
+			],
+			[
+				-1,0,2,0,111.30000305175781,22.299999237060547,0,91.3499984741211,18.299999237060547,2
+			]
+		]
+	}
+
+	function one(arr1){
+		arrChange=arr1[7];
+		var n;
+		var m;
+		var word;
+		var arrSmall1=Math.ceil(arrChange[5]);
+		var arrSmall2=Math.ceil(arrChange[8]);
+		var arrLarge1=Math.ceil(arrChange[4]);
+		var arrLarge2=Math.ceil(arrChange[7]);
+		var changeWord=Math.ceil(arrChange[9]);
+		if(changeWord==0){
+			word='天';
+		}else if(changeWord==1){
+			word='周';
+		}else if(changeWord==2){
+			word='月';
+		}
+	
+		if(arrLarge1==0 || arrSmall1==0){
+			n=0;			
+		}
+		else{
+			n=Math.ceil(arrLarge1/arrSmall1);
+			if(arrLarge1%n!=0){
+				arrLarge1=arrLarge1-arrLarge1%n+n;			
+			}
+		}
+	
+		if(arrLarge2==0 || arrSmall2==0){
+			m=0;
+		}
+		else{
+			m=Math.ceil(arrLarge2/arrSmall2);
+			if(arrLarge2%m!=0){
+				arrLarge2=arrLarge2-arrLarge2%m+m;
+			}
+		}
+		//判断间隔为0的情况
+		if(n==0){
+			n=1;
+		}
+		if(m==0){
+			m=1;
+		}
+		
+		var option1= {
+			grid:{
+				x:30,
+	   			x2:30,
+	   			y:25,
+	//			width:'40%',
+				height:'36%'
+			},
+	    tooltip: {
+	        trigger: 'axis'
+	    },
+	    toolbox: {
+	        feature: {
+	            dataView: {show: true, readOnly: false},
+	            magicType: {show: true, type: ['line', 'bar']},
+	            restore: {show: true},
+	            saveAsImage: {show: true}
+	        }
+	    },
+	    color:['#77cc77','#cc0000','#0000ff'],
+	    legend: {
+	    	
+	        data:['年轻','重新学习','学习']
+	    },
+	    xAxis: [
+	        {
+	        	name:word,
+	        	nameLocation:'end',
+	        	nameTextStyle:{
+	        		color:'#545454'
+	        	},
+	        	nameGap:60,
+	        	axisTick:{
+	        		show:false
+	        	},
+	        	axisLabel: {
+	        		interval: arrChange[2]-1,
+	        		margin:7,
+	                textStyle:{
+	                	color:'#545454'
+	                }
+	    		},
+	    		splitLine:{ 
+	            	lineStyle:{
+	            		color:'#d2d2d2'
+	            	}
+	            },
+	            type: 'category',
+	            data:arr1[0]
+	        }
+	    ],
+	    yAxis: [
+	        {
+	            type: 'value',
+	            name: '答案',
+	//          nameLocation:'end',
+	            nameTextStyle:{
+	            	color:'#000',
+	//          	fontWeight:'bolder'
+	//          	fontSize:13
+	            },
+	//          nameGap:60,
+	//			nameRotate:180,
+	            min: arrChange[3],
+	            max: arrLarge1,
+	//          scale:3,
+	//			minInterval: 1,
+	            splitNumber:n,
+	            splitLine:{ 
+	            	lineStyle:{
+	            		color:'#d2d2d2'
+	            	}
+	            },
+	            axisLabel: {
+	                formatter: '{value}',
+	                margin:6,
+	                textStyle:{
+	                	color:'#545454'
+	                }
+	            }
+	        },
+	        {
+	            type: 'value',
+	            name: '累计回答',
+	            nameTextStyle:{
+	            	color:'#000',
+	//          	fontWeight:'bolder'
+	//          	fontSize:'2vw'
+	            },
+	            min: arrChange[6],
+	            max: arrLarge2,
+	            splitNumber:m,
+	            splitLine:{ show:false},
+	            axisTick: {
+	         		show: true,
+	         		lineStyle:{
+	         			color:'#d3d3d3'
+	         		}
+				},
+	            axisLabel: {
+	                formatter: '{value}',
+	                margin:6,
+	                textStyle:{
+	                	color:'#545454'
+	                }
+	            }
+	        }
+	    ],
+	    series: [
+	        {
+	            name:'年轻',
+	            type:'bar',
+	//          "stack": 'sum',
+	            stack:'总量',
+	            color: '#77cc77',
+	            data:arr1[1]
+	        },
+	        {
+	            name:'年轻',
+	            type:'line',
+	            color: '#77cc77',
+	            yAxisIndex: 1,
+	            data:arr1[2]
+	        },
+	        {
+	            name:'重新学习',
+	            type:'bar',
+	            stack: '总量',
+	            color: '#cc0000',
+	            
+	            data:arr1[3]
+	        },
+	        {
+	            name:'重新学习',
+	            type:'line',
+	            color: '#cc0000',
+	            yAxisIndex: 1,
+	            data:arr1[4]
+	        },
+	        {
+	            name:'学习',
+	            type:'bar',
+	            stack: '总量',
+	//          symbol:'none',
+				color: '#0000ff',
+	            data:arr1[5]
+	        },
+	        {
+	            name:'学习',
+	            type:'line',
+	//          symbol:'none',
+				color: '#0000ff',
+	            yAxisIndex: 1,
+	            data:arr1[6]
+	        }
+	    ]
+	};
+	myChart1.setOption(option1);
+	window.onresize = myChart1.resize;//自适应
+}
+	//myChart.setOption(option);
+
+
+function initOneChart(arr){
+	one(arr);
+}
+
+
+function initAllChart(chartData){
+	
+	myChart1.clear();
+	//alert(chartData);
+	chartData = JSON.parse(chartData);
+	if (chartData == null) {
+		chartData = chart;
+	}
+	//alert(chartData.chart1);
+	initOneChart(chartData.chart1);
+	
+}
+	
+//function onloadPage(){
+//	window.location.reload();
+//}
+
+/////////////////bridge/////////////////////
+			/**<js-ios>
+				window.onerror = function(err) {
+			        log('window.onerror: ' + err)
+				}
+	
+			    function setupWebViewJavascriptBridge(callback) {
+			        if (window.WebViewJavascriptBridge) {
+			            return callback(WebViewJavascriptBridge);
+			        }
+			        if (window.WVJBCallbacks) {
+			            return window.WVJBCallbacks.push(callback);
+			        }
+			        window.WVJBCallbacks = [callback];
+			        var WVJBIframe = document.createElement('iframe');
+			        WVJBIframe.style.display = 'none';
+			        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+			        document.documentElement.appendChild(WVJBIframe);
+			        setTimeout(function() {
+			            document.documentElement.removeChild(WVJBIframe)
+			            }, 0);
+			    }
+				
+			    setupWebViewJavascriptBridge(function(bridge, thisIndex) {
+			        //alert(111);
+			        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	
+		                initAllChart(data);
+		               
+			        });		
+	
+			        
+			        
+			    });
+						
+			</js-ios>**/
+				
+			/////////////////bridge/////////////////////
+			
+
+//window.onload=initAllChart(null);
+
+</script>

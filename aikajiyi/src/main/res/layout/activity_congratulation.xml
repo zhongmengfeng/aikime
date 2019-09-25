@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/title_bar_congratulation"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="?attr/layout_background"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/icon_back_to"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/arrow_left_new"
+            />
+
+        <LinearLayout
+            android:id="@+id/title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            >
+            <TextView
+                android:id="@+id/deck_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="当前牌组名称"
+                />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/top_right_button_congratulation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:clickable="true"
+           android:text="分享"
+            />
+
+    </RelativeLayout>
+
+
+    <WebView
+        android:id="@+id/webview_statistic_aika"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_bar_congratulation"
+        >
+    </WebView>
+
+    <FrameLayout
+        android:id="@+id/fragment_congratulation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_bar_congratulation"
+        >
+    </FrameLayout>
+
+
+
+</RelativeLayout>

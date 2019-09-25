@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    tools:context="com.ichi2yiji.anki.fragment.DeckPickerFragment">
+
+
+    <!-- 底部菜单 -->
+    <RelativeLayout
+        android:id="@+id/bottom_main"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="?attr/layout_background"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        >
+        <TextView
+            android:id="@+id/text_load_online"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:textColor="@drawable/text_color_selector"
+            android:text="云端推送"
+            />
+
+        <ImageView
+            android:id="@+id/red_dot"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/text_load_online"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/dot_red"/>
+
+        <TextView
+            android:id="@+id/text_share_deck"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|right"
+            android:layout_alignParentRight="true"
+            android:paddingRight="15dp"
+            android:textColor="@drawable/text_color_selector"
+            android:textSize="18sp"
+            android:clickable="true"
+            android:text="共享牌组"
+
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_main">
+        <TextView
+            android:id="@+id/main2_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.ichi2yiji.anki.view.ListViewCompat
+            android:id="@+id/deckpicker_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:background="#ededed"
+            android:layout_marginLeft="7.5dp"
+            android:layout_marginRight="7.5dp"
+            >
+        </com.ichi2yiji.anki.view.ListViewCompat>
+    </RelativeLayout>
+
+</RelativeLayout>

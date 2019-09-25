@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="祝贺，你目前已经完成了这个记忆库。"/>
+        
+        <TextView
+            android:id="@+id/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:text="您仍有新的卡片可以学习，但是已经达到当日限值。您可以在选项中增加限值，但请注意，您学习的新卡片越多，您所需的短期复习量就越大。"/>
+
+        <TextView
+            android:id="@+id/text_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/text_2"
+            android:layout_margin="0dp"
+            android:textColor="@color/colorAnki"
+            android:text="自定义学习"
+            android:clickable="true"/>
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        >
+
+        <!--<TextView-->
+            <!--android:id="@+id/text_share_1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="90dp"-->
+            <!--android:background="@drawable/textview_style"-->
+            <!--android:textSize="16dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="打卡晒晒"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/text_share_2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="90dp"-->
+            <!--android:background="@drawable/textview_style"-->
+            <!--android:textSize="16dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="分享一下"/>-->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#007aff"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        >
+
+        <TextView
+            android:id="@+id/text_share_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:text="打卡晒晒"
+            />
+
+
+        <TextView
+            android:id="@+id/text_share_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:clickable="true"
+            android:text="分享一下"
+
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/web_layout"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/text_layout"
+        android:layout_above="@id/bottom_layout"
+        >
+
+        <WebView
+            android:id="@+id/webview_congratulation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </WebView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/body_decks.css" />
+		<link rel="stylesheet" href="css/deckitem_01.css" />
+		<link rel="stylesheet" href="css/slideList_01.css" />
+		<link rel="stylesheet" href="css/booklist_01.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			.title {
+				margin: 35px 15px 10px;
+			}
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			input {
+				color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="slide-title"></div>
+						<div class="content">
+							<p style="margin: 10px 15px;">
+								<br>
+							</p>
+
+						</div>
+						<ul class="slidemui-table-view slidemui-table-view-chevron slidemui-table-view-inverted">
+							<li class="slidemui-table-view-cell">
+								<a id="slide_1liebiao" class="mui-navigate-right">
+									牌组列表
+								</a>
+							</li>
+							<li class="slidemui-table-view-cell">
+								<a id="slide_2liulan" class="mui-navigate-right">
+									卡片浏览
+								</a>
+							</li>
+							<li class="slidemui-table-view-cell">
+								<a id="slide_3denglu" class="mui-navigate-right">
+									注册登录
+								</a>
+							</li>
+							<li class="slidemui-table-view-cell">
+								<a id="slide_4shezhi" class="mui-navigate-right">
+									偏好设置
+								</a>
+							</li>
+							<li class="slidemui-table-view-cell">
+								<a id="slide_5bangzhu" class="mui-navigate-right">
+									在线帮助
+								</a>
+							</li>
+							<li class="slidemui-table-view-cell">
+								<a id="slide_6fankui" class="mui-navigate-right">
+									意见反馈
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+                    
+                    
+                    
+                    <!--
+                     <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+                     -->
+                    
+                    <a href="" class="mui-icon mui-action-menu mui-icon-help mui-pull-left"></a>
+                    
+
+                    
+                    
+                    
+                    
+					<a id="multideckopt" href="#" class="mui-icon mui-action-menu mui-icon-gear mui-pull-right"></a>
+					
+					
+					
+					<div id="segmentedControl" class="mui-segmented-control">
+                        <a id="deckreader" class="mui-control-item" href="#item1">
+                            阅读
+                        </a>
+                        <a id="deckpicker" class="mui-control-item" href="#item2">
+                            牌组
+                        </a>
+                        <a id="decktest" class="mui-control-item mui-yijiactive" href="#item3">
+                            模考
+                        </a>
+					</div>
+					
+					
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div id="content_A" class="mui-scroll mainContainer">
+							<div class="layer_aa">
+					    		<div class="layer_bb">
+					    			<div class="layer_cc1">
+					    				<div class="layer_dd">
+					    					<h4 style="text-align: center; margin: 20px; color: red;">此模块开发中，敬请期待！</h4>
+					    					<!--
+					    						<h5 style="color: black;">简单说明</h5>
+						    					<p>
+	                                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此模块正在开发中，敬请期待。
+											</p>
+                                        -->
+					    					
+											
+										<h4 style="color: black;">功能剧透：</h4>
+										<ol>
+											<li>通过真题测试，系统将统计用户未掌握的知识点，并将对应的知识点自动制作出卡片，供用户记忆学习；</li>
+											<li>在线获取各学科真题；</li>
+											<li>支持用户自定义题库；</li>
+										</ol>
+					    					
+					    				</div>
+					    			</div>
+					    			<div class="layer_cc2">
+					    					<div class="bottomBar01" style="background-color:#007aff;">
+												<div class="bottomBar01_left">
+													
+                                                    <a id="inputdeck" class="" href="#">
+                                                        在线导入
+                                                    </a>
+                                                </div>
+                                                <div class="bottomBar01_right">
+                                                    <a id="sharedeck" class="" href="#">		
+                                                        共享题库
+                                                    </a>
+                                                    
+												</div>
+										</div>
+						    			</div>
+						    		</div>
+			    				</div>
+			    			</div>
+		   			</div>
+				</div>		 
+
+
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop">
+				</div>
+				
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			var Abridge;
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+			
+			
+			
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+		        initFirWindow(bridge, null);
+		
+  		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+                    
+					var treeListData_org = JSON.parse(data.treeStr);
+                    
+                    initFirWindow(bridge, treeListData_org);
+                   
+ 		        });
+
+		    });
+						
+			
+			
+			/////////////////bridge/////////////////////
+			
+			var deckListUl = document.getElementById("deckListUl");
+			
+			function initFirWindow(bridge, treeListData_org){
+				
+				
+				var treeListData = treeListData_org;
+				Abridge = bridge;
+				initDeckListFrame();
+				//showFirstLevelDecks(treeListData);
+                
+                addButtonsListener(bridge);
+			}
+			
+			function initDeckListFrame(){
+				// 获取窗口宽度
+				if (window.innerWidth)
+				winWidth = window.innerWidth;
+				else if ((document.body) && (document.body.clientWidth))
+				winWidth = document.body.clientWidth;
+				
+				// 获取窗口高度
+				if (window.innerHeight)
+				winHeight = window.innerHeight;
+				else if ((document.body) && (document.body.clientHeight))
+				winHeight = document.body.clientHeight;
+				// gaibian div gaodu
+				var content_A = document.getElementById("content_A");
+				var h = winHeight - 44;
+				var hei = h + "px";
+				
+				content_A.style.height = hei; 
+				//alert(hei);
+			}
+			function showFirstLevelDecks(treeListData){
+				//alert(10);
+				//alert(treeListData.length);
+				for (var i = 0; i < treeListData.length; i++) {
+					var deck = treeListData[i];
+					var allCounts = deck.lrnCount + deck.revCount + deck.newCount;
+					if (treeListData.length > 1 && allCounts == 0) {
+						continue;
+					}
+					var plus = "+";
+					if (deck.children == null || deck.children.length == 0) {
+						plus = "&nbsp";
+					} 
+					var children0 = JSON.stringify(deck.children);
+					
+					var children = children0.replace(/"/g, "CCNNYY");
+					
+					//var children = "bbb";
+					
+//					var ccccc = "var children = \""+children1+"\";";
+//					eval(ccccc);
+					
+					
+					var temp = ["<li class=\"mui-table-view-cell mui-collapse deckli\" did=\""+deck.did+"\" depth=\""+deck.depth+"\" children=\""+children+"\">",	
+			        	"<div class=\"deckItemBase\">",
+							"<div class=\"gap\">",
+							"</div>",
+						    "<div class=\"deckItem\">",
+					    		"<div class=\"go mui-icon mui-icon-forward\">",
+					    		"</div>",
+					    		"<div class=\"dcounts\">",
+					    			"<div class=\"rev\">",
+					    				deck.revCount + deck.lrnCount,
+					    			"</div>",
+					    			"<div class=\"new\">",
+					    				deck.newCount,
+					    			"</div>",
+					    		"</div>",
+					    		"<div class=\"deck_title\">",
+					    			"<div class=\"title_plus\">",
+					    				plus,
+					    			"</div>",
+					    			"<div class=\"title_name\">",
+					    				deck.names[0],
+					    			"</div>",
+					    		"</div>",
+						    "</div>",									
+						"</div>",
+			        "</li>"].join("");
+					deckListUl.innerHTML += temp;
+				}
+			}
+			
+			
+			function addButtonsListener(bridge){
+	            mui('.bottomBar01_left').on('tap','#inputdeck',function(){
+					//alert(10);
+				});
+	            mui('.bottomBar01_right').on('tap','#sharedeck',function(){
+                     //alert(110);
+                     var action = 'sharetest';
+                     bridge.callHandler('sharetestjumpToOtherController', action, function(response) {
+                     //log('JS got response', response)
+                     });
+				});
+                mui('.mui-bar-nav').on('tap','#multideckopt',function(){
+                    //alert(1310);
+                });
+                
+                //////////////////segmented-control/////////////
+                                                     
+	            mui('.mui-segmented-control').on('tap','#deckreader',function(){
+                    //alert(310);
+                    var did = 10;
+                    bridge.callHandler('switch_reader', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+	            mui('.mui-segmented-control').on('tap','#deckpicker',function(){
+                    //alert(320);
+                    var did = 10;
+                    bridge.callHandler('switch_decks', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+	            mui('.mui-segmented-control').on('tap','#decktest',function(){
+					
+                    //alert(330);
+                    var did = 10;
+                    bridge.callHandler('switch_test', did, function(response) {
+                        //log('JS got response', response)
+                    });
+				});
+                                                     
+                                                     
+	             
+				///////////////////selid---li///////////////////////
+				mui('li').on('tap','#slide_1liebiao',function(){
+					alert(01);
+				}); 
+				mui('li').on('tap','#slide_2liulan',function(){
+					alert(02);
+				}); 
+				mui('li').on('tap','#slide_3denglu',function(){
+					alert(03);
+				}); 
+				mui('li').on('tap','#slide_4shezhi',function(){
+					alert(04);
+				}); 
+				mui('li').on('tap','#slide_5bangzhu',function(){
+					alert(05);
+				}); 
+				mui('li').on('tap','#slide_6fankui',function(){
+					alert(06);
+				}); 
+
+            }
+			
+			
+                                                     
+                                            
+						
+			//window.onload = initFirWindow(null, null);
+			
+		</script>
+	</body>
+
+</html>

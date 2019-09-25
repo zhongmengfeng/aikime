@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ichi2yiji.anki.view.AutoFitTextView
+        android:gravity="center"
+        android:textColor="@color/corlorWhite"
+        android:textSize="14sp"
+        android:background="@drawable/add_pro"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/item_add_protext" />
+
+</LinearLayout>

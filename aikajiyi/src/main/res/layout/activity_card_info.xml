@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/dark_gray">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_left_new"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:text="阅读制卡"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:text="保存"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:divider="@drawable/shape_card_info_line"
+        android:showDividers="middle"
+        android:dividerPadding="15dp"
+        android:background="@drawable/shape_card_info_bg"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 卡片正面 -->
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="卡片正面"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/c_0c0e10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_front"
+                android:text="商品的基本属性：___ 的使用价值是指商品能够满足人们某种需要的属性。"
+                android:textSize="14sp"
+                android:padding="10dp"
+                android:textColor="@color/reviewer_answer_hard_300"
+                android:background="@drawable/shape_card_info_text_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!-- 卡片背面 -->
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="卡片正面"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/c_0c0e10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_back"
+                android:text="商品的基本属性：___ 的使用价值是指商品能够满足人们某种需要的属性。"
+                android:textSize="14sp"
+                android:padding="10dp"
+                android:textColor="@color/reviewer_answer_hard_300"
+                android:background="@drawable/shape_card_info_text_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!-- 笔记 -->
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="笔记"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/c_0c0e10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/et_note"
+                android:hint="请输入你要添加的笔记......"
+                android:textSize="14sp"
+                android:padding="10dp"
+                android:gravity="left"
+                android:textColor="@color/reviewer_answer_hard_300"
+                android:background="@drawable/shape_card_info_text_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!-- 标签 -->
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="标签（可选填）"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/c_0c0e10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/et_mark"
+                android:hint="这里输入标签，以中文“,”逗号分开"
+                android:textSize="14sp"
+                android:padding="10dp"
+                android:textColor="@color/reviewer_answer_hard_300"
+                android:background="@drawable/shape_card_info_text_bg2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

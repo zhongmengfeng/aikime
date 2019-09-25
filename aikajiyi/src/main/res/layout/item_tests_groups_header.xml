@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/c_ededed"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/deckreader_recyclerview_header_bg_shape">
+
+        <RelativeLayout
+            android:id="@+id/course_name_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/test_course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="驾照考试"
+                android:textColor="#0c0e10"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="7.5dp"
+                android:layout_height="14dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/arrow_right_new" />
+
+            <TextView
+                android:id="@+id/more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/arrow"
+                android:clickable="true"
+                android:text="更多"
+                android:textColor="@drawable/text_color_selector_tests_more"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/detail_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/course_name_lyt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="内含200道经典题目，是2016年新版题库"
+            android:textColor="#a8a9a9"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

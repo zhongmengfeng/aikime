@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/tool_view"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="?attr/layout_background"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/icon_back_to_parent"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/back"
+            />
+
+        <TextView
+            android:id="@+id/text_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/icon_back_to_parent"
+            android:textSize="16sp"
+            android:textColor="@drawable/text_color_selector"
+            android:clickable="true"
+            android:text="返回"/>
+
+        <TextView
+            android:id="@+id/word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:text="word"
+            />
+
+        <TextView
+            android:id="@+id/auto_make_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@drawable/text_color_selector"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:text="自动制卡"
+            />
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webView_dictionary_page"
+        android:layout_below="@+id/tool_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

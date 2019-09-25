@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/body_decks.css" />
+		<link rel="stylesheet" href="css/self_popup_01.css" />
+		<style>
+		
+		.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 44px;  
+				height: auto;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+		
+		
+			.btn-detail {
+				border-radius: 15px;
+				font-weight: 600;
+				line-height: 20px;
+				margin-top: 3px;
+				font-size: 14px;
+			}
+			.mui-table-view-cell.mui-collapse.mui-active {
+			    margin-top: 0;
+			}
+			.mui-table-view-cell.mui-active {
+			     background-color: #fff; 
+			}
+			.btn-download {
+				height: 44px;
+				padding: 0;
+				line-height: 44px;
+				width: 95%;
+				border-radius: 10px;
+			}
+			label {
+				font-size: 15px;
+				width: 45% !important;
+			}
+			input {
+				width: 55% !important;
+			}
+			.mui-bar-nav {
+			     -webkit-box-shadow: 0 0 0 transparent !important; 
+			     box-shadow: 0 0 0 transparent !important; 
+			}
+			.listUl{
+				margin: 0 15px 15px;	
+				border-radius: 7px;
+				padding: 2px 15px;
+				top:15px;
+			}
+			.listUl li{
+				padding: 8px 15px;
+				border-bottom: 1px solid #d5d8dd;
+			}
+			.listUl li:last-child{
+				border-bottom: 0 !important;	
+			}
+			.listUl li .download{
+				height: 24px;
+				position: absolute;
+			    top: 10px;
+			    right: 16px;
+			}
+			.listUl li:first-child .download{
+				top:12px;
+			}
+			.photo{
+				height: 11px;
+				margin-top: 4px;
+				padding-left: 20px;
+			}
+			.mui-table-view:before,.mui-table-view:after{
+				background-color:transparent !important;
+			}
+			.square{
+				width: 5px;
+				height: 5px;
+				background: #ec87c0;
+				float: left;
+				margin-top: 7px;
+				border-radius: 1px;
+			}
+			.testFont{
+				float: left;
+				padding-left:10px ;
+				font-size: 15px;
+				color: #0c0e10;
+				line-height:24px ;
+				width: 60%;
+			}
+
+			.testFont p{
+				font-size:10px ;
+				color: #a8a9a9;
+				line-height: 14px;
+				height:14px;
+				margin-bottom: 3px;
+			}
+			.mui-table-view-cell>a:not(.mui-btn) {
+				margin: -11px -30px !important;
+			}
+			.mui-table-view-cell:after {
+				height: 0 !important;
+			}
+			.return{
+				width: 100px;
+				height: 44px;
+				display:inline-block;
+			}
+			/*.changeColor{
+				height:63px;
+				background-color: #444a59;
+				position: absolute;
+				width: 100%;
+				z-index: -1;
+			}*/
+			.searchIcon{
+				width:22px;
+				height: 22px;
+				float: right;
+				margin-bottom: 9px;
+			}
+			.searchBox{
+				position: absolute;
+			    left: 16%;
+			    height: 44px;
+			    line-height: 44px;
+			    color: #dadbdb;
+			    width: 68%;
+			}
+			.searchBox input{
+				background-color: transparent;
+				font-size: 14px;
+				line-height: 29px;
+				margin: 0 !important;
+				padding: 0 !important;
+				border-bottom:0.5px solid #fff ;
+				border-radius: 0 !important;
+				text-align: left;
+				width:100% !important;
+			}
+			.searchFont{
+				font-size: 15px;
+				height: 44px;
+			    line-height: 44px;
+			    color: #dadbdb;
+			    float: right;
+			    padding-right: 5px;
+			}
+			body{
+				background-color: #444a59;
+			}
+			.mui-content{
+				background-color: #444a59;
+			}
+			.mui-page-content{
+				background-color: #444a59;
+			}
+			.souSuo{
+				padding-left:23px;
+			}
+			.learnClass,.aaa{
+				display: inline-block;
+				padding: 0 10px;
+				border-radius: 7px;
+				line-height: 23px;
+				font-size: 14px;
+				border:2px solid #fff;
+				color:#fff;
+				margin: 15px 15px 0 0;
+			}
+			.attentionClass{
+				display: inline-block;
+				padding: 0 10px;
+				border:2px solid #a0d468;
+				color:#a0d468;
+				border-radius: 7px;
+				line-height: 23px;
+				font-size: 14px;
+				margin: 15px 15px 0 0;
+			}
+			.souSuoDiv{
+				display: none;
+			}
+			.classify{
+				height: 20px;
+				line-height: 20px;
+				margin-top: 15px;
+				color:#fff;
+				font-size: 12px;
+				margin-right: 27px;
+			}
+			.mui-bar{
+				padding-right: 0;
+			}
+			.moreThing{
+				padding-right: 15px;
+			}
+			.returnBack{
+				width: 100px;
+				text-align: left;
+			}
+			.myClass{
+				background-color: #a0d468;
+    			color: #fff;
+			}
+			.otherClass{
+				background-color: #ffce54;
+    			color: #fff !important;
+			}
+		</style>
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<div id="setting" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack" id="inviteBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<h1 class="mui-center mui-title">添加课程</h1>
+				<button type="button" class="mui-left mui-btn  mui-btn-link mui-btn-nav mui-pull-right">
+					<span class="moreThing"><a id="more" href="#classCreate">更多</a></span>
+				</button>
+			</div>
+			<div class="mui-page-content">
+				<div id="createCourse" class="souSuo">
+				</div>
+				<div class="noneHave">
+					<img src="images/noneShareDeck.png" width="100%" />
+				</div>
+				<ul class="mui-table-view listUl" id="createListUl"></ul>
+			</div>
+		</div>
+		
+		<div class="mui-page" id="classCreate">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav bg">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left returnBack">
+					<img src="images/returnIcon.png" class="home-return" />
+				</button>
+				<!--<span class="return"><img src="images/returnIcon.png" class="home-return" /></span>-->
+			    <span class="biaoti">
+			    	<h1 class="mui-title" style="color: white;">共享牌组</h1>
+				    <button id="searchIcon" type="button" class="mui-left mui-btn  mui-btn-link mui-btn-nav mui-pull-right" style="padding-right: 15px;width: 100px;height: 44px;">
+						<div class="searchIcon"><img src="images/search.png" style="width:100%;height: 100%;" /></div>
+					</button>
+			    </span>
+			    <span class="souSuoDiv"> 
+			    		<span class="searchBox">
+						<input id="inputValue" type="search" placeholder="输入您要搜索的内容" style="-webkit-appearance:none;"/>
+					</span>
+					<span class="searchFont">搜索</span>
+			    </span>
+			</div>
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<!--<div class="changeColor"></div>-->
+				<div id="souSuo" class="souSuo">
+				</div>
+				<div class="noneHave">
+					<img src="images/noneShareDeck.png" width="100%" />
+				</div>
+				<ul class="mui-table-view listUl" id="listUl"></ul>
+			</div>
+		</div>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.view.js "></script>
+		<script>
+		mui.init();
+			
+			
+		//<2>页面特效JS代码---begin
+		function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+		}
+		
+		function addClass(obj, cls) {//添加类名
+		    if (!this.hasClass(obj, cls)){    
+		    	obj.className += " " + cls
+		    };
+		}
+		
+		function removeClass(obj, cls) {//移除类名
+		    if (hasClass(obj, cls)) {
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+		        obj.className = obj.className.replace(reg, ' ');
+		    }
+		}
+		
+		function toggleClass(obj,cls){//开关类名
+			if(hasClass(obj,cls)){
+		    	removeClass(obj, cls);
+			}else{
+		    	addClass(obj, cls);
+			}
+		}	
+		
+			
+			
+			//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+//		mui('.mui-scroll-wrapper').scroll();
+	
+		
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+			
+			var listData = {
+			    "cats": [
+			        {
+			            "cat_name": "英语",
+			            "cat_id": "2"
+			        },
+			        {
+			            "cat_name": "日语",
+			            "cat_id": "4"
+			        },
+			        {
+			            "cat_name": "语文",
+			            "cat_id": "22"
+			        },
+			        {
+			            "cat_name": "地理",
+			            "cat_id": "23"
+			        },
+			        {
+			            "cat_name": "政治",
+			            "cat_id": "25"
+			        },
+			        {
+			            "cat_name": "化学",
+			            "cat_id": "27"
+			        },
+			        {
+			            "cat_name": "音乐",
+			            "cat_id": "28"
+			        },
+			        {
+			            "cat_name": "音乐",
+			            "cat_id": "28"
+			        }
+			    ],
+			    "decks": [
+//			        {
+//			            "title": "六级单词01",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+//			            "goods_id": "1952",
+//			            "addtime": "2017-04-07 09:28:00",
+//			            "short_desc": "英语6级_01",
+//			            "price": "0",
+//			            "xia": "543"
+//			        },
+//			        {
+//			            "title": "六级单词02",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//			            "goods_id": "1971",
+//			            "addtime": "2017-04-07 16:31:50",
+//			            "short_desc": "英语6级_02",
+//			            "price": "0",
+//			            "xia": "21"
+//			        },
+//			        {
+//			            "title": "四级单词01",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%9B%9B%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+//			            "goods_id": "1972",
+//			            "addtime": "2017-04-07 17:16:39",
+//			            "short_desc": "四级英语单词",
+//			            "price": "0",
+//			            "xia": "55"
+//			        },
+//			        {
+//			            "title": "四级单词02",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%9B%9B%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//			            "goods_id": "1973",
+//			            "addtime": "2017-04-07 17:19:12",
+//			            "short_desc": "四级英语单词02",
+//			            "price": "0",
+//			            "xia": "19"
+//			        },
+//			        {
+//			            "title": "四级单词03",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%9B%9B%E7%BA%A7%E5%8D%95%E8%AF%8D__03.apkg",
+//			            "goods_id": "1974",
+//			            "addtime": "2017-04-07 17:45:13",
+//			            "short_desc": "四级英语单词03",
+//			            "price": "0",
+//			            "xia": "16"
+//			        },
+//			        {
+//			            "title": "四级单词04",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%9B%9B%E7%BA%A7%E5%8D%95%E8%AF%8D__04.apkg",
+//			            "goods_id": "1975",
+//			            "addtime": "2017-04-07 17:45:38",
+//			            "short_desc": "四级英语单词04",
+//			            "price": "0",
+//			            "xia": "13"
+//			        },
+//			        {
+//			            "title": "雅思单词01",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E9%9B%85%E6%80%9D%E5%8D%95%E8%AF%8D__01.apkg",
+//			            "goods_id": "1976",
+//			            "addtime": "2017-04-07 17:46:10",
+//			            "short_desc": "雅思英语01",
+//			            "price": "0",
+//			            "xia": "22"
+//			        },
+//			        {
+//			            "title": "雅思单词02",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E9%9B%85%E6%80%9D%E5%8D%95%E8%AF%8D__02.apkg",
+//			            "goods_id": "1977",
+//			            "addtime": "2017-04-07 17:49:55",
+//			            "short_desc": "雅思英语02",
+//			            "price": "0",
+//			            "xia": "13"
+//			        },
+//			        {
+//			            "title": "古诗背诵",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%8F%A4%E8%AF%97%E8%83%8C%E8%AF%B5.apkg",
+//			            "goods_id": "1978",
+//			            "addtime": "2017-04-07 17:50:55",
+//			            "short_desc": "古诗词背诵",
+//			            "price": "0",
+//			            "xia": "21"
+//			        },
+//			        {
+//			            "title": "汉字听写",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99.apkg",
+//			            "goods_id": "1979",
+//			            "addtime": "2017-04-07 17:55:21",
+//			            "short_desc": "汉字听写",
+//			            "price": "0",
+//			            "xia": "6"
+//			        },
+//			        {
+//			            "title": "collection",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/201704081039/collection.apkg",
+//			            "goods_id": "1980",
+//			            "addtime": "2017-04-08 10:39:36",
+//			            "short_desc": "",
+//			            "price": "0",
+//			            "xia": "3"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A_level01",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level01.apkg",
+//			            "goods_id": "1982",
+//			            "addtime": "2017-04-10 08:55:26",
+//			            "short_desc": "汉字听写题库",
+//			            "price": "0",
+//			            "xia": "4"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level02",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level02.apkg",
+//			            "goods_id": "1983",
+//			            "addtime": "2017-04-10 08:56:03",
+//			            "short_desc": "汉字听写题库02",
+//			            "price": "0",
+//			            "xia": "1"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level03",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level03.apkg",
+//			            "goods_id": "1984",
+//			            "addtime": "2017-04-10 08:57:25",
+//			            "short_desc": "汉字听写题库03",
+//			            "price": "0",
+//			            "xia": "1"
+//			        },
+//			        {
+//			            "title": "考研词汇5500",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/201704100859/%E8%80%83%E7%A0%94%E8%AF%8D%E6%B1%875500.apkg",
+//			            "goods_id": "1985",
+//			            "addtime": "2017-04-10 09:00:05",
+//			            "short_desc": "",
+//			            "price": "0",
+//			            "xia": "3"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level04",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level04.apkg",
+//			            "goods_id": "1986",
+//			            "addtime": "2017-04-10 10:53:19",
+//			            "short_desc": "汉字听写题库04",
+//			            "price": "0",
+//			            "xia": "1"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level05",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level05.apkg",
+//			            "goods_id": "1987",
+//			            "addtime": "2017-04-10 10:57:10",
+//			            "short_desc": "汉字听写题库05",
+//			            "price": "0",
+//			            "xia": "2"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level06",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level06.apkg",
+//			            "goods_id": "1988",
+//			            "addtime": "2017-04-10 10:58:06",
+//			            "short_desc": "汉字听写题库06",
+//			            "price": "0",
+//			            "xia": "2"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level07",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level07.apkg",
+//			            "goods_id": "1989",
+//			            "addtime": "2017-04-10 10:59:54",
+//			            "short_desc": "汉字听写题库07",
+//			            "price": "0",
+//			            "xia": "1"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level08",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level08.apkg",
+//			            "goods_id": "1990",
+//			            "addtime": "2017-04-10 11:15:04",
+//			            "short_desc": "汉字听写题库08",
+//			            "price": "0",
+//			            "xia": "2"
+//			        },
+//			        {
+//			            "title": "汉字听写题库A__level09",
+//			            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E6%B1%89%E5%AD%97%E5%90%AC%E5%86%99%E9%A2%98%E5%BA%93A__level09.apkg",
+//			            "goods_id": "1991",
+//			            "addtime": "2017-04-10 11:35:31",
+//			            "short_desc": "汉字听写题库09",
+//			            "price": "0",
+//			            "xia": "2"
+//			        }
+			    ],
+			    "classCreatedByMe": [
+//			    	{
+//			    		"classname":"英语001班",
+//			    		"decks":[
+//				        	{
+//					            "title": "1ban",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+//					            "goods_id": "1952",
+//					            "addtime": "2017-04-07 09:28:00",
+//					            "short_desc": "英语6级_01",
+//					            "price": "0",
+//					            "xia": "543"
+//					        },
+//					        {
+//					            "title": "六级单词02",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        },
+//					        {
+//					            "title": "02",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        },
+//					        {
+//					            "title": "六级单词02",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        }
+//				        ]
+//			    	},
+//			    	{
+//			    		"classname":"英语001班",
+//			    		"decks":[
+//				        	{
+//					            "title": "1ban",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+//					            "goods_id": "1952",
+//					            "addtime": "2017-04-07 09:28:00",
+//					            "short_desc": "英语6级_01",
+//					            "price": "0",
+//					            "xia": "543"
+//					        },
+//					        {
+//					            "title": "六级单词02",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        },
+//					        {
+//					            "title": "02",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        },
+//					        {
+//					            "title": "六级单词02",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        }
+//				        ]
+//			    	},
+//			    	{
+//			    		"classname":"英语002班",
+//			    		"decks":[
+//				        	{
+//					            "title": "fser ",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+//					            "goods_id": "1952",
+//					            "addtime": "2017-04-07 09:28:00",
+//					            "short_desc": "英语6级_01",
+//					            "price": "0",
+//					            "xia": "543"
+//					        },
+//					        {
+//					            "title": "ry ",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        }
+//				        ]
+//			    	},
+//			    	{
+//			    		"classname":"英语002班",
+//			    		"decks":[
+//				        	{
+//					            "title": "fser ",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+//					            "goods_id": "1952",
+//					            "addtime": "2017-04-07 09:28:00",
+//					            "short_desc": "英语6级_01",
+//					            "price": "0",
+//					            "xia": "543"
+//					        },
+//					        {
+//					            "title": "ry ",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        }
+//				        ]
+//			    	}
+			    ],
+			    "professionals":[
+//			    	{
+//			    		"classname":"舞蹈班",
+//			    		"decks":[
+////				        	{
+////					            "title": "舞蹈班一单元",
+////					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+////					            "goods_id": "1952",
+////					            "addtime": "2017-04-07 09:28:00",
+////					            "short_desc": "英语6级_01",
+////					            "price": "0",
+////					            "xia": "543"
+////					        },
+////					        {
+////					            "title": "wudao02",
+////					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+////					            "goods_id": "1971",
+////					            "addtime": "2017-04-07 16:31:50",
+////					            "short_desc": "英语6级_02",
+////					            "price": "0",
+////					            "xia": "21"
+////					        },
+////					        {
+////					            "title": "舞蹈班",
+////					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+////					            "goods_id": "1971",
+////					            "addtime": "2017-04-07 16:31:50",
+////					            "short_desc": "英语6级_02",
+////					            "price": "0",
+////					            "xia": "21"
+////					        },
+////					        {
+////					            "title": "六级单词02",
+////					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+////					            "goods_id": "1971",
+////					            "addtime": "2017-04-07 16:31:50",
+////					            "short_desc": "英语6级_02",
+////					            "price": "0",
+////					            "xia": "21"
+////					        }
+//				        ]
+//			    	},
+//			    	{
+//			    		"classname":"游泳班",
+//			    		"decks":[
+//				        	{
+//					            "title": "游泳一单元",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__01.apkg",
+//					            "goods_id": "1952",
+//					            "addtime": "2017-04-07 09:28:00",
+//					            "short_desc": "英语6级_01",
+//					            "price": "0",
+//					            "xia": "543"
+//					        },
+//					        {
+//					            "title": "六级单词02",
+//					            "url": "http://anki.oss-cn-hangzhou.aliyuncs.com/Uploads/%E5%85%AD%E7%BA%A7%E5%8D%95%E8%AF%8D__02.apkg",
+//					            "goods_id": "1971",
+//					            "addtime": "2017-04-07 16:31:50",
+//					            "short_desc": "英语6级_02",
+//					            "price": "0",
+//					            "xia": "21"
+//					        }
+//				        ]
+//			    	}
+				]			
+			}
+			/////////////////bridge/////////////////////
+			/**<js-ios>
+				window.onerror = function(err) {
+			        log('window.onerror: ' + err)
+				}
+			
+			    function setupWebViewJavascriptBridge(callback) {
+			        if (window.WebViewJavascriptBridge) {
+			            return callback(WebViewJavascriptBridge);
+			        }
+			        if (window.WVJBCallbacks) {
+			            return window.WVJBCallbacks.push(callback);
+			        }
+			        window.WVJBCallbacks = [callback];
+			        var WVJBIframe = document.createElement('iframe');
+			        WVJBIframe.style.display = 'none';
+			        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+			        document.documentElement.appendChild(WVJBIframe);
+			        setTimeout(function() {
+			            document.documentElement.removeChild(WVJBIframe)
+			            }, 0);
+			    }
+			
+			    setupWebViewJavascriptBridge(function(bridge) {
+			        
+	  		        bridge.registerHandler('initLayout', function(data, responseCallback) {
+	                    
+	                    //showlist(data);
+	                                       
+	                    initLayout(data, bridge);
+	                    
+	 		        });
+					bridge.registerHandler('changeTheme', function(data, responseCallback) {
+		                changeAllColor(data);
+		          }); 
+
+	 		        bridge.registerHandler('disappearOKBox', function(data, responseCallback) {
+	                    
+	                    hideBox();
+	//              		disappearOKBox();
+	                    
+	 		        });
+		            //bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
+						//log('JS got response', response)
+		            //});
+			         
+			    });
+			</js-ios>**/
+
+			/////////////////bridge/////////////////////
+		var learnClass;
+		var learnCourse;	
+		var listUl;
+		var souSuo;			
+		var curDeckname;	
+		
+					
+		var bodyColor;
+		var changeColor;
+		var muiContent;
+		var souSuoDiv;
+		var biaoti;
+		var muiMedia;
+		var inputValue;
+		var noneHave;	
+		var noneHave2;	
+		var titleBar;
+			
+			
+			
+			
+			function clearShowList(key,value){
+				var muiMedia=document.getElementsByClassName(key);
+				for(var p = muiMedia.length - 1; p >= 0; p--){
+					value.removeChild(muiMedia[p]);
+				}
+			}
+			function clearsearchClass(){
+				var muiMedia=document.getElementsByClassName('learnClass');    
+				for(var p = muiMedia.length - 1; p >= 0; p--){                
+					souSuo.removeChild(muiMedia[p]);                          			                                                              
+				}  
+			}
+			function clearMorebtn(){
+				var abc=document.getElementById('open');                   
+				souSuo.removeChild(abc);                          			                                                              
+			}
+
+			function showlist(Data){				
+				Data=Data.decks;
+				for (var i = 0; i < Data.length; i++) {
+					var item = Data[i];
+					
+					var temp ='<li class="mui-table-view-cell mui-media mui-collapse" deckname="'+item.title+'" goods_id="'+item.goods_id+'">'
+							        +'<a href="javascript:;">'
+							            +'<div class="square">'
+							            +'</div>'
+							            +'<div class="testFont mui-ellipsis">'
+							                +item.title
+							                +'<p style="font-size:13px;line-height:20px;height:20px;margin-bottom: 6px;"><span class="mui-ellipsis" style="display:inline-block;width:82%;">'+item.short_desc+'</span><img src="images/getIntoIcon.png" class="photo" /></p>'
+							                +'<p class="mui-ellipsis">下载次数：'+item.xia+'</p>'
+							                +'<p>上传时间：'+item.addtime+'</p>'
+							            +'</div>'
+							            +'<img src="images/download2.png" class="download" location="'+item.url+'"/>'
+							        +'</a>'
+							+'		    </li>';
+					
+					
+					listUl.innerHTML += temp;
+				}				
+			}
+
+			function searchClass(Data,bridge){
+				learnCourse=Data.cats;
+				console.log(learnCourse);
+				for (var i = 0; i < learnCourse.length; i++) {
+					
+					var item = learnCourse[i];
+					var temp='<div class="learnClass">'+item.cat_name+'</div>';				
+					souSuo.innerHTML += temp;				
+				}	
+				
+				souSuo=document.getElementById('souSuo');			
+				learnClass=souSuo.getElementsByClassName('learnClass');
+//				mui("#souSuo").on('tap','.learnClass',function(){
+						
+						if(learnClass.length>7){
+							var temp='<span id="open" style="color:#fff;font-size:30px;line-height:23px;">...</span>'
+							souSuo.innerHTML += temp;
+							var open=document.getElementById('open');
+							for (var j = 0; j < learnClass.length;j++) {
+								learnClass[j].style.display='none';						
+							}
+							for (var j = 0; j < 7;j++) {
+								displayLearn(j,bridge);
+							}
+
+							open.onclick=function(){
+//								this.style.display='none';
+								for (var j = 0; j < learnClass.length;j++) {
+									displayLearn(j,bridge);
+								}
+								clearMorebtn();
+							}
+							
+						}else{
+							for (var j = 0; j < learnClass.length;j++) {
+								displayLearn(j,bridge);
+							}
+						}
+				
+			}
+			
+			
+			function displayLearn(j,bridge){
+				learnClass[j].index=j;
+				learnClass[j].style.display='inline-block';
+//				addClass(learnClass[0], 'myClass');		
+				learnClass[j].onclick=function(){
+//					for(var i=0;i<learnClass.length;i++){
+//						removeClass(learnClass[i], 'myClass');						
+//					}				
+//					addClass(this, 'myClass');
+					clearShowList('mui-media',listUl);
+					clearsearchClass();
+
+					var catId = learnCourse[this.index].cat_id;
+					//接口----------------------------------------
+					/**<js-ios>
+						bridge.callHandler('searchClass', catId, function(response) {
+							//log('JS got response', response)
+			           	});
+					</js-ios>**/
+					
+					window.xuming.searchById(catId);
+					biaoti.style.display='inline';
+					souSuoDiv.style.display='none';
+				}
+								
+			}
+			
+			
+			function noneHaveDeck(){
+//				souSuo.style.display='none';
+				listUl.style.display='none';
+				noneHave.style.display='block';
+			}
+			
+			function addBtnsListener(bridge){
+				mui("#listUl").off('tap','.download');
+				mui("#listUl").on('tap','.download',function(){
+					var didName=[];
+					var li = this.parentNode.parentNode;
+				    curDeckname = li.getAttribute("deckname");
+				    curGoodsId = li.getAttribute("goods_id");
+//				    showInDownload(curDeckname, null);
+					did = this.getAttribute('location');
+					didName.push(did);
+					didName.push(curGoodsId);
+					/**<js-ios>
+						bridge.callHandler('downloadSingleItem', didName, function(response) {
+							//log('JS got response', response)
+			            });
+					</js-ios>**/
+					
+						window.xuming.downloadSingleItem(didName);
+					
+				});
+				
+				mui("#createListUl").off('tap','.download');
+				mui("#createListUl").on('tap','.download',function(){
+					var didName=[];
+					var li = this.parentNode.parentNode;
+				    curDeckname = li.getAttribute("deckname");
+				    curGoodsId = li.getAttribute("goods_id");
+//				    showInDownload(curDeckname, null);
+					did = this.getAttribute('location');
+					didName.push(did);
+					didName.push(curGoodsId);
+					/**<js-ios>
+						bridge.callHandler('downloadSingleItem', didName, function(response) {
+							//log('JS got response', response)
+			            });
+					</js-ios>**/
+					
+						window.xuming.downloadSingleItem(didName);
+					
+				});
+                
+                mui("header").off('tap', '.return');
+                mui("header").on('tap', '.return', function(){
+					/**<js-ios>
+						bridge.callHandler('backToParent', null, function(response) {
+	                          //log('JS got response', response)
+	                    });
+					</js-ios>**/
+                    
+                    	window.xuming.backToParent();
+                    
+                });
+                
+                mui(".mui-navbar-inner").off('tap', '#inviteBack');
+                mui(".mui-navbar-inner").on('tap', '#inviteBack', function(){
+					/**<js-ios>
+						bridge.callHandler('backToParent', null, function(response) {
+	                          //log('JS got response', response)
+	                    });
+	                </js-ios>**/
+					
+                    
+                    	window.xuming.backToParent();
+                    
+                });
+                
+                //点击搜索的字，回复原样
+                mui(".souSuoDiv").off('tap','.searchFont');
+                mui(".souSuoDiv").on('tap','.searchFont',function(){
+					var aa=inputValue.value;
+					//搜索框的内容
+					//接口--------------------------------------------
+					/**<js-ios>
+						bridge.callHandler('onclickSearch', aa, function(response) {
+							//log('JS got response', response)
+			            });
+					</js-ios>**/
+					
+						window.xuming.searchByName(aa);
+					
+					clearShowList('mui-media',listUl);
+					clearsearchClass();
+					clearMorebtn();
+					
+					
+					biaoti.style.display='inline';
+					souSuoDiv.style.display='none';
+				});
+                
+			}
+			
+		function shareDecks(serveData,bridge){
+			var bodyD=document.body;
+			bodyD.innerHTML='';
+			var temp='<header class="mui-bar mui-bar-nav">'
+			    +'<span class="return"><img src="images/returnIcon.png" class="home-return" /></span>'
+			    +'<span class="biaoti">'
+			    	+'<h1 class="mui-title" style="color: white;">共享牌组</h1>'
+				    +'<button id="searchIcon" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-right" style="padding-right: 15px;width: 100px;height: 44px;">'
+						+'<div class="searchIcon"><img src="images/search.png" style="width:100%;height: 100%;" /></div>'
+					+'</button>'
+			    +'</span>'
+			    +'<span class="souSuoDiv">' 
+			    		+'<span class="searchBox">'
+						+'<input id="inputValue" type="search" placeholder="输入您要搜索的内容" style="-webkit-appearance:none;"/>'
+					+'</span>'
+					+'<span class="searchFont">搜索</span>'
+			    +'</span>'
+				
+			+'</header>'
+			+'<div  class="mui-content">'
+				+'<div class="changeColor"></div>'
+				+'<div id="souSuo" class="souSuo">'
+				+'</div>'
+				+'<div class="noneHave">'
+					+'<img src="images/noneShareDeck.png" width="100%" />'
+				+'</div>'
+				+'<ul class="mui-table-view listUl" id="listUl"></ul>'
+				
+			+'</div>';
+			bodyD.innerHTML=temp;
+	
+			listUl = document.getElementById('listUl');
+			souSuo=document.getElementById('souSuo');				
+			
+			
+			
+			
+			bodyColor=document.body;
+			titleBar=document.getElementsByClassName('mui-bar')[0];
+			changeColor=document.getElementsByClassName('changeColor')[0];
+			muiContent=document.getElementsByClassName('mui-content')[0];
+			souSuoDiv=document.getElementsByClassName('souSuoDiv')[0];
+			biaoti=document.getElementsByClassName('biaoti')[0];
+			muiMedia=document.getElementsByClassName('mui-media');
+			//点击搜索图标，input出现
+			mui(".biaoti").off('tap','#searchIcon');
+			mui(".biaoti").on('tap','#searchIcon',function(){
+				biaoti.style.display='none';
+				souSuoDiv.style.display='inline';
+			});
+		
+			inputValue=document.getElementById('inputValue');			
+
+			//主题色换肤
+            var bodyC=document.body;
+            var bgColor=document.getElementsByClassName('changeColor')[0];
+            var titleBar=document.getElementsByClassName('mui-bar')[0];
+            function changeAllColor(num){
+                if(num==0){
+                    titleBar.style.backgroundColor='#444a59';
+                    bgColor.style.backgroundColor='#444a59';
+                    muiContent.style.backgroundColor='#444a59';
+                    bodyC.style.backgroundColor='#444a59';
+                }else{
+                    titleBar.style.backgroundColor='#3696e9';
+                    bgColor.style.backgroundColor='#3696e9';
+                    muiContent.style.backgroundColor='#3696e9';
+                    bodyC.style.backgroundColor='#3696e9';
+                }
+            }
+			
+			changeAllColor(serveData.colorNum);
+
+			
+			
+			
+            
+			
+			noneHave=document.getElementsByClassName('noneHave')[0];
+			noneHave.style.display='none';
+			
+			if(serveData.decks==''){
+				noneHaveDeck();
+			}else{
+				listUl.style.display='block';
+				noneHave.style.display='none';
+			}
+			
+			showlist(serveData);
+			searchClass(serveData,bridge);
+			addBtnsListener(bridge);	
+		}
+		
+		
+		function noneHaveCourse(item){
+			if(item.length==0){
+				createListUl.style.display='none';
+				noneHave2[0].style.display='block';
+				
+			}else{
+				createListUl.style.display='block';
+				noneHave2[0].style.display='none';
+			}	
+		}
+		
+		//显示添加课程列表
+		function showCourselist(Data,isHaveMyCourse){
+				
+				showData=Data;
+				var item;
+				for (var i = 0; i < showData.length; i++) {
+					if(isHaveMyCourse==''){
+						item = showData[0].decks;
+					}else{
+						item = showData[i].decks;
+					}
+//					item = showData[i].decks;
+					var item2 = showData[i];					
+					var temp='<div class="aaa ccc" style="border:2px solid #ffce54;color:#ffce54;">'+item2.classname+'</div>';
+					
+					createCourse.innerHTML += temp;
+				};				
+				
+				
+				console.log(item);
+				if(isHaveMyCourse==''){
+					noneHaveCourse(item);
+					for(var i=0;i<item.length;i++){
+						var temp ='<li class="mui-table-view-cell mui-media mui-collapse courseLi" deckname="'+item[i].title+'" goods_id="'+item[i].goods_id+'">'
+								        +'<a href="javascript:;">'
+								            +'<div class="square">'
+								            +'</div>'
+								            +'<div class="testFont mui-ellipsis">'
+								                +item[i].title
+								                +'<p style="font-size:13px;line-height:20px;height:20px;margin-bottom: 6px;"><span class="mui-ellipsis" style="display:inline-block;width:82%;">'+item[i].short_desc+'</span><img src="images/getIntoIcon.png" class="photo" /></p>'
+								                +'<p class="mui-ellipsis">下载次数：'+item[i].xia+'</p>'
+								                +'<p>上传时间：'+item[i].addtime+'</p>'
+								            +'</div>'
+								            +'<img src="images/download2.png" class="download" location="'+item[i].url+'"/>'
+								        +'</a>'
+								+'		    </li>';
+						
+						
+						createListUl.innerHTML += temp;
+					}
+				}
+				clickClass(Data,isHaveMyCourse);
+			}
+		
+		//显示自己开设添加课程列表
+		function showMyCourselist(Data){
+				showData=Data;
+				var item;
+				var decksIndex;
+				for (var i = 0; i < showData.length; i++) {
+					
+					
+					
+					
+					var item2 = showData[i];					
+					var temp='<div class="attentionClass ccc">'+item2.classname+'</div>';	
+					
+					createCourse.innerHTML += temp;
+				};
+				
+				//进入页面默认显示
+				item = showData[0].decks;
+				console.log(item);
+				noneHaveCourse(item);	
+				for(var i=0;i<item.length;i++){
+					var temp ='<li class="mui-table-view-cell mui-media mui-collapse courseLi" deckname="'+item[i].title+'" goods_id="'+item[i].goods_id+'">'
+							        +'<a href="javascript:;">'
+							            +'<div class="square">'
+							            +'</div>'
+							            +'<div class="testFont mui-ellipsis">'
+							                +item[i].title
+							                +'<p style="font-size:13px;line-height:20px;height:20px;margin-bottom: 6px;"><span class="mui-ellipsis" style="display:inline-block;width:82%;">'+item[i].short_desc+'</span><img src="images/getIntoIcon.png" class="photo" /></p>'
+							                +'<p class="mui-ellipsis">下载次数：'+item[i].xia+'</p>'
+							                +'<p>上传时间：'+item[i].addtime+'</p>'
+							            +'</div>'
+							            +'<img src="images/download2.png" class="download" location="'+item[i].url+'"/>'
+							        +'</a>'
+							+'		    </li>';
+					
+					
+					createListUl.innerHTML += temp;
+				}
+
+//				clickClass('attentionClass');
+				attentionClass=document.getElementsByClassName('attentionClass');
+				addClass(attentionClass[0], 'myClass');
+				mui('#createCourse').off('tap','.attentionClass');
+				mui('#createCourse').on('tap','.attentionClass',function(){
+					aaa=document.getElementsByClassName('aaa');
+					for(var j=0;j<aaa.length;j++){
+						removeClass(aaa[j], 'otherClass');						
+					}
+					
+					for(var i=0;i<attentionClass.length;i++){
+						removeClass(attentionClass[i], 'myClass');						
+					}				
+					addClass(this, 'myClass');
+					
+					clearShowList('courseLi',createListUl);
+//					var muiMedia=document.getElementsByClassName('courseLi');
+//					for(var p = muiMedia.length - 1; p >= 0; p--){
+//						createListUl.removeChild(muiMedia[p]);
+//					}
+//					console.log(createListUl);
+					for(var i=0;i<attentionClass.length;i++){
+						attentionClass[i].index=i;
+						decksIndex=this.index;
+					}
+					var item = Data[decksIndex].decks;
+					noneHaveCourse(item);
+					createNewUl(item);
+				});
+			}
+		
+		//当数量超过6个时显示省略号
+		function dispalyNoneMore(Data,isMy){
+			ccc=document.getElementsByClassName('ccc');
+				if(ccc.length>6){
+					
+					var temp='<span id="open2" style="color:#fff;font-size:30px;line-height:23px;">...</span>'
+					createCourse.innerHTML += temp;
+					var open2=document.getElementById('open2');
+					for (var j = 0; j < ccc.length;j++) {
+						ccc[j].style.display='none';						
+					}
+					for (var j = 0; j < 6;j++) {
+						ccc[j].style.display='inline-block';	
+						clickClass(Data,isMy);
+					}
+					open2.onclick=function(){
+						for (var j = 0; j < ccc.length;j++) {
+							ccc[j].style.display='inline-block';
+						}
+						clickClass(Data,isMy);
+						this.style.display='none';
+					}
+					
+				}else{
+					for (var j = 0; j < ccc.length;j++) {
+						ccc[j].style.display='inline-block';
+						clickClass(Data,isMy);
+					}
+				}
+		}
+		
+		
+		
+		//点击班级显示对应课程
+		function clickClass(Data,isHaveMyCourse){
+			attentionClass=document.getElementsByClassName('attentionClass');
+			aaa=document.getElementsByClassName('aaa');
+			if(isHaveMyCourse.length==0){
+				addClass(aaa[0], 'otherClass');
+			}
+			for(var i=0;i<aaa.length;i++){
+				aaa[i].index=i;
+				aaa[i].onclick=function(){
+					for(var j=0;j<attentionClass.length;j++){
+						removeClass(attentionClass[j], 'myClass');						
+					}
+					for(var i=0;i<aaa.length;i++){
+						removeClass(aaa[i], 'otherClass');						
+					}				
+					addClass(this, 'otherClass');
+					
+					clearShowList('courseLi',createListUl);
+
+					var item = Data[this.index].decks;
+					noneHaveCourse(item);
+					createNewUl(item);
+				}
+			}
+		}
+		
+		//重建ul
+		function createNewUl(item){
+			for(var i=0;i<item.length;i++){
+			var temp ='<li class="mui-table-view-cell mui-media mui-collapse courseLi" deckname="'+item[i].title+'" goods_id="'+item[i].goods_id+'">'
+					        +'<a href="javascript:;">'
+					            +'<div class="square">'
+					            +'</div>'
+					            +'<div class="testFont mui-ellipsis">'
+					                +item[i].title
+					                +'<p style="font-size:13px;line-height:20px;height:20px;margin-bottom: 6px;"><span class="mui-ellipsis" style="display:inline-block;width:82%;">'+item[i].short_desc+'</span><img src="images/getIntoIcon.png" class="photo" /></p>'
+					                +'<p class="mui-ellipsis">下载次数：'+item[i].xia+'</p>'
+					                +'<p>上传时间：'+item[i].addtime+'</p>'
+					            +'</div>'
+					            +'<img src="images/download2.png" class="download" location="'+item[i].url+'"/>'
+					        +'</a>'
+					+'		    </li>';
+			
+			
+			createListUl.innerHTML += temp;
+			}
+		}
+		
+		
+		function addCourse(serveData, bridge){
+			var createListUl = document.getElementById('createListUl');
+			var createCourse=document.getElementById('createCourse');
+			listUl = document.getElementById('listUl');
+			souSuo=document.getElementById('souSuo');	
+			souSuoDiv=document.getElementsByClassName('souSuoDiv')[0];
+			biaoti=document.getElementsByClassName('biaoti')[0];
+			//点击搜索图标，input出现
+			mui(".biaoti").off('tap','#searchIcon');
+			mui(".biaoti").on('tap','#searchIcon',function(){
+				biaoti.style.display='none';
+				souSuoDiv.style.display='inline';
+			});
+			inputValue=document.getElementById('inputValue');
+			
+			
+			//主题色换肤
+            var bodyC=document.body;
+            var myPageCont=document.getElementsByClassName('mui-page-content');
+            var titleBar=document.getElementsByClassName('mui-bar');
+            function changeAllColor(num){
+                if(num==0){
+                	for(var i=0;i<myPageCont.length;i++){
+                		titleBar[i].style.backgroundColor='#444a59';
+                		myPageCont[i].style.backgroundColor='#444a59';
+                	}
+                	bodyC.style.backgroundColor='#444a59';
+                }else{
+                	for(var i=0;i<myPageCont.length;i++){
+                		titleBar[i].style.backgroundColor='#3696e9';
+                		myPageCont[i].style.backgroundColor='#3696e9';
+                	}
+                	bodyC.style.backgroundColor='#3696e9';
+                }
+            }
+			
+			changeAllColor(serveData.colorNum);
+			
+			
+			noneHave2=document.getElementsByClassName('noneHave');
+			for(var i=0;i<noneHave2.length;i++){
+				noneHave2[i].style.display='none';
+			}
+			
+			if(serveData.decks.length==0){
+//				noneHaveDeck();
+				listUl.style.display='none';
+				noneHave2[1].style.display='block';
+			}else{
+				listUl.style.display='block';
+				noneHave2[1].style.display='none';
+			}
+			
+			
+			addBtnsListener(bridge);	
+			
+			
+			//展现共享牌组的数据
+			showlist(serveData);
+			//展现共享牌组的快捷搜索
+			searchClass(serveData,bridge);
+			//展现添加课程的数据
+			if(serveData.classCreatedByMe.length!=0){
+				showMyCourselist(serveData.classCreatedByMe);
+			}
+			if(serveData.professionals.length!=0){
+				showCourselist(serveData.professionals,serveData.classCreatedByMe);
+				dispalyNoneMore(serveData.professionals,serveData.classCreatedByMe);
+			}
+			
+		}
+		
+		
+		//主题色换肤
+//			var muiContent=document.getElementsByClassName('mui-content')[0];
+//          var myPageCont=document.getElementsByClassName('mui-page-content');
+//          var titleBar2=document.getElementsByClassName('mui-bar');
+//          var bodyC=document.body;
+//          var bgColor=document.getElementsByClassName('changeColor')[0];
+////          var titleBar=document.getElementsByClassName('deckBg')[0];
+//          function changeAllColor(num,theme){
+//          	if(theme==0){
+//          		if(num==0){
+//	                    titleBar.style.backgroundColor='#444a59';
+//	                    muiContent.style.backgroundColor='#444a59';
+//	                    bodyC.style.backgroundColor='#444a59';
+//	               }else{
+//	                    titleBar.style.backgroundColor='#3696e9';
+//	                    muiContent.style.backgroundColor='#3696e9';
+//	                    bodyC.style.backgroundColor='#3696e9';
+//	                }
+//          	}else{
+//          		
+//          		if(num==0){
+//	                	for(var i=0;i<myPageCont.length;i++){
+//	                		titleBar2[i].style.backgroundColor='#444a59';
+//	                		myPageCont[i].style.backgroundColor='#444a59';
+//	                	}
+//	                }else{
+//	                	
+//	                	for(var i=0;i<myPageCont.length;i++){
+//	                		titleBar2[i].style.backgroundColor='#3696e9';
+//	                		myPageCont[i].style.backgroundColor='#3696e9';
+//	                		console.log(titleBar2[i].style.backgroundColor)
+//	                	}
+//	                }
+//          	}
+//              
+//          }
+
+            var myPageCont=document.getElementsByClassName('mui-page-content')[0];
+            var titleBar=document.getElementsByClassName('mui-bar')[0];
+            function changeAllColor(num){
+        		if(num==0){
+                    titleBar.style.backgroundColor='#444a59';
+                    myPageCont.style.backgroundColor='#444a59';
+               	}else{
+                    titleBar.style.backgroundColor='#3696e9';
+                    myPageCont.style.backgroundColor='#3696e9';
+               	}
+                
+            }
+			//初始页面的颜色
+//			changeAllColor(1);
+		
+		
+		
+			
+			function initLayout(serveData, bridge){
+				if(serveData==null){
+					serveData=listData;
+				}else{
+					serveData=JSON.parse(serveData);
+				}   
+				if((serveData.professionals==null && serveData.classCreatedByMe==null) || (serveData.professionals.length==0 && serveData.classCreatedByMe.length==0)){
+					shareDecks(serveData,bridge);
+				}else{
+					addCourse(serveData, bridge);
+				}
+			}	
+//			window.onload = initLayout(null, null);
+			
+		</script>
+	</body>
+
+</html>

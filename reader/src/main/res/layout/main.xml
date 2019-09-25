@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/root_view"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+>
+	<com.chaojiyiji.geometerplus.zlibrary.ui.android.view.ZLAndroidWidget
+		android:id="@+id/main_view"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:focusable="true"
+		android:scrollbars="vertical"
+		android:scrollbarAlwaysDrawVerticalTrack="true"
+		android:fadeScrollbars="false"
+	/>
+
+	<RelativeLayout
+		android:id="@+id/topMenuLL"
+		android:layout_width="fill_parent"
+		android:layout_height="44dp"
+		android:alpha="0.99"
+		android:background="@color/aika_theme"
+		android:clickable="true"
+		android:visibility="gone" >
+
+		<RelativeLayout
+			android:id="@+id/back_lyt"
+			android:layout_width="wrap_content"
+			android:layout_height="22dp"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentBottom="true"
+			android:layout_marginBottom="10dp"
+			android:clickable="true">
+			<ImageView
+				android:id="@+id/bookHomeButton"
+				android:layout_width="22dp"
+				android:layout_height="22dp"
+				android:layout_centerVertical="true"
+				android:src="@drawable/arrow_left_new" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/bookHomeButton"
+				android:layout_centerVertical="true"
+				android:text="返回"
+				android:textColor="@color/white"
+				android:textSize="18sp"/>
+		</RelativeLayout>
+
+
+		<ImageView
+			android:id="@+id/bookMoreButton"
+			android:layout_width="25dp"
+			android:layout_height="25dp"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true"
+			android:layout_marginBottom="10dp"
+			android:src="@drawable/ic_bookmark_outline_white" />
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/bottomMenuLL"
+		android:layout_width="fill_parent"
+		android:layout_height="44dp"
+		android:layout_alignParentBottom="true"
+		android:alpha="0.99"
+		android:background="@color/colorAnki"
+		android:clickable="true"
+		android:visibility="gone" >
+
+		<ImageView
+			android:id="@+id/Button1"
+			android:layout_width="36dip"
+			android:layout_height="36dip"
+			android:layout_alignParentLeft="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/ic_arrow_back_white" />
+
+		<ImageView
+			android:id="@+id/Button2"
+			android:layout_width="36dip"
+			android:layout_height="36dip"
+			android:layout_centerInParent="true"
+			android:layout_marginTop="20dp"
+			android:layout_marginLeft="3dip"
+			android:src="@drawable/popup_close" />
+
+
+		<ImageView
+			android:id="@+id/Button3"
+			android:layout_width="36dip"
+			android:layout_height="36dip"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/ic_bookmark_outline_white" />
+	</RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    
+    <EditText
+       android:id="@+id/et_invitation_code"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:hint="请输入邀请码"
+        android:maxLines="1"
+        android:background="@drawable/selector_login"
+        android:textColorHint="#95a0bb"
+        android:layout_width="280dp"
+        android:layout_height="75dp" />
+
+</RelativeLayout>

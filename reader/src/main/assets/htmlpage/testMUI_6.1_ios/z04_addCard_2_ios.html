@@ -1,0 +1,576 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<style>
+						
+/*shadow*/		
+	
+			.shadowclass {
+			    opacity: 1;
+			    position: fixed;
+			    z-index: 998;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    -webkit-transition-duration: 400ms;
+			    transition-duration: 400ms;
+			    background: rgba(0, 0, 0, .4);
+			}
+			
+			#shadow {
+				display: none;
+			}
+/*选项的Box*/
+			.boxclass {
+			    transform: translate3d(-50%, -50%, 0) scale(1);
+			    opacity: 1;
+			    position: fixed;
+			    z-index: 10000;
+			    top: 50%;
+			    left: 50%;
+			    overflow: hidden;
+			    width: 270px;
+			    text-align: center;
+			    color: #000;
+			    border-radius: 13px;
+			    background: white;
+			    padding-left: 10px;
+			    padding-right: 10px;
+			}
+			#box {
+				display: none;
+			}
+			.boxclass .inner {
+				position: relative;
+			    padding: 15px;
+			    border-radius: 13px 13px 0 0;
+			    background: rgba(255, 255, 255, .95);
+			}
+			.boxclass .inner .title {
+				font-size: 18px;
+			    font-weight: 500;
+			    text-align: center;
+			}
+			.boxclass .inner .text {
+				font-family: inherit;
+			    font-size: 14px;
+			    margin: 5px 0 0;
+			}
+			.boxclass .buttons {
+				position: relative;
+			    display: -webkit-box;
+			    display: -webkit-flex;
+			    display: flex;
+			    height: 44px;
+			    -webkit-box-pack: center;
+			    -webkit-justify-content: center;
+			    justify-content: center;
+			}
+			.boxclass .buttons .button {
+				font-size: 17px;
+				font-weight: 600;
+			    line-height: 44px;
+			    position: relative;
+			    display: block;
+			    overflow: hidden;
+			    box-sizing: border-box;
+			    width: 100%;
+			    height: 44px;
+			    padding: 0 5px;
+			    cursor: pointer;
+			    text-align: center;
+			    white-space: nowrap;
+			    text-overflow: ellipsis;
+			    color: #007aff;
+			    background: rgba(255, 255, 255, .95);
+			    -webkit-box-flex: 1;
+			    border-top: 1px solid #ccc;
+			}
+
+/*下载或导入成功* 定时消失*/
+			#progress-ok-box {
+				display: none;
+			}
+			.progress-ok-boxclass {
+			    transform: translate3d(-50%, -50%, 0) scale(1);
+			    opacity: 1;
+			    position: fixed;
+			    z-index: 10000;
+			    top: 50%;
+			    left: 50%;
+			    overflow: hidden;
+			    width: 170px;
+			    text-align: center;
+			    color: #000;
+			    border-radius: 13px;
+			    background: white;
+			    padding-left: 10px;
+			    padding-right: 10px;
+			    padding-top: 10px;
+			}
+			.progress-ok-boxclass .progress-circle {
+				width: 40px;
+				height: 40px;
+				border: 2px solid green;
+				position: relative;
+			    border-radius: 100px;
+			    line-height: 40px;
+			    font-size: 40px;
+			    font-weight: 800;
+			    color: green;
+			    margin-bottom: 10px;
+			}
+			.progress-ok-boxclass .inner .title {
+				font-size: 18px;
+			    font-weight: 500;
+			    text-align: center;
+			    color: #007aff;
+			}
+			.progress-ok-boxclass .inner .text {
+				font-family: inherit;
+			    font-size: 14px;
+			    margin: 5px 0 0;
+			    margin-bottom: 10px;
+			}
+		
+		/*tian jia  kapian*/
+		
+			.cardtitle {
+				padding: 10px 0px;
+				overflow: hidden;
+			}
+			.cardtitle #model {
+				text-overflow: ellipsis;
+			}
+			.cardtitle #deck {
+				text-overflow: ellipsis;
+			}
+			.field-list {
+				background: #efeff4;
+			}
+			.field-item {
+				margin: 5px 0px;
+			}
+			.field-item div {
+				margin-left: 10px;
+				margin-bottom: 5px;
+				font-size: 16px;
+			}
+			.field-item div a {
+				margin-left: 3px;
+				float: right;
+			}
+			.field-item div a span{
+				display: inline-block;
+				border: 0px solid red;
+				height: 23px;
+				width: 23px;
+				/*border-radius: 15px;*/
+				/*background: #007aff;*/
+				/*color: #007aff;*/
+				color: black;
+				line-height: 22px;
+				font-size: 18px;
+				text-align: center;
+			}
+			.field-item textarea {
+				font-size: 14px;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a id="backToParent" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<!--<a id="tttt" class="mui-icon mui-icon-weibo mui-pull-left"></a>-->
+			
+			
+			
+			<h1 class="mui-title" style="color: white;">添加卡片</h1>
+			<button id="save" style="color: white;" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">
+				保存
+			</button>
+		</header>
+		
+		
+		<div class="mui-content">
+			<div class="cardtitle">
+				<div id="model" class="selectitem">
+					<a id="a_type" href="#allmodels" style="border: 0px;" class="mui-btn mui-btn-blue mui-btn-outlined">
+				   		类型：<span id="a_type_span" class="modeltype">cloze</span>
+				    </a>
+				    
+				</div>
+				
+				<div id="deck" class="selectitem">
+				   <a id="a_deck" href="#alldecks" style="border: 0px;" class="mui-btn mui-btn-blue mui-btn-outlined">
+				   		牌组：<span id="a_deck_span" class="deckname">英语英语四级</span>
+				   </a>
+				</div>
+			</div>
+			
+				
+			
+			
+			<ul id="field_ul" class="mui-table-view field-list">
+		        <li class="" index="9999">
+					<div class="field-item">
+						<div class="filedtitle">
+							<span class="filedname">正面</span>:
+							<a><span class="mui-icon mui-icon-mic-filled"></span></a>
+							<a><span class="mui-icon mui-icon-image"></span></a>
+						</div>
+						<textarea id="textarea" rows="2" placeholder="这里输入“正面”内容"></textarea>
+					</div>
+		        </li>
+		    </ul>
+		</div>
+		<div class="field-list">
+	        <div class="">
+				<div class="field-item">
+					<div class="filedtitle">
+						<span class="marks">(标签)</span>:
+					</div>
+					 <input id="marksInput" style="font-size: 14px;" type="text" placeholder="这里输入标签，以“，”逗号隔开">
+				</div>
+	       </div>
+	    </div>
+		
+		
+		<div id="allmodels" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul id="models_ul" class="mui-table-view">
+				
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="alldecks" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul id="decks_ul" class="mui-table-view">
+				
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		<!--阴影遮挡-->
+		<div id="shadow" class="shadowclass">
+			
+		</div>
+		
+		<!--牌组下载或导入成功-->
+		
+		<div id="progress-ok-box" class="progress-ok-boxclass">
+			<div class="progress-circle mui-icon mui-icon-checkmarkempty">
+				
+			</div>
+			
+			<div class="inner">
+				<div id="progress-ok-deck-name" class="title">
+					英语单词四级
+				</div>
+				<div id="progress-ok-text" class="text">
+					<!--下载成功！-->
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			var curdiv;
+			var mTypeList;
+			var mDeckList;
+			var mCurrentTypeId = 9999;
+			var mCurrentDeckId = 9999;
+			var mTags = [" "];
+			/////
+			var shadow;
+			var progressOkBox;
+			
+//			mui('body').on('shown', '.mui-popover', function(e) {
+//				//console.log('shown', e.detail.id);//detail为当前popover元素
+//			});
+//			mui('body').on('hidden', '.mui-popover', function(e) {
+//				//console.log('hidden', e.detail.id);//detail为当前popover元素
+//			});
+
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+			
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	                
+					//var treeListData_org = JSON.parse(data.treeStr);
+					typeList = data.typeList;
+					deckList = data.deckList;
+					mCurrentTypeId = data.currentTypeId;
+					mCurrentDeckId = data.currentDeckId;
+					mTags = data.tags;
+	                
+	                initThisWindow(bridge, typeList, deckList);
+		        });
+		        
+		        bridge.registerHandler('saveSuccessDialog', function(data, responseCallback) {
+	                
+					disappearOKBox();
+		        });
+		    });
+							
+			/////////////////bridge/////////////////////
+			
+			function initPopmenuLists(typeList, deckList){
+				if (typeList == null) {
+					//typeList = ["填空题", "选择题", "单词", "反向选择"];
+					typeList = [
+								["填空题", "1827383", ["正面", "答案", "反面"]],
+								["选择题", "1827383", ["问题", "选项1", "选项2", "选项3"]],
+								["问答题", "1827383", ["正面", "反面"]],
+								["单词", "1827383", ["拼写", "发音", "音标", "例句"]],
+								];
+				}
+				if (deckList == null) {
+					deckList = [
+								["钢琴", "1232434"],
+								["words", "22232434"],
+								["maths", "3332434"],
+								["钢fds琴", "4442434"],
+								];
+				}
+				
+				mTypeList = typeList;
+				mDeckList = deckList;
+				
+			 	var models_ul = document.getElementById("models_ul");
+				for (var i = 0; i < typeList.length; i++) {
+					templi = '<li class="mui-table-view-cell">'
+							+'		<a class="model" href="#" itsid="'+typeList[i][1]+'" index="'+i+'">'+typeList[i][0]+'</a>'
+							+'	</li>';
+					models_ul.innerHTML += templi;
+				}
+				
+			 	var decks_ul = document.getElementById("decks_ul");
+				for (var i = 0; i < deckList.length; i++) {
+					templi = '<li class="mui-table-view-cell">'
+							+'		<a class="deck" href="#" itsid="'+deckList[i][1]+'" index="'+i+'">'+deckList[i][0]+'</a>'
+							+'	</li>';
+					decks_ul.innerHTML += templi;
+				}
+			}
+			
+			function addPopoverMenulisteners(bridge){
+				mui('body').on('tap', '.mui-popover-action li>a', function() {
+					var a = this,
+						parent;
+					//根据点击按钮，反推当前是哪个actionsheet
+					for (parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+						if (parent.classList.contains('mui-popover-action')) {
+							break;
+						}
+					}
+					//关闭actionsheet
+					mui('#' + parent.id).popover('toggle');
+					//alert(a.innerHTML);
+					var index = a.getAttribute("index");
+					var itsid = a.getAttribute("itsid");
+					var itsname = a.innerHTML;
+					//var cla = a.getAttribute("class");
+					//alert(a.classList);
+					if (a.classList.contains('model')) {
+						 layoutUIForModel(index, itsid, itsname);
+					} else if (a.classList.contains('deck')) {
+						 layoutUIForDeck(index, itsid, itsname);
+					}
+				});
+				
+				mui(".cardtitle").on('tap', '.selectitem', function(){
+					curdiv = this;
+				});
+			}
+			
+			function layoutUIForModel(index, itsid, itsname){
+				//alert(5555);
+				 var fields = mTypeList[index][2];
+				 var field_ul = document.getElementById("field_ul");
+				 var fieldchilds = field_ul.childNodes;
+				 for (var i = fieldchilds.length - 1; i > -1; i--) {
+				 	field_ul.removeChild(fieldchilds[i]);
+				 	
+				 }
+				 //alert(fields.length);
+				 for (var i = 0; i < fields.length; i++) {
+				 	var fieldName = fields[i];
+				 	var fieldIndex = i;
+				 	
+				 	templi = '<li class="" fieldIndex="'+fieldIndex+'">'
+							+'		<div class="field-item">'
+							+'			<div class="filedtitle">'
+							+'				<span class="filedname">'+fieldName+'</span>:'
+							+'				<a><span class="mui-icon mui-icon-mic-filled"></span></a>'
+							+'				<a><span class="mui-icon mui-icon-image"></span></a>'
+							+'			</div>'
+							+'			<textarea class="field_textarea" rows="2" placeholder="这里输入“'+fieldName+'”内容"></textarea>'
+							+'		</div>'
+						    +'    </li>';
+					field_ul.innerHTML += templi;
+				 }
+				
+				
+				document.getElementById("a_type_span").innerHTML = itsname;
+				document.getElementById("model").setAttribute("itsid", itsid);
+					
+			}
+			function layoutUIForDeck(index, itsid, itsname){
+				
+				document.getElementById("a_deck_span").innerHTML = itsname;
+				document.getElementById("deck").setAttribute("itsid", itsid);
+				
+			}
+			
+			
+			function addButtonsListener(bridge){
+				
+//				document.getElementById("tttt").addEventListener('tap', function(){
+//					//alert(123);
+//					disappearOKBox();
+////					action = null;
+////					bridge.callHandler('backToParent', action, function(response) {
+////					//log('JS got response', response)
+////					});
+//				});
+				document.getElementById("backToParent").addEventListener('tap', function(){
+					//alert(123);
+					action = null;
+					bridge.callHandler('backToParent', action, function(response) {
+					//log('JS got response', response)
+					});
+				});
+				document.getElementById("save").addEventListener('tap', function(){
+					//alert(12);
+					//1.获取Ids
+					modelid = document.getElementById("model").getAttribute("itsid");
+					deckid = document.getElementById("deck").getAttribute("itsid");
+					
+					//2.获取Fields
+					var field_textareas = document.getElementsByClassName("field_textarea");
+					var field_texts = new Array();
+					for (var i = 0; i < field_textareas.length; i++) {
+						textvalue = field_textareas[i].value;
+						if (textvalue == "") {
+							textvalue = " ";
+						}
+						field_texts[i] = textvalue;
+					}
+					//alert(field_texts);
+					//3.获取Tags
+					tags = document.getElementById("marksInput").value;
+					
+					action = [modelid, deckid, field_texts, tags];
+					alert(action);
+					bridge.callHandler('saveThisCard', action, function(response) {
+					//log('JS got response', response)
+					});
+				});
+				
+				
+				/////////////
+				mui(".field-list").on('tap', '.mui-icon-mic-filled', function(){
+					//alert(888);
+					p = this.parentNode.parentNode.parentNode.parentNode;
+					alert(p.getAttribute("fieldIndex"));
+				});
+				mui(".field-list").on('tap', '.mui-icon-image', function(){
+					//alert(999);
+					p = this.parentNode.parentNode.parentNode.parentNode;
+					alert(p.getAttribute("fieldIndex"));
+				});
+			}
+			
+			function initBeginInterface(mTypeId, mDeckId){
+				var mTypeIndex;
+				var mDeckIndex;
+				if (mTypeId == 9999) {
+					mTypeIndex = 0;
+				} else {
+					mTypeIndex = 1;
+				}
+				type_itsname = mTypeList[mTypeIndex][0];
+				type_itsid = mTypeList[mTypeIndex][1];
+				layoutUIForModel(mTypeIndex, type_itsid, type_itsname);
+					
+				
+				if (mDeckId == 9999) {
+					mDeckIndex = 0;
+				} else {
+					mDeckIndex = 1;
+				}
+				deck_itsname = mDeckList[mDeckIndex][0];
+				deck_itsid = mDeckList[mDeckIndex][1];
+				layoutUIForDeck(mDeckIndex, deck_itsid, deck_itsname);
+			}
+				
+			
+			function initThisWindow(bridge, typeList, deckList){
+				addPopoverMenulisteners(bridge);
+				addButtonsListener(bridge);
+				initPopmenuLists(typeList, deckList);
+				initBeginInterface(mCurrentTypeId, mCurrentDeckId);
+			}
+			////////////////////显示倒计时消失的Box////////////////////////////
+			function disappearOKBox(){
+				shadow = document.getElementById("shadow");
+				progressOkBox = document.getElementById("progress-ok-box");
+				document.getElementById("progress-ok-deck-name").innerHTML = "保存成功";
+				shadow.style.display = "block";
+				progressOkBox.style.display = "block";
+				
+				setTimeout("hideBox()", 1000);
+			}
+			function hideBox(){
+				shadow = document.getElementById("shadow");
+				progressOkBox = document.getElementById("progress-ok-box");
+				progressOkBox.style.display = "none";
+				shadow.style.display = "none";
+			}
+			//window.onload = initThisWindow(null, null, null);
+		</script>
+	</body>
+
+</html>

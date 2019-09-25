@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/title_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="44dp"-->
+        <!--android:background="#007aff"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:gravity="center_vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/icon_back_to_parent"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:clickable="true"-->
+            <!--android:src="@drawable/back"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/text_back"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_toRightOf="@+id/icon_back_to_parent"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:clickable="true"-->
+            <!--android:text="返回"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/word"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="18sp"-->
+            <!--android:clickable="true"-->
+            <!--android:text="Anki共享"/>-->
+
+    <!--</RelativeLayout>-->
+    <FrameLayout
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical">
+
+        <WebView
+            android:id="@+id/webView_deckfromanki"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/back_fill_image"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:src="@drawable/back_fill"
+            />
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="?attr/layout_background"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/top_view"
+        >
+
+        <ImageView
+            android:id="@+id/icon_back_left"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/arrow_left"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:id="@+id/icon_back_right"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/arrow_right"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:id="@+id/icon_refresh"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/refresh"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:id="@+id/icon_home"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/home"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+
+    <!--<Button-->
+        <!--android:id="@+id/button1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:onClick="doClick"-->
+        <!--android:text="改背景颜色" />-->
+
+</RelativeLayout>

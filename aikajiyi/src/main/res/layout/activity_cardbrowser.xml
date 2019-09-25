@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:background="?attr/layout_background"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/card_browser_backImg_lyt"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:clickable="true">
+            <ImageView
+                android:id="@+id/card_browser_backImg"
+                android:layout_width="11dp"
+                android:layout_height="22dp"
+                android:src="@drawable/inter_in"
+                />
+        </RelativeLayout>
+        <!--<ImageView-->
+            <!--android:id="@+id/card_browser_backImg"-->
+            <!--android:layout_width="11dp"-->
+            <!--android:layout_height="22dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:src="@drawable/inter_in"-->
+            <!--android:clickable="true"/>-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="卡片浏览"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginRight="45dp"
+            android:textColor="#FFFFFFFF"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39.5dp"
+        android:background="@drawable/card_search_bk"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/card_browser_searchImg"
+            android:layout_width="12dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/search_info"/>
+        <EditText
+            android:id="@+id/card_browser_searchText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="deck:current"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:textSize="12sp"
+            />
+        <ImageView
+            android:id="@+id/card_browser_cleartext"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="center_vertical"
+            android:visibility="invisible"
+            android:src="@drawable/clear_text"/>
+
+        <TextView
+            android:id="@+id/card_browser_search_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_gravity="left"
+            android:text="取消"
+            android:textColor="#FF3696E9"
+            android:layout_weight="0.04" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/card_browser_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+
+
+</LinearLayout>

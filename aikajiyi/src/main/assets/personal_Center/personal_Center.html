@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>myown center</title>
+		<style>
+		html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 44px;
+				height: auto;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+				margin-top: 20px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+·			.mui-table-cell p{
+			    margin-top: 10px;
+			}
+			.mui-table-cell button{
+			    margin-top: 5px;
+			}
+			.mui-btn {
+				font-size: 16px;
+				padding: 8px;
+				margin: 3px;
+			}
+			.mui-content-padded{
+				margin:0 10px !important;	
+			}
+			h5.mui-content-padded {
+				margin-left: 3px !important;
+				margin-top: 20px !important;
+			}
+			h5.mui-content-padded:first-child {
+				margin-top: 12px !important;
+			}
+			
+			.card{
+				margin-bottom: 10px !important;
+			}
+			.mui-content-padded input{
+				margin-top:12px ;
+			}
+			.mui-content-padded button{
+				border: 0;
+				margin: 0;
+				/*background: transparent;*/
+				padding: 0;
+			}
+			.mui-content-padded span{
+				margin-top:10px ;
+				font-size: 14px;
+				display: inline-block;
+				
+			}
+			.mui-content-padded .mui-btn-success{
+				border-radius: 5px;
+				text-align: center;
+			}
+			.mui-content-padded .mui-checkbox{
+				position: absolute;
+				top:0;
+				right:-18px;
+				
+			}
+			.mui-content-padded textarea{
+				margin-bottom: 0;
+				font-size: 14px;
+				padding: 5px 5px;
+			}
+			.active{
+				border: 2px solid #007aff !important;
+			}
+			.mui-content-padded .mui-icon-checkmarkempty{
+				background:transparent;
+				border: 1px solid #AAAAAA;
+				border-radius: 50%;
+				position: absolute;
+				top:15px;
+				right:5px;
+				color: #AAAAAA;
+			}
+			.change{
+				background: #1DACF9 !important;
+				color: #fff !important;
+			}
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: 25px;
+				font-size: 15px
+			}
+			.trash{
+				color: #000000;
+			}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left" id="backTo">
+					<span class="mui-icon mui-icon-left-nav" ></span>
+				</button>
+				<h1 class="mui-center mui-title">个人中心</h1>
+			</div>
+			<!--页面标题栏结束-->
+	
+		<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="home-box">
+							<div class="home-top">
+								<img src="images/cbd.jpg" alt="" />
+								<div class="home-top-userinfo" id="head_img_div">
+									<img class="info" src="images/default.png" alt="" />
+									<h4 class="info" id="nickname">请登录</h4>
+								</div>
+							</div>
+							
+						    <!--<ul class="mui-table-view">
+						        <li class="mui-table-view-cell mui-media">
+						            <a href="javascript:;" class="mui-navigate-right">
+						                <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						                <div class="mui-media-body">
+						                    <span>天蓝</span>
+						                    <p class="mui-ellipsis">口号：抓紧时间拿驾照</p>
+						                </div>
+						            </a>
+						        </li>
+						    </ul>-->
+						    <ul class="mui-table-view public-list-txt home-list mui-slide-in" style="margin-top:20px;">
+					            <li class="mui-table-view-cell" id="personInfor">
+					                <a class="mui-navigate-right " href="#personal">
+					                    <span class="mui-icon mui-icon-locked bgc-1"></span><span>个人信息</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#myDeck">
+					                   <span class="mui-icon mui-icon-compose bgc-2"></span><span>我的牌组</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#myArticle">
+					                   <span class="mui-icon mui-icon-download bgc-3"></span><span>我的文章</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right" href="#questions">
+					                   <span class="mui-icon mui-icon-download bgc-1"></span><span>我的考题</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right">
+					                   <span class="mui-icon mui-icon-download bgc-2"></span><span>意见反馈</span>
+					                </a>
+					            </li>
+					            <li class="mui-table-view-cell">
+					                <a class="mui-navigate-right">
+					                   <span class="mui-icon mui-icon-compose bgc-3"></span><span>关于艾卡</span>
+					                </a>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--单页面结束-->
+		<div id="personal" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left" id="goBack">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">个人信息</h1>
+			</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell" id="headImg">
+						<a id="head" class="mui-navigate-right">头像
+						<span class="mui-pull-right head">
+							<img class="head-img mui-action-preview" id="head-img1" src="images/default.png">
+						</span>
+						</a>
+					</li>
+					<li class="mui-table-view-cell" id="surname">
+						<a>姓名<span class="mui-pull-right" id="blank1">Hbuilder</span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#gender" class="mui-navigate-right">
+							性别
+							<i class="mui-pull-right update mylist" id="blank2" name="">
+										男
+									</i>
+							<span class="mui-pull-right"></span>
+							<!--<p class="mui-pull-right">男</p>-->
+						</a>					
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell" id="qq">
+						<a>QQ号<span class="mui-pull-right" id="blank3">88888888</span></a>
+					</li>
+					<li class="mui-table-view-cell" id="phone">
+						<a>手机号<span class="mui-pull-right" id="blank4">18601234567</span></a>
+					</li>
+					<li class="mui-table-view-cell" id="email">
+						<a>邮箱地址<span class="mui-pull-right" id="blank5">hbuilder@dcloud.io</span></a>
+					</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		</div>
+		<div id="myDeck" class="mui-page" ng-controller="MyCtrl">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+			<h1 class="mui-center mui-title">我的牌组</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" id="deckListUl">
+					    <li class="mui-table-view-cell mui-media deckList" style="position: relative;">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" style="width:50px" src="images/read01.png">
+								<div class="mui-media-body mui-pull-left mui-ellipsis mui-col-xs-6">
+									能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？
+									<p>69.7M</p>
+								</div>
+								<div class="mui-table-cell mui-pull-left" style="width: 20px;height: 20px;position: absolute;top: 20px;right: 70px;">
+				                	<p class="mui-icon mui-icon-trash"></p>
+				                </div>
+				                <div class="mui-table-cell" style="width: 20px;height: 20px;position: absolute;top: 10px;right: 40px;">
+				                    <button class="mui-btn shareBtn"><a href="#share"><span>分享</span></a></button>
+				                </div>
+							</a>
+
+						</li>
+					    
+					</ul>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+		<div id="myArticle" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+			<h1 class="mui-center mui-title">我的文章</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+				<ul class="mui-table-view" id="articleListUl">
+					    <li class="mui-table-view-cell mui-media articleList" style="position: relative;">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" style="width:50px" src="images/read01.png">
+								<div class="mui-media-body mui-pull-left mui-ellipsis mui-col-xs-6">
+									能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？
+									<p>69.7M</p>
+								</div>
+								<div class="mui-table-cell mui-pull-left" style="width: 20px;height: 20px;position: absolute;top: 20px;right: 70px;">
+				                	<p class="mui-icon mui-icon-trash"></p>
+				                </div>
+				                <div class="mui-table-cell" style="width: 20px;height: 20px;position: absolute;top: 10px;right: 40px;">
+				                    <button class="mui-btn shareBtn"><a href="#share"><span>分享</span></a></button>
+				                </div>
+							</a>
+
+						</li>
+					    
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div id="questions" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+			<h1 class="mui-center mui-title">我的题库</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+				<ul class="mui-table-view" id="testListUl">
+					    <li class="mui-table-view-cell mui-media testList" style="position: relative;">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" style="width:50px" src="images/read01.png">
+								<div class="mui-media-body mui-pull-left mui-ellipsis mui-col-xs-6">
+									能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？
+									<p>69.7M</p>
+								</div>
+								<div class="mui-table-cell mui-pull-left" style="width: 20px;height: 20px;position: absolute;top: 20px;right: 70px;">
+				                	<p class="mui-icon mui-icon-trash"></p>
+				                </div>
+				                <div class="mui-table-cell" style="width: 20px;height: 20px;position: absolute;top: 10px;right: 40px;">
+				                    <button class="mui-btn shareBtn"><a href="#share"><span>分享</span></a></button>
+				                </div>
+							</a>
+
+						</li>
+					    
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div id="gender" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+			<h1 class="mui-center mui-title">性别</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view mui-table-view-radio">
+						<li class="mui-table-view-cell myli mui-selected">
+							<a class="mui-navigate-right mytext">男</a>
+						</li>
+						<li class="mui-table-view-cell myli">
+							<a class="mui-navigate-right  mytext">女</a>
+						</li>		
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div id="share" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+			<h1 class="mui-center mui-title">分享</h1>
+		</div>
+		<!--页面主内容区开始-->
+		<div class="mui-page-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="mui-content-padded">
+				<h5 class="mui-content-padded mui-pull-left">基本分类：</h5>
+				<input name='radio1' type='radio' value='1' checked/><span style="font-size: 15px;">语言</span>
+				<input name='radio1' type='radio' value='2'  /><span style="font-size: 15px;">学科</span>					
+			</div>
+			<div class="mui-content-padded">
+				<button id='showCityPicker3' class="mui-btn mui-btn-blue mui-btn-outlined" type='button'><p style="color: #007aff;margin-top: 12px;margin-left: 3px;">选择分类：</p></button>
+							
+				<span id='cityResult3'>
+					英语 >小学 >单词
+				</span>
+				
+				
+			</div>
+			<div class="mui-content-padded">
+				<h5 class="mui-content-padded mui-pull-left card">牌组描述：</h5>
+				<div class="mui-input-row">
+					<textarea id="textBox" rows="2" placeholder="多行文本框"></textarea>
+				</div>
+			</div>
+			<div class="mui-content-padded">
+				<h5 class="mui-content-padded mui-pull-left card">选择展示图片(<a style="text-decoration: underline;">怎么准备图片</a>)</h5>
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						
+						<!-- 第一张 -->
+						<div class="mui-slider-item ">
+							<ul id="imgListUl" class="mui-table-view mui-grid-view" style="margin-bottom: 0;margin-top: 0;">
+    							<li class="mui-table-view-cell mui-media mui-col-xs-3 imgLi" style="position: relative;">
+						            <span class="mui-icon mui-icon-checkmarkempty"></span>
+						            <img class="mui-media-object active" src="images/1.jpg" >
+    							</li>
+    						</ul>
+						</div>
+
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<!--<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>-->
+					</div>
+				</div>
+			</div>
+			<div class="type mui-content-padded">
+				<div id="confirmShareButton" type="button" class="mui-btn-success mui-btn-block" style="margin-top: 20px;">
+					确定分享
+				</div>
+			</div>
+			</div>
+			</div>
+		</div>
+	</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.view.js "></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/xxcity.data-3.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+			
+		mui.init();
+			
+		var deckList=document.getElementsByClassName("deckList");
+		var deckListUl=document.getElementById("deckListUl");
+		var deckListArr=[
+			{"url":"images/read01.png","text":"信息化","memory":"69.7M"},
+			{"url":"images/read01.png","text":"能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？","memory":"69.7M"},
+			{"url":"images/read01.png","text":"信息化","memory":"69.7M"}
+		];
+		var articleList=document.getElementsByClassName("articleList");
+		var articleListUl=document.getElementById("articleListUl");
+		var articleListArr=[
+			{"url":"images/read01.png","text":"信息化","memory":"69.7M"},
+			{"url":"images/read01.png","text":"能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？","memory":"69.7M"},
+			{"url":"images/read01.png","text":"信息化","memory":"69.7M"}
+		];
+		var testList=document.getElementsByClassName("testList");
+		var testListUl=document.getElementById("testListUl");
+		var testListArr=[
+			{"url":"images/read01.png","text":"信息化","memory":"69.7M"},
+			{"url":"images/read01.png","text":"能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？","memory":"69.7M"},
+			{"url":"images/read01.png","text":"信息化","memory":"69.7M"}
+		];
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+			/////////////////bridge/////////////////////
+//			
+//			window.onerror = function(err) {
+//		        log('window.onerror: ' + err)
+//			}
+//			
+//			
+//			
+//		    function setupWebViewJavascriptBridge(callback) {
+//		        if (window.WebViewJavascriptBridge) {
+//		            return callback(WebViewJavascriptBridge);
+//		        }
+//		        if (window.WVJBCallbacks) {
+//		            return window.WVJBCallbacks.push(callback);
+//		        }
+//		        window.WVJBCallbacks = [callback];
+//		        var WVJBIframe = document.createElement('iframe');
+//		        WVJBIframe.style.display = 'none';
+//		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+//		        document.documentElement.appendChild(WVJBIframe);
+//		        setTimeout(function() {
+//		            document.documentElement.removeChild(WVJBIframe)
+//		            }, 0);
+//		    }
+//		
+//		    setupWebViewJavascriptBridge(function(bridge) {
+//		        
+//		        initThisWindow(bridge);
+//		
+//		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+//	                
+//					var treeListData_org = JSON.parse(data.treeStr);
+//	                
+//	                //initFirWindow(bridge, treeListData_org);
+//	               
+//		        });
+//		        
+//		        
+//		    });
+//							
+			/////////////////bridge/////////////////////
+			
+			
+			function addButtonsListener(bridge){
+				document.getElementById("backToParent").addEventListener('tap', function(){
+					//alert(123);
+					action = null;
+					bridge.callHandler('backToParent', action, function(response) {
+					//log('JS got response', response)
+					});
+				});
+			}
+			
+			function initThisWindow(bridge){
+				addButtonsListener(bridge);
+			}
+			
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+	
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+	
+	
+	
+		//触发个人信息事件
+		var personInfor = document.getElementById("personInfor");
+		//监听点击事件
+		personInfor.addEventListener("tap",function () {
+		  console.log("tap event trigger");
+		});
+		//触发personInfor按钮的点击事件
+		mui.trigger(personInfor,'tap');
+	
+
+		
+//		window.onload = initThisWindow(null);
+		
+		
+		
+		//-------------------------------------------------------
+		
+		var blank1=document.getElementById('blank1');
+		var blank2=document.getElementById('blank2');
+		var blank3=document.getElementById('blank3');
+		var blank4=document.getElementById('blank4');
+		var blank5=document.getElementById('blank5');
+		var personInforData={"name": "Hbuilder","gender":"男","qq":"Hbuilder","telephone":"Hbuilder","email":"Hbuilder"}
+		var personData={};
+		var name=personInforData.name;
+		var gender=personInforData.gender;
+		var qq=personInforData.qq;
+		var telephone=personInforData.telephone;
+		var email=personInforData.email;
+			
+		function initPersonInfo(personData){
+			personData.name=personData.name;
+			personData.gender=personData.gender;
+		    personData.qq=personData.qq;
+		    personData.telephone=telephone;
+		    personData.email=personData.email;
+
+			console.log(personData);
+		};
+
+		
+		
+		//我的牌组组成结构----------------------------------------------------------
+		
+		function initMyDecks(deckArr){
+			
+			if (deckArr == null) {
+					return;
+			}
+			
+            for (var i = deckList.length - 1; i >= 0; i--) {
+                deckListUl.removeChild(deckList[i]);
+            }
+            
+            for (var i = 0; i < deckArr.length; i++) {
+				var deck = deckArr[i];
+				
+				var temp='<li class="mui-table-view-cell mui-media deckList" style="position: relative;">'
+						+'<a href="javascript:;">'
+							+'<img class="mui-media-object mui-pull-left" style="width:50px" src="'+deck.url+'">'
+							+'<div class="mui-media-body mui-pull-left mui-ellipsis mui-col-xs-6">'
+							+	deck.goods_name
+								+'<p>'
+							+	deck.decksize	
+								+'</p>'
+							+'</div>'
+							+'<div class="mui-table-cell mui-pull-left" style="width: 20px;height: 20px;position: absolute;top: 20px;right: 70px;">'
+			                	+'<p class="mui-icon mui-icon-trash">'+'</p>'
+			                +'</div>'
+			                +'<div class="mui-table-cell" style="width: 20px;height: 20px;position: absolute;top: 10px;right: 40px;">'
+			                   +'<a href="#share">'+'<button class="mui-btn shareBtn">'+'<span>'+'分享'+'</span>'+'</button>'+'</a>'
+			                +'</div>'
+						+'</a>'
+
+					+'</li>';
+    
+				deckListUl.innerHTML += temp;
+			}
+		}
+		function initMyBooks(articleArr){
+			if (articleArr == null) {
+					return;
+			}
+			
+            for (var i = articleList.length - 1; i >= 0; i--) {
+                articleListUl.removeChild(articleList[i]);
+            }
+            
+            for (var i = 0; i < articleArr.length; i++) {
+				var deck = articleArr[i];
+				
+				var temp='<li class="mui-table-view-cell mui-media deckList" style="position: relative;">'
+						+'<a href="javascript:;">'
+							+'<img class="mui-media-object mui-pull-left" style="width:50px" src="'+deck.url+'">'
+							+'<div class="mui-media-body mui-pull-left mui-ellipsis mui-col-xs-6">'
+							+	deck.book_name
+								+'<p>'
+							+	deck.booksize	
+								+'</p>'
+							+'</div>'
+							+'<div class="mui-table-cell mui-pull-left" style="width: 20px;height: 20px;position: absolute;top: 20px;right: 70px;">'
+			                	+'<p class="mui-icon mui-icon-trash">'+'</p>'
+			                +'</div>'
+			                +'<div class="mui-table-cell" style="width: 20px;height: 20px;position: absolute;top: 10px;right: 40px;">'
+			                    +'<a href="#share">'+'<button class="mui-btn shareBtn">'+'<span>'+'分享'+'</span>'+'</button>'+'</a>'
+			                +'</div>'
+						+'</a>'
+
+					+'</li>';
+    
+				articleListUl.innerHTML += temp;
+			}
+		
+		}
+		function initMyTests(testArr){
+			if (testArr == null) {
+					return;
+			}
+			
+            for (var i = testList.length - 1; i >= 0; i--) {
+                testListUl.removeChild(testList[i]);
+            }
+            
+            for (var i = 0; i < testArr.length; i++) {
+				var deck = testArr[i];
+				
+				var temp='<li class="mui-table-view-cell mui-media deckList" style="position: relative;">'
+						+'<a href="javascript:;">'
+							+'<img class="mui-media-object mui-pull-left" style="width:50px" src="'+deck.url+'">'
+							+'<div class="mui-media-body mui-pull-left mui-ellipsis mui-col-xs-6">'
+							+	deck.test_name
+								+'<p>'
+							+	deck.testsize	
+								+'</p>'
+							+'</div>'
+							+'<div class="mui-table-cell mui-pull-left" style="width: 20px;height: 20px;position: absolute;top: 20px;right: 70px;">'
+			                	+'<p class="mui-icon mui-icon-trash">'+'</p>'
+			                +'</div>'
+			                +'<div class="mui-table-cell" style="width: 20px;height: 20px;position: absolute;top: 10px;right: 40px;">'
+			                    +'<a href="#share">'+'<button class="mui-btn shareBtn">'+'<span>'+'分享'+'</span>'+'</button>'+'</a>'
+			                +'</div>'
+						+'</a>'
+
+					+'</li>';
+    
+				testListUl.innerHTML += temp;
+			}
+		}
+		function addNormalListeners(){
+			
+		}
+		//监听个人中心
+		function addPersonCenterListeners(bridge){
+			document.getElementById('backTo').addEventListener('tap',function(){
+				window.xuming.backToParent();
+			})
+		}
+		
+		//个人信息监听事件
+		function addPersonWindowListeners(bridge){
+			
+			//点击头像事件
+			mui(".mui-table-view-cell").off("tap", "#head");
+			mui(".mui-table-view-cell").on("tap", "#head", function(e) {
+				mui.alert('头像',  function() {
+				});
+			});
+			
+		
+			document.getElementById("surname").addEventListener('tap', function(e) {
+				
+				e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+			
+				mui.prompt('请输入你的姓名：', '请输入文字',  function(e) {
+					if (e.index == 1) {
+						name=e.value;
+						blank1.innerText =name;
+						personInforData.name=name;			
+					}
+				})
+			});
+			document.getElementById("qq").addEventListener('tap', function(e) {
+				
+				e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+	
+				mui.prompt('请输入你的qq号：', '请输入数字',  function(e) {
+					if (e.index == 1) {
+						qq=e.value;
+						blank3.innerText =qq;
+						personInforData.qq=qq;
+					}
+				})
+			});
+			document.getElementById("phone").addEventListener('tap', function(e) {
+				
+				e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+	
+				mui.prompt('请输入你的电话号码：', '请输入数字',  function(e) {
+					if (e.index == 1) {
+						telephone=e.value;
+						blank4.innerText =telephone;
+						personInforData.telephone=telephone;
+					}
+				})
+			});
+			document.getElementById("email").addEventListener('tap', function(e) {
+				
+				e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+	
+				mui.prompt('请输入你的邮箱：', '请输入数字',  function(e) {
+					if (e.index == 1) {
+						email=e.value;
+						blank5.innerText =email;
+						personInforData.email=email;
+					}
+				})
+			});
+			//绑定“性别”的监听
+			function gender(){
+				var selectGender=document.getElementsByClassName('mytext');
+				var showGender=document.getElementsByClassName('mylist')[0];
+				for(var i=0;i<selectGender.length;i++){
+					selectGender[i].index=i;
+					selectGender[i].onclick=function(){
+						order1=this.index;
+						showGender.setAttribute('name',order1);
+						gender=this.innerHTML;
+						showGender.innerHTML=gender;
+						personInforData.gender=gender;
+					}
+				}
+			}
+			gender();
+			//返回事件
+			document.getElementById('goBack').addEventListener('tap',function(){
+				initPersonInfo(personData);
+			})
+				
+		}
+		
+		
+		//我的牌组监听事件-----------------------------------------
+		function addDecksListeners(bridge){
+			
+			mui(".deckList").off("tap",".mui-icon-trash");	
+			mui(".deckList").on("tap",".mui-icon-trash",function(){
+				
+				var has=hasClass(this, 'trash');
+				if(has){	
+					removeClass(this, 'trash');
+				}else{
+					
+					addClass(this, 'trash');
+				}
+			});
+			mui(".deckList").off("tap",".shareBtn");
+			mui(".deckList").on("tap",".shareBtn",function(){
+				initShareInterface(bridge,arr);
+			})
+//			
+		}
+		function addBooksListeners(){
+			
+		}
+		function addTestsListeners(){
+			
+		}
+		
+		//<4>编写入口方法---begin
+		function initFirstWindow(bridge,mserverData,mdeckListArr,marticleListArr,mtestListArr,index){
+			
+			
+			
+			//1.加载数据，转换数据，处理原始数据；
+	     	mserverData = JSON.parse(mserverData);
+			if (mserverData == null) {
+				mserverData = personInforData;
+			}
+			alert(mserverData);
+	     	mdeckListArr = JSON.parse(mdeckListArr);
+			if (mdeckListArr == null) {
+				mdeckListArr = deckListArr;
+			}
+	     	marticleListArr = JSON.parse(marticleListArr);
+			if (marticleListArr == null) {
+				marticleListArr = articleListArr;
+			}
+			
+     		mtestListArr = JSON.parse(mtestListArr);
+			if (mtestListArr == null) {
+				mtestListArr = testListArr;
+			}
+			
+			initPersonInfo(mserverData);
+			initMyDecks(mdeckListArr);
+			initMyBooks(marticleListArr);
+			initMyTests(mtestListArr);
+			
+			addNormalListeners();
+			
+			addPersonCenterListeners(bridge);
+			addPersonWindowListeners(bridge);
+			addDecksListeners(bridge);
+			addBooksListeners(bridge);
+			addTestsListeners(bridge);
+			
+
+			if(index==1){
+				
+			}
+		}
+		
+
+			
+		</script>
+		<script>
+			var cat_id=1;
+			var extend_cat_id=[];
+			var goods_desc;
+			var count=[]; 
+			var shareData={};
+			(function($, doc,cityData3) {
+				$.init();
+				$.ready(function() {
+				
+							
+											
+////					document.body.appendChild(li);
+					//-----------------------------------------
+					//					//级联示例
+					
+					var cityPicker3 = new $.PopPicker({
+						layer: 3
+					});
+					
+					//响应单选框点击事件
+					var obj=doc.getElementsByTagName('input');
+					
+					function selectA(cityData3){
+						for(var i=0,objL=obj.length;i<objL; ++i ){
+	        				if(obj[i].checked){
+	        					if(obj[i].value==1){ 
+									cityData3=language;
+									cityPicker3.setData(cityData3);
+//										console.log(cityData3)
+								}else{
+									cityData3=science;
+									cityPicker3.setData(cityData3);
+//										console.log(cityData3)
+								}
+//
+	        				}
+	    				}
+					}
+					obj[0].onclick=function(){
+						cat_id=1;
+						selectA(cityData3);
+					}
+					obj[1].onclick=function(){
+						cat_id=19;
+						selectA(cityData3);
+					}
+					
+					//默认显示
+;					cityPicker3.setData(language);
+					var showCityPickerButton = doc.getElementById('showCityPicker3');
+					var cityResult3 = doc.getElementById('cityResult3');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						
+						cityPicker3.show(function(items) {
+							
+							if(items[2].text!=null && items[1].text==items[2].text){
+								cityResult3.innerText =  (items[0] || {}).text+ " >" + (items[1] || {}).text;
+								extend_cat_id=[];
+								extend_cat_id.push(items[0].value,items[1].value);
+								console.log(extend_cat_id)
+								
+								if(items[1].text!==null && items[0].text==items[1].text){
+									cityResult3.innerText =  (items[0] || {}).text;
+									extend_cat_id=[];
+									extend_cat_id.push(items[0].value)
+									console.log(extend_cat_id)
+								}
+							}
+							else if(items[0].text !=items[1].text !=items[2].text){
+								cityResult3.innerText =  (items[0] || {}).text + " >" + (items[1] || {}).text + " >" + (items[2] || {}).text;
+								extend_cat_id=[];
+								extend_cat_id.push(items[0].value,items[1].value,items[2].value)
+								console.log(extend_cat_id)
+							}
+							
+								
+							
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+				});
+			})(mui, document);
+
+			//<2>页面特效JS代码---begin
+			function hasClass(obj, cls) {//检测有没有该类名======对象如果是数组则要加下标，类名用引号包住
+			    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+			}
+			
+			function addClass(obj, cls) {//添加类名
+			    if (!this.hasClass(obj, cls)){    
+			    	obj.className += " " + cls
+			    };
+			}
+			
+			function removeClass(obj, cls) {//移除类名
+			    if (hasClass(obj, cls)) {
+			        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+			        obj.className = obj.className.replace(reg, ' ');
+			    }
+			}
+			
+			function toggleClass(obj,cls){//开关类名
+				if(hasClass(obj,cls)){
+			    	removeClass(obj, cls);
+				}else{
+			    	addClass(obj, cls);
+				}
+			}
+			
+						
+			
+			var lis= document.getElementsByClassName('imgLi');	
+			//自动填充图片-----------------------------------------------------------------
+			var imgListUl=document.getElementById('imgListUl');
+			var arr = ['images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg'];
+ 			function showImages(imageArr){
+ 				if (imageArr == null) {
+					return;
+				}
+// 				var lis = document.getElementsByClassName('imgLi');
+                for (var i = lis.length - 1; i >= 0; i--) {
+                    imgListUl.removeChild(lis[i]);
+                }
+                for (var i = 0; i < imageArr.length; i++) {
+					var img = imageArr[i];
+					
+					var temp='<li class="mui-table-view-cell mui-media mui-col-xs-3 imgLi" style="position: relative;">'
+						      +'<span class="mui-icon mui-icon-checkmarkempty">'+'</span>'
+						       +'<img class="mui-media-object active" src="'+img+'" >'
+    							+'</li>';
+
+					        
+					imgListUl.innerHTML += temp;
+				}
+
+ 			}
+			
+			function addDotListener(){
+				mui('ul').off('tap','.imgLi');
+				mui('ul').on('tap','.imgLi',function(){
+					var spanNode=this.children;
+					var has=hasClass(spanNode[0], 'change');
+					if(has){
+						
+						removeClass(spanNode[0], 'change');
+					}else{
+						
+						addClass(spanNode[0], 'change');
+					}
+				})
+			}
+//			addDotListener();
+//			addShareButtonListener();
+			function initShareInterface(bridge,arr){
+				showImages(arr);
+				addDotListener();
+				addShareButtonListener();
+			}
+
+			
+			//确定分享事件，获得数组--------------------------------------------------------
+//			var anniu=document.getElementsByClassName('mui-btn-success')[0];
+			
+			function addShareButtonListener(bridge){
+				mui(".type").off('tap', '#confirmShareButton');
+				mui(".type").on('tap', '#confirmShareButton',function(){
+					
+					var textBox=document.getElementById('textBox').value;
+					if(textBox.length<=0){
+						mui.alert('牌组描述为空',  function() {
+						});
+						return false;
+					}else{
+						goods_desc=textBox;
+						console.log(goods_desc);
+					}
+//					mui.alert('1',  function() {
+//					});
+//					alert(cat_id);
+					count=[];
+					for(var i=0;i<lis.length;++i){				
+						//lis[i].index=i;
+						var child=lis[i].children[0];
+						//alert(child);
+	
+						if (hasClass(child, 'change')) {
+							count.push(i);
+						}				
+					}
+			
+					if(count.length>6){
+						mui.alert('您已超过六个',  function() {
+						});
+//						alert('您已超过六个');
+						return false;
+					}else if(count.length<6){
+						mui.alert('您还没选够六个',  function() {
+						});
+//						alert('您还没选够六个')
+					}else if(count.length==6){
+						console.log(count);
+					}
+					
+					shareData["cat_id"]=cat_id;
+					shareData["extend_cat_id"]=extend_cat_id;
+					shareData["goods_desc"]=goods_desc;
+					shareData["count"]=count;
+					
+					JSON.stringify(shareData);
+					alert(shareData);
+					alert(JSON.stringify(shareData));
+						
+				});
+			}
+//			window.onload=initFirstWindow(null,null,null,null,null,null);
+			
+			
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,84 @@
+
+
+//1. 从偏好设置中获得某个key对应的值;
+        String clientid = SPUtil.getPreferences(SPUtil.TYPE_DEFAULT_CONFIG,"CLIENTID","");
+        String username = SPUtil.getPreferences(SPUtil.TYPE_DEFAULT_CONFIG,"USERNAME", null);
+        String password = SPUtil.getPreferences(SPUtil.TYPE_DEFAULT_CONFIG,"PASSWORD", null);
+
+//2. 往偏好设置中写key对应的值;
+
+        SPUtil.setPreferences(SPUtil.TYPE_DEFAULT_CONFIG,SPConstants.DEF_CONFIG_USER_NAME, username);
+        SPUtil.setPreferences(SPUtil.TYPE_DEFAULT_CONFIG,SPConstants.DEF_CONFIG_USER_PASSWORD, password);
+        SPUtil.setPreferences(SPUtil.TYPE_DEFAULT_CONFIG, SPConstants.DEF_CONFIG_MEM_ID, mem_id);
+
+
+{
+    "code": 1000,
+    "data": {
+        "mem": {
+            "user_name": "f123456",
+            "email": "1419692004@qq.com",
+            "face": "http://q.qlogo.cn/qqapp/1105783665/FFC0D1F7C618710DE4FE43B42BF9AFD6/100",
+            "jifen": "355",
+            "jyz": "0",
+            "honeyname": "KD_小小曼",
+            "gender": "男",
+            "telephone": "18135673854",
+            "qq": "1419692005",
+            "school_id": "999",
+            "is_teacher": "0",
+            "member_level": "1",
+            "school_logo": "http://anki.oss-cn-hangzhou.aliyuncs.com/Logos/58df4dcadf943.png",
+            "deck": "",
+            "class_ids": "6,3,8,11"
+        },
+        "decks": [
+            {
+                "goods_id": "1289",
+                "url": "",
+                "goods_name": "钢琴",
+                "logo": "http://anki.oss-cn-hangzhou.aliyuncs.com/Logos/58c0b35f959cc.jpg",
+                "decksize": "1200.00",
+                "deckname": "钢琴",
+                "images": "",
+                "is_share": "1"
+            },
+            {
+                "goods_id": "1296",
+                "url": "",
+                "goods_name": "词频分级词汇第五级",
+
+
+
+
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+            showGuide();
+        }
+
+
+
+
+
+        //蒙版调用
+
+
+            进度蒙版初始化;
+            private ProgressDialog progressDialog;
+            progressDialog = new ProgressDialog(getActivity()).builder();
+
+            进度开始:
+            progressDialog.show();
+            progressDialog.setDownloadTip("准备下载");
+
+            进度成功完成;
+            progressDialog.showSuccessWithStatus();
+            progressDialog.setDownloadTip("恭喜，下载成功");
+            进度失败;
+            progressDialog.showErrorWithStatus();
+            progressDialog.setDownloadTip("下载出现问题了");
+
+            进度进行中:
+            progressDialog.setDownloadTip("下载中：" + progress + "%");
+
+

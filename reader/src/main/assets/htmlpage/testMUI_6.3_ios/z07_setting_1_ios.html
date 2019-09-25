@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			.mui-navbar {
+			    position: fixed;
+			    right: 0;
+			    left: 0;
+			    z-index: 10;
+			    height: 44px;
+			    background-color: #007aff !important;
+			}
+			.mui-bar .mui-btn-link {
+			    font-size: 16px;
+			    line-height: 44px;
+			    top: 0;
+			    padding: 0;
+			    color: #fff;
+			    border: 0;
+			}
+			.mui-title {
+			    font-size: 17px;
+			    font-weight: 500;
+			    line-height: 44px;
+			    position: absolute;
+			    display: block;
+			    width: 100%;
+			    margin: 0 -10px;
+			    padding: 0;
+			    text-align: center;
+			    white-space: nowrap;
+			    color: #fff;
+			}
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 46px;
+				height: auto;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-navbar {
+				position: fixed;
+				right: 0;
+				left: 0;
+				z-index: 10;
+				height: 44px;
+				background-color: #f7f7f8;
+			}
+			.mui-navbar .mui-bar {
+				position: absolute;
+				background: transparent;
+				text-align: center;
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			.mui-table-view-divider {
+				background-color: #efeff4;
+				font-size: 14px;
+			}
+			.mui-table-view-divider:before,
+			.mui-table-view-divider:after {
+				height: 0;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: -25px;
+				font-size: 15px
+			}
+			.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-ios .mui-navbar .mui-bar .mui-title {
+				position: static;
+			}
+			/*问题反馈在setting页面单独的css*/
+			#feedback .mui-popover{
+				position: fixed;
+			}
+			#feedback .mui-table-view:last-child {
+			    margin-bottom: 0px;
+			}
+			#feedback .mui-table-view:first-child {
+			    margin-top: 0px;
+			}
+			.li-span {
+				display: inline-block;
+				width: 22px;
+				height: 22px;
+				background: green;
+				line-height: 22px;
+				font-size: 20px;
+				margin-left: 5px;
+				text-align: center;
+				border-radius: 4px;
+				color: white;
+				font-weight: 800;				
+			}
+			/*问题反馈在setting页面单独的css==end*/
+			
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--首页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button id="backToParent" type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">偏好设置</h1>
+			</div>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#changyong-shezhi" class="mui-navigate-right">
+									<span class="li-span mui-icon mui-icon-refresh">
+										
+									</span>
+									常用设置
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#fuxi-shezhi" class="mui-navigate-right">
+									<span class="li-span mui-icon mui-icon-refresh">
+										
+									</span>
+									复习设置
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#ziti-fengge" class="mui-navigate-right">
+									<span class="li-span mui-icon mui-icon-refresh">
+										
+									</span>
+									字体风格
+								</a>
+							</li>
+							<!--<li class="mui-table-view-cell">
+								<a href="#shoushi-shibie" class="mui-navigate-right">
+									<span class="li-span mui-icon mui-icon-refresh">
+										
+									</span>
+									手势识别
+								</a>
+							</li>-->
+							<li class="mui-table-view-cell">
+								<a href="#gaoji-shezhi" class="mui-navigate-right">
+									<span class="li-span mui-icon mui-icon-refresh">
+										
+									</span>
+									高级设置
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#about" class="mui-navigate-right">
+									<span class="li-span mui-icon mui-icon-refresh" style="background: red;">
+										
+									</span>
+									关于艾卡 
+									<i class="mui-pull-right update">
+										V1.0.5
+									</i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--首页面结束-->
+		
+		<!--///////////////////////////////001//////////////-->
+		<!--“常用设置”页面开始-->
+		<div id="changyong-shezhi" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>偏好设置
+				</button>
+				<h1 class="mui-center mui-title">常用设置</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								同步时获取媒体文件
+								<div id="switch_changyongshezhi-tongbu-meiti" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								自动同步
+								<div id="switch_changyongshezhi-tongbu-zidong" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#changyong-shezhi_01xinpaizu" class="mui-navigate-right">新牌组</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#changyong-shezhi_02yuyan" class="mui-navigate-right">语言</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#changyong-shezhi_03baogaomoshi" class="mui-navigate-right">错误报告模式</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#changyong-shezhi_04tongzhileixing" class="mui-navigate-right">通知类型</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								声音
+								<div id="switch_changyongshezhi-shengyin" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								震动
+								<div id="switch_changyongshezhi-zhendong" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								呼吸灯
+								<div id="switch_changyongshezhi-huxideng" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!--常用设置三级单选开始-->
+		<div id="changyong-shezhi_01xinpaizu" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>常用设置
+				</button>
+				<h1 class="mui-center mui-title">新牌组</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">使用当前牌组</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">由笔记类型决定</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<div id="changyong-shezhi_02yuyan" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>常用设置
+				</button>
+				<h1 class="mui-center mui-title">新牌组</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_02yuyan" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">系统语言</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">中文（中国）</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">中文（台湾）</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">英文</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		
+		<div id="changyong-shezhi_03baogaomoshi" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>常用设置
+				</button>
+				<h1 class="mui-center mui-title">错误报告模式</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_03baogaomoshi" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">总是发送报告</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">从不发送报告</a>
+							</li>
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">询问我</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		
+		<div id="changyong-shezhi_04tongzhileixing" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>常用设置
+				</button>
+				<h1 class="mui-center mui-title">通知类型</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div id="radio-changyong-shezhi_04tongzhileixing" class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">有新消息</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">有超过10张需要查看</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">有超过20张需要查看</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">有超过50张需要查看</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<!--常用设置三级单选结束-->
+		<!--“常用设置”页面结束-->
+		
+		
+			
+		<!--///////////////////////////////002//////////////-->
+		<!--“复习设置”页面开始-->
+		<div id="fuxi-shezhi" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>偏好设置
+				</button>
+				<h1 class="mui-center mui-title">复习设置</h1>
+			</div>
+			
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#fuxi-shezhi_11xinkapian-weizhi" class="mui-navigate-right">新卡片位置</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="#fuxi-shezhi_12a" class="mui-navigate-right">下一天开始时间
+									<span class="mui-pull-right">04
+									</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#fuxi-shezhi_13b" class="mui-navigate-right">提前学习的限制
+									<span class="mui-pull-right">20分钟
+									</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#fuxi-shezhi_14b" class="mui-navigate-right">时间盒时间限制
+									<span class="mui-pull-right">0分钟
+									</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								保持屏幕常亮
+								<div id="switch_fuxishezhi-pingmu-changliang" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#fuxi-shezhi_12quanping-xianshi" class="mui-navigate-right">全屏显示</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								居中对其
+								<div id="switch_fuxishezhi-juzhon-gduiqi" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								显示按钮时间
+								<div id="switch_fuxishezhi-xianshi-anniushijian" class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="">卡片缩放<span class="mui-pull-right">100%</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="">图片缩放<span class="mui-pull-right">100%</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="">显示答案按钮大小<span class="mui-pull-right">100%</span></a>
+							</li>
+						</ul>
+						<div></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	
+		<!--复习设置三级单选开始-->
+		<div id="fuxi-shezhi_11xinkapian-weizhi" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>复习设置
+				</button>
+				<h1 class="mui-center mui-title">新卡片位置</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">混合新卡片和复习</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">复习后再学习新卡片</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">学习新卡片后再复习</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<div id="fuxi-shezhi_12quanping-xianshi" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>复习设置
+				</button>
+				<h1 class="mui-center mui-title">全屏显示</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">关闭</a>
+							</li>
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">隐藏系统状态栏</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">隐藏系统状态栏及回答按钮</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<!--复习设置三级单选结束-->
+		<!--“复习设置”页面结束-->
+		
+		
+		
+			
+		<!--///////////////////////////////003//////////////-->
+		<!--“字体风格”页面开始-->
+		<div id="ziti-fengge" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>偏好设置
+				</button>
+				<h1 class="mui-center mui-title">字体风格</h1>
+			</div>
+			
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#ziti-fengge_31moren-ziti" class="mui-navigate-right">默认字体</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#ziti-fengge_32ziti-shiyongfanwei" class="mui-navigate-right">默认字体使用范围</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#ziti-fengge_33lilanqi-ziti" class="mui-navigate-right">浏览器和编辑器字体</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a class="">卡片浏览字体缩放<span class="mui-pull-right">100%</span></a>
+							</li>
+						</ul>
+						<div></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	
+		<!--字体风格三级单选开始-->
+		<div id="ziti-fengge_31moren-ziti" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>字体风格
+				</button>
+				<h1 class="mui-center mui-title">默认字体</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">System default</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">OpenSans-Bold</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">OpenSans-Boldltalic</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<div id="ziti-fengge_32ziti-shiyongfanwei" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>字体风格
+				</button>
+				<h1 class="mui-center mui-title">字体适用范围</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">当卡片中没有指定字体时</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">总是</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<div id="ziti-fengge_33lilanqi-ziti" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>字体风格
+				</button>
+				<h1 class="mui-center mui-title">浏览器字体</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" data-scroll="4">
+					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+						<ul id="radio-changyong-shezhi_01xinpaizu" class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">System default</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">OpenSans-Bold</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">OpenSans-BoldItalic</a>
+							</li>
+						</ul>
+					</div>
+				<div class="mui-scrollbar mui-scrollbar-vertical" style="transition-duration: 250ms; opacity: 1;"><div class="mui-scrollbar-indicator" style="transition-duration: 0ms; display: none; height: 799px; transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div></div></div>
+			</div>
+		</div>
+		<!--字体风格三级单选结束-->
+		<!--“字体风格”页面结束-->
+		
+		
+		
+			
+		<!--///////////////////////////////004//////////////-->
+		<!--“高级设置”页面开始-->
+		<div id="gaoji-shezhi" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>偏好设置
+				</button>
+				<h1 class="mui-center mui-title">高级设置</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a class="">最大备份数量<span class="mui-pull-right">8</span></a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								文本转语音
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								启用国际象棋插件
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								启用阅读制卡插件
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								启用模拟考试制卡插件
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!--高级设置三级单选开始-->
+		
+		<!--高级设置三级单选结束-->
+		<!--“高级设置”页面结束-->
+		
+		
+			
+		<!--///////////////////////////////005//////////////-->
+		<!--“高级设置”页面开始-->
+		<div id="about" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>偏好设置
+				</button>
+				<h1 class="mui-center mui-title">关于艾卡</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media">
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						            <div class="mui-media-body">
+						                幸福
+						                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						            <div class="mui-media-body">
+						                木屋
+						                <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						            <div class="mui-media-body">
+						                CBD
+						                <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						            </div>
+						        </a>
+						    </li>
+						</ul>
+						
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!--高级设置三级单选开始-->
+		
+		<!--高级设置三级单选结束-->
+		<!--“高级设置”页面结束-->
+		
+		
+		<!--“关于艾卡”页面开始-->
+		<div id="about" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>偏好设置
+				</button>
+				<h1 class="mui-center mui-title">关于艾卡</h1>
+			</div>
+			<div class="mui-page-content">
+				
+			</div>
+		</div>
+		<!--“关于艾卡”页面结束-->
+
+		
+
+	</body>
+	<script src="js/mui.min.js "></script>
+	<script src="js/mui.view.js "></script>
+	<script src='js/feedback.js'></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	
+//		mui.init();
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+		
+		
+		
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+		
+		
+		
+		/////////////////bridge/////////////////////
+		
+		window.onerror = function(err) {
+	        log('window.onerror: ' + err)
+		}
+		
+		
+		
+	    function setupWebViewJavascriptBridge(callback) {
+	        if (window.WebViewJavascriptBridge) {
+	            return callback(WebViewJavascriptBridge);
+	        }
+	        if (window.WVJBCallbacks) {
+	            return window.WVJBCallbacks.push(callback);
+	        }
+	        window.WVJBCallbacks = [callback];
+	        var WVJBIframe = document.createElement('iframe');
+	        WVJBIframe.style.display = 'none';
+	        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+	        document.documentElement.appendChild(WVJBIframe);
+	        setTimeout(function() {
+	            document.documentElement.removeChild(WVJBIframe)
+	            }, 0);
+	    }
+	
+	    setupWebViewJavascriptBridge(function(bridge) {
+	        
+	        initThisWindow(bridge);
+	
+	        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+                
+				var treeListData_org = JSON.parse(data.treeStr);
+                
+                //initFirWindow(bridge, treeListData_org);
+               
+	        });
+	        
+	        
+	    });
+						
+		/////////////////bridge/////////////////////
+		
+		
+		function addButtonsListener(bridge){
+			document.getElementById("backToParent").addEventListener('tap', function(){
+				//alert(123);
+				action = null;
+				bridge.callHandler('backToParent', action, function(response) {
+				//log('JS got response', response)
+				});
+			});
+		}
+		
+		function initThisWindow(bridge){
+			addButtonsListener(bridge);
+		}
+		
+		//开关事件如何处理
+		
+//		mui('.mui-content .mui-switch').each(function() { //循环所有toggle
+//			//toggle.classList.contains('mui-active') 可识别该toggle的开关状态
+//			this.parentNode.querySelector('span').innerText = '状态：' + (this.classList.contains('mui-active') ? 'true' : 'false');
+//			/**
+//			 * toggle 事件监听
+//			 */
+//			this.addEventListener('toggle', function(event) {
+//				//event.detail.isActive 可直接获取当前状态
+//				this.parentNode.querySelector('span').innerText = '状态：' + (event.detail.isActive ? 'true' : 'false');
+//			});
+//		});
+		//单选列表如何处理
+//		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+//			info.innerHTML = "当前选中的为："+e.detail.el.innerText;
+//		});
+		window.onload = initThisWindow(null);
+	</script>
+
+</html>

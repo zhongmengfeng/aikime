@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/study_background"
+    android:orientation="vertical"
+    tools:context="com.ichi2yiji.anki.activity.ek.EKMainActivity2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/iv_ekmain_personal_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@drawable/icon_settings_new" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal">
+
+            <com.ichi2yiji.anki.view.ek.CircleImageView
+                android:id="@+id/iv_ekmain_personal_icon"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
+                android:src="@drawable/aika" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="23dp">
+
+                <TextView
+                    android:id="@+id/tv_ekmain_personal_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="我是昵称"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/textsize_18" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_ekmain_personal_level"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="LV.12"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/textsize_14" />
+
+                    <TextView
+                        android:id="@+id/tv_ekmain_personal_wallet"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/personal_wallet"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"
+                        android:text="钱包"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/textsize_14" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_ekmain_personal_focus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="关注
+25"
+                android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_15" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tv_ekmain_personal_fans"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="粉丝
+25"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_15" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tv_ekmain_personal_clockin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="打卡
+ 25"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_15" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tv_ekmain_personal_points"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="积分
+ 25"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_15" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/tv_ekmain_personal_myclass"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:drawableRight="@drawable/persional_right_arrow"
+            android:gravity="center_vertical"
+            android:text="我的课程"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_17" />
+
+        <TextView
+            android:id="@+id/tv_ekmain_personal_myarticle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:drawableRight="@drawable/persional_right_arrow"
+            android:gravity="center_vertical"
+            android:text="我的文章"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_17" />
+
+        <TextView
+            android:id="@+id/tv_ekmain_personal_mytest"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:drawableRight="@drawable/persional_right_arrow"
+            android:gravity="center_vertical"
+            android:text="我的测试"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_17" />
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="课程邀请"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_17" />
+
+            <EditText
+                android:id="@+id/et_ekmain_personal_invitecode"
+                android:layout_width="134dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/invite_code_shape"
+                android:gravity="center"
+                android:hint="请输入您的邀请码"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="@dimen/textsize_12" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_ekmain_personal_classshare"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="课程共享"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_17" />
+
+            <TextView
+                android:id="@+id/tv_ekmain_personal_classshare"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="@dimen/textsize_18"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_ekmain_personal_exitlogin"
+                android:layout_width="308.5dip"
+                android:layout_height="43dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/ek_start_study_shape"
+                android:gravity="center"
+                android:text="退出登录"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_17" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

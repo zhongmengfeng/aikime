@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/touch_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/img_redpoint" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp">
+
+            <!--android:maxLines=”3” 限制最大行数
+            android:ellipsize=”end” 末尾省略号
+            android:lines=”2” 显示两行，如果内容用一行就可以全部显示了，这时候TextView还是会占用两行的高度空间-->
+            <TextView
+                android:id="@+id/item_shake_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="middle"
+                android:maxLines="1"
+                android:text="六级单词"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:paddingRight="10dp"/>
+
+            <TextView
+                android:id="@+id/item_shake_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_shake_name"
+                android:ellipsize="end"
+                android:maxEms="15"
+                android:singleLine="true"
+                android:text="内容."
+                android:textColor="@color/colorhuise"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_marginLeft="190dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/img_rightsnajiao" />
+
+            <TextView
+                android:id="@+id/cishu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="下载次数："
+                android:textColor="@color/colorhuise"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/item_shake_xia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_toRightOf="@+id/cishu"
+                android:text="14"
+                android:textColor="@color/colorhuise"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/shijian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:text="上传时间："
+                android:textColor="@color/colorhuise"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/item_shake_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_toRightOf="@+id/shijian"
+                android:text="2016-1-3"
+                android:textColor="@color/colorhuise"
+                android:textSize="10sp" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_download"
+            android:layout_width="63dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:visibility="visible"
+            android:src="@drawable/img_xiazai" />
+
+        <ImageView
+            android:id="@+id/img_lock"
+            android:layout_width="63dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:visibility="gone"
+            android:src="@drawable/jiesuo" />
+
+    </LinearLayout>
+
+</RelativeLayout>

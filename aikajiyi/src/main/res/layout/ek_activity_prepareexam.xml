@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/study_background"
+    android:orientation="vertical"
+    tools:context="com.ichi2yiji.anki.activity.ek.EKPrepareExamActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_ek_activity_prepareexam_back"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="临考备战"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_15" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/arrow_left_new" />
+    </RelativeLayout>
+    <LinearLayout
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp">
+
+            <TextView
+                android:id="@+id/course_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="课程共享:"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_18" />
+
+            <TextView
+                android:id="@+id/tv_ek_activity_prepareexam_classshare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/course_share"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="地震地层学-绪论"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="@dimen/textsize_18" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="请选择您的创建条件:"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_15" />
+
+        <RadioGroup
+            android:id="@+id/rg_ek_activity_prepareexam_radiogroup"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_ek_activity_prepareexam_radiobutton1"
+                android:text="筛选出错误次数>3次的卡片"
+                style="@style/linkao_radiobutton"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_ek_activity_prepareexam_radiobutton2"
+                android:text="筛选出错误次数>5次的卡片"
+                style="@style/linkao_radiobutton"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_ek_activity_prepareexam_radiobutton3"
+                android:text="筛选出我标记过的卡片"
+                style="@style/linkao_radiobutton"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_ek_activity_prepareexam_radiobutton4"
+                android:text="筛选出必考的知识点"
+                style="@style/linkao_radiobutton"
+                android:button="@null" />
+
+        </RadioGroup>
+
+        <RelativeLayout
+            android:id="@+id/rl_ek_activity_prepareexam_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textSize="@dimen/textsize_15"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:text="确定"
+                android:background="@drawable/ek_start_study_shape"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="40dp"
+                android:layout_width="330.5dp"
+                android:layout_height="38.5dp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

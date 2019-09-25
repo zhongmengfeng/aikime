@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/yiji02.css">
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a id="backToParent" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: white;">在线帮助</h1>
+		</header>
+		<div class="mui-content">
+		    <ul class="mui-table-view">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                    Item 1
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                     Item 2
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                     Item 3
+		                </a>
+		            </li>
+		        </ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+	
+			
+			
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+			
+			
+			
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+		        initThisWindow(bridge);
+		
+		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	                
+					var treeListData_org = JSON.parse(data.treeStr);
+	                
+	                //initFirWindow(bridge, treeListData_org);
+	               
+		        });
+		        
+		        
+		    });
+							
+			/////////////////bridge/////////////////////
+			
+			
+			function addButtonsListener(bridge){
+				document.getElementById("backToParent").addEventListener('tap', function(){
+					//alert(123);
+					action = null;
+					bridge.callHandler('backToParent', action, function(response) {
+					//log('JS got response', response)
+					});
+				});
+			}
+			
+			function initThisWindow(bridge){
+				addButtonsListener(bridge);
+			}
+			
+			
+			//window.onload = initThisWindow(null);
+		</script>
+	</body>
+
+</html>

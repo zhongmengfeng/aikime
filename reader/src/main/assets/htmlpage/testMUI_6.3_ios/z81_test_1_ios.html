@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/yiji02.css">
+		<link rel="stylesheet" href="css/booklist_01.css" />
+		<link rel="stylesheet" href="css/test_real.css" />
+		
+		<style>
+			
+		</style>
+	</head>
+
+	<body style="background: white;">
+		<header class="mui-bar mui-bar-nav headerbar">
+		    <a id="backToParent" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <span class="testname"></span>
+		    
+		    <h1 class="mui-title testtype">驾考科目一001</h1>
+		</header>
+		
+		
+		<div id="content" class="mui-content">
+			<div class="" style="background: white;">
+				<div class="question">
+					<p id="question">
+						186.机动车在道路上发生故障难以移动以后要将车后50米设置警告标志是（ ）。
+					</p>
+				</div>
+				<div id="img" class="bakimg">
+					<img src="images/cbd.jpg" width="100%"/>
+				</div>
+			</div>
+			<!--
+			<h5 class="mui-content-padded">请选择答案：</h5>
+            -->
+			
+			<div id="answer" class="answer">
+				<!--
+				<div class="">
+					<a href="#">
+						<p>
+							<span class="first mui-icon mui-icon-close-filled"></span>
+							<span>A:&nbsp;图标图标标图左;</span>
+						</p>
+					</a>
+				</div>
+				<div class="">
+					<a href="#">
+						<p>
+							<span class="first mui-icon mui-icon-close-filled"></span>
+							<span>B:&nbsp;图标图左图标图左;</span>
+						</p>
+					</a>
+				</div>
+				<div class="">
+					<a href="#">
+						<p>
+							<span class="first mui-icon mui-icon-close-filled"></span>
+							<span>C:&nbsp;图标图标图左;</span>
+						</p>
+					</a>
+				</div>
+				<div class="">
+					<a href="#">
+						<p>
+							<span class="first mui-icon mui-icon-close-filled"></span>
+							<span>D:&nbsp;图标图标图标图左;</span>
+						</p>
+					</a>
+				</div>
+				<div class="">
+					<a href="#">
+						<p>
+							<span class="select mui-icon mui-icon-close-filled"></span>
+							<span>E:&nbsp;图标图标图标图左;</span>
+						</p>
+					</a>
+				</div>
+				-->
+			</div>
+			
+               
+			
+			
+			
+				
+			
+			
+			<div id="bottomBar" class="bottomBar01" style="background-color:white; line-height: 44px;">
+				<div class="mui-pull-left" style="padding-top: 7px; padding-left: 2px;">
+					<button id="priv" type="button" class="mui-btn mui-btn-green">上一题</button>
+				</div>
+				
+				<span class="count">
+					<span id="fen_zi">32</span>
+						/
+					<span id="fen_mu">100</span>
+				</span>
+				
+				<div class="mui-pull-right" style="padding-top: 7px; padding-right: 2px;">
+					<button id="next" type="button" class="mui-btn mui-btn-green">下一题</button>
+				</div>
+			</div>
+		</div>
+		<div id="adjust">
+			<div id="adjust_err" style="margin: 5px; padding: 3px;">
+				<span class="adjust adjust-err">
+		        		<span class="tishi">答错了！标准答案是:</span>
+		        		<span id="right-answer">C</span>
+		        		<button id="show-explain1" style="border: 0px;" type="button" class="mui-btn mui-btn-blue mui-btn-outlined">为什么选A?</button>
+		        </span>
+			</div>
+			
+			<div id="adjust_suc" style="margin: 5px; padding: 3px;">
+				<span class="adjust adjust-suc">
+		        		<span class="tishi">恭喜你，答对了！</span>
+		        		<button id="show-explain2" style="border: 0px;" type="button" class="mui-btn mui-btn-blue mui-btn-outlined">为什么选A?</button>
+		        </span>
+			</div>
+		</div>
+		
+		<div id="explain">
+	        <div class="mui-collapse-content" style="padding-bottom: 0; color: black;">
+				<div class="">
+					<div class="" style="color: black;">
+						<p style="color: black; padding: 10px;">
+							<span class="label" style="color: green;">解析:</span>
+							<span id="exp">
+							机动车在道路上发生故障难以移动以后要将车后50米设置警告标志。正确，机动车在道路上发生故障难以移动以后要将车后50米设置警告标志。
+							</span>
+						</p>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			var Abridge;
+			var shitiData;
+			var shitiDataStr;
+			var shitiDataStr1 = '[{"answer":"C","img":"http://ww1.sinaimg.cn/mw240/00696Fn5jw1eu60av7h33j30g3082gml.jpg","second":"10年内","id":"10","fourth":"20年内","third":"终生","question":"3/1310  机动车驾驶人造成事故后逃逸构成犯罪的，吊销驾驶证且多长时间不得重新取得驾驶证？","explain":"《道路交通安全法》第一百零一条：造成交通事故后逃逸的，由公安机关交通管理部门吊销机动车驾驶证，且终生不得重新取得机动车驾驶证。","type":"1","first":"5年内"},{"answer":"B","img":"","second":"错误","id":"11","fourth":null,"third":"","question":"4/1310  驾驶机动车违反道路交通安全法律法规发生交通事故属于交通违章行为。","explain":"“违反道路交通安全法”，违反法律法规即为违法行为。官方已无违章/违规的说法。","type":"0","first":"正确"},{"answer":"A","img":"","second":"错误","id":"12","fourth":null,"third":"","question":"5/1310  驾驶机动车在道路上违反道路通行规定应当接受相应的处罚。","explain":"常识题，犯错就得接受相应的处罚。","type":"0","first":"正确"},{"answer":"A","img":"","second":"使用所学车型的教练车单独驾驶学习","id":"13","fourth":"使用所学车型的教练车由非教练员的驾驶人随车指导","third":"使用私家车由教练员随车指导","question":"11/1310  未取得驾驶证的学员在道路上学习驾驶技能，下列哪种做法是正确的？","explain":"《公安部令第123号》规定：未取得驾驶证的学员在道路上学习驾驶技能，使用所学车型的教练车由教练员随车指导。","type":"1","first":"使用所学车型的教练车由教练员随车指导"},{"answer":"C","img":"http://ww1.sinaimg.cn/mw600/5eb4d75agw1e28yntci5ej.jpg","second":"违章行为","id":"14","fourth":"犯罪行为","third":"违法行为","question":"29/1310  驾驶这种机动车上路行驶属于什么行为？","explain":"《道路交通安全法》第十一条：机动车号牌应当按照规定悬挂并保持清晰、完整，不得故意遮挡、污损。违反《道路交通安全法》即为违法。","type":"1","first":"违规行为"}]';
+			
+			var answer;
+			var good_answer;
+			var btnArray = ['确认', '取消'];
+			var adjust_err;
+			var adjust_suc;
+			var explain;
+			var num;
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+			
+			
+			
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+                //alert(10);
+  		        bridge.registerHandler('listItemsHandler', function(data, responseCallback) {
+                    
+                    initFirWindow(bridge, data);
+ 		        });
+		    });
+		    
+			/////////////////bridge/////////////////////
+			
+			function initFirWindow(bridge, data){
+				if (data == null) {
+					shitiData = JSON.parse(shitiDataStr1);
+				} else {
+					shitiData = data;
+				}
+				
+				//Abridge = bridge;
+				shitiDataStr = JSON.stringify(shitiData);
+				
+                num = 0;
+                showQuestionAndAnswer(num);
+                addButtonsListener(bridge);
+			}
+			
+			function showQuestionAndAnswer(num){
+				/////////////////////clear select////////////////////////
+				
+				var content = document.getElementById("content");
+				
+				content.removeChild(answer);
+				
+				var newNode = document.createElement("div");
+			  	newNode.setAttribute("id", "answer");
+			  	newNode.setAttribute("class", "answer");
+
+			  	var bottomBar = document.getElementById("bottomBar");
+			  	content.insertBefore(newNode, bottomBar);
+			  	answer = document.getElementById("answer");
+				answer.setAttribute("state", "1");
+				/////////////////////clear select////////////////////////
+				
+				
+				
+				
+				adjust_err = document.getElementById("adjust_err");
+			 	adjust_suc = document.getElementById("adjust_suc");
+			 	explain = document.getElementById("explain");
+				
+				adjust_err.style.display = "none";
+				adjust_suc.style.display = "none";
+				explain.style.display = "none";
+				
+				var timu = shitiData[num];
+				var answerCount = 4;
+				if (timu.type == 0) {
+					answerCount = 2;
+				}
+				good_answer = timu.answer;
+				var question = document.getElementById("question");
+				answer = document.getElementById("answer");
+				
+				
+				var answerArray = [timu.first, timu.second, timu.third, timu.fourth];
+				
+				var indexArray = ['&nbsp;A:&nbsp;', '&nbsp;B:&nbsp;', '&nbsp;C:&nbsp;', '&nbsp;D:&nbsp;'];
+				
+				question.innerHTML = timu.question;
+				
+				var img_temp = '';
+				if (timu.img != null) {
+					img_temp = '<img src="'+timu.img+'" width="100%"/>';
+				}
+				document.getElementById("img").innerHTML = img_temp;
+				
+				
+				
+				/////////////fen_zi / fen_mu/////////////////////////////
+				document.getElementById("fen_mu").innerHTML = shitiData.length;
+				document.getElementById("fen_zi").innerHTML = num + 1;
+				
+				
+				
+				
+				
+				
+				for (var i = 0; i < answerCount; i++) {
+					var temp = '<div class="">'
+							+'		<a href="#" class="select_a">'
+							+'			<p>'
+							+'				<span class="first mui-icon mui-icon-close-filled"></span>'
+							+'		<span>'+indexArray[i] + answerArray[i];+'</span>'
+							+'			</p>'
+							+'		</a>'
+							+'	</div>';
+					answer.innerHTML += temp;
+				}
+				
+				document.getElementById("exp").innerHTML = timu.explain;
+				
+				////////////////addlistener//////////
+				mui("#answer").on('tap', 'a', function(){
+					
+					var state = answer.getAttribute("state");
+					//alert("state="+state);
+					if (state == 0) {
+						return;
+					}
+					
+					
+					//alert(22);
+					var nodes = this.childNodes;
+					var nodeP = nodes[1];
+					var nodeSpan = nodeP.lastChild;
+					var sel = nodeSpan.innerHTML.substring(6,7);
+					//alert(sel);
+					//alert(22);
+					handleAfterSel(sel);
+				});
+			}
+			
+			
+            function addButtonsListener(bridge){
+	            document.getElementById("priv").addEventListener('tap', function(){
+	            		var state = answer.getAttribute("state");
+					//alert("state="+state);
+					if (state == 1) {
+						mui.toast('请选择答案！');
+						return;
+					}
+	            		num--;
+	            		if (num < 0) {
+	            			return;
+	            		}
+	            		showQuestionAndAnswer(num);
+	            });
+	            document.getElementById("next").addEventListener('tap', function(){
+	            		var state = answer.getAttribute("state");
+					//alert("state="+state);
+					if (state == 1) {
+						mui.toast('请选择答案！');
+						return;
+					}
+	            		num++;
+	            		if (num > shitiData.length - 1) {
+	            			return;
+	            		}
+	            		showQuestionAndAnswer(num);
+	            });
+	            
+	            document.getElementById("show-explain1").addEventListener('tap', function(){
+           			explain.style.display = "block";
+	            });
+	            document.getElementById("show-explain2").addEventListener('tap', function(){
+           			explain.style.display = "block";
+	            });
+                
+                
+                ///////////////////backToParent////////////////////////
+				
+				document.getElementById("backToParent").addEventListener('tap', function(){
+           			path = '';
+           			bridge.callHandler('backToParent', path, function(response) {
+                        //log('JS got response', response)
+                    });
+	            });
+           }                                  
+           
+           function handleAfterSel(sel){
+           		var index;
+           		if (sel == 'A') {
+           			index = 0;
+           		} else if (sel == 'B') {
+           			index = 1;
+           		} else if (sel == 'C') {
+           			index = 2;
+           		} else if (sel == 'D') {
+           			index = 3;
+           		} else {
+           		}
+           		var str = '为什么选' + good_answer + '?';
+           		
+           		document.getElementById("show-explain1").innerHTML = str;
+           		document.getElementById("show-explain2").innerHTML = str;
+           		
+           		
+           		if (sel != good_answer) {
+           			adjust_err.style.display = "block";
+           			document.getElementById("right-answer").innerHTML = good_answer;
+           		} else {
+           			adjust_suc.style.display = "block";
+           		}
+           		
+           		//alert(22);
+           		var nodes = document.getElementsByClassName("mui-icon-close-filled");
+           		
+           		//var nodesA = document.getElementsByClassName("select_a");
+           		
+           		for (var i = 0; i < nodes.length; i++) {
+           			//alert(22);
+           			if (i == index) {
+           				nodes[i].setAttribute("class", "select mui-icon mui-icon-close-filled");
+           				answer.setAttribute("state", "0");
+           			}
+           		}
+           }
+						
+			window.onload = initFirWindow(null, null);
+			
+		</script>
+	</body>
+
+</html>

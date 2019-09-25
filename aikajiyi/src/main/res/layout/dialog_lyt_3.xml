@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="261dp"
+    android:layout_height="300dp"
+    android:orientation="vertical"
+    android:background="@drawable/deckreader_listview_bg_shape">
+
+    <RelativeLayout
+        android:id="@+id/title_comment_img"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/dialog_top_img_comment"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="49dp"
+            android:text="我要吐槽！"
+            android:layout_marginRight="41.5dp"
+            android:textSize="14sp"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lyt_comment_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_comment_img"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+            <TextView
+                android:id="@+id/comment_item_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="卡片不美观"
+                android:textSize="12sp"
+                android:textColor="#444a59"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="@drawable/text_view_not_selected_shape"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+            <TextView
+                android:id="@+id/comment_item_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="表述不清晰"
+                android:textSize="12sp"
+                android:textColor="#444a59"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="@drawable/text_view_not_selected_shape"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+
+            <TextView
+                android:id="@+id/comment_item_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="软件卡顿"
+                android:textSize="12sp"
+                android:textColor="#444a59"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="@drawable/text_view_not_selected_shape"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lyt_comment_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lyt_comment_line_1"
+        android:layout_marginTop="15.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+            <TextView
+                android:id="@+id/comment_item_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="使用太吃力"
+                android:textSize="12sp"
+                android:textColor="#444a59"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="@drawable/text_view_not_selected_shape"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+            <TextView
+                android:id="@+id/comment_item_5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="没有为什么，就是不喜欢"
+                android:textSize="12sp"
+                android:textColor="#444a59"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="@drawable/text_view_not_selected_shape"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lyt_comment_line_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lyt_comment_line_2"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="我要自己写"
+        android:textSize="10sp"
+        android:textColor="#444a59"/>
+
+    <EditText
+        android:id="@+id/comment_edit_text"
+        android:layout_width="match_parent"
+        android:layout_below="@id/lyt_comment_line_3"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/text_view_not_selected_shape"/>
+    
+    <Button
+        android:id="@+id/comment_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="确定反馈"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg_shape_1"/>
+
+
+</RelativeLayout>

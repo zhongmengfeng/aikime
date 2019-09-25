@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/study_background"
+        android:orientation="vertical">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:id="@+id/iv_ek_activity_expertclass_clear"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ek_find_clear" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="15dp"
+            android:layout_marginBottom="10dp">
+
+            <com.ichi2yiji.anki.view.ek.CircleImageView
+                android:id="@+id/civ_ek_activity_expertclass_icon"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/aika" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="27dp"
+                android:layout_toRightOf="@+id/civ_ek_activity_expertclass_icon"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:id="@+id/tv_ek_activity_expertclass_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AioPUhjkkh"
+                    android:textSize="24sp"
+                    android:textColor="#0c0e10" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="lv."
+                        android:textSize="14sp"
+                        android:textColor="#0c0e10" />
+
+                    <TextView
+                        android:id="@+id/tv_ek_activity_expertclass_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="12"
+                        android:textSize="14sp"
+                        android:textColor="#0c0e10" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:id="@+id/tv_ek_activity_expertclass_focus"
+                    android:layout_width="55dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:layout_gravity="end"
+                    android:text="关注"
+                    android:textColor="#3696e9"
+                    android:textSize="13sp"
+                    android:background="@drawable/ek_expertclass_download" />
+
+                <TextView
+                    android:id="@+id/tv_ek_activity_expertclass_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="14dp"
+                    android:text="总下载: 5718"
+                    android:textColor="#474747"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_ek_activity_expertclass_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33.5dp">
+
+        </ListView>
+
+    </LinearLayout>
+
+</RelativeLayout>

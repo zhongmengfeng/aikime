@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/forecast"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/review_count"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/review_time"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/intervals"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/hourly_breakdown"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/weekly_breakdown"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/answer_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <com.ichi2yiji.anki.stats.ChartView
+            android:id="@+id/cards_types"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+    </LinearLayout>
+
+</ScrollView>

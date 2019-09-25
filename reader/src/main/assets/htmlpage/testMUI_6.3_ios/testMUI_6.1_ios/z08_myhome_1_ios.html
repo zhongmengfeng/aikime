@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>myown center</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/myown_center_01.css" />
+		<link rel="stylesheet" href="css/yiji02.css">
+		<style>
+		
+
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			
+		    <a id="backToParent" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    
+		    <h1 class="mui-title" style="color: white;">个人中心</h1>
+		</header>
+		
+		<div class="mui-content">
+		    
+			<div class="home-box">
+				<div class="home-top">
+					<img src="images/cbd.jpg" alt="" />
+					<div class="home-top-userinfo" id="head_img_div">
+						<img class="info" src="images/default.png" alt="" />
+						<h4 class="info" id="nickname">请登录</h4>
+					</div>
+				</div>
+				
+			    <!--<ul class="mui-table-view">
+			        <li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;" class="mui-navigate-right">
+			                <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+			                <div class="mui-media-body">
+			                    <span>天蓝</span>
+			                    <p class="mui-ellipsis">口号：抓紧时间拿驾照</p>
+			                </div>
+			            </a>
+			        </li>
+			    </ul>-->
+			    <ul class="mui-table-view public-list-txt home-list" style="margin-top:20px;">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                    <span class="mui-icon mui-icon-locked bgc-1"></span><span>修改密码</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                   <span class="mui-icon mui-icon-compose bgc-2"></span><span>我的牌组</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                   <span class="mui-icon mui-icon-download bgc-3"></span><span>我的文章</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                   <span class="mui-icon mui-icon-download bgc-1"></span><span>我的考题</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                   <span class="mui-icon mui-icon-download bgc-2"></span><span>意见反馈</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                   <span class="mui-icon mui-icon-compose bgc-3"></span><span>关于艾卡</span>
+		                </a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			
+			
+			/////////////////bridge/////////////////////
+			
+			window.onerror = function(err) {
+		        log('window.onerror: ' + err)
+			}
+			
+			
+			
+		    function setupWebViewJavascriptBridge(callback) {
+		        if (window.WebViewJavascriptBridge) {
+		            return callback(WebViewJavascriptBridge);
+		        }
+		        if (window.WVJBCallbacks) {
+		            return window.WVJBCallbacks.push(callback);
+		        }
+		        window.WVJBCallbacks = [callback];
+		        var WVJBIframe = document.createElement('iframe');
+		        WVJBIframe.style.display = 'none';
+		        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+		        document.documentElement.appendChild(WVJBIframe);
+		        setTimeout(function() {
+		            document.documentElement.removeChild(WVJBIframe)
+		            }, 0);
+		    }
+		
+		    setupWebViewJavascriptBridge(function(bridge) {
+		        
+		        initThisWindow(bridge);
+		
+		        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+	                
+					var treeListData_org = JSON.parse(data.treeStr);
+	                
+	                //initFirWindow(bridge, treeListData_org);
+	               
+		        });
+		        
+		        
+		    });
+							
+			/////////////////bridge/////////////////////
+			
+			
+			function addButtonsListener(bridge){
+				document.getElementById("backToParent").addEventListener('tap', function(){
+					alert(123);
+					action = null;
+					bridge.callHandler('backToParent', action, function(response) {
+					//log('JS got response', response)
+					});
+				});
+			}
+			
+			function initThisWindow(bridge){
+				addButtonsListener(bridge);
+			}
+			
+			
+			window.onload = initThisWindow(null);
+			
+			
+		</script>
+	</body>
+
+</html>

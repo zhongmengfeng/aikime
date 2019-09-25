@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chaojiyiji.geometerplus.android.fbreader.SimplePopupWindow
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/selection_panel_anki"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_centerHorizontal="true"
+	android:visibility="visible"
+	android:focusable="false"
+	>
+	<FrameLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:layout_marginTop="10dp"
+		android:paddingLeft="0dp"
+		android:paddingRight="0dp"
+		android:background="@drawable/panel_anki"
+		>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="35dp"
+			android:orientation="horizontal"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp">
+
+			<!-- 复制 -->
+			<TextView
+				android:id="@+id/selection_panel_copy"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="15dp"
+				android:layout_marginRight="-15dp"
+				android:layout_gravity="center"
+				android:text="复制"
+				android:textSize="15sp"
+				android:textColor="@color/white"
+				/>
+
+
+			<!-- 笔记 -->
+			<ImageView
+				android:visibility="gone"
+				android:id="@+id/selection_panel_line1"
+				android:layout_width="30dp"
+				android:layout_height="50dp"
+				android:src="@drawable/icon_line"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_gravity="center"
+				/>
+
+			<TextView
+				android:visibility="gone"
+				android:id="@+id/selection_panel_bookmark"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="-15dp"
+				android:layout_marginRight="-15dp"
+				android:layout_gravity="center"
+				android:text="笔记"
+				android:textSize="15sp"
+				android:textColor="@color/white"
+				/>
+
+			<!-- 词典 -->
+			<ImageView
+				android:id="@+id/selection_panel_line5"
+				android:layout_width="30dp"
+				android:layout_height="50dp"
+				android:src="@drawable/icon_line"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_gravity="center"
+				/>
+
+			<TextView
+				android:id="@+id/selection_panel_dictionary"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="-15dp"
+				android:layout_marginRight="-15dp"
+				android:layout_gravity="center"
+				android:text="词典"
+				android:textSize="15sp"
+				android:textColor="@color/white"
+				/>
+
+			<!-- 制卡 -->
+			<ImageView
+				android:id="@+id/selection_panel_line2"
+				android:layout_width="30dp"
+				android:layout_height="50dp"
+				android:src="@drawable/icon_line"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_gravity="center"
+				/>
+
+			<TextView
+				android:id="@+id/selection_panel_makecard"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="-15dp"
+				android:layout_marginRight="-15dp"
+				android:layout_gravity="center"
+				android:text="制卡"
+				android:textSize="15sp"
+				android:textColor="@color/white"
+				/>
+
+			<!-- 分享 -->
+			<ImageView
+				android:visibility="gone"
+				android:id="@+id/selection_panel_line3"
+				android:layout_width="30dp"
+				android:layout_height="50dp"
+				android:src="@drawable/icon_line"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_gravity="center"
+				/>
+
+			<TextView
+				android:visibility="gone"
+				android:id="@+id/selection_panel_share"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="-15dp"
+				android:layout_marginRight="-15dp"
+				android:layout_gravity="center"
+				android:text="分享"
+				android:textSize="15sp"
+				android:textColor="@color/white"
+				/>
+
+			<!-- 取消 -->
+			<ImageView
+				android:visibility="gone"
+				android:id="@+id/selection_panel_line4"
+				android:layout_width="30dp"
+				android:layout_height="50dp"
+				android:src="@drawable/icon_line"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_gravity="center"
+				/>
+
+			<TextView
+				android:visibility="gone"
+				android:id="@+id/selection_panel_close"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="-15dp"
+				android:layout_marginRight="15dp"
+				android:layout_gravity="center"
+				android:text="取消"
+				android:textSize="15sp"
+				android:textColor="@color/white"
+				/>
+
+			<!-- 间距 -->
+			<View
+				android:layout_width="27dp"
+				android:layout_height="match_parent" />
+		</LinearLayout>
+	</FrameLayout>
+</com.chaojiyiji.geometerplus.android.fbreader.SimplePopupWindow>

@@ -1,0 +1,54 @@
+Xcode 6 includes Swift, an innovative programming language with an interactive work area called a playground. Developers can directly manipulate and experiment with Swift code live—enter the code for a Bézier path in the playground and watch the path drawn directly beside the code. Perfect new code within the playground, then easily promote that code into your main project.
+
+Xcode 6 extends the Xcode feature set with new live visualization capabilities. For example, view debugging pauses a running app and then explodes all the UI layers into a 3D visualization, making it easy to understand how the interface is drawn. Live rendering within Interface Builder displays your handwritten UI code as you design, so that you can edit your view’s code and the IB rendering changes instantly. And the preview assistant now shows your app in different languages with only a mouse click.
+
+Xcode 6 requires a Mac running OS X version 10.9.4 or later or 10.10. It includes SDKs for OS X version 10.9 and 10.10, and iOS 8.
+
+Xcode 6 includes the following highlighted features.
+
+Swift Language
+Swift is a advanced object-oriented programming language for iOS development. Swift is modern, powerful, expressive, and easy to use.
+
+Fast. Swift compiles and is optimized with the advanced code analysis in LLVM to create high-performance apps.
+Complete platform. Access all of the Cocoa Touch frameworks with Swift.
+Safe by design. Eliminate huge categories of bugs, crashes, and security holes.
+Swift pairs increased type safety with type inference, restricts direct access to pointers, and automatically manages memory using ARC, making it easy for you to use Swift and create secure, stable software. Other language safety related features include mandatory variables initialization, automatic bounds checking to prevent overflows, conditionals that break by default, and elimination of pointers to direct memory by default.
+
+Modern. Write, debug, and maintain less code, with an easy to write and read syntax, and no headers to maintain.
+Swift includes optionals, generics, closures, tuples, and other modern language features. Inspired by and improving upon Objective-C, Swift code feels natural to read and write.
+
+Interactive. Use Swift interactively to experiment with your ideas and see instant results.
+Unified. Swift is a complete replacement for both the C and Objective-C languages. It provides full object-oriented features, and includes low-level language primitives such as types, flow control, and operators.
+For full information about the Swift language and to get started using it, see The Swift Programming Language (Swift 2.2).
+
+Xcode 6 Features for Swift
+Playgrounds. Playgrounds make writing Swift code productive and easy. Enter a line of code, and the result appears immediately. If your code runs over time—for instance through a loop—you can add that line of code to Timeline Assistant to watch it progress. Display variables in a graph, inspect each step of drawing a view, or watch an animated SpriteKit scene. When you’ve perfected your code in the playground, simply move that code into your project. Some uses for playgrounds include:
+Designing a new algorithm, watching its results every step of the way
+Experimenting with new API or trying out new Swift syntax
+Creating new tests and then verifying that they work before promoting them into your test suite
+Learn in a playground. Open select documentation in a playground to learn from the tutorial in an interactive environment. The combination of richly formatted documentation and an interactive playground makes it easy to fully explore the API, changing and experimenting with the sample code.
+Read-eval-print loop (REPL) in LLDB. The debugging console in Xcode includes an interactive version of the Swift language called the read-eval-print loop (REPL) built right in. Use Swift syntax to evaluate and interact with your running app, or write new code to see how it works in a script-like environment. REPL is available from within the Xcode console or by using LLDB from within Terminal when attached to a running process.
+Per-language documentation. The Xcode documentation viewer shows Quick Help or reference documentation in the language of your choice—Objective-C, Swift, or both.
+Synthesized headers. When you need to see how the API you are using was written, Xcode shows it to you in the language you expect. For API originally written in Objective-C, Xcode shows you a version of the original header file in Swift syntax, complete with the author’s comments.
+Additional Feature Enhancements in Xcode 6 IDE
+Bringing more live visualization to your existing projects, the following enhancements are also Swift compatible.
+
+Testing
+Performance measurement. The enhanced XCTest framework now supports the ability to quantify the performance of each part of an app. Xcode runs your performance tests and allows you to define a baseline performance metric. Each subsequent test run compares performance, displays the change over time, and—by highlighting the problem area—alerts you to sudden regressions a code commit could introduce.
+Asynchronous code testing. XCTest now provides API for testing code that executes asynchronously. You can now create tests for network operations, file IO, and other system interactions that execute using asynchronous calls in a straightforward and simple manner.
+For more information, see Testing with Xcode.
+
+Interface Builder
+Live rendering. Interface Builder displays your custom objects at design time exactly as they appear when your app is run. When you update the code for your custom view, the Interface Builder design canvas updates automatically with the new look you just entered in the source editor, with no need to build and run. You can use the Interface Builder inspector to see properties automatically as well. Take advantage of new APIs that allow you to customize the behavior of custom controls on the Interface Builder canvas—for instance, you can load sample data on the fly.
+For more information on live rendering, see Creating a Custom View That Renders in Interface Builder.
+
+Size classes. Size classes for iOS 8 enable designing a single universal storyboard with customized layouts for both iPhone and iPad. With size classes you can define common views and constraints once, and then add variations for each supported form factor. iOS Simulator and asset catalogs fully support size classes as well.
+For more information on size classes, see Size Classes Design Help.
+
+Custom iOS fonts. Interface Builder renders embedded custom fonts during design time, giving a more accurate preview of how the finished app will look, with correct dimensions.
+Debugger
+View debugging. Using the view debugger makes debugging an app’s appearance as easy as debugging lines of code. A single button click pauses your running app and “explodes” the paused UI into a 3D rendering, separating each layer of a stack of views. Using the view debugger makes it immediately obvious why an image may be clipped and invisible, and the order of the graphical elements becomes clear. By selecting any view, you can inspect the details by jumping to the relevant code in the assistant editor source view. The view debugger also displays Auto Layout constraints, making it easy to see where conflicts cause problems.
+Enhanced queue debugging. The debug navigator records and displays recently executed blocks, as well as enqueued blocks. You can use it to see where your enqueued blocks are and to examine the details of what’s been set up to execute.
+Debug gauges. Debug gauges provide at-a-glance information about resource usage while debugging. They call your attention to previously unknown problems, especially related to areas that could create poor user experience or drain excess battery on portable Mac computers and devices.
+I/O gauges. Two new debug gauges, Network Activity and File Activity, visually highlight spikes in input/output activity while your app is running.
+iCloud gauge. The iCloud debug gauge includes support for the new Documents in the Cloud and CloudKit features that provide access to files outside the app-specific container.
